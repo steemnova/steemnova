@@ -455,15 +455,15 @@ class ShowMarketPlacePage extends AbstractGamePage
 		}
 
 		$sql = 'SELECT *
-			FROM %%FLEETS%%
-			JOIN %%USERS%% ON fleet_owner = id
-			JOIN %%TRADES%% ON fleet_id = seller_fleet_id
+			FROM %%TRADES%%
+			JOIN %%PLANETS%% as planet ON planet_id = planet.id
+			JOIN %%USERS%% as users ON id_owner = users.id
 			LEFT JOIN (
 				SELECT owner_2 as al ,level, accept  FROM %%DIPLO%% WHERE owner_1 = :al
 				UNION
 				SELECT owner_1 as al,level, accept  FROM %%DIPLO%% WHERE owner_2 = :al) as packts
 			ON al = ally_id
-			WHERE fleet_mission = 16 AND fleet_mess = 2 ORDER BY fleet_end_time ASC;';
+			WHERE closed = 0;';
 		$fleetResult = $db->select($sql, array(
 			':al' => $USER['ally_id']
 		));
@@ -497,13 +497,13 @@ class ShowMarketPlacePage extends AbstractGamePage
 
 			$SpeedFactor    	= FleetFunctions::GetGameSpeedFactor();
 			//FROM
-			$FROM_fleet =  FleetFunctions::unserialize($fleetsRow['fleet_array']);
-			$FROM_Distance    		= FleetFunctions::GetTargetDistance(array($PLANET['galaxy'], $PLANET['system'], $PLANET['planet']), array($fleetsRow['fleet_end_galaxy'], $fleetsRow['fleet_end_system'], $fleetsRow['fleet_end_planet']));
+			$FROM_fleet =  FleetFunctions::unserialize($fleetsRow['trade_fleet_array']);
+			$FROM_Distance    		= FleetFunctions::GetTargetDistance(array($PLANET['galaxy'], $PLANET['system'], $PLANET['planet']), array($fleetsRow['galaxy'], $fleetsRow['system'], $fleetsRow['planet']));
 			$FROM_SpeedAllMin		= FleetFunctions::GetFleetMaxSpeed($FROM_fleet, $fleetsRow);
 			$FROM_Duration			= FleetFunctions::GetMissionDuration(10, $FROM_SpeedAllMin, $FROM_Distance, $SpeedFactor, $fleetsRow);
 
 			//TO
-			$TO_Distance    		= FleetFunctions::GetTargetDistance(array($PLANET['galaxy'], $PLANET['system'], $PLANET['planet']), array($fleetsRow['fleet_start_galaxy'], $fleetsRow['fleet_start_system'], $fleetsRow['fleet_start_planet']));
+			$TO_Distance    		= FleetFunctions::GetTargetDistance(array($PLANET['galaxy'], $PLANET['system'], $PLANET['planet']), array($fleetsRow['galaxy'], $fleetsRow['system'], $fleetsRow['planet']));
 			$TO_LC_SPEED		= FleetFunctions::GetFleetMaxSpeed(array(202 =>1), $USER);
 			$TO_LC_DUR			= FleetFunctions::GetMissionDuration(10, $TO_LC_SPEED, $TO_Distance, $SpeedFactor, $USER);
 			$TO_HC_SPEED		= FleetFunctions::GetFleetMaxSpeed(array(203 =>1), $USER);
@@ -522,15 +522,15 @@ class ShowMarketPlacePage extends AbstractGamePage
 				$buy = $this->checkTechs($fleetsRow);
 
 
-			$total = $fleetsRow['fleet_resource_metal'] + $fleetsRow['fleet_resource_crystal'] + $fleetsRow['fleet_resource_deuterium'];
+			$total = $fleetsRow['resource_metal'] + $fleetsRow['resource_crystal'] + $fleetsRow['resource_deuterium'];
 			$FlyingFleetList[]	= array(
-				'id'			=> $fleetsRow['fleet_id'],
+				'id'			=> $fleetsRow['trade_id'],
 				'username'			=> $fleetsRow['username'],
 				'type' => $fleetsRow['transaction_type'],
 
-				'fleet_resource_metal'		=> $fleetsRow['fleet_resource_metal'],
-				'fleet_resource_crystal'			=> $fleetsRow['fleet_resource_crystal'],
-				'fleet_resource_deuterium'			=> $fleetsRow['fleet_resource_deuterium'],
+				'fleet_resource_metal'		=> $fleetsRow['resource_metal'],
+				'fleet_resource_crystal'			=> $fleetsRow['resource_crystal'],
+				'fleet_resource_deuterium'			=> $fleetsRow['resource_deuterium'],
 				'fleet'		=> $fleet_str,
 				'diplo' => $fleetsRow['level'],
 				'from_alliance' => $fleetsRow['ally_id'] == $USER['ally_id'],
@@ -539,8 +539,6 @@ class ShowMarketPlacePage extends AbstractGamePage
 				'fleet_wanted_resource'	=> $resourceN,
 				'fleet_wanted_resource_id' => $fleetsRow['ex_resource_type'],
 				'fleet_wanted_resource_amount'	=> $fleetsRow['ex_resource_amount'],
-
-				'end'	=> $fleetsRow['fleet_end_stay'] - TIMESTAMP,
 
 				'from_duration' => $FROM_Duration,
 				'to_lc_duration' => $TO_LC_DUR,

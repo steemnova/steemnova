@@ -221,7 +221,6 @@ $(document).ready(function() {
 			<th>{$LNG['tech'][903]}</th>
 			<th>{$LNG.market_p_total}</th>
 			<th>{$LNG.market_p_ratio}</th>
-			<th>{$LNG.market_p_end}</th>
 			<th  class="no-background no-border center">-></th>
 			<th>{$LNG.market_p_cost_type}</th>
 			<th>{$LNG.market_p_cost_amount}</th>
@@ -248,7 +247,6 @@ $(document).ready(function() {
 		<td class="resource_deuterium">{$FlyingFleetRow.fleet_resource_deuterium|number}</td>
 		<td class="total_value"></td>
 		<td class="ratio"></td>
-		<td data-time="{$FlyingFleetRow.end}">{pretty_fly_time({$FlyingFleetRow.end})}</td>
 		<td class="no-background no-border">
 			{if $FlyingFleetRow.fleet_wanted_resource_id == 1}
 			<img src="./styles/theme/nova/images/metal.gif"/>
@@ -319,7 +317,6 @@ $(document).ready(function() {
 			<th>ID</th>
 			<th>{$LNG['gl_player']}</th>
 			<th>{$LNG['market_fleet']}</th>
-			<th>{$LNG.market_p_end}</th>
 			<th  class="no-background no-border center">-></th>
 			<th>{$LNG.market_p_cost_type}</th>
 			<th>{$LNG.market_p_cost_amount}</th>
@@ -342,7 +339,6 @@ $(document).ready(function() {
 		<td>{$smarty.foreach.FlyingFleets.iteration}</td>
 		<td class="table_username">{$FlyingFleetRow.username}</td>
 		<td>{$FlyingFleetRow.fleet}</td>
-		<td data-time="{$FlyingFleetRow.end}">{pretty_fly_time({$FlyingFleetRow.end})}</td>
 		<td class="no-background no-border">
 			{if $FlyingFleetRow.fleet_wanted_resource_id == 1}
 			<img src="./styles/theme/nova/images/metal.gif"/>
