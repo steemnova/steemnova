@@ -115,6 +115,24 @@ class ShowMarketPlacePage extends AbstractGamePage
 		return $trades;
 	}
 
+
+	private function getOffers() {
+		global $LNG, $PLANET;
+		$db = Database::get();
+		$sql = 'SELECT *
+			FROM %%TRADES%%
+			WHERE closed = 0 AND planet_id = :planet;';
+
+		$offers = $db->select($sql, array(
+			':planet' => $PLANET['id']
+		));
+		for($i =0;$i<count($offers);$i++) {
+			$offers[$i]['fleet'] = FleetFunctions::unserialize($offers[$i]['trade_fleet_array']);
+		}
+		return $offers;
+	}
+
+
 	private function doBuy() {
 		global $USER, $PLANET, $reslist, $resource, $LNG, $pricelist;
 		$FleetID			= HTTP::_GP('fleetID', 0);
@@ -335,6 +353,87 @@ class ShowMarketPlacePage extends AbstractGamePage
 		return sprintf($LNG['market_p_msg_sent'], $LC, $HC);
 	}
 
+	private function doAdd()
+	{
+		global $USER, $PLANET, $pricelist, $resource, $LNG;
+
+		$ship					= HTTP::_GP('ship', 0);
+		$resEx				= HTTP::_GP('resEx', "");
+		$fleet_size		= (int)(HTTP::_GP('fleet_size', 0));
+		$exchange			= (int)(HTTP::_GP('exchange', 0));
+		$visibility		= HTTP::_GP('visibility', 0);
+		$markettype		= HTTP::_GP('markettype', 0);
+		$metal		= (int)HTTP::_GP('metal', 0);
+		$crystal		= (int)HTTP::_GP('crystal', 0);
+		$deuterium		= (int)HTTP::_GP('deuterium', 0);
+
+
+		if ($metal < 0 || $crystal < 0 || $deuterium < 0) {
+			return $LNG['market_add_negative_resource'];
+		}
+
+		if ($metal + $crystal + $deuterium == 0) {
+			return $LNG['market_add_empty_resource'];
+		}
+
+		if ($fleet_size <= 0) {
+			return $LNG['market_add_wrong_fleet_amount'];
+		}
+
+		if ($exchange <= 0) {
+			return $LNG['market_add_wrong_amount'];
+		}
+
+		if ($PLANET[$resource[$ship]] < $fleet_size) {
+			return $LNG['market_add_no_enough_ships'];
+		}
+
+		$factor = 1 + $USER['factor']['ShipStorage'];
+		$capacity = $pricelist[$ship]['capacity'] * $factor;
+		if ($exchange > $capacity * $fleet_size) {
+			return $LNG['market_add_fleet_too_small'];
+		}
+
+		$db = Database::get();
+
+		$sql    = 'INSERT INTO %%TRADES%% SET
+								resource_metal													= :metal,
+								resource_crystal												= :crystal,
+								resource_deuterium											= :deuterium,
+								transaction_type                        = :transaction,
+								filter_visibility                       = :visibility,
+								ex_resource_type                        = :resType,
+								ex_resource_amount              				= :resAmount,
+								planet_id																= :planet,
+								trade_fleet_array												= :fleet;';
+		$db->insert($sql, array(
+			':metal'	=> $metal,
+			':crystal'	=> $crystal,
+			':deuterium'	=> $deuterium,
+			':transaction'	=> $markettype,
+			':resType'  => $resEx,
+			':resAmount' => $exchange,
+			':visibility' => $visibility,
+			':planet' => $PLANET['id'],
+			':fleet'  => $ship.",".$fleet_size
+		));
+	}
+
+
+	private function doRemoveOffer()
+	{
+		global $PLANET, $LNG;
+
+		$trade_id					= HTTP::_GP('trade_id', 0);
+
+		$db = Database::get();
+		$sql    = 'DELETE FROM %%TRADES%% WHERE
+								planet_id	= :planet AND trade_id = :trade_id;';
+		$db->delete($sql, array(
+			':planet'	=> $PLANET['id'],
+			':trade_id'	=> $trade_id
+		));
+	}
 
 	public function show()
 	{
@@ -349,6 +448,10 @@ class ShowMarketPlacePage extends AbstractGamePage
 
 		if($GetAction == "buy") {
 			$message = $this->doBuy();
+		} elseif($GetAction == "add") {
+			$message = $this->doAdd();
+		} elseif($GetAction == "removeoffer") {
+			$message = $this->doRemoveOffer();
 		}
 
 		$sql = 'SELECT *
@@ -446,9 +549,20 @@ class ShowMarketPlacePage extends AbstractGamePage
 			);
 		}
 
+		$FleetsOnPlanet = [];
+		foreach($reslist['fleet'] as $FleetID)
+		{
+			if ($PLANET[$resource[$FleetID]] == 0 || $FleetID == 212)
+				continue;
+
+			$FleetsOnPlanet[]	= $FleetID;
+		}
+
 		$this->assign(array(
+			'FleetsOnPlanet'	=> $FleetsOnPlanet,
 			'message' => $message,
 			'FlyingFleetList'		=> $FlyingFleetList,
+			'offers' => $this->getOffers(),
 			'resourceHistory' => $this->getResourceTradeHistory(),
 			'fleetHistory' => $this->getFleetTradeHistory(),
 		));

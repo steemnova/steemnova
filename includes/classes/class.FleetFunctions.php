@@ -214,13 +214,8 @@ class FleetFunctions
 		{
 			$stayBlock = array(1 => 1, 2 => 2, 4 => 4, 8 => 8, 12 => 12, 16 => 16, 32 => 32);
 		}
-		elseif(in_array(16, $Missions))
-		{
-			$stayBlock = array(1 => 1, 2 => 2, 4 => 4, 8 => 8, 12 => 12, 24 => 24, 48 => 48,48 => 48, 168 => 168);
-			$exchange = true;
-		}
 
-		return array('MissionSelector' => $Missions, 'StayBlock' => $stayBlock, 'Exchange' => $exchange);
+		return array('MissionSelector' => $Missions, 'StayBlock' => $stayBlock);
 	}
 
 	/*
@@ -365,7 +360,7 @@ class FleetFunctions
 			}
 		}
 
-		if(($fleetResult['fleet_mission'] == 5 || $fleetResult['fleet_mission'] == 16) && $fleetResult['fleet_mess'] == FLEET_HOLD) {
+		if($fleetResult['fleet_mission'] == 5  && $fleetResult['fleet_mess'] == FLEET_HOLD) {
 			$fleetEndTime	= ($fleetResult['fleet_start_time'] - $fleetResult['start_time']) + TIMESTAMP;
 		}else{
 			$fleetEndTime	= (TIMESTAMP - $fleetResult['start_time']) + TIMESTAMP;
@@ -436,8 +431,6 @@ class FleetFunctions
 
 		if ($MissionInfo['planet'] == (Config::get($USER['universe'])->max_planets + 1) && isModuleAvailable(MODULE_MISSION_EXPEDITION))
 			$availableMissions[]	= 15;
-		elseif ($MissionInfo['planet'] == (Config::get($USER['universe'])->max_planets + 2) && isModuleAvailable(MODULE_MISSION_TRADE))
-			$availableMissions[]	= 16;
 		elseif ($MissionInfo['planettype'] == 2) {
 			if ((isset($MissionInfo['Ship'][209]) || isset($MissionInfo['Ship'][219])) && isModuleAvailable(MODULE_MISSION_RECYCLE) && !($GetInfoPlanet['der_metal'] == 0 && $GetInfoPlanet['der_crystal'] == 0))
 				$availableMissions[]	= 8;
@@ -456,7 +449,7 @@ class FleetFunctions
 
 				if (!$YourPlanet) {
 					if(isModuleAvailable(MODULE_MISSION_TRANSFER)) {
-						$availableMissions[]	= 17;
+						$availableMissions[]	= 16;
 					}
 
 					if(isModuleAvailable(MODULE_MISSION_ATTACK))
@@ -484,16 +477,16 @@ class FleetFunctions
 	public static function CheckBash($Target)
 	{
 		global $USER;
-		
-		
+
+
 		$PlanetOwner = Database::get()->selectSingle('SELECT id_owner FROM %%PLANETS%% where id = :id', array(
 			':id'		=> $Target,
 		), 'id_owner');
-				
+
 		$Inactivity = Database::get()->selectSingle('SELECT onlinetime FROM %%USERS%% where id = :id', array(
 			':id'		=> $PlanetOwner,
 		), 'onlinetime');
-				
+
 		if($Inactivity < TIMESTAMP - INACTIVE)
 		{
 			return false;

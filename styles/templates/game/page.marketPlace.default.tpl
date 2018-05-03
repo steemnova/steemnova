@@ -60,8 +60,141 @@
 </table>
 {/if}
 
-<br/><br/>
+<hr/>
+
 <div id="resourceMarketBox" style="display:none">
+<table id="myTradeList" style="width:50%;white-space: nowrap;" class="tablesorter">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>{$LNG['tech'][901]}</th>
+			<th>{$LNG['tech'][902]}</th>
+			<th>{$LNG['tech'][903]}</th>
+			<th  class="no-background no-border center">-></th>
+			<th>{$LNG.market_p_cost_type}</th>
+			<th>{$LNG.market_p_cost_amount}</th>
+			<th>{$LNG.market_p_remove}</th>
+		</tr>
+	</thead>
+
+	{foreach name=Offers item=offer from=$offers}
+	<tr>
+		<td><a class="tooltip" data-tooltip-content="<table width='100%'><tr><th colspan='2' style='text-align:center;'>{$LNG.fl_info_detail}</th></tr>{foreach $offer.fleet as $shipID => $shipCount}<tr><td class='transparent'>{$LNG.tech.{$shipID}}:</td><td class='transparent'>{$shipCount}</td></tr>{/foreach}</table>">{$offer.trade_id}</a></td>
+		<td>{$offer.resource_metal}</td>
+		<td>{$offer.resource_crystal}</td>
+		<td>{$offer.resource_deuterium}</td>
+		<td></td>
+		<td>{$offer.ex_resource_type}</td>
+		<td>{$offer.ex_resource_amount}</td>
+		<td><form class="market_form" action="game.php?page=marketPlace&amp;action=removeoffer" method="post">
+			<input name="trade_id" value="{$offer.trade_id}" type="hidden">
+			<input value="{$LNG.market_p_remove}" type="submit">
+		</form></td>
+	</tr>
+	{/foreach}
+	<tr><td colspan="8"><a id="inline" href="#addOffer">Add offer</a></td></tr>
+</table>
+
+
+<div style="display:none"><div id="addOffer" style="background-color: black;">
+	<form class="market_form" action="game.php?page=marketPlace&amp;action=add" method="post">
+		<table>
+			<tr class="no-border">
+				<td>
+					{$LNG.tech.901}
+				</td>
+				<td>
+					<input name="metal" size="10" type="number">
+				</td>
+			</tr>
+
+			<tr class="no-border">
+				<td>
+					{$LNG.tech.902}
+				</td>
+				<td>
+					<input name="crystal" size="10" type="number">
+				</td>
+			</tr>
+
+			<tr class="no-border">
+				<td>
+					{$LNG.tech.903}
+				</td>
+				<td>
+					<input name="deuterium" size="10" type="number">
+				</td>
+			</tr>
+
+			<tr class="no-border">
+				<td>
+					<select name="ship">
+						{foreach $FleetsOnPlanet as $ship}
+						<option value="{$ship}">{$LNG.tech.$ship}</option>
+						{/foreach}
+					</select>
+				</td>
+				<td>
+					<input name="fleet_size" size="10" type="number">
+				</td>
+			</tr>
+
+			<tr><td colspan="2">Price</td></tr>
+
+			<tr class="no-border">
+				<td>
+					<select name="resEx">
+						<option value="1">{$LNG.tech.901}</option>
+						<option value="2">{$LNG.tech.902}</option>
+						<option value="3">{$LNG.tech.903}</option>
+					</select>
+				</td>
+				<td>
+					<input name="exchange" size="10" type="number">
+				</td>
+			</tr>
+
+			<tr><td colspan="2">Filters</td></tr>
+
+			<tr class="no-border">
+				<td>
+					{$LNG.fl_visibility}
+				</td>
+				<td>
+					<select name="visibility">
+						<option value="2" selected>{$LNG.fl_visibility_no_enemies}</option>
+						<option value="1">{$LNG.fl_visibility_alliance}</option>
+						<option value="0">{$LNG.fl_visibility_all}</option>
+					</select>
+				</td>
+			</tr>
+			<tr class="no-border">
+				<td>
+					{$LNG.fl_market_type}
+				</td>
+				<td>
+					<select name="markettype">
+						<option value="0" selected>{$LNG.fl_mt_resources}</option>
+						<option value="1">{$LNG.fl_mt_fleet}</option>
+					</select>
+				</td>
+			</tr>
+		</table><br/>
+		<input value="Add" type="submit">
+	</form>
+</div></div>
+
+<script>
+$(document).ready(function() {
+	$("a#inline").fancybox({
+		padding: 0,
+		wrapCSS: 'market_dialog',
+	});
+});
+</script>
+
+<hr/>
+
 <table id="tradeList" style="width:50%;white-space: nowrap;" class="tablesorter">
 	<thead>
 		<tr class="no-background no-border center">
