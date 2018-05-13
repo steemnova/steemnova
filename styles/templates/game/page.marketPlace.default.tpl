@@ -78,6 +78,7 @@
 	</thead>
 
 	{foreach name=Offers item=offer from=$offers}
+	{if $offer.transaction_type == 0}
 	<tr>
 		<td><a class="tooltip" data-tooltip-content="<table width='100%'><tr><th colspan='2' style='text-align:center;'>{$LNG.fl_info_detail}</th></tr>{foreach $offer.fleet as $shipID => $shipCount}<tr><td class='transparent'>{$LNG.tech.{$shipID}}:</td><td class='transparent'>{$shipCount}</td></tr>{/foreach}</table>">{$offer.trade_id}</a></td>
 		<td>{$offer.resource_metal}</td>
@@ -91,6 +92,7 @@
 			<input value="{$LNG.market_p_remove}" type="submit">
 		</form></td>
 	</tr>
+	{/if}
 	{/foreach}
 	<tr><td colspan="8"><a id="inline" href="#addOffer">Add offer</a></td></tr>
 </table>
@@ -264,7 +266,7 @@ $(document).ready(function() {
 		<td>
 			{if $FlyingFleetRow.possible_to_buy == true}
 			<form class="market_form" action="game.php?page=marketPlace&amp;action=buy" method="post">
-				<input name="fleetID" value="{$FlyingFleetRow.id}" type="hidden">
+				<input name="tradeID" value="{$FlyingFleetRow.id}" type="hidden">
 				<input value="{$LNG.market_p_submit}" type="submit">
 			</form>
 			{else}
