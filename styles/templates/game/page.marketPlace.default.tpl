@@ -358,7 +358,7 @@ $(document).ready(function() {
 		<td>
 			{if $FlyingFleetRow.possible_to_buy == true}
 			<form class="market_form" action="game.php?page=marketPlace&amp;action=buy" method="post">
-				<input name="fleetID" value="{$FlyingFleetRow.id}" type="hidden">
+				<input name="tradeID" value="{$FlyingFleetRow.id}" type="hidden">
 				<input value="{$LNG.market_p_submit}" type="submit">
 			</form>
 			{else}

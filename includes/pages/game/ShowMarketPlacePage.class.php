@@ -298,8 +298,12 @@ class ShowMarketPlacePage extends AbstractGamePage
 			':planetId'		=> $fleetResult['planet_id']
 		));
 
+		$mission = 3;
+		if ($fleetResult['transaction_type'] == 1) {
+			$mission = 16;
+		}
 
-		$sellerfleet = FleetFunctions::sendFleet($fleetArray, 3/*Transport*/, $fleetResult['id_owner'], $fleetResult['planet_id'],
+		$sellerfleet = FleetFunctions::sendFleet($fleetArray, $mission, $fleetResult['id_owner'], $fleetResult['planet_id'],
 			$fleetResult['galaxy'], $fleetResult['system'], $fleetResult['planet'], $fleetResult['planet_type'], $USER['id'], $PLANET['id'], $PLANET['galaxy'],
 			$PLANET['system'], $PLANET['planet'], $PLANET['planet_type'],
 			array(901	=> $fleetResult['resource_metal'], 902	=> $fleetResult['resource_crystal'], 903	=> $fleetResult['resource_deuterium']), $fleetStartTime, $fleetStayTime, $fleetEndTime,0,0,1);
