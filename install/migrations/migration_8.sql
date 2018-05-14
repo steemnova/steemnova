@@ -20,4 +20,5 @@ ADD UNIQUE INDEX `trade_id_UNIQUE` (`trade_id` ASC);
 ALTER TABLE %PREFIX%trades
 ADD COLUMN `resource_metal` DOUBLE(50,0) NULL AFTER `trade_id`,
 ADD COLUMN `resource_crystal` DOUBLE(50,0) NULL AFTER `resource_metal`,
-ADD COLUMN `resource_deuterium` DOUBLE(50,0) NULL AFTER `resource_crystal`;
+ADD COLUMN `resource_deuterium` DOUBLE(50,0) NULL AFTER `resource_crystal`,
+ADD COLUMN  `closed` TINYINT(4) NULL AFTER `resource_deuterium`;
