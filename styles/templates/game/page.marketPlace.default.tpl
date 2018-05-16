@@ -66,6 +66,11 @@
 <table id="myTradeList" style="width:50%;white-space: nowrap;" class="tablesorter">
 	<thead>
 		<tr>
+		<th colspan="10">
+			<div class="transparent" style="text-align:left;float:left;"> {count($offers)} / {$limit}</div>
+		</th>
+		</tr>
+		<tr>
 			<th>ID</th>
 			<th>Location</th>
 			<th>{$LNG['tech'][901]}</th>
@@ -317,6 +322,9 @@
 <div id="fleetMarketBox"  style="display:none">
 	<table id="myTradeList" style="width:50%;white-space: nowrap;" class="tablesorter">
 		<thead>
+			<tr><th colspan="10">
+				<div class="transparent" style="text-align:left;float:left;"> {count($offers)} / {$limit}</div>
+			</th></tr>
 			<tr>
 				<th>ID</th>
 				<th>Location</th>
