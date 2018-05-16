@@ -117,17 +117,20 @@ class ShowMarketPlacePage extends AbstractGamePage
 
 
 	private function getOffers() {
-		global $LNG, $PLANET;
+		global $LNG, $USER, $PLANET;
 		$db = Database::get();
+
 		$sql = 'SELECT *
 			FROM %%TRADES%%
-			WHERE closed = 0 AND planet_id = :planet;';
-
+			JOIN %%PLANETS%% as planet ON planet_id = planet.id
+			WHERE closed = 0 AND id_owner = :user;';
 		$offers = $db->select($sql, array(
-			':planet' => $PLANET['id']
+			':user' => $USER['id']
 		));
+
 		for($i =0;$i<count($offers);$i++) {
 			$offers[$i]['fleet'] = FleetFunctions::unserialize($offers[$i]['trade_fleet_array']);
+			$offers[$i]['ex_resource_name'] = $this->translateResourceType($offers[$i]['ex_resource_type']);
 		}
 		return $offers;
 	}
@@ -380,8 +383,10 @@ class ShowMarketPlacePage extends AbstractGamePage
 			return $LNG['market_add_fleet_too_small'];
 		}
 
+		if(count($this->getOffers()) >= FleetFunctions::GetMaxFleetSlots($USER) ){
+			return $LNG['market_add_offers_limit'];
+		}
 		$db = Database::get();
-
 		$sql    = 'INSERT INTO %%TRADES%% SET
 								resource_metal													= :metal,
 								resource_crystal												= :crystal,
@@ -457,6 +462,25 @@ class ShowMarketPlacePage extends AbstractGamePage
 		return array("buyable" => true, 'reason' => '');
 	}
 
+	private function translateResourceType($type){
+		global $LNG;
+		$resource = " ";
+		switch($type) {
+			case 1:
+				$resource = $LNG['tech'][901];
+				break;
+			case 2:
+				$resource = $LNG['tech'][902];
+				break;
+			case 3:
+				$resource = $LNG['tech'][903];
+				break;
+			default:
+				break;
+		}
+		return $resource;
+	}
+
 	public function show()
 	{
 		global $USER, $PLANET, $reslist, $resource, $LNG;
@@ -497,20 +521,8 @@ class ShowMarketPlacePage extends AbstractGamePage
 		{
 			$fleetsRow['factor'] = getFactors($fleetsRow);
 			$buy = $this->checkOffer($fleetsRow);
-			$resourceN = " ";
-			switch($fleetsRow['ex_resource_type']) {
-				case 1:
-					$resourceN = $LNG['tech'][901];
-					break;
-				case 2:
-					$resourceN = $LNG['tech'][902];
-					break;
-				case 3:
-					$resourceN = $LNG['tech'][903];
-					break;
-				default:
-					break;
-			}
+
+			$resourceN = $this->translateResourceType($fleetsRow['ex_resource_type']);
 
 			//Level of diplo
 			if($fleetsRow['accept'] == 0){
@@ -575,6 +587,8 @@ class ShowMarketPlacePage extends AbstractGamePage
 			'message' => $message,
 			'FlyingFleetList'		=> $FlyingFleetList,
 			'offers' => $this->getOffers(),
+			'limit' => FleetFunctions::GetMaxFleetSlots($USER),
+			'planet_id' => $PLANET['id'],
 			'resourceHistory' => $this->getResourceTradeHistory(),
 			'fleetHistory' => $this->getFleetTradeHistory(),
 		));
