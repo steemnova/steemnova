@@ -60,8 +60,149 @@
 </table>
 {/if}
 
-<br/><br/>
+<hr/>
+
 <div id="resourceMarketBox" style="display:none">
+<table id="myTradeList" style="width:50%;white-space: nowrap;" class="tablesorter">
+	<thead>
+		<tr>
+		<th colspan="10">
+			<div class="transparent" style="text-align:left;float:left;"> {count($offers)} / {$limit}</div>
+		</th>
+		</tr>
+		<tr>
+			<th>ID</th>
+			<th>Location</th>
+			<th>{$LNG['tech'][901]}</th>
+			<th>{$LNG['tech'][902]}</th>
+			<th>{$LNG['tech'][903]}</th>
+			<th  class="no-background no-border center">-></th>
+			<th>{$LNG.market_p_cost_type}</th>
+			<th>{$LNG.market_p_cost_amount}</th>
+			<th>{$LNG.market_p_visibility}</th>
+			<th>{$LNG.market_p_remove}</th>
+		</tr>
+	</thead>
+
+	{foreach name=Offers item=offer from=$offers}
+	{if $offer.transaction_type == 0}
+	<tr>
+		<td><a class="tooltip" data-tooltip-content="<table width='100%'><tr><th colspan='2' style='text-align:center;'>{$LNG.fl_info_detail}</th></tr>{foreach $offer.fleet as $shipID => $shipCount}<tr><td class='transparent'>{$LNG.tech.{$shipID}}:</td><td class='transparent'>{$shipCount}</td></tr>{/foreach}</table>">{$offer.trade_id}</a></td>
+		<td>{$offer.galaxy}:{$offer.system}:{$offer.planet}</td>
+		<td>{$offer.resource_metal}</td>
+		<td>{$offer.resource_crystal}</td>
+		<td>{$offer.resource_deuterium}</td>
+		<td class="no-background no-border">
+			{if $offer.ex_resource_type == 1}
+			<img src="./styles/theme/nova/images/metal.gif"/>
+			{elseif $offer.ex_resource_type == 2}
+			<img src="./styles/theme/nova/images/crystal.gif"/>
+			{elseif $offer.ex_resource_type == 3}
+			<img src="./styles/theme/nova/images/deuterium.gif"/>
+			{/if}
+		</td>
+		<td class="wanted-resource-{$offer.ex_resource_type}">{$offer.ex_resource_name }</td>
+		<td>{$offer.ex_resource_amount}</td>
+		<td>
+			{if $offer.filter_visibility == 1}
+			{$LNG.fl_visibility_alliance}
+			{elseif $offer.filter_visibility == 2}
+			{$LNG.fl_visibility_no_enemies}
+			{elseif $offer.filter_visibility == 0}
+			{$LNG.fl_visibility_all}
+			{/if}
+		</td>
+		<td><form class="market_form" action="game.php?page=marketPlace&amp;action=removeoffer#resourcemarket" method="post">
+			<input name="trade_id" value="{$offer.trade_id}" type="hidden">
+			<input value="{$LNG.market_p_remove}" type="submit">
+		</form></td>
+	</tr>
+	{/if}
+	{/foreach}
+	<tr><td colspan="10"><a id="addResourceOfferButton" href="#addResourceOffer">Add offer</a></td></tr>
+</table>
+
+
+<div style="display:none"><div id="addResourceOffer" style="background-color: black;">
+	<form class="market_form" action="game.php?page=marketPlace&amp;action=add#resourcemarket" method="post">
+		<table>
+			<tr class="no-border">
+				<td>
+					{$LNG.tech.901}
+				</td>
+				<td>
+					<input name="metal" size="10" type="number">
+				</td>
+			</tr>
+
+			<tr class="no-border">
+				<td>
+					{$LNG.tech.902}
+				</td>
+				<td>
+					<input name="crystal" size="10" type="number">
+				</td>
+			</tr>
+
+			<tr class="no-border">
+				<td>
+					{$LNG.tech.903}
+				</td>
+				<td>
+					<input name="deuterium" size="10" type="number">
+				</td>
+			</tr>
+
+			<tr class="no-border">
+				<td>
+					<select name="ship">
+						{foreach $FleetsOnPlanet as $ship}
+						<option value="{$ship}">{$LNG.tech.$ship}</option>
+						{/foreach}
+					</select>
+				</td>
+				<td>
+					<input name="fleet_size" size="10" type="number">
+				</td>
+			</tr>
+
+			<tr><td colspan="2">Price</td></tr>
+
+			<tr class="no-border">
+				<td>
+					<select name="resEx">
+						<option value="1">{$LNG.tech.901}</option>
+						<option value="2">{$LNG.tech.902}</option>
+						<option value="3">{$LNG.tech.903}</option>
+					</select>
+				</td>
+				<td>
+					<input name="exchange" size="10" type="number">
+				</td>
+			</tr>
+
+			<tr><td colspan="2">Filters</td></tr>
+
+			<tr class="no-border">
+				<td>
+					{$LNG.fl_visibility}
+				</td>
+				<td>
+					<select name="visibility">
+						<option value="2" selected>{$LNG.fl_visibility_no_enemies}</option>
+						<option value="1">{$LNG.fl_visibility_alliance}</option>
+						<option value="0">{$LNG.fl_visibility_all}</option>
+					</select>
+				</td>
+			</tr>
+		</table><br/>
+		<input type="hidden" name="markettype" value="0"/>
+		<input value="Add" type="submit">
+	</form>
+</div></div>
+
+<hr/>
+
 <table id="tradeList" style="width:50%;white-space: nowrap;" class="tablesorter">
 	<thead>
 		<tr class="no-background no-border center">
@@ -88,7 +229,6 @@
 			<th>{$LNG['tech'][903]}</th>
 			<th>{$LNG.market_p_total}</th>
 			<th>{$LNG.market_p_ratio}</th>
-			<th>{$LNG.market_p_end}</th>
 			<th  class="no-background no-border center">-></th>
 			<th>{$LNG.market_p_cost_type}</th>
 			<th>{$LNG.market_p_cost_amount}</th>
@@ -115,7 +255,6 @@
 		<td class="resource_deuterium">{$FlyingFleetRow.fleet_resource_deuterium|number}</td>
 		<td class="total_value"></td>
 		<td class="ratio"></td>
-		<td data-time="{$FlyingFleetRow.end}">{pretty_fly_time({$FlyingFleetRow.end})}</td>
 		<td class="no-background no-border">
 			{if $FlyingFleetRow.fleet_wanted_resource_id == 1}
 			<img src="./styles/theme/nova/images/metal.gif"/>
@@ -132,8 +271,8 @@
 		<td class="HC">{pretty_fly_time({$FlyingFleetRow.to_hc_duration})}</td>
 		<td>
 			{if $FlyingFleetRow.possible_to_buy == true}
-			<form class="market_form" action="game.php?page=marketPlace&amp;action=buy" method="post">
-				<input name="fleetID" value="{$FlyingFleetRow.id}" type="hidden">
+			<form class="market_form" action="game.php?page=marketPlace&amp;action=buy#resourcemarket" method="post">
+				<input name="tradeID" value="{$FlyingFleetRow.id}" type="hidden">
 				<input value="{$LNG.market_p_submit}" type="submit">
 			</form>
 			{else}
@@ -179,14 +318,120 @@
 </table>
 
 </div>
+
 <div id="fleetMarketBox"  style="display:none">
+	<table id="myTradeList" style="width:50%;white-space: nowrap;" class="tablesorter">
+		<thead>
+			<tr><th colspan="10">
+				<div class="transparent" style="text-align:left;float:left;"> {count($offers)} / {$limit}</div>
+			</th></tr>
+			<tr>
+				<th>ID</th>
+				<th>Location</th>
+				<th>{$LNG['tech'][901]}</th>
+				<th  class="no-background no-border center">-></th>
+				<th>{$LNG.market_p_cost_type}</th>
+				<th>{$LNG.market_p_cost_amount}</th>
+				<th>{$LNG.market_p_visibility}</th>
+				<th>{$LNG.market_p_remove}</th>
+			</tr>
+		</thead>
+
+		{foreach name=Offers item=offer from=$offers}
+		{if $offer.transaction_type == 1}
+		<tr>
+			<td><a class="tooltip" data-tooltip-content="<table width='100%'><tr><th colspan='2' style='text-align:center;'>{$LNG.fl_info_detail}</th></tr>{foreach $offer.fleet as $shipID => $shipCount}<tr><td class='transparent'>{$LNG.tech.{$shipID}}:</td><td class='transparent'>{$shipCount}</td></tr>{/foreach}</table>">{$offer.trade_id}</a></td>
+			<td>{$offer.galaxy}:{$offer.system}:{$offer.planet}</td>
+			<td>{foreach $offer.fleet as $shipID => $shipCount} {$LNG.tech.{$shipID}} x {$shipCount}<br/>{/foreach}</td>
+			<td class="no-background no-border">
+				{if $offer.ex_resource_type == 1}
+				<img src="./styles/theme/nova/images/metal.gif"/>
+				{elseif $offer.ex_resource_type == 2}
+				<img src="./styles/theme/nova/images/crystal.gif"/>
+				{elseif $offer.ex_resource_type == 3}
+				<img src="./styles/theme/nova/images/deuterium.gif"/>
+				{/if}
+			</td>
+			<td class="wanted-resource-{$offer.ex_resource_type}">{$offer.ex_resource_name }</td>
+			<td>{$offer.ex_resource_amount}</td>
+			<td>
+				{if $offer.filter_visibility == 1}
+				{$LNG.fl_visibility_alliance}
+				{elseif $offer.filter_visibility == 2}
+				{$LNG.fl_visibility_no_enemies}
+				{elseif $offer.filter_visibility == 0}
+				{$LNG.fl_visibility_all}
+				{/if}
+			</td>
+			<td><form class="market_form" action="game.php?page=marketPlace&amp;action=removeoffer#fleetmarket" method="post">
+				<input name="trade_id" value="{$offer.trade_id}" type="hidden">
+				<input value="{$LNG.market_p_remove}" type="submit">
+			</form></td>
+		</tr>
+		{/if}
+		{/foreach}
+		<tr><td colspan="10"><a id="addFleetOfferButton" href="#addFleetOffer">Add offer</a></td></tr>
+	</table>
+
+	<div style="display:none"><div id="addFleetOffer" style="background-color: black;">
+		<form class="market_form" action="game.php?page=marketPlace&amp;action=add#fleetmarket" method="post">
+			<table>
+				<tr class="no-border">
+					<td>
+						<select name="ship">
+							{foreach $FleetsOnPlanet as $ship}
+							<option value="{$ship}">{$LNG.tech.$ship}</option>
+							{/foreach}
+						</select>
+					</td>
+					<td>
+						<input name="fleet_size" size="10" type="number">
+					</td>
+				</tr>
+
+				<tr><td colspan="2">Price</td></tr>
+
+				<tr class="no-border">
+					<td>
+						<select name="resEx">
+							<option value="1">{$LNG.tech.901}</option>
+							<option value="2">{$LNG.tech.902}</option>
+							<option value="3">{$LNG.tech.903}</option>
+						</select>
+					</td>
+					<td>
+						<input name="exchange" size="10" type="number">
+					</td>
+				</tr>
+
+				<tr><td colspan="2">Filters</td></tr>
+
+				<tr class="no-border">
+					<td>
+						{$LNG.fl_visibility}
+					</td>
+					<td>
+						<select name="visibility">
+							<option value="2" selected>{$LNG.fl_visibility_no_enemies}</option>
+							<option value="1">{$LNG.fl_visibility_alliance}</option>
+							<option value="0">{$LNG.fl_visibility_all}</option>
+						</select>
+					</td>
+				</tr>
+			</table><br/>
+			<input type="hidden" name="markettype" value="1"/>
+			<input value="Add" type="submit">
+		</form>
+	</div></div>
+
+<hr/>
+
 <table id="tradeFleetList" style="width:50%;white-space: nowrap;" class="tablesorter">
 	<thead>
 		<tr>
 			<th>ID</th>
 			<th>{$LNG['gl_player']}</th>
 			<th>{$LNG['market_fleet']}</th>
-			<th>{$LNG.market_p_end}</th>
 			<th  class="no-background no-border center">-></th>
 			<th>{$LNG.market_p_cost_type}</th>
 			<th>{$LNG.market_p_cost_amount}</th>
@@ -209,7 +454,6 @@
 		<td>{$smarty.foreach.FlyingFleets.iteration}</td>
 		<td class="table_username">{$FlyingFleetRow.username}</td>
 		<td>{$FlyingFleetRow.fleet}</td>
-		<td data-time="{$FlyingFleetRow.end}">{pretty_fly_time({$FlyingFleetRow.end})}</td>
 		<td class="no-background no-border">
 			{if $FlyingFleetRow.fleet_wanted_resource_id == 1}
 			<img src="./styles/theme/nova/images/metal.gif"/>
@@ -226,8 +470,8 @@
 		<td class="HC">{pretty_fly_time({$FlyingFleetRow.to_hc_duration})}</td>
 		<td>
 			{if $FlyingFleetRow.possible_to_buy == true}
-			<form class="market_form" action="game.php?page=marketPlace&amp;action=buy" method="post">
-				<input name="fleetID" value="{$FlyingFleetRow.id}" type="hidden">
+			<form class="market_form" action="game.php?page=marketPlace&amp;action=buy#fleetmarket" method="post">
+				<input name="tradeID" value="{$FlyingFleetRow.id}" type="hidden">
 				<input value="{$LNG.market_p_submit}" type="submit">
 			</form>
 			{else}
@@ -273,63 +517,14 @@
 {block name="script" append}
 <script src="scripts/base/jquery.tablesorter.js"></script>
 <script>
-function reloadMarketBox() {
-	var cl = $("#resourceMBtn").attr("class");
-	var resB = $("#resourceMarketBox");
-	if(cl !=null && cl.indexOf("selected") != -1)
-		resB.attr("style","display: inline");
-	else
-		resB.attr("style","display: none");
-
-	cl = $("#fleetMBtn").attr("class");
-	var fleetB = $("#fleetMarketBox");
-	if(cl !=null && cl.indexOf("selected") != -1)
-		fleetB.attr("style","display: inline");
-	else
-		fleetB.attr("style","display: none");
-}
-
-$(function() {
-// Set the default
-reloadMarketBox();
-//
-$("#resourceMBtn, #fleetMBtn").on("click", function(){
-	$(".marketOption").removeClass("selected");
-	$(this).addClass("selected");
-	reloadMarketBox();
-});
-
-$("#tradeList").tablesorter({
-	headers: {},
-	debug: false
-});
-
-$("#tradeFleetList").tablesorter({
-	headers: {},
-	debug: false
-});
-
-$('#shipT').on('change', function (e) {
-    var optionSelected = $("option:selected", this);
-    var valueSelected = this.value;
-		if(valueSelected == 1) {
-			$('.HC').hide();
-			$('.LC').show();
+$(function(){
+	$(".market_form").submit( function() {
+		var c = confirm("{$LNG.market_confirm_are_you_sure}");
+		if (c) {
+			$(this).append('<input type="hidden" name="shipType" value="' + $("#shipT").val() + '">')
 		}
-		if(valueSelected == 2) {
-			$('.LC').hide();
-			$('.HC').show();
-		}
+		return c;
+	});
 });
-
-$('#shipT').trigger("change");
-
-$(".market_form").submit( function() {
-	var c = confirm("{$LNG.market_confirm_are_you_sure}");
-	if (c) {
-		$(this).append('<input type="hidden" name="shipType" value="' + $("#shipT").val() + '">')
-	}
-	return c;
-});
-});</script>
+</script>
 {/block}

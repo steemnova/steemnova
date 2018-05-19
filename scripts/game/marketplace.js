@@ -1,13 +1,3 @@
-var start = new Date().getTime() / 1000;
-
-function Refrash() {
-	var now = new Date().getTime() / 1000;
-	$("[data-time]").each( function () {
-		var d = $(this).attr('data-time');
-		$(this).text(GetRestTimeFormat(d-(now-start)));
-	});
-}
-
 
 //-------------------
 function calculateRatios(){
@@ -54,11 +44,69 @@ function calculateRatios(){
 
 
 $(document).ready(function() {
-	interval	= window.setInterval(Refrash, 1000);
-	Refrash();
+	$("a#addResourceOfferButton, a#addFleetOfferButton").fancybox({
+		padding: 0,
+		wrapCSS: 'market_dialog',
+	});
+	$("#resourceMBtn, #fleetMBtn").on("click", function(){
+		$(".marketOption").removeClass("selected");
+		$(this).addClass("selected");
+		reloadMarketBox();
+	});
+
+	console.log(window.location.hash);
+	if(window.location.hash == "#fleetmarket") {
+		$("#fleetMBtn").trigger("click");
+	} else {
+		$("#resourceMBtn").trigger("click");
+	}
+
+	$("#tradeList").tablesorter({
+		headers: {},
+		debug: false
+	});
+
+	$("#tradeFleetList").tablesorter({
+		headers: {},
+		debug: false
+	});
+
+	$('#shipT').on('change', function (e) {
+	    var optionSelected = $("option:selected", this);
+	    var valueSelected = this.value;
+			if(valueSelected == 1) {
+				$('.HC').hide();
+				$('.LC').show();
+			}
+			if(valueSelected == 2) {
+				$('.LC').hide();
+				$('.HC').show();
+			}
+	});
+
+	$('#shipT').trigger("change");
 
 	$('input[name=ratio-metal], input[name=ratio-crystal], input[name=ratio-deuterium]').change(function(e){
 		calculateRatios();
 	});
 	calculateRatios();
 });
+
+function reloadMarketBox() {
+	var cl = $("#resourceMBtn").attr("class");
+	var resB = $("#resourceMarketBox");
+	if(cl !=null && cl.indexOf("selected") != -1){
+		resB.attr("style","display: inline");
+		window.location.hash = "#resourcemarket";
+	}else
+		resB.attr("style","display: none");
+
+	cl = $("#fleetMBtn").attr("class");
+	var fleetB = $("#fleetMarketBox");
+	if(cl !=null && cl.indexOf("selected") != -1) {
+		fleetB.attr("style","display: inline");
+		window.location.hash = "#fleetmarket";
+	}
+	else
+		fleetB.attr("style","display: none");
+}

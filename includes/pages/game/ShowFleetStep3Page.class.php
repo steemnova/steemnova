@@ -36,10 +36,6 @@ class ShowFleetStep3Page extends AbstractGamePage
 		$TransportMetal			= max(0, round(HTTP::_GP('metal', 0.0)));
 		$TransportCrystal		= max(0, round(HTTP::_GP('crystal', 0.0)));
 		$TransportDeuterium		= max(0, round(HTTP::_GP('deuterium', 0.0)));
-		$WantedResourceType		= HTTP::_GP('resEx', 0);
-		$WantedResourceAmount		= max(0, round(HTTP::_GP('exchange', 0.0)));
-		$markettype		= HTTP::_GP('markettype', 0);
-		$visibility		= HTTP::_GP('visibility', 0);
 		$maxFlightTime		= HTTP::_GP('maxFlightTime', 0);
 		$stayTime 				= HTTP::_GP('staytime', 0);
 		$token					= HTTP::_GP('token', '');
@@ -92,25 +88,9 @@ class ShowFleetStep3Page extends AbstractGamePage
 		}
 
 		// Transport and market type 0 have to contain resources
-		if (($targetMission == 3 || ($targetMission == 16 && $markettype == 0))&& $TransportMetal + $TransportCrystal + $TransportDeuterium < 1)
+		if ($targetMission == 3 && $TransportMetal + $TransportCrystal + $TransportDeuterium < 1)
 		{
 			$this->printMessage($LNG['fl_no_noresource'], array(array(
-				'label'	=> $LNG['sys_back'],
-				'url'	=> 'game.php?page=fleetStep2'
-			)));
-		}
-		// Market typ 1 cannot contain resources
-		if($targetMission == 16 && $markettype == 1 && $TransportMetal + $TransportCrystal + $TransportDeuterium != 0)
-		{
-			$this->printMessage($LNG['fl_resources'], array(array(
-				'label'	=> $LNG['sys_back'],
-				'url'	=> 'game.php?page=fleetStep2'
-			)));
-		}
-
-		if ($targetMission == 16 && $WantedResourceAmount < 1)
-		{
-			$this->printMessage($LNG['fl_no_noresource_exchange'], array(array(
 				'label'	=> $LNG['sys_back'],
 				'url'	=> 'game.php?page=fleetStep2'
 			)));
@@ -179,7 +159,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 			}
 		}
 
-		if ($targetMission == 7 || $targetMission == 15 || $targetMission == 16)
+		if ($targetMission == 7 || $targetMission == 15)
 		{
 			$targetPlanetData	= array('id' => 0, 'id_owner' => 0, 'planettype' => 1);
 		}
@@ -239,7 +219,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 		$myPlanet	= $usedPlanet && $targetPlanetData['id_owner'] == $USER['id'];
 		$targetPlayerData	= array();
 
-		if($targetMission == 7 || $targetMission == 15 || $targetMission == 16) {
+		if($targetMission == 7 || $targetMission == 15) {
 			$targetPlayerData	= array(
 				'id'				=> 0,
 				'onlinetime'		=> TIMESTAMP,
@@ -374,7 +354,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 
 		$StayDuration    = 0;
 
-		if($targetMission == 5 || $targetMission == 11 || $targetMission == 15 || $targetMission == 16)
+		if($targetMission == 5 || $targetMission == 11 || $targetMission == 15)
 		{
 			if(!isset($availableMissions['StayBlock'][$stayTime]))
 			{
@@ -451,26 +431,6 @@ class ShowFleetStep3Page extends AbstractGamePage
 			$PLANET['system'], $PLANET['planet'], $PLANET['planet_type'], $targetPlanetData['id_owner'],
 			$targetPlanetData['id'], $targetGalaxy, $targetSystem, $targetPlanet, $targetType, $fleetResource,
 			$fleetStartTime, $fleetStayTime, $fleetEndTime, $fleetGroup, 0);
-
-
-		if($targetMission == 16) {
-			$sql	= 'INSERT INTO %%TRADES%% SET
-				transaction_type			= :transaction,
-				seller_fleet_id				= :sellerFleet,
-				filter_visibility			= :visibility,
-				filter_flighttime			= :flightTime,
-				ex_resource_type			= :resType,
-				ex_resource_amount		= :resAmount;';
-
-				$db->insert($sql, array(
-					':transaction'			=> $markettype,
-					':sellerFleet'			=> $fleet_id,
-					':resType'					=> $WantedResourceType,
-					':resAmount'				=> $WantedResourceAmount,
-					':flightTime'				=> $maxFlightTime * 3600,
-					':visibility'				=> $visibility
-				));
-		}
 
 		foreach ($fleetArray as $Ship => $Count)
 		{

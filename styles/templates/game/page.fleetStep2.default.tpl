@@ -17,7 +17,7 @@
 					<tr style="height:20px;">
 						<td class="transparent left">
 						<input id="radio_{$MissionID}" type="radio" name="mission" value="{$MissionID}" {if $mission == $MissionID || $MissionID@total == 1}checked="checked"{/if} style="width:60px;"><label for="radio_{$MissionID}">{$LNG["type_mission_{$MissionID}"]}</label><br>
-							{if $MissionID == 17}<br><div style="color:red;padding-left:13px;">{$LNG.fl_transfer_alert_message}</div><br>{/if}
+							{if $MissionID == 16}<br><div style="color:red;padding-left:13px;">{$LNG.fl_transfer_alert_message}</div><br>{/if}
 							{if $MissionID == 15}<br><div style="color:red;padding-left:13px;">{$LNG.fl_expedition_alert_message}</div><br>{/if}
 							{if $MissionID == 11}<br><div style="color:red;padding-left:13px;">{$fl_dm_alert_message}</div><br>{/if}
 						</td>
@@ -55,57 +55,6 @@
 				</table>
 			</td>
 		</tr>
-		{if $Exchange}
-		<tr style="height:20px;">
-			<th>{$LNG.fl_exchange}</th>
-		</tr>
-		<tr style="height:20px;">
-			<td>
-				<table>
-				<tr class="no-border">
-					<td >
-						<select name="resEx">
-							<option value="1">{$LNG.tech.901}</option>
-							<option value="2">{$LNG.tech.902}</option>
-							<option value="3">{$LNG.tech.903}</option>
-						</select>
-					</td>
-					<td>
-						<input name="exchange" size="10" type="text">
-					</td>
-				</tr>
-				<tr class="no-border">
-					<td>
-						{$LNG.fl_visibility}
-					</td>
-					<td>
-						<select name="visibility">
-							<option value="2" selected>{$LNG.fl_visibility_no_enemies}</option>
-							<option value="1">{$LNG.fl_visibility_alliance}</option>
-							<option value="0">{$LNG.fl_visibility_all}</option>
-						</select>
-					</td>
-				</tr>
-				<tr class="no-border">
-					<td>
-						{$LNG.fl_market_type}
-					</td>
-					<td>
-						<select name="markettype">
-							<option value="0" selected>{$LNG.fl_mt_resources}</option>
-							<option value="1">{$LNG.fl_mt_fleet}</option>
-						</select>
-					</td>
-				</tr>
-			</table>
-			<!--
-			Max flight time (0 = unlimited):
-			<input name="maxFlightTime" size="10" type="text" value="0"> hours<br/>
-			-->
-			</td>
-		</tr>
-		{/if}
-
 		{if $StaySelector}
 		<tr style="height:20px;">
 			<th>{$LNG.fl_hold_time}</th>

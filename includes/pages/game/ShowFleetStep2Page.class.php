@@ -128,7 +128,6 @@ class ShowFleetStep2Page extends AbstractGamePage
 			'type'			 				=> $PLANET['planet_type'],
 			'MissionSelector' 				=> $MissionOutput['MissionSelector'],
 			'StaySelector' 					=> $MissionOutput['StayBlock'],
-			'Exchange' 					=> $MissionOutput['Exchange'],
 			'fl_dm_alert_message'			=> sprintf($LNG['fl_dm_alert_message'], $LNG['type_mission_11'], $LNG['tech'][921]),
 			'fl_continue'					=> $LNG['fl_continue'],
 			'token' 						=> $token,

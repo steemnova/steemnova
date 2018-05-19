@@ -43,8 +43,7 @@ $LNG['type_mission_9']  					= 'Destroy';
 $LNG['type_mission_10']  					= 'Missile attack';
 $LNG['type_mission_11']  					= 'Research Dark matter ';
 $LNG['type_mission_15'] 					= 'Expedition';
-$LNG['type_mission_16'] 					= 'Trade';
-$LNG['type_mission_17'] 					= 'Transfer';
+$LNG['type_mission_16'] 					= 'Transfer';
 
 $LNG['type_planet_1']  					= 'Planet';
 $LNG['type_planet_2']  					= 'Debris Field';
