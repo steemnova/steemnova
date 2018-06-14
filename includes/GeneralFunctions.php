@@ -572,6 +572,22 @@ function exceptionHandler($exception)
 	{
 		file_put_contents('includes/error.log', $errorText, FILE_APPEND);
 	}
+	
+	/* Debug via Support Ticket */
+	global $USER;
+	if(isset($USER))
+	{
+		$ErrSource = $USER['id'];
+		$ErrName = $USER['username'];
+	}else{
+		$ErrSource = 1;
+		$ErrName = 'System';
+	}
+	require 'includes/classes/class.SupportTickets.php';
+	$ticketObj	= new SupportTickets;
+	$ticketID	= $ticketObj->createTicket($ErrSource, '1', $errorType[$errno]);
+	$ticketObj->createAnswer($ticketID, $ErrSource, $ErrName, $errorType[$errno], $errorText, 0);
+	
 }
 /*
  *
