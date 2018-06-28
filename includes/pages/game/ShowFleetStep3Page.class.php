@@ -408,14 +408,14 @@ class ShowFleetStep3Page extends AbstractGamePage
 
 		if ($targetMission == 17) {
 			$attack = $USER[$resource[109]] * 10 + $USER['factor']['Attack'] * 100;
-			$defensive = $USER[$resource[110]] * 10 + $USER['factor']['Defensive'] * 100;
-			$shield = $USER[$resource[111]] * 10 + $USER['factor']['Shield'] * 100;
+			$defensive = $USER[$resource[111]] * 10 + $USER['factor']['Defensive'] * 100;
+			$shield = $USER[$resource[110]] * 10 + $USER['factor']['Shield'] * 100;
 
 			$targetPlayerData['factor']		= getFactors($targetPlayerData);
 
 			$attack_targ = $targetPlayerData[$resource[109]] * 10 + $targetPlayerData['factor']['Attack'] * 100;
-			$defensive_targ = $targetPlayerData[$resource[110]] * 10 + $targetPlayerData['factor']['Defensive'] * 100;
-			$shield_targ = $targetPlayerData[$resource[111]] * 10 + $targetPlayerData['factor']['Shield'] * 100;
+			$defensive_targ = $targetPlayerData[$resource[111]] * 10 + $targetPlayerData['factor']['Defensive'] * 100;
+			$shield_targ = $targetPlayerData[$resource[110]] * 10 + $targetPlayerData['factor']['Shield'] * 100;
 
 			if($attack < $attack_targ || $defensive < $defensive_targ || $shield < $shield_targ) {
 				$this->printMessage($LNG['fl_stronger_techs'], array(array(

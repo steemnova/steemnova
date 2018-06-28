@@ -31,13 +31,13 @@ class ShowMarketPlacePage extends AbstractGamePage
 		global $USER, $resource, $LNG;
 
 		$attack = $USER[$resource[109]] * 10 + $USER['factor']['Attack'] * 100;
-		$defensive = $USER[$resource[110]] * 10 + $USER['factor']['Defensive'] * 100;
-		$shield = $USER[$resource[111]] * 10 + $USER['factor']['Shield'] * 100;
+		$defensive = $USER[$resource[111]] * 10 + $USER['factor']['Defensive'] * 100;
+		$shield = $USER[$resource[110]] * 10 + $USER['factor']['Shield'] * 100;
 
 		$SELLER['factor']		= getFactors($SELLER);
 		$attack_targ = $SELLER[$resource[109]] * 10 + $SELLER['factor']['Attack'] * 100;
-		$defensive_targ = $SELLER[$resource[110]] * 10 + $SELLER['factor']['Defensive'] * 100;
-		$shield_targ = $SELLER[$resource[111]] * 10 + $SELLER['factor']['Shield'] * 100;
+		$defensive_targ = $SELLER[$resource[111]] * 10 + $SELLER['factor']['Defensive'] * 100;
+		$shield_targ = $SELLER[$resource[110]] * 10 + $SELLER['factor']['Shield'] * 100;
 
 		if($attack > $attack_targ || $defensive > $defensive_targ || $shield > $shield_targ) {
 			return array(
