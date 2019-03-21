@@ -132,7 +132,7 @@ class ShowBuildingsPage extends AbstractGamePage
 			return;
 		
 		$CurrentQueue  		= unserialize($PLANET['b_building_id']);
-
+		$DemolishedQueue = 0;
 				
 		if (!empty($CurrentQueue)) {
 			$ActualCount	= count($CurrentQueue);
