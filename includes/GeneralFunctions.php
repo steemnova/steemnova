@@ -503,7 +503,7 @@ function exceptionHandler($exception)
 <!--[if IE 9 ]>    <html lang="de" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="de" class="no-js"> <!--<![endif]-->
 <head>
-	<title>'.$gameName.' - '.$errorType[$errno].'</title>
+	<title>'.$gameName.' - Error</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/resource/css/base/boilerplate.css?v='.$VERSION.'">
 	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/resource/css/ingame/main.css?v='.$VERSION.'">
@@ -542,7 +542,7 @@ function exceptionHandler($exception)
 <body id="overview" class="full">
 <table width="960">
 	<tr>
-		<th>'.$errorType[$errno].'</th>
+		<th>Unknown error</th>
 	</tr>
 	<tr>
 		<td class="left">
