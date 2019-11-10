@@ -23,7 +23,7 @@
 		<td><a href="#" onclick="return Dialog.Playercard({$userID}, '{$memberListRow.username}');">{$memberListRow.username}</a></td>
 		<td><a href="#" onclick="return Dialog.PM({$userID});"><img src="{$dpath}img/m.gif" border="0" title="{$LNG.write_message}"></a></td>
 		<td>{$memberListRow.rankName}</td>
-		<td data-points="{$memberListRow.points}">{$memberListRow.points|number}</td>
+		<td class="points" data-points="{$memberListRow.points}">{$memberListRow.points}</td>
 		<td><a href="game.php?page=galaxy&amp;galaxy={$memberListRow.galaxy}&amp;system={$memberListRow.system}" data-postion="{$memberListRow.galaxy}:{$memberListRow.system}:{$memberListRow.planet}">[{$memberListRow.galaxy}:{$memberListRow.system}:{$memberListRow.planet}]</a></td>
 		<td>{$memberListRow.register_time}</td>
 		<td>{if $rights.ONLINESTATE}{if $memberListRow.onlinetime < 4}<span style="color:lime">{$LNG.al_memberlist_on}</span>{elseif $memberListRow.onlinetime <= 15}<span style="color:yellow">{$memberListRow.onlinetime} {$LNG.al_memberlist_min}</span>{else}<span style="color:red">{$LNG.al_memberlist_off}</span>{/if}{else}-{/if}</td>
@@ -63,6 +63,12 @@
 		        7: { sorter: "status"}
 		},
 		debug: false
-	}); 
+	});
+
+var elements = document.getElementsByClassName('points');
+for (var i = 0, l = elements.length; i < l; i++) {
+  elements[i].innerHTML = number_format(elements[i].innerHTML);
+}
+
 });</script>
 {/block}
