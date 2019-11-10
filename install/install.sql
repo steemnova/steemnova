@@ -599,7 +599,7 @@ CREATE TABLE `%PREFIX%planets` (
 
 CREATE TABLE `%PREFIX%raports` (
   `rid` varchar(32) NOT NULL,
-  `raport` text NOT NULL,
+  `raport` longtext NOT NULL,
   `time` int(11) NOT NULL,
   `attacker` varchar(255) NOT NULL DEFAULT '',
   `defender` varchar(255) NOT NULL DEFAULT '',
