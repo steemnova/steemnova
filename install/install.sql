@@ -138,7 +138,7 @@ CREATE TABLE `%PREFIX%chat_messages` (
   `channel` int(11) NOT NULL,
   `dateTime` datetime NOT NULL,
   `ip` varbinary(16) NOT NULL,
-  `text` text CHARACTER SET utf8 COLLATE utf8_bin,
+  `text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
@@ -456,7 +456,7 @@ CREATE TABLE `%PREFIX%messages` (
   `message_type` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `message_from` varchar(128) DEFAULT NULL,
   `message_subject` varchar(255) DEFAULT NULL,
-  `message_text` text,
+  `message_text` text CHARACTER SET utf8mb4,
   `message_unread` tinyint(4) NOT NULL DEFAULT '1',
   `message_universe` tinyint(3) unsigned NOT NULL,
   `message_deleted` int(11) unsigned NULL DEFAULT NULL,
