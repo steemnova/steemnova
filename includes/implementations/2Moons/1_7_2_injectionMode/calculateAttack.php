@@ -28,7 +28,7 @@
  */
 $path = dirname(dirname(dirname(__dir__ ))) . DIRECTORY_SEPARATOR;
 require ($path . 'utils' . DIRECTORY_SEPARATOR . 'includer.php');
-require ('LangImplementation.php');
+require ($path . 'implementations' . DIRECTORY_SEPARATOR . '2Moons' . DIRECTORY_SEPARATOR . '1_7_2_injectionmode' . DIRECTORY_SEPARATOR . 'LangImplementation.php');
 
 define('ID_MIN_SHIPS', 100);
 define('ID_MAX_SHIPS', 300);
@@ -226,7 +226,7 @@ function updatePlayers(PlayerGroup $playerGroup, &$players)
     $amountArray = array();
     foreach ($players as $idFleet => $info)
     {
-        $players[$idFleet]['techs'] = getTechsFromArrayForReport($info['player']);
+        $players[$idFleet]['techs'] = getTechsFromArrayForReport($info['user']);
         foreach ($info['unit'] as $idShipType => $amount)
         {
             if ($playerGroup->existPlayer($info['player']['id']))

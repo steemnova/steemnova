@@ -21,14 +21,14 @@
  *
  * @package OPBE
  * @author Jstar <frascafresca@gmail.com>
- * @copyright 2013 Jstar <frascafresca@gmail.com>
+ * @copyright 2015 Jstar <frascafresca@gmail.com>
  * @license http://www.gnu.org/licenses/ GNU AGPLv3 License
- * @version beta(26-10-2013)
+ * @version 17-03-2015
  * @link https://github.com/jstar88/opbe
  */
 $path = dirname(dirname(dirname(__dir__ ))) . DIRECTORY_SEPARATOR;
 require ($path . 'utils' . DIRECTORY_SEPARATOR . 'includer.php');
-require ('LangImplementation.php');
+require ($path . 'implementations' . DIRECTORY_SEPARATOR . '2Moons' . DIRECTORY_SEPARATOR . '1_3_injectionMode' . DIRECTORY_SEPARATOR . 'LangImplementation.php');
 
 define('ID_MIN_SHIPS', 100);
 define('ID_MAX_SHIPS', 300);
@@ -63,6 +63,9 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 
     $CombatCaps = $GLOBALS['CombatCaps'];
     $pricelist = $GLOBALS['pricelist'];
+    $resource = $GLOBALS['resource'];
+    $ExtraDM = $GLOBALS['ExtraDM'];
+    $OfficerInfo = $GLOBALS['OfficerInfo'];
 
     /********** BUILDINGS MODELS **********/
     /** Note: we are transform array of data like
@@ -75,13 +78,14 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
     $attackerGroupObj = new PlayerGroup();
     foreach ($attackers as $fleetID => $attacker)
     {
-        $player = $attacker['player'];
+        $player = $attacker['user'];
+        $player['factor'] = getFactors($player, $resource, $ExtraDM, $OfficerInfo);
         //techs + bonus. Note that the bonus is divided by the factor because the result sum will be multiplied by the same inside OPBE
-        list($attTech,$defenceTech,$shieldTech) = getTechsFromArray($player);
+        list($attTech, $defenceTech, $shieldTech) = getTechsFromArray($player);
         //--
         $attackerPlayerObj = $attackerGroupObj->createPlayerIfNotExist($player['id'], array(), $attTech, $shieldTech, $defenceTech);
         $attackerFleetObj = new Fleet($fleetID);
-        foreach ($attacker['unit'] as $element => $amount)
+        foreach ($attacker['detail'] as $element => $amount)
         {
             if (empty($amount))
                 continue;
@@ -94,13 +98,14 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
     $defenderGroupObj = new PlayerGroup();
     foreach ($defenders as $fleetID => $defender)
     {
-        $player = $defender['player'];
+        $player = $defender['user'];
+        $player['factor'] = getFactors($player, $resource, $ExtraDM, $OfficerInfo);
         //techs + bonus. Note that the bonus is divided by the factor because the result sum will be multiplied by the same inside OPBE
-        list($attTech,$defenceTech,$shieldTech) = getTechsFromArray($player);
+        list($attTech, $defenceTech, $shieldTech) = getTechsFromArray($player);
         //--
         $defenderPlayerObj = $defenderGroupObj->createPlayerIfNotExist($player['id'], array(), $attTech, $shieldTech, $defenceTech);
         $defenderFleetObj = getFleet($fleetID);
-        foreach ($defender['unit'] as $element => $amount)
+        foreach ($defender['def'] as $element => $amount)
         {
             if (empty($amount))
                 continue;
@@ -143,8 +148,8 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
         // in case of last round, ask for rebuilt defenses. to change rebuils prob see constants/battle_constants.php
         $attackerGroupObj = ($lastRound == $i) ? $report->getAfterBattleAttackers() : $report->getResultAttackersFleetOnRound($i);
         $defenderGroupObj = ($lastRound == $i) ? $report->getAfterBattleDefenders() : $report->getResultDefendersFleetOnRound($i);
-        $attInfo = updatePlayers($attackerGroupObj, $attackers);
-        $defInfo = updatePlayers($defenderGroupObj, $defenders);
+        $attInfo = updatePlayers($attackerGroupObj, $attackers, "detail");
+        $defInfo = updatePlayers($defenderGroupObj, $defenders, "def");
         $ROUND[$i] = roundInfo($report, $attackers, $defenders, $attackerGroupObj, $defenderGroupObj, $i + 1, $attInfo, $defInfo);
     }
 
@@ -158,23 +163,23 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
     $debDefMet = $debDef[0];
     $debDefCry = $debDef[1];
     //total
-    $debris = array('attacker' => array(METAL_ID => $debAttMet, CRYSTAL_ID => $debAttCry), 'defender' => array(METAL_ID => $debDefMet, CRYSTAL_ID => $debDefCry));
+    $debris = array('att' => array($debAttMet, $debAttCry), 'def' => array($debDefMet, $debDefCry));
 
     /********** LOST UNITS **********/
-    $totalLost = array('attacker' => $report->getTotalAttackersLostUnits(), 'defender' => $report->getTotalDefendersLostUnits());
+    $totalLost = array('att' => $report->getTotalAttackersLostUnits(), 'def' => $report->getTotalDefendersLostUnits());
 
     /********** RETURNS **********/
     return array(
         'won' => $won,
-        'debris' => $debris,
+        'debree' => $debris,
         'rw' => $ROUND,
-        'unitLost' => $totalLost);
+        'lost' => $totalLost);
 }
 
 
 /**
  * roundInfo()
- * Return the info required to fill $ROUND.
+ * Return the info required to fill $ROUND
  * @param BattleReport $report
  * @param array $attackers
  * @param array $defenders
@@ -185,10 +190,9 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
  */
 function roundInfo(BattleReport $report, $attackers, $defenders, PlayerGroup $attackerGroupObj, PlayerGroup $defenderGroupObj, $i, $attInfo, $defInfo)
 {
-    // the last round doesn't has next round, so we not ask for fire etc
     $round = null;
     // the last round doesn't has next round, so we not ask for fire etc
-    if($i <= $report->getLastRoundNumber())
+    if ($i <= $report->getLastRoundNumber())
     {
         $round = $report->getRound($i);
     }
@@ -220,18 +224,18 @@ function roundInfo(BattleReport $report, $attackers, $defenders, PlayerGroup $at
  * @param array &$players
  * @return null
  */
-function updatePlayers(PlayerGroup $playerGroup, &$players)
+function updatePlayers(PlayerGroup $playerGroup, &$players, $index)
 {
     $plyArray = array();
     $amountArray = array();
     foreach ($players as $idFleet => $info)
     {
-        $players[$idFleet]['techs'] = getTechsFromArrayForReport($info['player']);
-        foreach ($info['unit'] as $idShipType => $amount)
+        $players[$idFleet]['techs'] = getTechsFromArrayForReport($info['user']);
+        foreach ($info[$index] as $idShipType => $amount)
         {
-            if ($playerGroup->existPlayer($info['player']['id']))
+            if ($playerGroup->existPlayer($info['user']['id']))
             {
-                $player = $playerGroup->getPlayer($info['player']['id']);
+                $player = $playerGroup->getPlayer($info['user']['id']);
                 if ($player->existFleet($idFleet)) //if after battle still there are some ship types in this fleet
                 {
                     $fleet = $player->getFleet($idFleet);
@@ -239,22 +243,25 @@ function updatePlayers(PlayerGroup $playerGroup, &$players)
                     {
                         $shipType = $fleet->getShipType($idShipType);
                         //used to show life,power and shield of each ships in the report
-                        $plyArray[$idFleet][$idShipType] = array('def' => $shipType->getHull(),'shield' => $shipType->getShield(),'att' => $shipType->getPower());
-                        $players[$idFleet]['unit'][$idShipType] = $shipType->getCount();
+                        $plyArray[$idFleet][$idShipType] = array(
+                            'def' => $shipType->getCurrentLife(),
+                            'shield' => $shipType->getCurrentShield(),
+                            'att' => $shipType->getCurrentPower());
+                        $players[$idFleet][$index][$idShipType] = $shipType->getCount();
                     }
                     else //all ships of this type were destroyed
                     {
-                        $players[$idFleet]['unit'][$idShipType] = 0;
+                        $players[$idFleet][$index][$idShipType] = 0;
                     }
                 }
                 else //the fleet is empty, so all ships of this type were destroyed
                 {
-                    $players[$idFleet]['unit'][$idShipType] = 0;
+                    $players[$idFleet][$index][$idShipType] = 0;
                 }
             }
             else // is empty
             {
-                $players[$idFleet]['unit'][$idShipType] = 0;
+                $players[$idFleet][$index][$idShipType] = 0;
             }
 
             //initialization
@@ -267,7 +274,7 @@ function updatePlayers(PlayerGroup $playerGroup, &$players)
                 $amountArray['total'] = 0;
             }
             //increment
-            $currentAmount = $players[$idFleet]['unit'][$idShipType];
+            $currentAmount = $players[$idFleet][$index][$idShipType];
             $amountArray[$idFleet] = $amountArray[$idFleet] + $currentAmount;
             $amountArray['total'] = $amountArray['total'] + $currentAmount;
         }
@@ -290,7 +297,7 @@ function getShipType($id, $count)
     $pricelist = $GLOBALS['pricelist'];
     $rf = isset($CombatCaps[$id]['sd']) ? $CombatCaps[$id]['sd'] : 0;
     $shield = $CombatCaps[$id]['shield'];
-    $cost = array($pricelist[$id]['cost'][METAL_ID], $pricelist[$id]['cost'][CRYSTAL_ID]);
+    $cost = array($pricelist[$id]['metal'], $pricelist[$id]['crystal']);
     $power = $CombatCaps[$id]['attack'];
     if ($id > ID_MIN_SHIPS && $id < ID_MAX_SHIPS)
     {
@@ -316,12 +323,26 @@ function getFleet($id)
     return new Fleet($id);
 }
 
+function getFactors($attacker, $resource, $ExtraDM, $OfficerInfo)
+{
+    $attTech =    $OfficerInfo[602]['info'] * $attacker['rpg_amiral'] + (TIMESTAMP - $attacker[$resource[700]] <= 0) ? $ExtraDM[700]['add'] : 0; //attaque
+    $defTech =    $OfficerInfo[602]['info'] * $attacker['rpg_amiral'] + (TIMESTAMP - $attacker[$resource[701]] <= 0) ? $ExtraDM[701]['add'] : 0; //bouclier
+    $shieldTech = $OfficerInfo[602]['info'] * $attacker['rpg_amiral'] + (TIMESTAMP - $attacker[$resource[707]] <= 0) ? $ExtraDM[707]['add'] : 0;
+    return array(
+        "attack" => $attTech,
+        "shield" => $shieldTech,
+        "defensive" => $defTech);
+}
+
 function getTechsFromArray($player)
 {
-    $attTech = $player['military_tech'] + $player['factor']['Attack'] / WEAPONS_TECH_INCREMENT_FACTOR;
-    $shieldTech = $player['shield_tech'] + $player['factor']['Shield'] / SHIELDS_TECH_INCREMENT_FACTOR;
-    $defenceTech = $player['defence_tech'] + $player['factor']['Defensive'] / ARMOUR_TECH_INCREMENT_FACTOR;
-    return array($attTech,$defenceTech,$shieldTech);
+    $attTech = $player['military_tech'] + $player['factor']['attack'] / WEAPONS_TECH_INCREMENT_FACTOR;
+    $shieldTech = $player['shield_tech'] + $player['factor']['shield'] / SHIELDS_TECH_INCREMENT_FACTOR;
+    $defenceTech = $player['defence_tech'] + $player['factor']['defensive'] / ARMOUR_TECH_INCREMENT_FACTOR;
+    return array(
+        $attTech,
+        $defenceTech,
+        $shieldTech);
 }
 
 function getTechsFromArrayForReport($player)
@@ -330,7 +351,7 @@ function getTechsFromArrayForReport($player)
     $attTech = 1 + $attTech * WEAPONS_TECH_INCREMENT_FACTOR;
     $defenceTech = 1 + $defenceTech * ARMOUR_TECH_INCREMENT_FACTOR;
     $shieldTech = 1 + $shieldTech * SHIELDS_TECH_INCREMENT_FACTOR;
-    
+
     return array(
         $attTech,
         $defenceTech,
