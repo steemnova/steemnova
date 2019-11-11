@@ -212,6 +212,7 @@ class Session
 
         $userIpAddress = self::getClientIp();
 
+	if(!(isset($_GET['page']) && $_GET['page']=="raport" && isset($_GET['raport']) && count($_GET)==2 && MODE === 'INGAME')) {
 		$sql	= 'REPLACE INTO %%SESSION%% SET
 		sessionID	= :sessionId,
 		userID		= :userId,
@@ -248,6 +249,7 @@ class Session
 
 		@session_write_close();
 	}
+}
 
 	public function delete()
 	{

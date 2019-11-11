@@ -109,10 +109,12 @@ if(defined('DATABASE_VERSION') && DATABASE_VERSION === 'OLD')
 $config = Config::get();
 date_default_timezone_set($config->timezone);
 
+
 if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON')
 {
 	$session	= Session::load();
-
+	
+	if(!(!$session->isValidSession() && isset($_GET['page']) && $_GET['page']=="raport" && isset($_GET['raport']) && count($_GET)==2 && MODE === 'INGAME'))
 	if(!$session->isValidSession())
 	{
 	    $session->delete();
@@ -129,6 +131,7 @@ if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON')
 	
 	$db		= Database::get();
 
+
 	$sql	= "SELECT 
 	user.*,
 	COUNT(message.message_id) as messages
@@ -137,11 +140,13 @@ if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON')
 	WHERE user.id = :userId
 	GROUP BY message.message_owner;";
 	
+
 	$USER	= $db->selectSingle($sql, array(
 		':unread'	=> 1,
 		':userId'	=> $session->userId
 	));
 	
+	if(!(!$session->isValidSession() && isset($_GET['page']) && $_GET['page']=="raport" && isset($_GET['raport']) && count($_GET)==2 && MODE === 'INGAME'))
 	if(empty($USER))
 	{
 		HTTP::redirectTo('index.php?code=3');
@@ -158,7 +163,8 @@ if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON')
 	if($USER['bana'] == 1) {
 		ShowErrorPage::printError("<font size=\"6px\">".$LNG['css_account_banned_message']."</font><br><br>".sprintf($LNG['css_account_banned_expire'], _date($LNG['php_tdformat'], $USER['banaday'], $USER['timezone']))."<br><br>".$LNG['css_goto_homeside'], false);
 	}
-	
+
+	if(!(!$session->isValidSession() && isset($_GET['page']) && $_GET['page']=="raport" && isset($_GET['raport']) && count($_GET)==2 && MODE === 'INGAME'))
 	if (MODE === 'INGAME')
 	{
 		$universeAmount	= count(Universe::availableUniverses());
