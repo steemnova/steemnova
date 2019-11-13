@@ -272,8 +272,9 @@ class BattleReport
                 {
                     foreach ($values as $idShipType => $lost)
                     {
+			if($idShipType<ID_MAX_SHIPS) {
                         $metal += $lost[0];
-                        $crystal += $lost[1];      
+                        $crystal += $lost[1]; }
                     }
                     $factor = constant(strtoupper($role).'_DEBRIS_FACTOR');
                     $metal *= $factor;
