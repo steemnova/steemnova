@@ -10,11 +10,11 @@
 
 $battle_engine = 2;
 
+
 /*
 DON'T MODIFY ↓
 */
-
-if($battle_engine == 2) {
+if($battle_engine == 2 && !empty($attackers[0]["unit"]) && !empty($defenders[0]["unit"])) {
 $ships = 0;
 foreach($attackers[0]["unit"] as $units) {
 $ships = $ships + $units;
@@ -24,10 +24,10 @@ foreach($defenders[0]["unit"] as $units) {
 $ships = $ships + $units;
 }
 
-if($ships<=200000 AND extension_loaded('ds')) {
-include("SteemNova.php"); }
-else if($ships<=20000 AND !extension_loaded('ds')) {
-include("SteemNova_Array.php"); }
-else { include("OPBE.php"); }
+if($ships<=200000 && extension_loaded('ds')) {include("SteemNova.php");}
+else if($ships<=20000 AND !extension_loaded('ds')) {include("SteemNova_Array.php");}
+else {include("OPBE.php");}
 
-} else if($battle_engine == 1) {include("SteemNova.php");} else if($battle_engine == 999) {include("SteemNova_Array.php");} else {include("OPBE.php");}
+} else if($battle_engine == 1) {include("SteemNova.php");}
+else if($battle_engine == 999) {include("SteemNova_Array.php");}
+else {include("OPBE.php");}
