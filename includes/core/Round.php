@@ -65,6 +65,7 @@ class Round
 
         $this->attackers = $attackers->cloneMe();
         $this->defenders = $defenders->cloneMe();
+        $GLOBALS['round'] = $number;
     }
     
     /**

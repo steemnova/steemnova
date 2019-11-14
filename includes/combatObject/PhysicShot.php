@@ -56,7 +56,8 @@ class PhysicShot
         if ($count < 0)
             throw new Exception('Negative amount of shots');
         $this->fighters = $shipType->cloneMe();
-        $this->damage = $damage;
+	if($GLOBALS['round']==1) {$this->damage = rand($damage*1.70, $damage*1.75);} else {$this->damage = rand($damage*0.4, $damage*0.45);}
+
         $this->count = $count;
     }
 
