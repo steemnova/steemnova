@@ -8,27 +8,14 @@
 	</p>
 </section>
 <section>
-	<table class="contentbox">
-		<tr class="contentbox-header">
-			<td class="contentbox-header-left"></td><td class="contentbox-header-center"></td><td class="contentbox-header-right"></td>
-		</tr>
-		<tr class="contentbox-content">
-			<td class="contentbox-content-left"></td><td class="contentbox-content-center">
+	<div class="contentbox">
+		
 				<h1>{$LNG.loginHeader}</h1>
 				<form id="login" name="login" action="index.php?page=login" data-action="index.php?page=login" method="post">
 					<div class="row">
-						<label for="universe">{$LNG.universe}</label>
 						<select name="uni" id="universe" class="changeAction">{html_options options=$universeSelect selected=$UNI}</select>
-					</div>
-					<div class="row">
-						<label for="username">{$LNG.loginUsername}</label>
-						<input name="username" id="username" type="text">
-					</div>
-					<div class="row">
-						<label for="password">{$LNG.loginPassword}</label>
-						<input name="password" id="password" type="password">
-					</div>
-					<div class="row">
+						<input name="username" id="username" type="text" placeholder="{$LNG.loginUsername}">
+						<input name="password" id="password" type="password" placeholder="{$LNG.loginPassword}">
 						<input type="submit" value="{$LNG.loginButton}">
 					</div>
 				</form>
@@ -42,12 +29,8 @@
 				</div>
 				
 				<!-- <br><span class="small">{$loginInfo}</span> -->
-			</td><td class="contentbox-content-right"></td>
-		</tr>
-		<tr class="contentbox-footer">
-			<td class="contentbox-footer-left"></td><td class="contentbox-footer-center"></td><td class="contentbox-footer-right"></td>
-		</tr>
-	</table>
+			
+	</div>
 </section>
 <section>
 <!-- 	<div class="button-box">

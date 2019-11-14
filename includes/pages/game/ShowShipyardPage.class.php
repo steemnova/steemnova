@@ -70,7 +70,7 @@ class ShowShipyardPage extends AbstractGamePage
 
 		return true;
 	}
-	
+
 	private function BuildAuftr($fmenge)
 	{
 		global $USER, $PLANET, $reslist, $resource;
@@ -140,7 +140,7 @@ class ShowShipyardPage extends AbstractGamePage
 		{
 			$this->printMessage($LNG['bd_shipyard_required']);
 		}
-
+		$Messages		= $USER['messages'];
 
 		$buildTodo	= HTTP::_GP('fmenge', array());
 		$action		= HTTP::_GP('action', '');
@@ -263,6 +263,7 @@ class ShowShipyardPage extends AbstractGamePage
 			'BuildList'		=> $buildList,
 			'maxlength'		=> strlen(Config::get()->max_fleet_per_build),
 			'mode'			=> $mode,
+			'messages'		=> ($Messages > 0) ? (($Messages == 1) ? $LNG['ov_have_new_message'] : sprintf($LNG['ov_have_new_messages'], pretty_number($Messages))): false,
 		));
 
 		$this->display('page.shipyard.default.tpl');

@@ -1,13 +1,13 @@
 <label class="hamburger" for="toggle-menu" class="toggle-menu"><i class="fas fa-bars"></i></label>
 
 <div class="planetImage no-mobile">
-   <img src="{$avatar}" width="50" height="50" alt="">
+   <img src="{$avatar}" width="50" height="50"></a>
    <div>{$LNG.tech.615}</div>
-   <div><b>{$username}</b></div>
+   <div><a href="game.php?page=settings"><b>{$username}</b></div>
 </div>
 
 <div class="planetSelectorWrapper">
-	<img src="{$dpath}planeten/{$image}.jpg" width="50" height="50" alt="">
+	<a href="game.php?page=overview"><img src="{$dpath}planeten/{$image}.jpg" width="50" height="50" alt="{$LNG.lm_overview}"></a>
 	<div class="planetSelectorName" for="planetSelector"></div>
 	<div class="no-mobile">&nbsp;</div>
 	<div class="no-mobile">&nbsp;</div>
@@ -27,10 +27,10 @@
 				{if !isset($resourceData.current)}
 					{$resourceData.currentt = $resourceData.max + $resourceData.used}
 						<td class="res_current tooltip" data-tooltip-content="{$resourceData.currentt|number}">
-							<span{if $resourceData.currentt < 0} style="color:red"{/if}>{$resourceData.currentt|number}&nbsp;/&nbsp;{$resourceData.max|number}</span>
+							<span{if $resourceData.currentt < 0} style="color:red"{/if}>{$resourceData.currentt|number}&nbsp;/&nbsp;{$resourceData.max|number} </span>
 						</td>
 				{else}
-					<div class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|number}</div>
+					<div class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|number}{if $resourceID == 921} <br><a href="google.com/wallet">piniondz</a>{/if} </div>
 				{/if}
 				{if !isset($resourceData.current) || !isset($resourceData.max)}
 					<div>&nbsp;</div>
@@ -45,10 +45,18 @@
 						<td class="res_current tooltip" data-tooltip-content="{$resourceData.currentt|number}">
 							<span{if $resourceData.currentt < 0} style="color:red"{/if}>{shortly_number($resourceData.currentt)}</span>
 						</td>
+{/if}
+{if !isset($resourceData.max)}
+
+						<td class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{shortly_number($resourceData.current)}</td>
+				{/if}
+				{if !isset($resourceData.current) || !isset($resourceData.max)}
+					
 				{else}
-					<td class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{shortly_number($resourceData.current)}</td>
+					<td class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}"><span{if $resourceData.current >= {$resourceData.max}} style="color:red"{/if}>{shortly_number($resourceData.current)}</span></td>
 				{/if}
 			</div>
+		
 			<!--
 			<div class="mobile">
 				{if !isset($resourceData.current)}
@@ -95,10 +103,11 @@
 				{/if}
 			{/if}
 			</div>
-			-->
+				-->
 		</a>
 	</div>
 	{/foreach}
+	
 </div>
 
 <!--

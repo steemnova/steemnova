@@ -1,6 +1,6 @@
 * {
 	box-sizing: border-box;
-	/* margin: 0; */
+
 	padding: 0;
 }
 
@@ -10,7 +10,7 @@
 	display: grid;
 	/* width: 100vw;
 	height: 100vh; */
-	grid-template-columns: 1fr 180px auto 250px 1fr;
+	grid-template-columns: 1fr 180px 2fr 350px 0.5fr;
 	grid-template-rows: 100px 1fr auto;
 }
 
@@ -57,7 +57,7 @@ header .fixed {
 	/* justify-content: space-between; */
 	position: fixed;
 	top: 0px;
-	width: calc(100% - 180px);
+	width: 60%;
 	max-width: 950px;
 	height: 100px;
 	z-index: 2;
@@ -164,7 +164,8 @@ table.hack {
 }
 
 table table,img {
-	border:0
+	
+    border-radius: 25%;
 }
 
 td {
@@ -276,6 +277,7 @@ textarea.tinymce{
 
 .build_submit:hover {
 	text-decoration:underline;
+font-weight:bold;
 }
 
 .build_form {
@@ -320,8 +322,8 @@ textarea.tinymce{
 
 #planetSelector {
 	position: absolute;
-	top: 66px;
-	width: 150px;
+	top: 70px;
+	/*width: 150px;*/
 }
 
 .planetImage{
@@ -343,7 +345,6 @@ textarea.tinymce{
 }
 
 #resource, #resource_mobile { /* new */
-	display: flex;
 	text-align: center;
 	align-items: center;
 }
@@ -643,19 +644,20 @@ table.tablesorter thead tr .headerSortDown {
 
 /* MEDIA */
 
-@media screen and (min-width: 700px) and (max-width: 959px) {
+@media screen and (min-width: 700px) and (max-width: 969px) {
 	.planetImage{
 		display: none;
 	}
 	#planetSelector{
 		max-width: 120px;
 	}
+
 }
 
 @media screen and (max-width: 699px) {
 	.wrapper {
 		grid-template-columns: 200px 1fr;
-		grid-template-rows: 56px 1fr auto;
+		grid-template-rows: 67px 1fr auto;
 	}
 	top {
 		display: none
@@ -667,7 +669,7 @@ table.tablesorter thead tr .headerSortDown {
 		grid-column: 1/2;
 	}
 	header .fixed {
-		height: 56px;
+		height: 45px;
 		width: 100vw;
 		padding: 0;
 	}
@@ -719,4 +721,10 @@ table.tablesorter thead tr .headerSortDown {
 	.hamburger{
 		display: unset;
 	}
+	 .buildl img{
+		display: none;}
+	
+	
 }
+
+

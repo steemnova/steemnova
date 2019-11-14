@@ -9,7 +9,7 @@
 		<td>
 			<table>
 				<tr>
-					<td class="transparent" style="width:120px"><img width="120" height="120" src="{$dpath}gebaeude/{$elementID}.{if $elementID >=600 && $elementID <= 699}jpg{else}gif{/if}" alt=""></td>
+					
 					<td class="transparent left"><p>{$LNG.longDescription.$elementID}</p>
 					{if !empty($Bonus)}<p>
 					<b>{$LNG.in_bonus}</b><br>
