@@ -1,0 +1,4 @@
+localhost
+username
+password
+dbname
