@@ -18,7 +18,8 @@ if($random_event==1) {
 	mysqli_query($connection, "INSERT INTO uni1_messages (message_owner, message_sender, message_time, message_type, message_from, message_subject, message_text, message_unread, message_universe) VALUES ($id, 1, $time, 50, '$nickname', '$subject', '$text', 1, 1)");
 	mysqli_query($connection, "UPDATE uni1_planets SET metal=(metal*0.9)");
 	mysqli_query($connection, "UPDATE uni1_planets SET crystal=(crystal*0.9)");
-	mysqli_query($connection, "UPDATE uni1_planets SET deuterium=(deuterium*0.9)"); 
+	mysqli_query($connection, "UPDATE uni1_planets SET deuterium=(deuterium*0.9)");
+	break;
 } else if($random_event==2) {
 	$text = '<span class="admin">Someone came to our planet in a blue box and improved our energy installation! For 24 hours we will generate more energy.</span>';
 	mysqli_query($connection, "INSERT INTO uni1_messages (message_owner, message_sender, message_time, message_type, message_from, message_subject, message_text, message_unread, message_universe) VALUES ($id, 1, $time, 50, '$nickname', '$subject', '$text', 1, 1)");
@@ -40,8 +41,8 @@ if($random_event==1) {
 } else if($random_event==4) {
 	$text = '<span class="admin">A strange cosmic anomaly caused the water to evaporate suddenly. Scientists are investigating the matter, but thanks to this mysterious phenomenon we have additional space for buildings!</span>';
 	mysqli_query($connection, "INSERT INTO uni1_messages (message_owner, message_sender, message_time, message_type, message_from, message_subject, message_text, message_unread, message_universe) VALUES ($id, 1, $time, 50, '$nickname', '$subject', '$text', 1, 1)");
-	mysqli_query($connection, "UPDATE uni1_planets SET field_max=field_max+1 WHERE planet_type=1 AND id=$id");
-	
+	mysqli_query($connection, "UPDATE uni1_planets SET field_max=field_max+1 WHERE planet_type=1");
+	break;
 }
 
 
