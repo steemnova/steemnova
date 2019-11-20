@@ -4,7 +4,7 @@ $config = file("config.txt");
 $connection = mysqli_connect(trim($config[0]), trim($config[1]), trim($config[2]), trim($config[3]));
 $database = mysqli_fetch_all(mysqli_query($connection, "SELECT id FROM uni1_users"));
 
-$random_event = rand(1,4);
+$random_event = rand(1,5);
 $time = time();
 $nickname = '<span class="admin">SteemNova Event System</span>';
 $subject = '<span class="admin">New Event</span>';
@@ -43,9 +43,14 @@ if($random_event==1) {
 	mysqli_query($connection, "INSERT INTO uni1_messages (message_owner, message_sender, message_time, message_type, message_from, message_subject, message_text, message_unread, message_universe) VALUES ($id, 1, $time, 50, '$nickname', '$subject', '$text', 1, 1)");
 	mysqli_query($connection, "UPDATE uni1_planets SET field_max=field_max+1 WHERE planet_type=1");
 	break;
+} else if($random_event==5) {
+	$text = '<span class="admin">We found a magic button on the ships. It turned out that it increases the shield of the ship for some time. For the next 24 hours our ships will be better protected from enemy attacks!</span>';
+	mysqli_query($connection, "INSERT INTO uni1_messages (message_owner, message_sender, message_time, message_type, message_from, message_subject, message_text, message_unread, message_universe) VALUES ($id, 1, $time, 50, '$nickname', '$subject', '$text', 1, 1)");
+	$dm = mysqli_fetch_all(mysqli_query($connection, "SELECT dm_defensive FROM uni1_users WHERE id=$id"));
+	if($dm[0][0]==0) {
+	mysqli_query($connection, "UPDATE uni1_users SET dm_defensive=($time+86400) WHERE id=$id");
+	} else {
+	mysqli_query($connection, "UPDATE uni1_users SET dm_defensive=dm_defensive+86400 WHERE id=$id");
+	}
+
 }
-
-
-
-}
-
