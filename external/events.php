@@ -4,7 +4,7 @@ $config = file("config.txt");
 $connection = mysqli_connect(trim($config[0]), trim($config[1]), trim($config[2]), trim($config[3]));
 $database = mysqli_fetch_all(mysqli_query($connection, "SELECT id FROM uni1_users"));
 
-$random_event = rand(1,5);
+$random_event = rand(1,6);
 $time = time();
 $nickname = '<span class="admin">SteemNova Event System</span>';
 $subject = '<span class="admin">New Event</span>';
@@ -52,5 +52,19 @@ if($random_event==1) {
 	} else {
 	mysqli_query($connection, "UPDATE uni1_users SET dm_defensive=dm_defensive+86400 WHERE id=$id");
 	}
+} else if($random_event==6) {
+	$text = '<span class="admin">Our planets were attacked by pirates, we managed to destroy them by throwing rocks (not minerals). In orbit of our planets there are remains that you can collect with a recycler!</span>';
+	mysqli_query($connection, "INSERT INTO uni1_messages (message_owner, message_sender, message_time, message_type, message_from, message_subject, message_text, message_unread, message_universe) VALUES ($id, 1, $time, 50, '$nickname', '$subject', '$text', 1, 1)");
+	$metal = rand(1, 1000);
+	$crystal = rand(1, 500);
+	$mother_planet = mysqli_fetch_all(mysqli_query($connection, "SELECT galaxy, system, planet FROM uni1_users"));
+	for($i=0; $i<=(count($mother_planet)-1); $i++) {
+	$galaxy = $mother_planet[$i][0];
+	$system = $mother_planet[$i][1];
+	$planet = $mother_planet[$i][2];
+	mysqli_query($connection, "UPDATE uni1_planets SET der_metal=der_metal+$metal WHERE (galaxy=$galaxy AND system=$system AND planet=$planet)");
+	mysqli_query($connection, "UPDATE uni1_planets SET der_crystal=der_crystal+$crystal WHERE (galaxy=$galaxy AND system=$system AND planet=$planet)");
+	}
+}
 
 }
