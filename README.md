@@ -75,4 +75,5 @@ SteemNova is a fork of Open Source Browsergame Framework [jkroepke/2Moons](https
 Code copyright 2009-2016 Jan-Otto Kröpke released under the MIT License.
 
 Code copyright 2018 @steemnova released under the MIT License.
+
 Code copyright 2018-2020 @IntinteDAO released under the MIT License.
