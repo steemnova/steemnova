@@ -1,4 +1,4 @@
-# SteemNova - 2Moons engine-based browsergame for Steemians by steemnova
+# SteemNova 2 - 2Moons engine-based browsergame for Steemians
 
 ![](https://steemitimages.com/DQmNhKvcRhp5THpijqS45M18MiDpg1Cvc78Sv9rKCiJi5NJ/image.png)
 
@@ -48,35 +48,31 @@ SteemNova expansion goes as follows:
 4. ~~Specify detailed explanation how the reward system will work~~. (https://steemit.com/steemnova/@steemnova/steemnova-weekly-sbd-reward-scheme-for-members-of-the-best-alliances)
 5. Announce bug bounties, artwork contests and utopian-io task requests for contributors (mobile UI, visual bugs etc.).
 6. ~~Steem accounts integration.~~ (https://github.com/steemnova/steemnova/pull/67)
-
+7. Fix all known bugs
+8. Complete new design
 
 ## Local installation
 
 - Clone the repo: `git clone https://github.com/steemnova/steemnova`
-- Install components: `apt-get install apache2 php7.0 php7.0-gd php7.0-fpm php7.0-mysql php7.0-curl libapache2-mod mysql-server`
-- Install [php-ds extension](https://github.com/php-ds/extension)
-    - `apt-get install php-pear php7.0-dev`
-	- pecl install ds
-	- create file `30-ds.ini` with content `extension=ds.so` and put in `/etc/php/7.0/apache2/conf.d/` [source](https://github.com/php-ds/extension/issues/2#issuecomment-181855047)
+- Install components: `apt install apache2 php7.3 php7.3-gd php7.3-fpm php7.3-mysql php7.3-curl php-ds libapache2-mod mysql-server`
 - Install HTML_BBCodeParser2
     - `pear install HTML_BBCodeParser2-0.1.0`
 - Setup mysql: `create user USER identified by PASSWORD; create database DB; grant all privileges on DB.* to USER;`
 - Set write privileges to dirs: `cache/`, `includes/`
 - Run wizard: `127.0.0.1/install/install.php`
 
-
 ## Screenshots
 
 <p align="center">
-<img src="https://i.imgur.com/AvLok6Z.png">
+<img src="https://user-images.githubusercontent.com/56807194/69483643-10b60100-0e2a-11ea-826f-d657bcceb40a.png">
   <i>In game screen</i>
 </p>
-
 
 ## Copyright and license
 
 SteemNova is a fork of Open Source Browsergame Framework [jkroepke/2Moons](https://github.com/jkroepke/2Moons) engine.
 
-Code copyright 2009-2016 Jan-Otto Kröpke released under the MIT License. 
+Code copyright 2009-2016 Jan-Otto Kröpke released under the MIT License.
 
 Code copyright 2018 @steemnova released under the MIT License.
+Code copyright 2018-2020 @IntinteDAO released under the MIT License.
