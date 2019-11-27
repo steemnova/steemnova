@@ -40,8 +40,10 @@
 	var isPlayerCardActive	= "{$isPlayerCardActive|json}";
 
 	setInterval(function() {
-		serverTime.setSeconds(serverTime.getSeconds()+1);
-	}, 1000);
+		if((serverTime.getTime()/1000)!=Math.floor(Date.now() / 1000)) {
+			serverTime.setSeconds(serverTime.getSeconds()+1);
+		}
+	}, 25);
 	</script>
 	<script type="text/javascript" src="./scripts/base/jquery.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/base/jquery.ui.js?v={$REV}"></script>
