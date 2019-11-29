@@ -178,7 +178,7 @@ CREATE TABLE `%PREFIX%config` (
   `LastSettedGalaxyPos` tinyint(3) unsigned NOT NULL DEFAULT '1',
   `LastSettedSystemPos` smallint(5) unsigned NOT NULL DEFAULT '1',
   `LastSettedPlanetPos` tinyint(3) unsigned NOT NULL DEFAULT '1',
-  `noobprotection` int(11) NOT NULL DEFAULT '0',
+  `noobprotection` int(11) NOT NULL DEFAULT '1',
   `noobprotectiontime` int(11) NOT NULL DEFAULT '5000',
   `noobprotectionmulti` int(11) NOT NULL DEFAULT '5',
   `forum_url` varchar(128) NOT NULL DEFAULT 'http://2moons.cc',
