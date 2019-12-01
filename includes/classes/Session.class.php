@@ -270,6 +270,10 @@ class Session
 			// return false;
 		// }
 
+    if(isset($_GET['page']) && $_GET['page']=="raport" && isset($_GET['raport']) && count($_GET)==2 && MODE === 'INGAME')
+    $this->data['lastActivity']=time();
+
+		
 		if($this->data['lastActivity'] < TIMESTAMP - SESSION_LIFETIME)
 		{
 			return false;

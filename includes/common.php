@@ -146,12 +146,22 @@ if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON')
 		':userId'	=> $session->userId
 	));
 	
+	if(!$session->isValidSession() && isset($_GET['page']) && $_GET['page']=="raport" && isset($_GET['raport']) && count($_GET)==2 && MODE === 'INGAME') {
+	$USER['lang']='en';
+	$USER['bana']=0;
+	$USER['timezone']="Europe/Berlin";
+	$USER['urlaubs_modus']=0;
+	$USER['authlevel']=0;
+	$USER['id']=0;
+}
+
+
 	if(!(!$session->isValidSession() && isset($_GET['page']) && $_GET['page']=="raport" && isset($_GET['raport']) && count($_GET)==2 && MODE === 'INGAME'))
 	if(empty($USER))
 	{
 		HTTP::redirectTo('index.php?code=3');
 	}
-	
+
 	$LNG	= new Language($USER['lang']);
 	$LNG->includeData(array('L18N', 'INGAME', 'TECH', 'CUSTOM'));
 	// $THEME->setUserTheme($USER['dpath']);
