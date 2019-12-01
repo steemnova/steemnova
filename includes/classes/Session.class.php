@@ -270,8 +270,8 @@ class Session
 			// return false;
 		// }
 
-    if(isset($_GET['page']) && $_GET['page']=="raport" && isset($_GET['raport']) && count($_GET)==2 && MODE === 'INGAME')
-    $this->data['lastActivity']=time();
+		if(isset($_GET['page']) && $_GET['page']=="raport" && isset($_GET['raport']) && count($_GET)==2 && MODE === 'INGAME') {
+		$this->data['lastActivity']=time(); } else { if(!isset($_SESSION["obj"])) { return false; } }
 
 		
 		if($this->data['lastActivity'] < TIMESTAMP - SESSION_LIFETIME)
