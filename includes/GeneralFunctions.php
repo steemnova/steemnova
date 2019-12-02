@@ -527,9 +527,11 @@ function exceptionHandler($exception)
 	var tdformat	= "[M] [D] [d] [H]:[i]:[s]";
 	var queryString	= "";
 
-	setInterval(function() {
-		serverTime.setSeconds(serverTime.getSeconds()+1);
-	}, 1000);
+    setInterval(function() {
+    if((serverTime.getTime()/1000)!=Math.floor(Date.now() / 1000)) {
+    serverTime.setSeconds(serverTime.getSeconds()+1);
+    }
+    }, 25);
 	</script>
 	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.js?v=2123"></script>
 	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.ui.js?v=2123"></script>
