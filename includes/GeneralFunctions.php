@@ -526,11 +526,13 @@ function exceptionHandler($exception)
 	var months 		= ["Jan","Feb","Mar","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"] ;
 	var tdformat	= "[M] [D] [d] [H]:[i]:[s]";
 	var queryString	= "";
+    var relativeTime = Math.floor(Date.now() / 1000);
 
     setInterval(function() {
-    if((serverTime.getTime()/1000)!=Math.floor(Date.now() / 1000)) {
-    serverTime.setSeconds(serverTime.getSeconds()+1);
-    }
+	if(relativeTime < Math.floor(Date.now() / 1000)) {
+	    serverTime.setSeconds(serverTime.getSeconds()+1);
+	    relativeTime++;
+	}
     }, 25);
 	</script>
 	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.js?v=2123"></script>

@@ -38,12 +38,15 @@
 	var tdformat	= "{$LNG.js_tdformat}";
 	var queryString	= "{$queryString|escape:'javascript'}";
 	var isPlayerCardActive	= "{$isPlayerCardActive|json}";
+	var relativeTime = Math.floor(Date.now() / 1000);
 
 	setInterval(function() {
-		if((serverTime.getTime()/1000)!=Math.floor(Date.now() / 1000)) {
+		if(relativeTime < Math.floor(Date.now() / 1000)) {
 			serverTime.setSeconds(serverTime.getSeconds()+1);
+			relativeTime++;
 		}
 	}, 25);
+
 	</script>
 	<script type="text/javascript" src="./scripts/base/jquery.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/base/jquery.ui.js?v={$REV}"></script>
