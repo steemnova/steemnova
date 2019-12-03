@@ -65,7 +65,7 @@ if (!defined('SHIP_DEBRIS_FACTOR')) {
 
 //Percentage of debris generated from destroyed defenses.  
 if (!defined('DEFENSE_DEBRIS_FACTOR')) {
-    define('DEFENSE_DEBRIS_FACTOR', 0.3);
+    define('DEFENSE_DEBRIS_FACTOR', 0);
 }
 
 define('POINT_UNIT', 1000); //Ogame point = 1000 resources.
