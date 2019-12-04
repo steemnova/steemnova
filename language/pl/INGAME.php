@@ -374,6 +374,7 @@ $LNG['fl_no_hold_depot']					= 'Na planecie docelowej nie ma depozytu sojusznicz
 $LNG['fl_not_enough_deuterium']				= 'Nie masz wystarczającej ilości deuteru.';
 $LNG['fl_not_enough_space']					= 'Nie masz tyle miejsca w ładowniach.';
 $LNG['fl_hold_time_not_exists']				= 'Niepoprawny czas postoju.';
+$LNG['fl_own_planet_error']					= 'Błąd! Ponownie wybierz planetę, z której chcesz wysłać flotę.';
 
 
 

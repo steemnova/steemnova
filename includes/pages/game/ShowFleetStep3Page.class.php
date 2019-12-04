@@ -67,6 +67,14 @@ class ShowFleetStep3Page extends AbstractGamePage
 		$fleetArray  	= $formData['fleet'];
 		$fleetStorage	= $formData['fleetRoom'];
 		$fleetSpeed		= $formData['fleetSpeed'];
+		$ownPlanet		= $formData['ownPlanet'];
+	
+		if($ownPlanet != $PLANET['id']){
+			$this->printMessage($LNG['fl_own_planet_error'], array(array(
+			'label'	=> $LNG['sys_back'],
+			'url'	=> 'game.php?page=fleet1'
+		    )));
+		}
 
 		if($targetMission != 2)
 		{

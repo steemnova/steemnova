@@ -383,7 +383,7 @@ $LNG['fl_not_enough_space']					= 'You do not have enough cargo space available.
 $LNG['fl_hold_time_not_exists']				= 'Invalid retention time.';
 $LNG['fl_system_places']					= 'Special locations';
 $LNG['fl_no_noresource_exchange'] = 'No resources in exchange field';
-
+$LNG['fl_own_planet_error']					= 'Error! Again select the planet from which you want to send the fleet.';
 $LNG['fl_exchange'] = 'Exchange';
 $LNG['fl_visibility'] = 'Visibility';
 $LNG['fl_visibility_all'] = 'All';

@@ -364,6 +364,7 @@ $LNG['fl_no_hold_depot']					= 'En el destino, no hay depósito de la alianza.';
 $LNG['fl_not_enough_deuterium']				= 'No hay suficiente Deuterio.';
 $LNG['fl_not_enough_space']					= 'No tienes suficiente espacio de carga disponible.';
 $LNG['fl_hold_time_not_exists']				= 'El tiempo de espera no es válido.';
+$LNG['fl_own_planet_error']					= 'Error! Again select the planet from which you want to send the fleet.';
 
 //----------------------------------------------------------------------------//
 //BUILDINGS - RESEARCH - SHIPYARD - DEFENSES

@@ -368,6 +368,7 @@ $LNG['fl_no_hold_depot']					= 'Nenhum depósito Aliança situa-se no alvo.';
 $LNG['fl_not_enough_deuterium']				= 'Sem deutério disponível.';
 $LNG['fl_not_enough_space']					= 'Não tens carga suficiente';
 $LNG['fl_hold_time_not_exists']				= 'Tempo de retenção inválido.';
+$LNG['fl_own_planet_error']					= 'Error! Again select the planet from which you want to send the fleet.';
 
 //----------------------------------------------------------------------------//
 // Edificios

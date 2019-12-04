@@ -375,6 +375,7 @@ $LNG['fl_visibility'] 						= 'Sichtbarkeit';
 $LNG['fl_visibility_all']					= 'Jeder';
 $LNG['fl_visibility_alliance']					= 'Nur Allianzmitglieder und Freunde';
 $LNG['fl_visibility_no_enemies'] 				= 'Jeder außer Gegner';
+$LNG['fl_own_planet_error']					= 'Error! Again select the planet from which you want to send the fleet.';
 
 //----------------------------------------------------------------------------//
 //BUILDINGS - RESEARCH - SHIPYARD - DEFENSES
@@ -424,7 +425,6 @@ $LNG['sys_nomore_level'] 					= 'Sie versuchen, ein Gebäude zu zerstören, was 
 $LNG['sys_buildlist'] 						= 'Bauliste';
 $LNG['sys_techlist'] 						= 'Forschungsliste';
 $LNG['sys_buildlist_fail'] 					= 'Bau nicht möglich';
-
 //----------------------------------------------------------------------------//
 //RESOURCES
 $LNG['rs_amount']						= 'Anzahl';
