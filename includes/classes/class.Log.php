@@ -33,6 +33,30 @@ class Log
 	public function __isset($key){
         return isset($this->data[$key]);
     }
+
+    function saveTr(){
+	
+	$db = Database::get();
+	$uni = (empty($this->data['universe']) ? $this->data['uni'] : $this->data['universe']);
+	
+	$sql = "INSERT INTO %%LOG%% SET
+	target		= :id,
+	mode		= :mode,
+	admin		= :admin,
+	time		= :time,
+	data		= :data,
+	universe 	= :universe;";
+
+	$db->insert($sql, array(
+	    ':id'		=> $this->data['target'],
+	    ':mode'		=> $this->data['mode'],
+	    ':admin'	=> $this->data['admin'],
+	    ':time'		=> TIMESTAMP,
+	    ':data'		=> serialize($this->data['new']),
+	    ':universe'	=> $uni,
+	));
+    }
+
 	function save() {
 		$data = serialize(array($this->data['old'], $this->data['new']));
 		$uni = (empty($this->data['universe']) ? $this->data['uni'] : $this->data['universe']);

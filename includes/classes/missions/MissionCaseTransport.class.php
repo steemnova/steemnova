@@ -56,6 +56,25 @@ class MissionCaseTransport extends MissionFunctions implements Mission
 				pretty_number($this->_fleet['fleet_resource_deuterium']), $LNG['tech'][903]
 			);
 
+		$new = array();
+		
+		$new['startPlanet'] 		= $this->_fleet['fleet_start_id'];
+		$new['startPlanetName']	 	= $startPlanetName;
+		$new['metal'] 				= $this->_fleet['fleet_resource_metal'];
+		$new['crystal'] 			= $this->_fleet['fleet_resource_crystal'];
+		$new['deuterium'] 			= $this->_fleet['fleet_resource_deuterium'];
+		$new['targetPlanet'] 		= $this->_fleet['fleet_end_id'];
+		$new['targetPlanetName'] 	= $targetPlanetName;
+		
+		require_once 'includes/classes/class.Log.php';
+		
+		$LOG = new Log(5);
+		$LOG->target = $this->_fleet['fleet_target_owner'];
+		$LOG->admin = $this->_fleet['fleet_owner'];
+		$LOG->old = $new;
+		$LOG->new = $new;
+		$LOG->saveTr();
+
 			PlayerUtil::sendMessage($this->_fleet['fleet_target_owner'], 0, $LNG['sys_mess_tower'], 5,
 				$LNG['sys_mess_transport'], $Message, $this->_fleet['fleet_start_time'], NULL, 1, $this->_fleet['fleet_universe']);
 		}
