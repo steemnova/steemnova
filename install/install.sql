@@ -97,7 +97,7 @@ CREATE TABLE `%PREFIX%banned` (
   `author` varchar(64) NOT NULL DEFAULT '',
   `email` varchar(64) NOT NULL DEFAULT '',
   `universe` tinyint(3) unsigned NOT NULL,
-  KEY `ID` (`id`),
+  PRIMARY KEY `ID` (`id`),
   KEY `universe` (`universe`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
