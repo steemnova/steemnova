@@ -716,7 +716,7 @@ $LNG['al_tfkristall']   					= 'Łączny złom - kryształ';
 $LNG['al_view_stats']						= 'Statystyki bitew?';
 $LNG['al_view_diplo']                      	= 'Dyplomacja?';
 $LNG['al_view_events']						= 'Aktualności';
-
+$LNG['al_new_apply']                      	= 'Twój sojusz otrzymał nowe podanie od - <a href="#" onclick="return Dialog.Playercard(%s, \'%s\');">%s</a>';
 
 
 

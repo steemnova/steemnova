@@ -741,6 +741,7 @@ $LNG['al_rank_desc']['RANKS']             = 'Управлять рангами';
 $LNG['al_rank_desc']['MANAGEUSERS']       = 'Управлять членами альянса';
 $LNG['al_rank_desc']['EVENTS']            = 'Видеть события во внутреннем тексте';
 $LNG['al_invalid_rank_name']              = 'Имя ранга может состоять только из букв, цифр, пробелов и символов "_", "-", "."';
+$LNG['al_new_apply']                      	= 'Your alliance has received a new application from - <a href="#" onclick="return Dialog.Playercard(%s, \'%s\');">%s</a>';
 
 // Друзья
 $LNG['bu_request_exists']                 = 'Вы уже отправляли предложение пожружиться этому игроку.';

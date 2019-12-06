@@ -774,7 +774,7 @@ $LNG['al_make_ally_insufficient_points']	= 'Ittifak kurmak icin yeterli puana sa
 $LNG['al_invalid_rank_name']				= 'Boyle bir rutbe kaydi yok!';
 $LNG['sys_back']							= 'Geri';
 $LNG['sys_forward']							= 'Ileri';
-
+$LNG['al_new_apply']                      	= 'Your alliance has received a new application from - <a href="#" onclick="return Dialog.Playercard(%s, \'%s\');">%s</a>';
 
 
 

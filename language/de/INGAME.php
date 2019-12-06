@@ -769,7 +769,7 @@ $LNG['al_rank_desc']['RANKS']					= 'Rangverwaltung';
 $LNG['al_rank_desc']['MANAGEUSERS']				= 'Kann Mitglieder verwalten';
 $LNG['al_rank_desc']['EVENTS']					= 'Kann Ereignisse im internen Bereich sehen';
 $LNG['al_invalid_rank_name']					= 'Im Ranknamen sind nur Zahlen, Buchstaben, Leerzeichen, _, -, . erlaubt!';
-
+$LNG['al_new_apply']                      	= 'Your alliance has received a new application from - <a href="#" onclick="return Dialog.Playercard(%s, \'%s\');">%s</a>';
 
 //----------------------------------------------------------------------------//
 //BUDDY

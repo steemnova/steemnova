@@ -757,6 +757,7 @@ $LNG['al_rank_desc']['DIPLOMATIC']			= 'Puede gestionar la Diplomacia';
 $LNG['al_rank_desc']['RANKS']				= 'Puede administrar los Rangos';
 $LNG['al_rank_desc']['MANAGEUSERS']			= 'Puede gestionar a los miembros';
 $LNG['al_rank_desc']['EVENTS']				= 'Puede ver los eventos';
+$LNG['al_new_apply']                      	= 'Your alliance has received a new application from - <a href="#" onclick="return Dialog.Playercard(%s, \'%s\');">%s</a>';
 
 //----------------------------------------------------------------------------//
 //BUDDY

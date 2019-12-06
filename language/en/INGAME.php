@@ -788,6 +788,7 @@ $LNG['al_rank_desc']['MANAGEUSERS']			= 'Can manage members';
 $LNG['al_rank_desc']['EVENTS']			= 'Can see events';
 $LNG['al_invalid_rank_name']				= 'In the Rank name only numbers, letters, spaces, _, -. allowed!';
 $LNG['al_make_ally_insufficient_points']	= 'You do have not enough points to create an Alliance.<br>It requires %s points, and you have %s points.';
+$LNG['al_new_apply']                      	= 'Your alliance has received a new application from - <a href="#" onclick="return Dialog.Playercard(%s, \'%s\');">%s</a>';
 
 //----------------------------------------------------------------------------//
 // Lista de Amigos
