@@ -271,7 +271,7 @@ class ShowAlliancePage extends AbstractGamePage
 		$allianceId	= HTTP::_GP('id', 0);
 
 		$db 	= Database::get();
-		$sql	= "SELECT ally_tag, ally_request, ally_request_notallow FROM %%ALLIANCE%% WHERE id = :allianceId AND ally_universe = :universe;";
+		$sql	= "SELECT ally_tag, ally_request, ally_request_notallow, ally_owner FROM %%ALLIANCE%% WHERE id = :allianceId AND ally_universe = :universe;";
 		$allianceResult = $db->selectSingle($sql, array(
 			':allianceId'	=> $allianceId,
 			':universe'     => Universe::current()
@@ -287,6 +287,10 @@ class ShowAlliancePage extends AbstractGamePage
 				'label'	=> $LNG['sys_forward'],
 				'url'	=> '?page=alliance'
 			)));
+		}
+
+		if($USER['ally_id'] != 0){
+			$this->redirectToHome();
 		}
 
 		if (!empty($text))
@@ -309,6 +313,13 @@ class ShowAlliancePage extends AbstractGamePage
 				'url'	=> '?page=alliance'
 			)));
 		}
+
+			$applyMessage =  sprintf($LNG['al_new_apply'],
+				$USER['id'], $USER['username'], $USER['username']);
+	
+			PlayerUtil::sendMessage($allianceResult['ally_owner'], 0, $LNG['al_alliance'], 2,
+				$LNG['al_request'], $applyMessage, TIMESTAMP);
+
 
 		$this->assign(array(
 			'allyid'			=> $allianceId,
