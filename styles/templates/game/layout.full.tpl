@@ -9,7 +9,7 @@
 
 	<logo>
 		<div class="fixed">
-			<a href="https://github.com/steemnova/steemnova/commits/master" target="copy"><img src="styles/resource/images/meta.png" /></a>
+			<a href="https://steemnova.intinte.org/game.php?page=overview"><img src="styles/resource/images/meta.png" /></a>
 		</div>
 	</logo>
 	
