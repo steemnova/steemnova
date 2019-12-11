@@ -1099,8 +1099,8 @@ $LNG['pl_totalfight']      					= 'Łącznie walk';
 $LNG['pl_destroy']    						= '%s zniszczył';
 $LNG['pl_unitsshot']    					= 'Zabił jednostek';
 $LNG['pl_unitslose']    					= 'Stracił jednostek';
-$LNG['pl_dermetal']    						= 'Zebrał metalu';
-$LNG['pl_dercrystal']   					= 'Zebrał kryształu';
+$LNG['pl_dermetal']    						= 'Wytworzyl pole zniszczeń z metalu';
+$LNG['pl_dercrystal']   					= 'Wytworzyl pole zniszczeń z kryształu';
 $LNG['pl_etc']   							= 'Itd. ';
 //----------------------------------------------------------------------------//
 // Support
