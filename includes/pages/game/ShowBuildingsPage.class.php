@@ -132,10 +132,17 @@ class ShowBuildingsPage extends AbstractGamePage
 			return;
 		
 		$CurrentQueue  		= unserialize($PLANET['b_building_id']);
-
+		$DemolishedQueue = 0;
 				
 		if (!empty($CurrentQueue)) {
 			$ActualCount	= count($CurrentQueue);
+			$DemolishedQueue		= count($CurrentQueue);
+				foreach($this->getQueueData()['queue'] as $QueueInfo){
+					if($QueueInfo['destroy'])
+
+					$DemolishedQueue = $DemolishedQueue - 2;
+					$DemolishedQueue = max(0, $DemolishedQueue);
+				}
 		} else {
 			$CurrentQueue	= array();
 			$ActualCount	= 0;
@@ -146,7 +153,7 @@ class ShowBuildingsPage extends AbstractGamePage
 		$config	= Config::get();
 
 		if (($config->max_elements_build != 0 && $ActualCount == $config->max_elements_build)
-			|| ($AddMode && $PLANET["field_current"] >= ($CurrentMaxFields - $ActualCount)))
+			|| ($AddMode && $PLANET["field_current"] >= ($CurrentMaxFields - $DemolishedQueue)))
 		{
 			return;
 		}
@@ -271,10 +278,19 @@ class ShowBuildingsPage extends AbstractGamePage
 		$queueData	 		= $this->getQueueData();
 		$Queue	 			= $queueData['queue'];
 		$QueueCount			= count($Queue);
+
+		$QueueDestroy = $QueueCount;
+			foreach($Queue as $QueueInfo){
+				if($QueueInfo['destroy'])
+	
+				$QueueDestroy = $QueueDestroy - 2;
+				$QueueDestroy = max(0, $QueueDestroy);
+	}
+
 		$CanBuildElement 	= isVacationMode($USER) || $config->max_elements_build == 0 || $QueueCount < $config->max_elements_build;
 		$CurrentMaxFields   = CalculateMaxPlanetFields($PLANET);
 		
-		$RoomIsOk 			= $PLANET['field_current'] < ($CurrentMaxFields - $QueueCount);
+		$RoomIsOk 			= $PLANET['field_current'] < ($CurrentMaxFields - $QueueDestroy);
 				
 		$BuildEnergy		= $USER[$resource[113]];
 		$BuildLevelFactor   = 10;
