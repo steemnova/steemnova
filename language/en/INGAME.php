@@ -574,7 +574,7 @@ $LNG['mg_read_type_all']					= 'Mark all messages of this type as read';
 $LNG['mg_read_all']							= 'Mark all messages as read';
 $LNG['mg_confirm']							= 'Confirm';
 $LNG['mg_receiver_block_pm']				= 'The receiver block private messages.';
-
+$LNG['mg_deleted']					= 'The message has been deleted.';
 
 //----------------------------------------------------------------------------//
 // Aliança

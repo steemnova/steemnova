@@ -561,6 +561,7 @@ $LNG['mg_answer_to']						= 'Odpowiedz do:';
 $LNG['mg_write_mail_to_ops']				= 'Napisz wiadomość do';
 $LNG['mg_page']								= 'Strona ';
 $LNG['mg_receiver_block_pm']				= 'Odbioraca zablokował prywatne wiadomości.';
+$LNG['mg_deleted']					= 'Wiadomość została usunięta.';
 
 //----------------------------------------------------------------------------//
 //ALLIANCE

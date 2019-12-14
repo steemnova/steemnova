@@ -558,6 +558,7 @@ $LNG['mg_read_type_all']					= 'Butun mesajlari okundu olarak isaretle';
 $LNG['mg_read_all']							= 'Bu tip mesajlari okundu olarak isaretle';
 $LNG['mg_confirm']							= 'Onayla';
 $LNG['mg_receiver_block_pm']				= 'Alici ozel mesaj kabul etmiyor.';
+$LNG['mg_deleted']					= 'The message has been deleted.';
 
 
 //----------------------------------------------------------------------------//

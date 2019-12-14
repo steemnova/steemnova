@@ -546,6 +546,7 @@ $LNG['mg_answer_to']						= 'Responder a:';
 $LNG['mg_write_mail_to_ops']				= 'Escribe un E-mail a';
 $LNG['mg_page']								= 'Página';
 $LNG['mg_receiver_block_pm']				= 'El destinatario ha bloqueado los Mensajes Privados.';
+$LNG['mg_deleted']					= 'The message has been deleted.';
 
 //----------------------------------------------------------------------------//
 //ALLIANCE

@@ -553,6 +553,7 @@ $LNG['mg_read_type_all']					= 'Marcar todas as mensagens deste tipo como lidas'
 $LNG['mg_read_all']							= 'Marcar todas as mensagens como lidas';
 $LNG['mg_confirm']							= 'Confirmar';
 $LNG['mg_receiver_block_pm']				= 'O receptor bloqueou a recepção de mensagens';
+$LNG['mg_deleted']					= 'The message has been deleted.';
 
 //----------------------------------------------------------------------------//
 // Aliança

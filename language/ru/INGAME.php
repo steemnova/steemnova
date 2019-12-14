@@ -529,6 +529,7 @@ $LNG['mg_answer_to']                      = 'Ответить:';
 $LNG['mg_write_mail_to_ops']              = 'Написать письмо на электронную почту';
 $LNG['mg_page']                           = 'Страница';
 $LNG['mg_receiver_block_pm']              = 'Получатель отключил получение личных сообщений';
+$LNG['mg_deleted']					= 'The message has been deleted.';
 
 // Альянс
 $LNG['al_not_exists']                     = 'Альянс не существует.';

@@ -68,5 +68,22 @@ Message	= {
 				IDs.push(mess.name.replace(/delmes\[(\d+)\]/, '$1'));
 		});	
 		return IDs;
+	},
+	
+	delMessage: function(ID) {
+		
+		$('#loading').show();
+		
+		$.getJSON('game.php?page=messages&mode=deleteMessage&delMessID='+ID+'&ajax=1', function(data) {
+			$('#loading').hide();
+			
+			$('.message_'+ID).remove();
+			
+			if(data.code > 0)
+				NotifyBox(data.mess);
+			else
+				NotifyBox(data.mess);
+		});
+		
 	}
 }

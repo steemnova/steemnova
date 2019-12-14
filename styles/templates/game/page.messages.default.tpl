@@ -50,7 +50,7 @@
 		<td>{$LNG.mg_subject}</td>
 	</tr>
 	{foreach $MessageList as $Message}
-	<tr id="message_{$Message.id}" class="message_head{if $MessID != 999 && $Message.unread == 1} mes_unread{/if}">
+	<tr id="message_{$Message.id}" class="message_{$Message.id} message_head{if $MessID != 999 && $Message.unread == 1} mes_unread{/if}">
 		<td rowspan="2">
 		{if $MessID != 999}<input name="messageID[{$Message.id}]" value="1" type="checkbox">{/if}
 		</td>
@@ -60,9 +60,10 @@
 		{if $Message.type == 1 && $MessID != 999}
 		<a href="#" onclick="return Dialog.PM({$Message.sender}, Message.CreateAnswer('{$Message.subject}'));" title="{$LNG.mg_answer_to} {strip_tags($Message.from)}"><img src="{$dpath}img/m.gif" border="0"></a>
 		{/if}
+		<a href="#" onclick="Message.delMessage({$Message.id});return false;"><img src="{$dpath}img/deletemsg.png"></a>
 		</td>
 	</tr>
-	<tr class="messages_body{if $MessID != 999 && $Message.unread == 1} mes_unread{/if}">
+	<tr class="message_{$Message.id} messages_body{if $MessID != 999 && $Message.unread == 1} mes_unread{/if}">
 		<td colspan="3" class="left">
 		{$Message.text}
 		</td>

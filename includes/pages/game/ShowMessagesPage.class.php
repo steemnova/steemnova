@@ -145,6 +145,38 @@ class ShowMessagesPage extends AbstractGamePage
         // $this->display('page.messages.view.tpl');
     // }
 
+    private function sendData($Code, $Message)
+    {
+	$this->returnData['code']	= $Code;
+	$this->returnData['mess']	= $Message;
+	$this->sendJSON($this->returnData);
+    }
+
+    function deleteMessage()
+    {
+	global $LNG, $USER;
+	$db = Database::get();
+
+        $this->initTemplate();
+        $this->setWindow('ajax');
+	    
+	$delMessID		= HTTP::_GP('delMessID', 0);
+	    
+        if(empty($delMessID))
+        {
+	    $this->sendData(0, $LNG['error']);
+        }
+
+               
+        $sql = 'DELETE FROM %%MESSAGES%% WHERE message_id = :messID AND message_owner = :userId;';
+		
+	$db->delete($sql, array(
+	    ':userId' => $USER['id'],
+	    ':messID' => $delMessID,
+	));
+		
+	$this->sendData($delMessID, $LNG['mg_deleted']);
+    }
 
     function action()
     {
