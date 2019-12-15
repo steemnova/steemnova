@@ -189,11 +189,6 @@ class ShowFleetAjaxPage extends AbstractGamePage
 		if($UserDeuterium < 0) {
 			$this->sendData(613, $LNG['fa_not_enough_fuel']);
 		}
-		
- 		$PlanetRess = new ResourceUpdate();
-		$PlanetRess->CalcResource($USER, $PLANET, true);
-		$PLANET[$resource[903]] -= $consumption;
-		$PlanetRess->SavePlanetToDB($USER, $PLANET);
 
 		if($consumption > FleetFunctions::GetFleetRoom($fleetArray)) {
 			$this->sendData(613, $LNG['fa_no_fleetroom']);
@@ -215,11 +210,12 @@ class ShowFleetAjaxPage extends AbstractGamePage
 		$fleetEndTime		= $fleetStayTime + $Duration;
 
 		$shipID				= array_keys($fleetArray);
+		$PLANET['deuterium'] -= $consumption;
 
 		FleetFunctions::sendFleet($fleetArray, $targetMission, $USER['id'], $PLANET['id'], $PLANET['galaxy'],
 			$PLANET['system'], $PLANET['planet'], $PLANET['planet_type'], $targetData['id_owner'], $planetID,
 			$targetData['galaxy'], $targetData['system'], $targetData['planet'], $targetData['planet_type'],
-			$fleetResource, $fleetStartTime, $fleetStayTime, $fleetEndTime);
+			$fleetResource, $fleetStartTime, $fleetStayTime, $fleetEndTime, 0, 0, 0, $consumption);
 
 		$this->sendData(600, $LNG['fa_sending']." ".array_sum($fleetArray)." ". $LNG['tech'][$shipID[0]] ." ".$LNG['gl_to']." ".$targetData['galaxy'].":".$targetData['system'].":".$targetData['planet']." ...");
 	}

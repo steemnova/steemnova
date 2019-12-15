@@ -526,7 +526,7 @@ class FleetFunctions
 		$fleetStartPlanetGalaxy, $fleetStartPlanetSystem, $fleetStartPlanetPlanet, $fleetStartPlanetType,
 		$fleetTargetOwner, $fleetTargetPlanetID, $fleetTargetPlanetGalaxy, $fleetTargetPlanetSystem,
 		$fleetTargetPlanetPlanet, $fleetTargetPlanetType, $fleetResource, $fleetStartTime, $fleetStayTime,
-		$fleetEndTime, $fleetGroup = 0, $missileTarget = 0, $fleetNoMReturn = 0)
+		$fleetEndTime, $fleetGroup = 0, $missileTarget = 0, $fleetNoMReturn = 0, $consumption = 0)
 	{
 		global $resource;
 		$fleetShipCount	= array_sum($fleetArray);
@@ -543,6 +543,12 @@ class FleetFunctions
 
 			$params[':'.$resource[$ShipID]]	= floatToString($ShipCount);
 		}
+
+		if($consumption > 0){
+			$planetQuery[] = $resource[903]." = ".$resource[903]." - :".$resource[903];
+			$params[':'.$resource[903]]	= $consumption;
+		}
+
 
 		$sql	= 'UPDATE %%PLANETS%% SET '.implode(', ', $planetQuery).' WHERE id = :planetId;';
 
