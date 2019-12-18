@@ -65,7 +65,7 @@ class ShowImperiumPage extends AbstractGamePage
 		}
 
         $planetList	= array();
-
+	$config		= Config::get($USER['universe']);
 		foreach($PLANETS as $Planet)
 		{
 			$planetList['name'][$Planet['id']]					= $Planet['name'];
@@ -86,6 +86,23 @@ class ShowImperiumPage extends AbstractGamePage
 			$planetList['resource'][903][$Planet['id']]			= $Planet['deuterium'];
 			$planetList['resource'][911][$Planet['id']]			= $Planet['energy'];
 			
+			if($Planet['planet_type'] == 1){
+				$basic[901][$Planet['id']] = $config->metal_basic_income * $config->resource_multiplier;
+				$basic[902][$Planet['id']] = $config->crystal_basic_income * $config->resource_multiplier;
+				$basic[903][$Planet['id']] = $config->deuterium_basic_income * $config->resource_multiplier;
+			}else{
+				$basic[901][$Planet['id']] = 0;
+				$basic[902][$Planet['id']] = 0;
+				$basic[903][$Planet['id']] = 0;
+			}
+
+			$planetList['resourcePerHour'][901][$Planet['id']]			= $basic[901][$Planet['id']] + $Planet['metal_perhour'];
+			$planetList['resourcePerHour'][902][$Planet['id']]			= $basic[902][$Planet['id']] + $Planet['crystal_perhour'];
+			$planetList['resourcePerHour'][903][$Planet['id']]			= $basic[903][$Planet['id']] + $Planet['deuterium_perhour'];
+	
+			$planetList['planet_type'][$Planet['id']] = $Planet['planet_type'];
+
+
 			foreach($reslist['build'] as $elementID) {
 				$planetList['build'][$elementID][$Planet['id']]	= $Planet[$resource[$elementID]];
 			}

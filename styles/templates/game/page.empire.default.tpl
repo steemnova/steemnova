@@ -39,9 +39,9 @@
 		{foreach $planetList.resource as $elementID => $resourceArray}
 		<tr>
 			<td><a href='#' onclick='return Dialog.info({$elementID});' class='tooltip' data-tooltip-content="<table><tr><th>{$LNG.tech.{$elementID}}</th></tr><tr><table class='hoverinfo'><tr><td><img src='{$dpath}gebaeude/{$elementID}.{if $elementID >=600 && $elementID <= 699}jpg{else}gif{/if}'></td><td>{$LNG.shortDescription.$elementID}</td></tr></table></tr></table>">{$LNG.tech.$elementID}</a></td>
-			<td>{array_sum($resourceArray)|number}</td>
+			<td>{array_sum($resourceArray)|number} {if in_array($elementID, array(901,902,903))}<span style="color:lime">{array_sum($planetList.resourcePerHour[$elementID])|number}/h</span>{/if}</td>
 			{foreach $resourceArray as $planetID => $resource}
-				<td>{$resource|number}</td>
+				<td>{$resource|number} {if in_array($elementID, array(901,902,903)) && $planetList.planet_type[$planetID] == 1}<span style="color:lime">{$planetList.resourcePerHour[$elementID][$planetID]|number}/h</span>{/if}</td>
 			{/foreach}
 		</tr>
 		{/foreach}
