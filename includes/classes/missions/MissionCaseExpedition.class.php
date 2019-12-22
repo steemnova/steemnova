@@ -372,7 +372,7 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
 			$this->UpdateFleet('fleet_amount', array_sum($fleetArray));
 		}
 		
-		// Find pirates or aliens: 8,4%. 50/50 pirates or aliens.
+		// Find pirates or aliens: 8,4% - 5.8% pirates or 2.6% aliens.
 		elseif ($GetEvent < 719)
 		{
 		
@@ -398,13 +398,13 @@ HTML;
 			$messageHTML	= str_replace(array("\n", "\t", "\r"), "", $messageHTML);
 
 			// pirate or alien
-			$attackType	= mt_rand(1,2);
+			$attackType	= mt_rand(1, 84);
 			$eventSize	= mt_rand(0, 100);
 
 			$targetFleetData	= array();
 
 			// pirates
-			if($attackType == 1)
+			if($attackType <= 58)
 			{
 				$techBonus		= -3;
 				$targetName		= $LNG['sys_expe_attackname_1'];
