@@ -42,11 +42,10 @@
 
 	setInterval(function() {
 		if(relativeTime < Math.floor(Date.now() / 1000)) {
-			serverTime.setSeconds(serverTime.getSeconds()+1);
-			relativeTime++;
+		serverTime.setSeconds(serverTime.getSeconds()+1);
+		relativeTime++;
 		}
 	}, 25);
-
 	</script>
 	<script type="text/javascript" src="./scripts/base/jquery.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/base/jquery.ui.js?v={$REV}"></script>
@@ -85,6 +84,34 @@ $(this).addClass("selected");
                 $(".infos").show();
                 $(".infoso").show();
 $("#btn2, #btn1").removeClass("selected");
+	
+$(this).addClass("selected");
+            }); 
+        });
+
+         $(function(){
+            $("#gl1").on('click',function() {
+                $(".planetb").hide();
+                $(".planetb1").show();
+$("#gl2, #gl3").removeClass("selected");
+	
+$(this).addClass("selected");
+            }); 
+        });
+ $(function(){
+            $("#gl2").on('click',function() {
+                $(".planetb1").toggle();
+                $(".planetb").show();
+$("#gl1, #gl3").removeClass("selected");
+	
+$(this).addClass("selected");
+            }); 
+        });
+ $(function(){
+            $("#gl3").on('click',function() {
+                $(".planetb").show();
+                $(".planetb1").show();
+$("#gl2, #gl1").removeClass("selected");
 	
 $(this).addClass("selected");
             }); 
@@ -131,6 +158,36 @@ $(this).addClass("selected");
                 $(".infos").show();
                 
 $("#lab2, #lab1, #lab4, #lab3").removeClass("selected");
+	
+$(this).addClass("selected");
+            }); 
+        });
+
+        $(function(){
+            $("#ship1").on('click',function() {
+                $(".infos").hide();
+                $("#s202, #s203, #s208, #s209, #s212").show();
+$("#ship2, #ship3").removeClass("selected");
+	
+$(this).addClass("selected");
+            }); 
+        });
+                $(function(){
+            $("#ship2").on('click',function() {
+                $(".infos").hide();
+                $("#s204, #s205, #s206, #s207, #s210, #s211, #s213, #s214").show();
+$("#ship1, #ship3").removeClass("selected");
+ $(function(){
+            $("#ship3").on('click',function() {
+                $(".infos").show();
+                
+$("#ship1, #ship2").removeClass("selected");
+	
+$(this).addClass("selected");
+            }); 
+        });
+
+
 	
 $(this).addClass("selected");
             }); 
