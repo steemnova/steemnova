@@ -140,7 +140,7 @@ class ShowResourcesPage extends AbstractGamePage
 				if(!isset($ProdGrid[$ProdID]['production'][$ID]))
 					continue;
 
-				$Production	= eval(ResourceUpdate::getProd($ProdGrid[$ProdID]['production'][$ID]));
+				$Production	= eval(ResourceUpdate::getProd($ProdGrid[$ProdID]['production'][$ID], $ProdID));
 
 				if(in_array($ID, $reslist['resstype'][2]))
 				{

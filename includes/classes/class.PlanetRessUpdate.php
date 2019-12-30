@@ -182,8 +182,26 @@ class ResourceUpdate
 		$this->PLANET['deuterium']	= max($this->PLANET['deuterium'], 0);
 	}
 	
-	public static function getProd($Calculation)
+	public static function getProd($Calculation, $Element = false)
 	{
+		global $resource, $reslist, $USER, $PLANET;
+
+		if($Element){
+			$BuildEnergy		= $USER[$resource[113]];
+			$BuildTemp          = $PLANET['temp_max'];
+			$BuildLevelFactor	= $PLANET[$resource[$Element] . '_porcent'];
+
+			if(in_array($Element, array_merge($reslist['build'], $reslist['fleet'], $reslist['defense']))){
+				$BuildLevel = $PLANET[$resource[$Element]];
+			}elseif(in_array($Element, array_merge($reslist['tech'], $reslist['officier']))){
+				$BuildLevel = $USER[$resource[$Element]];
+			}else{
+				$BuildLevel = 0;
+			}
+
+			$Calculation = str_replace('this->', "", $Calculation);
+		}
+		
 		return 'return '.$Calculation.';';
 	}
 	
