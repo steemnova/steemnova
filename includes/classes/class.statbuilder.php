@@ -85,7 +85,7 @@ class statbuilder
 		}
 
 		foreach($reslist['officier'] as $Officier){
-			$select_officers	.= " SUM(u.".$resource[$Officier].") as ".$resource[$Officier].",";
+			$select_officers	.= " u.".$resource[$Officier].",";
 		}
 
 		$database		= Database::get();
