@@ -44,6 +44,7 @@ class ShowRecordsPage extends AbstractGamePage
 		$fleetList		= array_fill_keys($reslist['fleet'], array());
 		$researchList	= array_fill_keys($reslist['tech'], array());
 		$buildList		= array_fill_keys($reslist['build'], array());
+		$officerList		= array_fill_keys($reslist['officier'], array());
 		
 		foreach($recordResult as $recordRow) {
 			if (in_array($recordRow['elementID'], $reslist['defense'])) {
@@ -54,6 +55,8 @@ class ShowRecordsPage extends AbstractGamePage
 				$researchList[$recordRow['elementID']][]	= $recordRow;
 			} elseif (in_array($recordRow['elementID'], $reslist['build'])) {
 				$buildList[$recordRow['elementID']][]		= $recordRow;
+			} elseif (in_array($recordRow['elementID'], $reslist['officier'])) {
+				$officerList[$recordRow['elementID']][]		= $recordRow;
 			}
 		}
 
@@ -64,6 +67,7 @@ class ShowRecordsPage extends AbstractGamePage
 			'fleetList'		=> $fleetList,
 			'researchList'	=> $researchList,
 			'buildList'		=> $buildList,
+			'officerList'	=> $officerList,
 			'update'		=> _date($LNG['php_tdformat'], Cronjob::getLastExecutionTime('statistic'), $USER['timezone']),
 		));
 		

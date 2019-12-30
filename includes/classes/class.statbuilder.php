@@ -62,6 +62,7 @@ class statbuilder
 		$select_buildings	=	'';
 		$selected_tech		=	'';
 		$select_fleets		=	'';
+		$select_officers		=	'';
 				
 		foreach($reslist['build'] as $Building){
 			$select_buildings	.= " p.".$resource[$Building].",";
@@ -81,6 +82,10 @@ class statbuilder
 		
 		foreach($reslist['missile'] as $Defense){
 			$select_defenses	.= " SUM(p.".$resource[$Defense].") as ".$resource[$Defense].",";
+		}
+
+		foreach($reslist['officier'] as $Officier){
+			$select_officers	.= " SUM(u.".$resource[$Officier].") as ".$resource[$Officier].",";
 		}
 
 		$database		= Database::get();
@@ -105,7 +110,7 @@ class statbuilder
 		
 		$Return['Fleets'] 	= $FlyingFleets;		
 		$Return['Planets']	= $database->select('SELECT SQL_BIG_RESULT DISTINCT '.$select_buildings.' p.id, p.universe, p.id_owner, u.authlevel, u.bana, u.username FROM %%PLANETS%% as p LEFT JOIN %%USERS%% as u ON u.id = p.id_owner;');
-		$Return['Users']	= $database->select('SELECT SQL_BIG_RESULT DISTINCT '.$selected_tech.$select_fleets.$select_defenses.' u.id, u.ally_id, u.authlevel, u.bana, u.universe, u.username, s.tech_rank AS old_tech_rank, s.build_rank AS old_build_rank, s.defs_rank AS old_defs_rank, s.fleet_rank AS old_fleet_rank, s.total_rank AS old_total_rank FROM %%USERS%% as u LEFT JOIN %%STATPOINTS%% as s ON s.stat_type = 1 AND s.id_owner = u.id LEFT JOIN %%PLANETS%% as p ON u.id = p.id_owner GROUP BY s.id_owner, u.id, u.authlevel;');
+		$Return['Users']	= $database->select('SELECT SQL_BIG_RESULT DISTINCT '.$selected_tech.$select_fleets.$select_defenses.$select_officers.' u.id, u.ally_id, u.authlevel, u.bana, u.universe, u.username, s.tech_rank AS old_tech_rank, s.build_rank AS old_build_rank, s.defs_rank AS old_defs_rank, s.fleet_rank AS old_fleet_rank, s.total_rank AS old_total_rank FROM %%USERS%% as u LEFT JOIN %%STATPOINTS%% as s ON s.stat_type = 1 AND s.id_owner = u.id LEFT JOIN %%PLANETS%% as p ON u.id = p.id_owner GROUP BY s.id_owner, u.id, u.authlevel;');
 		$Return['Alliance']	= $database->select('SELECT SQL_BIG_RESULT DISTINCT a.id, a.ally_universe, s.tech_rank AS old_tech_rank, s.build_rank AS old_build_rank, s.defs_rank AS old_defs_rank, s.fleet_rank AS old_fleet_rank, s.total_rank AS old_total_rank FROM %%ALLIANCE%% as a LEFT JOIN %%STATPOINTS%% as s ON s.stat_type = 2 AND s.id_owner = a.id GROUP BY a.id;');
 	
 		return $Return;
@@ -239,6 +244,17 @@ class statbuilder
 		
 		return array('count' => $FleetCounts, 'points' => ($FleetPoints / Config::get()->stat_settings));
 	}
+
+	private function GetOfficerPoints($USER)
+	{
+		global $resource, $reslist;
+
+		foreach($reslist['officier'] as $Officier) {
+			if($USER[$resource[$Officier]] == 0) continue;
+
+			$this->setRecords($USER['id'], $Officier, $USER[$resource[$Officier]]);
+		}
+	}
 	
 	private function SetNewRanks()
 	{
@@ -318,6 +334,7 @@ class statbuilder
 			$TechnoPoints		= $this->GetTechnoPoints($UserData);
 			$FleetPoints		= $this->GetFleetPoints($UserData);
 			$DefensePoints		= $this->GetDefensePoints($UserData);
+			$this->GetOfficerPoints($UserData);
 			
 			$UserPoints[$UserData['id']]['fleet']['count'] 		= $FleetPoints['count'];
 			$UserPoints[$UserData['id']]['fleet']['points'] 	= $FleetPoints['points'];
