@@ -726,7 +726,7 @@ CREATE TABLE `%PREFIX%users` (
   `ip_at_reg` varchar(40) NOT NULL DEFAULT '',
   `register_time` int(11) NOT NULL DEFAULT '0',
   `onlinetime` int(11) NOT NULL DEFAULT '0',
-  `dpath` varchar(20) NOT NULL DEFAULT 'gow',
+  `dpath` varchar(20) NOT NULL DEFAULT 'nova',
   `timezone` varchar(32) NOT NULL DEFAULT 'Europe/London',
   `planet_sort` tinyint(1) NOT NULL DEFAULT '0',
   `planet_sort_order` tinyint(1) NOT NULL DEFAULT '0',
