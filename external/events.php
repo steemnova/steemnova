@@ -24,7 +24,7 @@ if($random_event==1) {
 	$text = '<span class="admin">Someone came to our planet in a blue box and improved our energy installation! For 24 hours we will generate more energy.</span>';
 	mysqli_query($connection, "INSERT INTO uni1_messages (message_owner, message_sender, message_time, message_type, message_from, message_subject, message_text, message_unread, message_universe) VALUES ($id, 1, $time, 50, '$nickname', '$subject', '$text', 1, 1)");
 	$dm = mysqli_fetch_all(mysqli_query($connection, "SELECT dm_energie FROM uni1_users WHERE id=$id"));
-	if($dm[0][0]==0) {
+	if($dm[0][0]<$time) {
 	mysqli_query($connection, "UPDATE uni1_users SET dm_energie=($time+86400) WHERE id=$id");
 	} else {
 	mysqli_query($connection, "UPDATE uni1_users SET dm_energie=dm_energie+86400 WHERE id=$id");
@@ -33,7 +33,7 @@ if($random_event==1) {
 	$text = '<span class="admin">We found the coal reserves! Thanks to it, our ships will be 10% faster! Unfortunately, we do not have too many stocks of this resource ...</span>';
 	mysqli_query($connection, "INSERT INTO uni1_messages (message_owner, message_sender, message_time, message_type, message_from, message_subject, message_text, message_unread, message_universe) VALUES ($id, 1, $time, 50, '$nickname', '$subject', '$text', 1, 1)");
 	$dm = mysqli_fetch_all(mysqli_query($connection, "SELECT dm_fleettime FROM uni1_users WHERE id=$id"));
-	if($dm[0][0]==0) {
+	if($dm[0][0]<$time) {
 	mysqli_query($connection, "UPDATE uni1_users SET dm_fleettime=($time+86400) WHERE id=$id");
 	} else {
 	mysqli_query($connection, "UPDATE uni1_users SET dm_fleettime=dm_fleettime+86400 WHERE id=$id");
@@ -47,7 +47,7 @@ if($random_event==1) {
 	$text = '<span class="admin">We found a magic button on the ships. It turned out that it increases the shield of the ship for some time. For the next 24 hours our ships will be better protected from enemy attacks!</span>';
 	mysqli_query($connection, "INSERT INTO uni1_messages (message_owner, message_sender, message_time, message_type, message_from, message_subject, message_text, message_unread, message_universe) VALUES ($id, 1, $time, 50, '$nickname', '$subject', '$text', 1, 1)");
 	$dm = mysqli_fetch_all(mysqli_query($connection, "SELECT dm_defensive FROM uni1_users WHERE id=$id"));
-	if($dm[0][0]==0) {
+	if($dm[0][0]<$time) {
 	mysqli_query($connection, "UPDATE uni1_users SET dm_defensive=($time+86400) WHERE id=$id");
 	} else {
 	mysqli_query($connection, "UPDATE uni1_users SET dm_defensive=dm_defensive+86400 WHERE id=$id");
@@ -70,6 +70,7 @@ if($random_event==1) {
 	mysqli_query($connection, "INSERT INTO uni1_messages (message_owner, message_sender, message_time, message_type, message_from, message_subject, message_text, message_unread, message_universe) VALUES ($id, 1, $time, 50, '$nickname', '$subject', '$text', 1, 1)");
 	$dm = rand(1, 350);
 	mysqli_query($connection, "UPDATE uni1_users SET darkmatter=darkmatter+$dm");
+	break;
 }
 
 }
