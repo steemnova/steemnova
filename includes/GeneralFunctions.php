@@ -54,6 +54,19 @@ function getFactors($USER, $Type = 'basic', $TIME = NULL) {
 	return $factor;
 }
 
+function getLanguage($language = NULL, $userID = NULL)
+{
+	if (is_null($language) && !is_null($userID)) {
+		$language	= Database::get()->selectSingle('SELECT lang FROM %%USERS%% WHERE id = :id;', array(
+			':id' => $userID
+		))['lang'];
+	}
+
+	$LNG		= new Language($language);
+	$LNG->includeData(array('L18N', 'FLEET', 'TECH', 'CUSTOM', 'INGAME'));
+	return $LNG;
+}
+
 function getPlanets($USER)
 {
 	if(isset($USER['PLANETS']))
