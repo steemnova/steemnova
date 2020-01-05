@@ -19,7 +19,7 @@
 		</div>
 	</header>
 
-	<input type="checkbox" id="toggle-menu" role="button">
+	<input style="display:none;" type="checkbox" id="toggle-menu" role="button">
 	<menu>
 		<div class="fixed">
 			{include file="main.navigation.tpl"}
