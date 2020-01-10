@@ -412,19 +412,19 @@ HTML;
 
 				if(10 < $eventSize)
 				{
-					$Message    			= $LNG['sys_expe_attack_1_1_5'];
+					$Message    			= $LNG['sys_expe_attack_1_1_'.rand(1, 5)];
 					$attackFactor			= (30 + mt_rand(-3, 3)) / 100;
 					$targetFleetData[204]	= 5;
 				}
 				elseif(0 < $eventSize && 10 >= $eventSize)
 				{
-					$Message    			= $LNG['sys_expe_attack_1_2_3'];
+					$Message    			= $LNG['sys_expe_attack_1_2_'.rand(1, 3)];
 					$attackFactor			= (50 + mt_rand(-5, 5)) / 100;
 					$targetFleetData[206]	= 3;
 				}
 				else
 				{
-					$Message   				= $LNG['sys_expe_attack_1_3_2'];
+					$Message   				= $LNG['sys_expe_attack_1_3_'.rand(1, 3)];
 					$attackFactor			= (80 + mt_rand(-8, 8)) / 100;
 					$targetFleetData[207]	= 2;
 				}
@@ -437,19 +437,19 @@ HTML;
 
 				if(10 < $eventSize)
 				{
-					$Message    			= $LNG['sys_expe_attack_1_1_5'];
+					$Message    			= $LNG['sys_expe_attack_2_1_'.rand(1, 5)];
 					$attackFactor			= (40 + mt_rand(-4, 4)) / 100;
 					$targetFleetData[205]	= 5;
 				}
 				elseif(0 < $eventSize && 10 >= $eventSize)
 				{
-					$Message    			= $LNG['sys_expe_attack_1_3_3'];
+					$Message    			= $LNG['sys_expe_attack_2_2_'.rand(1, 3)];
 					$attackFactor			= (60 + mt_rand(-6, 6)) / 100;
 					$targetFleetData[215]	= 3;
 				}
 				else
 				{
-					$Message    			= $LNG['sys_expe_attack_1_3_2'];
+					$Message    			= $LNG['sys_expe_attack_2_3_'.rand(1, 3)];
 					$attackFactor			= (90 + mt_rand(-9, 9)) / 100;
 					$targetFleetData[213]	= 2;
 				}

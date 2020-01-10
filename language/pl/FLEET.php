@@ -153,6 +153,7 @@ $LNG['sys_expe_attack_2_2_2'] 				= 'Nasza ekspedycja natrafiła na nieznaną ra
 $LNG['sys_expe_attack_2_2_3'] 				= 'Połącznie z naszą ekspedycją zostało utracone, ale udało się jej wysłać ostatni raport. Flota była pod ciężkim ostrzałem niezidentyfikowanych wysoce zaawansowanych jednostek.';
 $LNG['sys_expe_attack_2_3_1'] 				= 'Imperatorze! Flota która wyruszyła na ekspedycję przesłała raport o ciężkich walkach z nieznanym wrogiem. Musimy przygotować się na stratę całej floty.';
 $LNG['sys_expe_attack_2_3_2'] 				= 'Duża flota krystalicznych statków nieznanego pochodzenia jest na kursie kolizyjnym. Kapitanowie okrętów zrobią co w ich mocy, ale obawiam się najgorszego.';
+$LNG['sys_expe_attack_2_3_3'] 				= 'Mamy drobne problemy z wymawianiem słów w języku obcych. Nasz dyplomata przypadkowo powiedział \'Ognia!\' zamiast \'Pokój!\' ';
 $LNG['sys_expe_found_ships_nothing']		= '- Nie odnaleziono żadnych statków, które nadawałaby się do naprawy i ponownego uruchomienia.';
 $LNG['sys_expe_attackname_1']				= 'Piraci'; 	
 $LNG['sys_expe_attackname_2'] 				= 'Obcy'; 	
