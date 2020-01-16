@@ -26,7 +26,7 @@
  * @version beta(26-10-2013)
  * @link https://github.com/jstar88/opbe
  */
-$path = dirname(dirname(dirname(__dir__ ))) . DIRECTORY_SEPARATOR;
+$path = dirname(dirname(dirname(__dir__ ))) . DIRECTORY_SEPARATOR . 'libs'. DIRECTORY_SEPARATOR . 'opbe' . DIRECTORY_SEPARATOR;
 require ($path . 'utils' . DIRECTORY_SEPARATOR . 'includer.php');
 require ('LangImplementation.php');
 
