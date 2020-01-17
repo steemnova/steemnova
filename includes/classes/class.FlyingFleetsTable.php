@@ -57,7 +57,7 @@ class FlyingFleetsTable
 				':acsId'	=> $acsID
 			);
 		} elseif($this->missions) {
-			$where = '(fleet_owner = :userId OR fleet_target_owner = :userId) AND fleet_mission IN ('.$this->missions.')';
+			$where = '(fleet_owner = :userId OR (fleet_target_owner = :userId AND fleet_mission != 8)) AND fleet_mission IN ('.$this->missions.')';
 			$param = array(
 				':userId'	=> $this->userId
 			);
