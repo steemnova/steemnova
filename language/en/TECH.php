@@ -94,7 +94,7 @@ $LNG['tech'] = array(
 
  40 => 'Moon Buildings',
  41 => 'Moon base',
- 42 => 'Phalax Sensor',
+ 42 => 'Phalanx Sensor',
  43 => 'Jumpgate',
 
 100 => 'Research',

@@ -91,7 +91,7 @@ $LNG['tech'] = array(
 	 34 => 'Allianzdepot',
 	 40 => 'Mondgebäude',
 	 41 => 'Basisstützpunkt',
-	 42 => 'Sensorenphalax',
+	 42 => 'Sensorenphalanx',
 	 43 => 'Sprungtor',
      44 => 'Raketensilo',
 
