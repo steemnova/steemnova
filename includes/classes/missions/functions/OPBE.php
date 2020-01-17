@@ -239,7 +239,7 @@ function updatePlayers(PlayerGroup $playerGroup, &$players)
                     {
                         $shipType = $fleet->getShipType($idShipType);
                         //used to show life,power and shield of each ships in the report
-                        $plyArray[$idFleet][$idShipType] = array('def' => $shipType->getHull(),'shield' => $shipType->getShield(),'att' => $shipType->getPower());
+                        $plyArray[$idFleet][$idShipType] = array('def' => $shipType->getHull() * $shipType->getCount(),'shield' => $shipType->getShield() * $shipType->getCount(),'att' => $shipType->getPower() * $shipType->getCount());
                         $players[$idFleet]['unit'][$idShipType] = $shipType->getCount();
                     }
                     else //all ships of this type were destroyed
