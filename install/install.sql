@@ -765,7 +765,7 @@ CREATE TABLE `%PREFIX%users` (
   `graviton_tech` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `ally_id` int(11) unsigned NOT NULL DEFAULT '0',
   `ally_register_time` int(11) NOT NULL DEFAULT '0',
-  `ally_rank_id` tinyint(3) unsigned NOT NULL DEFAULT '0',
+  `ally_rank_id` int(11) unsigned NOT NULL DEFAULT '0',
   `rpg_geologue` tinyint(2) unsigned NOT NULL DEFAULT '0',
   `rpg_amiral` tinyint(2) NOT NULL DEFAULT '0',
   `rpg_ingenieur` tinyint(2) NOT NULL DEFAULT '0',
