@@ -20,7 +20,7 @@
 	{foreach $memberList as $userID => $memberListRow}
 	<tr>
 		<td>{$memberListRow@iteration}</td>
-		<td><a href="#" onclick="return Dialog.Playercard({$userID}, '{$memberListRow.username}');">{$memberListRow.username}</a></td>
+		<td><a href="#" onclick="return Dialog.Playercard({$userID}, '{$memberListRow.username}');">{$memberListRow.username}</a> {if !empty($memberListRow.class)}{foreach $memberListRow.class as $class}{if !$class@first}&nbsp;{/if}<span class="galaxy-short-{$class} galaxy-short">{$ShortStatus.$class}</span>{/foreach}{/if}</td>
 		<td><a href="#" onclick="return Dialog.PM({$userID});"><img src="{$dpath}img/m.gif" border="0" title="{$LNG.write_message}"></a></td>
 		<td>{$memberListRow.rankName}</td>
 		<td class="points" data-points="{$memberListRow.points}">{$memberListRow.points}</td>

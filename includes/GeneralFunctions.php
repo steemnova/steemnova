@@ -15,17 +15,18 @@
  * @link https://github.com/jkroepke/2Moons
  */
 
-function getFactors($USER, $Type = 'basic', $TIME = NULL) {
+function getFactors($USER, $Type = 'basic', $TIME = NULL)
+{
 	global $resource, $pricelist, $reslist;
-	if(empty($TIME))
+	if (empty($TIME))
 		$TIME	= TIMESTAMP;
-	
+
 	$bonusList	= BuildFunctions::getBonusList();
 	$factor		= ArrayUtil::combineArrayWithSingleElement($bonusList, 0);
-	
-	foreach($reslist['bonus'] as $elementID) {
+
+	foreach ($reslist['bonus'] as $elementID) {
 		$bonus = $pricelist[$elementID]['bonus'];
-		
+
 		if (isset($PLANET[$resource[$elementID]])) {
 			$elementLevel = $PLANET[$resource[$elementID]];
 		} elseif (isset($USER[$resource[$elementID]])) {
@@ -33,25 +34,54 @@ function getFactors($USER, $Type = 'basic', $TIME = NULL) {
 		} else {
 			continue;
 		}
-		
-		if(in_array($elementID, $reslist['dmfunc'])) {
-			if(DMExtra($elementLevel, $TIME, false, true)) {
+
+		if (in_array($elementID, $reslist['dmfunc'])) {
+			if (DMExtra($elementLevel, $TIME, false, true)) {
 				continue;
 			}
-			
-			foreach($bonusList as $bonusKey)
-			{
+
+			foreach ($bonusList as $bonusKey) {
 				$factor[$bonusKey]	+= $bonus[$bonusKey][0];
 			}
 		} else {
-			foreach($bonusList as $bonusKey)
-			{
+			foreach ($bonusList as $bonusKey) {
 				$factor[$bonusKey]	+= $elementLevel * $bonus[$bonusKey][0];
 			}
 		}
 	}
-	
+
 	return $factor;
+}
+
+function userStatus($data, $noobprotection = false)
+{
+	$Array = array();
+
+	if (isset($data['banaday']) && $data['banaday'] > TIMESTAMP) {
+		$Array[] = 'banned';
+	}
+
+	if (isset($data['urlaubs_modus']) && $data['urlaubs_modus'] == 1) {
+		$Array[] = 'vacation';
+	}
+
+	if (isset($data['onlinetime']) && $data['onlinetime'] < TIMESTAMP - INACTIVE_LONG) {
+		$Array[] = 'longinactive';
+	}
+
+	if (isset($data['onlinetime']) && $data['onlinetime'] < TIMESTAMP - INACTIVE) {
+		$Array[] = 'inactive';
+	}
+
+	if ($noobprotection && $noobprotection['NoobPlayer']) {
+		$Array[] = 'noob';
+	}
+
+	if ($noobprotection && $noobprotection['StrongPlayer']) {
+		$Array[] = 'strong';
+	}
+
+	return $Array;
 }
 
 function getLanguage($language = NULL, $userID = NULL)
@@ -69,90 +99,85 @@ function getLanguage($language = NULL, $userID = NULL)
 
 function getPlanets($USER)
 {
-	if(isset($USER['PLANETS']))
+	if (isset($USER['PLANETS']))
 		return $USER['PLANETS'];
 
-	$order = $USER['planet_sort_order'] == 1 ? "DESC" : "ASC" ;
+	$order = $USER['planet_sort_order'] == 1 ? "DESC" : "ASC";
 
 	$sql = "SELECT id, name, galaxy, system, planet, planet_type, image, b_building, b_building_id
 			FROM %%PLANETS%% WHERE id_owner = :userId AND destruyed = :destruyed ORDER BY ";
 
-	switch($USER['planet_sort'])
-	{
+	switch ($USER['planet_sort']) {
 		case 0:
-			$sql	.= 'id '.$order;
+			$sql	.= 'id ' . $order;
 			break;
 		case 1:
-			$sql	.= 'galaxy '.$order.', system '.$order.', planet '.$order.', planet_type '.$order;
+			$sql	.= 'galaxy ' . $order . ', system ' . $order . ', planet ' . $order . ', planet_type ' . $order;
 			break;
 		case 2:
-			$sql	.= 'name '.$order;
+			$sql	.= 'name ' . $order;
 			break;
 	}
 
 	$planetsResult = Database::get()->select($sql, array(
 		':userId'		=> $USER['id'],
 		':destruyed'	=> 0
-   	));
-	
+	));
+
 	$planetsList = array();
 
-	foreach($planetsResult as $planetRow) {
+	foreach ($planetsResult as $planetRow) {
 		$planetsList[$planetRow['id']]	= $planetRow;
 	}
 
 	return $planetsList;
 }
 
-function get_timezone_selector() {
+function get_timezone_selector()
+{
 	// New Timezone Selector, better support for changes in tzdata (new russian timezones, e.g.)
 	// http://www.php.net/manual/en/datetimezone.listidentifiers.php
-	
+
 	$timezones = array();
 	$timezone_identifiers = DateTimeZone::listIdentifiers();
 
-	foreach($timezone_identifiers as $value )
-	{
-		if ( preg_match( '/^(America|Antartica|Arctic|Asia|Atlantic|Europe|Indian|Pacific)\//', $value ) )
-		{
-			$ex		= explode('/',$value); //obtain continent,city
-			$city	= isset($ex[2])? $ex[1].' - '.$ex[2]:$ex[1]; //in case a timezone has more than one
+	foreach ($timezone_identifiers as $value) {
+		if (preg_match('/^(America|Antartica|Arctic|Asia|Atlantic|Europe|Indian|Pacific)\//', $value)) {
+			$ex		= explode('/', $value); //obtain continent,city
+			$city	= isset($ex[2]) ? $ex[1] . ' - ' . $ex[2] : $ex[1]; //in case a timezone has more than one
 			$timezones[$ex[0]][$value] = str_replace('_', ' ', $city);
 		}
 	}
-	return $timezones; 
+	return $timezones;
 }
 
 function locale_date_format($format, $time, $LNG = NULL)
 {
 	// Workaround for locale Names.
 
-	if(!isset($LNG)) {
+	if (!isset($LNG)) {
 		global $LNG;
 	}
-	
+
 	$weekDay	= date('w', $time);
 	$months		= date('n', $time) - 1;
-	
+
 	$format     = str_replace(array('D', 'M'), array('$D$', '$M$'), $format);
 	$format		= str_replace('$D$', addcslashes($LNG['week_day'][$weekDay], 'A..z'), $format);
 	$format		= str_replace('$M$', addcslashes($LNG['months'][$months], 'A..z'), $format);
-	
+
 	return $format;
 }
 
 function _date($format, $time = null, $toTimeZone = null, $LNG = NULL)
 {
-	if(!isset($time))
-	{
+	if (!isset($time)) {
 		$time	= TIMESTAMP;
 	}
 
-	if(isset($toTimeZone))
-	{
+	if (isset($toTimeZone)) {
 		$date = new DateTime();
-		if(method_exists($date, 'setTimestamp'))
-		{	// PHP > 5.3			
+		if (method_exists($date, 'setTimestamp')) {	// PHP > 5.3			
 			$date->setTimestamp($time);
 		} else {
 			// PHP < 5.3
@@ -160,23 +185,23 @@ function _date($format, $time = null, $toTimeZone = null, $LNG = NULL)
 			$date->setDate($tempDate['year'], $tempDate['mon'], $tempDate['mday']);
 			$date->setTime($tempDate['hours'], $tempDate['minutes'], $tempDate['seconds']);
 		}
-		
+
 		$time	-= $date->getOffset();
 		try {
 			$date->setTimezone(new DateTimeZone($toTimeZone));
 		} catch (Exception $e) {
-			
 		}
 		$time	+= $date->getOffset();
 	}
-	
+
 	$format	= locale_date_format($format, $time, $LNG);
 	return date($format, $time);
 }
 
-function ValidateAddress($address) {
-	
-	if(function_exists('filter_var')) {
+function ValidateAddress($address)
+{
+
+	if (function_exists('filter_var')) {
 		return filter_var($address, FILTER_VALIDATE_EMAIL) !== FALSE;
 	} else {
 		/*
@@ -204,7 +229,7 @@ function CalculateMaxPlanetFields($planet)
 function pretty_time($seconds)
 {
 	global $LNG;
-	
+
 	$day	= floor($seconds / 86400);
 	$hour	= floor($seconds / 3600 % 24);
 	$minute	= floor($seconds / 60 % 60);
@@ -212,14 +237,18 @@ function pretty_time($seconds)
 
 	$time  = '';
 
-	if($day > 0) {
+	if ($day > 0) {
 		$time .= sprintf('%d%s ', $day, $LNG['short_day']);
 	}
 
-	return $time.sprintf('%02d%s %02d%s %02d%s',
-		$hour, $LNG['short_hour'],
-		$minute, $LNG['short_minute'],
-		$second, $LNG['short_second']
+	return $time . sprintf(
+		'%02d%s %02d%s %02d%s',
+		$hour,
+		$LNG['short_hour'],
+		$minute,
+		$LNG['short_minute'],
+		$second,
+		$LNG['short_second']
 	);
 }
 
@@ -234,17 +263,17 @@ function pretty_fly_time($seconds)
 
 function GetStartAddressLink($FleetRow, $FleetType = '')
 {
-	return '<a href="game.php?page=galaxy&amp;galaxy='.$FleetRow['fleet_start_galaxy'].'&amp;system='.$FleetRow['fleet_start_system'].'" class="'. $FleetType .'">['.$FleetRow['fleet_start_galaxy'].':'.$FleetRow['fleet_start_system'].':'.$FleetRow['fleet_start_planet'].']</a>';
+	return '<a href="game.php?page=galaxy&amp;galaxy=' . $FleetRow['fleet_start_galaxy'] . '&amp;system=' . $FleetRow['fleet_start_system'] . '" class="' . $FleetType . '">[' . $FleetRow['fleet_start_galaxy'] . ':' . $FleetRow['fleet_start_system'] . ':' . $FleetRow['fleet_start_planet'] . ']</a>';
 }
 
 function GetTargetAddressLink($FleetRow, $FleetType = '')
 {
-	return '<a href="game.php?page=galaxy&amp;galaxy='.$FleetRow['fleet_end_galaxy'].'&amp;system='.$FleetRow['fleet_end_system'].'" class="'. $FleetType .'">['.$FleetRow['fleet_end_galaxy'].':'.$FleetRow['fleet_end_system'].':'.$FleetRow['fleet_end_planet'].']</a>';
+	return '<a href="game.php?page=galaxy&amp;galaxy=' . $FleetRow['fleet_end_galaxy'] . '&amp;system=' . $FleetRow['fleet_end_system'] . '" class="' . $FleetType . '">[' . $FleetRow['fleet_end_galaxy'] . ':' . $FleetRow['fleet_end_system'] . ':' . $FleetRow['fleet_end_planet'] . ']</a>';
 }
 
 function BuildPlanetAddressLink($CurrentPlanet)
 {
-	return '<a href="game.php?page=galaxy&amp;galaxy='.$CurrentPlanet['galaxy'].'&amp;system='.$CurrentPlanet['system'].'">['.$CurrentPlanet['galaxy'].':'.$CurrentPlanet['system'].':'.$CurrentPlanet['planet'].']</a>';
+	return '<a href="game.php?page=galaxy&amp;galaxy=' . $CurrentPlanet['galaxy'] . '&amp;system=' . $CurrentPlanet['system'] . '">[' . $CurrentPlanet['galaxy'] . ':' . $CurrentPlanet['system'] . ':' . $CurrentPlanet['planet'] . ']</a>';
 }
 
 function pretty_number($n, $dec = 0)
@@ -254,16 +283,13 @@ function pretty_number($n, $dec = 0)
 
 function GetUserByID($userId, $GetInfo = "*")
 {
-	if(is_array($GetInfo))
-	{
+	if (is_array($GetInfo)) {
 		$GetOnSelect = implode(', ', $GetInfo);
-	}
-	else
-	{
+	} else {
 		$GetOnSelect = $GetInfo;
 	}
 
-	$sql = 'SELECT '.$GetOnSelect.' FROM %%USERS%% WHERE id = :userId';
+	$sql = 'SELECT ' . $GetOnSelect . ' FROM %%USERS%% WHERE id = :userId';
 
 	$User = Database::get()->selectSingle($sql, array(
 		':userId'	=> $userId
@@ -274,26 +300,26 @@ function GetUserByID($userId, $GetInfo = "*")
 
 function makebr($text)
 {
-    // XHTML FIX for PHP 5.3.0
+	// XHTML FIX for PHP 5.3.0
 	// Danke an Meikel
-	
-    $BR = "<br>\n";
-    return (version_compare(PHP_VERSION, "5.3.0", ">=")) ? nl2br($text, false) : strtr($text, array("\r\n" => $BR, "\r" => $BR, "\n" => $BR)); 
+
+	$BR = "<br>\n";
+	return (version_compare(PHP_VERSION, "5.3.0", ">=")) ? nl2br($text, false) : strtr($text, array("\r\n" => $BR, "\r" => $BR, "\n" => $BR));
 }
 
 function CheckNoobProtec($OwnerPlayer, $TargetPlayer, $Player)
 {
 	$config	= Config::get();
-	if(
-		$config->noobprotection == 0 
-		|| $config->noobprotectiontime == 0 
-		|| $config->noobprotectionmulti == 0 
+	if (
+		$config->noobprotection == 0
+		|| $config->noobprotectiontime == 0
+		|| $config->noobprotectionmulti == 0
 		|| $Player['banaday'] > TIMESTAMP
 		|| $Player['onlinetime'] < TIMESTAMP - INACTIVE
 	) {
 		return array('NoobPlayer' => false, 'StrongPlayer' => false);
 	}
-	
+
 	return array(
 		'NoobPlayer' => (
 			/* WAHR: 
@@ -303,16 +329,14 @@ function CheckNoobProtec($OwnerPlayer, $TargetPlayer, $Player)
 			*/
 			// Addional Comment: Letzteres ist eigentlich sinnfrei, bitte testen.a
 			($TargetPlayer['total_points'] <= $config->noobprotectiontime) && // Default: 25.000
-			($OwnerPlayer['total_points'] > $TargetPlayer['total_points'] * $config->noobprotectionmulti)
-		), 
+			($OwnerPlayer['total_points'] > $TargetPlayer['total_points'] * $config->noobprotectionmulti)),
 		'StrongPlayer' => (
 			/* WAHR: 
 				Wenn Spieler weniger als 5000 Punkte hat UND
 				Mehr als das funfache der eigende Punkte hat
 			*/
 			($OwnerPlayer['total_points'] < $config->noobprotectiontime) && // Default: 5.000
-			($OwnerPlayer['total_points'] * $config->noobprotectionmulti < $TargetPlayer['total_points'])
-		),
+			($OwnerPlayer['total_points'] * $config->noobprotectionmulti < $TargetPlayer['total_points'])),
 	);
 }
 
@@ -320,27 +344,27 @@ function shortly_number($number, $decial = NULL)
 {
 	$negate	= $number < 0 ? -1 : 1;
 	$number	= abs($number);
-    $unit	= array("", "K", "M", "B", "T", "Q", "Q+", "S", "S+", "O", "N");
+	$unit	= array("", "K", "M", "B", "T", "Q", "Q+", "S", "S+", "O", "N");
 	$key	= 0;
-	
-	if($number >= 1000000) {
+
+	if ($number >= 1000000) {
 		++$key;
-		while($number >= 1000000)
-		{
+		while ($number >= 1000000) {
 			++$key;
 			$number = $number / 1000000;
 		}
-	} elseif($number >= 1000) {
+	} elseif ($number >= 1000) {
 		++$key;
 		$number = $number / 1000;
 	}
-	
-	$decial	= !is_numeric($decial) ? ((int) (((int)$number != $number) && $key != 0 && $number != 0 && $number < 100)) : $decial;
-	return pretty_number($negate * $number, $decial).'&nbsp;'.$unit[$key];
+
+	$decial	= !is_numeric($decial) ? ((int) (((int) $number != $number) && $key != 0 && $number != 0 && $number < 100)) : $decial;
+	return pretty_number($negate * $number, $decial) . '&nbsp;' . $unit[$key];
 }
 
-function floatToString($number, $Pro = 0, $output = false){
-	return $output ? str_replace(",",".", sprintf("%.".$Pro."f", $number)) : sprintf("%.".$Pro."f", $number);
+function floatToString($number, $Pro = 0, $output = false)
+{
+	return $output ? str_replace(",", ".", sprintf("%." . $Pro . "f", $number)) : sprintf("%." . $Pro . "f", $number);
 }
 
 function isModuleAvailable($ID)
@@ -348,8 +372,7 @@ function isModuleAvailable($ID)
 	global $USER;
 	$modules	= explode(';', Config::get()->moduls);
 
-	if(!isset($modules[$ID]))
-	{
+	if (!isset($modules[$ID])) {
 		$modules[$ID] = 1;
 	}
 
@@ -359,13 +382,13 @@ function isModuleAvailable($ID)
 function ClearCache()
 {
 	$DIRS	= array('cache/', 'cache/templates/');
-	foreach($DIRS as $DIR) {
+	foreach ($DIRS as $DIR) {
 		$FILES = array_diff(scandir($DIR), array('..', '.', '.htaccess'));
-		foreach($FILES as $FILE) {
-			if(is_dir(ROOT_PATH.$DIR.$FILE))
+		foreach ($FILES as $FILE) {
+			if (is_dir(ROOT_PATH . $DIR . $FILE))
 				continue;
-				
-			unlink(ROOT_PATH.$DIR.$FILE);
+
+			unlink(ROOT_PATH . $DIR . $FILE);
 		}
 	}
 
@@ -408,9 +431,8 @@ function ClearCache()
 
 	$config		= Config::get();
 	$version	= explode('.', $config->VERSION);
-	$config->VERSION	= $version[0].'.'.$version[1].'.'.'git';
+	$config->VERSION	= $version[0] . '.' . $version[1] . '.' . 'git';
 	$config->save();
-	
 }
 
 function allowedTo($side)
@@ -419,15 +441,18 @@ function allowedTo($side)
 	return ($USER['authlevel'] == AUTH_ADM || (isset($USER['rights']) && $USER['rights'][$side] == 1));
 }
 
-function isactiveDMExtra($Extra, $Time) {
+function isactiveDMExtra($Extra, $Time)
+{
 	return $Time - $Extra <= 0;
 }
 
-function DMExtra($Extra, $Time, $true, $false) {
+function DMExtra($Extra, $Time, $true, $false)
+{
 	return isactiveDMExtra($Extra, $Time) ? $true : $false;
 }
 
-function getRandomString() {
+function getRandomString()
+{
 	return md5(uniqid());
 }
 
@@ -436,12 +461,13 @@ function isVacationMode($USER)
 	return ($USER['urlaubs_modus'] == 1) ? true : false;
 }
 
-function clearGIF() {
+function clearGIF()
+{
 	header('Cache-Control: no-cache');
 	header('Content-type: image/gif');
 	header('Content-length: 43');
 	header('Expires: 0');
-	echo("\x47\x49\x46\x38\x39\x61\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\x00\x00\x00\x21\xF9\x04\x01\x00\x00\x00\x00\x2C\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02\x44\x01\x00\x3B");
+	echo ("\x47\x49\x46\x38\x39\x61\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\x00\x00\x00\x21\xF9\x04\x01\x00\x00\x00\x00\x2C\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02\x44\x01\x00\x3B");
 	exit;
 }
 
@@ -455,20 +481,20 @@ function exceptionHandler($exception)
 {
 	/** @var $exception ErrorException|Exception */
 
-	if(!headers_sent()) {
+	if (!headers_sent()) {
 		if (!class_exists('HTTP', false)) {
 			require_once('includes/classes/HTTP.class.php');
 		}
-		
+
 		HTTP::sendHeader('HTTP/1.1 503 Service Unavailable');
 	}
 
-	if(method_exists($exception, 'getSeverity')) {
+	if (method_exists($exception, 'getSeverity')) {
 		$errno	= $exception->getSeverity();
 	} else {
 		$errno	= E_USER_ERROR;
 	}
-	
+
 	$errorType = array(
 		E_ERROR				=> 'ERROR',
 		E_WARNING			=> 'WARNING',
@@ -484,29 +510,24 @@ function exceptionHandler($exception)
 		E_STRICT			=> 'STRICT NOTICE',
 		E_RECOVERABLE_ERROR	=> 'RECOVERABLE ERROR'
 	);
-	
-	if(file_exists(ROOT_PATH.'install/VERSION'))
-	{
-		$VERSION	= file_get_contents(ROOT_PATH.'install/VERSION').' (FILE)';
-	}
-	else
-	{
+
+	if (file_exists(ROOT_PATH . 'install/VERSION')) {
+		$VERSION	= file_get_contents(ROOT_PATH . 'install/VERSION') . ' (FILE)';
+	} else {
 		$VERSION	= 'UNKNOWN';
 	}
 	$gameName	= '-';
-	
-	if(MODE !== 'INSTALL')
-	{
-		try
-		{
+
+	if (MODE !== 'INSTALL') {
+		try {
 			$config		= Config::get();
 			$gameName	= $config->game_name;
 			$VERSION	= $config->VERSION;
-		} catch(ErrorException $e) {
+		} catch (ErrorException $e) {
 		}
 	}
-	
-	
+
+
 	$DIR		= MODE == 'INSTALL' ? '..' : '.';
 	ob_start();
 	echo '<!DOCTYPE html>
@@ -516,12 +537,12 @@ function exceptionHandler($exception)
 <!--[if IE 9 ]>    <html lang="de" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="de" class="no-js"> <!--<![endif]-->
 <head>
-	<title>'.$gameName.' - Error</title>
+	<title>' . $gameName . ' - Error</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/resource/css/base/boilerplate.css?v='.$VERSION.'">
-	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/resource/css/ingame/main.css?v='.$VERSION.'">
-	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/resource/css/base/jquery.css?v='.$VERSION.'">
-	<link rel="stylesheet" type="text/css" href="'.$DIR.'/styles/theme/gow/formate.css?v='.$VERSION.'">
+	<link rel="stylesheet" type="text/css" href="' . $DIR . '/styles/resource/css/base/boilerplate.css?v=' . $VERSION . '">
+	<link rel="stylesheet" type="text/css" href="' . $DIR . '/styles/resource/css/ingame/main.css?v=' . $VERSION . '">
+	<link rel="stylesheet" type="text/css" href="' . $DIR . '/styles/resource/css/base/jquery.css?v=' . $VERSION . '">
+	<link rel="stylesheet" type="text/css" href="' . $DIR . '/styles/theme/gow/formate.css?v=' . $VERSION . '">
 	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 	<script type="text/javascript">
 	var ServerTimezoneOffset = -3600;
@@ -531,7 +552,7 @@ function exceptionHandler($exception)
 	var localTS 	= startTime;
 	var Gamename	= document.title;
 	var Ready		= "Fertig";
-	var Skin		= "'.$DIR.'/styles/theme/gow/";
+	var Skin		= "' . $DIR . '/styles/theme/gow/";
 	var Lang		= "de";
 	var head_info	= "Information";
 	var auth		= 3;
@@ -548,13 +569,13 @@ function exceptionHandler($exception)
 	}
     }, 25);
 	</script>
-	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.js?v=2123"></script>
-	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.ui.js?v=2123"></script>
-	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.cookie.js?v=2123"></script>
-	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.fancybox.js?v=2123"></script>
-	<script type="text/javascript" src="'.$DIR.'/scripts/base/jquery.validationEngine.js?v=2123"></script>
-	<script type="text/javascript" src="'.$DIR.'/scripts/base/tooltip.js?v=2123"></script>
-	<script type="text/javascript" src="'.$DIR.'/scripts/game/base.js?v=2123"></script>
+	<script type="text/javascript" src="' . $DIR . '/scripts/base/jquery.js?v=2123"></script>
+	<script type="text/javascript" src="' . $DIR . '/scripts/base/jquery.ui.js?v=2123"></script>
+	<script type="text/javascript" src="' . $DIR . '/scripts/base/jquery.cookie.js?v=2123"></script>
+	<script type="text/javascript" src="' . $DIR . '/scripts/base/jquery.fancybox.js?v=2123"></script>
+	<script type="text/javascript" src="' . $DIR . '/scripts/base/jquery.validationEngine.js?v=2123"></script>
+	<script type="text/javascript" src="' . $DIR . '/scripts/base/tooltip.js?v=2123"></script>
+	<script type="text/javascript" src="' . $DIR . '/scripts/game/base.js?v=2123"></script>
 </head>
 <body id="overview" class="full">
 <table width="960">
@@ -563,14 +584,14 @@ function exceptionHandler($exception)
 	</tr>
 	<tr>
 		<td class="left">
-			<b>Message: </b>'.$exception->getMessage().'<br>
-			<b>File: </b>'.$exception->getFile().'<br>
-			<b>Line: </b>'.$exception->getLine().'<br>
-			<b>URL: </b>'.PROTOCOL.HTTP_HOST.$_SERVER['REQUEST_URI'].'<br>
-			<b>PHP-Version: </b>'.PHP_VERSION.'<br>
-			<b>PHP-API: </b>'.php_sapi_name().'<br>
-			<b>2Moons Version: </b>'.$VERSION.'<br>
-			<b>Debug Backtrace:</b><br>'.makebr(htmlspecialchars($exception->getTraceAsString())).'
+			<b>Message: </b>' . $exception->getMessage() . '<br>
+			<b>File: </b>' . $exception->getFile() . '<br>
+			<b>Line: </b>' . $exception->getLine() . '<br>
+			<b>URL: </b>' . PROTOCOL . HTTP_HOST . $_SERVER['REQUEST_URI'] . '<br>
+			<b>PHP-Version: </b>' . PHP_VERSION . '<br>
+			<b>PHP-API: </b>' . php_sapi_name() . '<br>
+			<b>2Moons Version: </b>' . $VERSION . '<br>
+			<b>Debug Backtrace:</b><br>' . makebr(htmlspecialchars($exception->getTraceAsString())) . '
 		</td>
 	</tr>
 </table>
@@ -578,25 +599,23 @@ function exceptionHandler($exception)
 </html>';
 
 	echo str_replace(array('\\', ROOT_PATH, substr(ROOT_PATH, 0, 15)), array('/', '/', 'FILEPATH '), ob_get_clean());
-	
-	$errorText	= date("[d-M-Y H:i:s]", TIMESTAMP).' '.$errorType[$errno].': "'.strip_tags($exception->getMessage())."\"\r\n";
-	$errorText	.= 'File: '.$exception->getFile().' | Line: '.$exception->getLine()."\r\n";
-	$errorText	.= 'URL: '.PROTOCOL.HTTP_HOST.$_SERVER['REQUEST_URI'].' | Version: '.$VERSION."\r\n";
+
+	$errorText	= date("[d-M-Y H:i:s]", TIMESTAMP) . ' ' . $errorType[$errno] . ': "' . strip_tags($exception->getMessage()) . "\"\r\n";
+	$errorText	.= 'File: ' . $exception->getFile() . ' | Line: ' . $exception->getLine() . "\r\n";
+	$errorText	.= 'URL: ' . PROTOCOL . HTTP_HOST . $_SERVER['REQUEST_URI'] . ' | Version: ' . $VERSION . "\r\n";
 	$errorText	.= "Stack trace:\r\n";
-	$errorText	.= str_replace(ROOT_PATH, '/', htmlspecialchars(str_replace('\\', '/',$exception->getTraceAsString())))."\r\n";
-	
-	if(is_writable('includes/error.log'))
-	{
+	$errorText	.= str_replace(ROOT_PATH, '/', htmlspecialchars(str_replace('\\', '/', $exception->getTraceAsString()))) . "\r\n";
+
+	if (is_writable('includes/error.log')) {
 		file_put_contents('includes/error.log', $errorText, FILE_APPEND);
 	}
-	
+
 	/* Debug via Support Ticket */
 	global $USER;
-	if(isset($USER))
-	{
+	if (isset($USER)) {
 		$ErrSource = $USER['id'];
 		$ErrName = $USER['username'];
-	}else{
+	} else {
 		$ErrSource = 1;
 		$ErrName = 'System';
 	}
@@ -604,7 +623,6 @@ function exceptionHandler($exception)
 	$ticketObj	= new SupportTickets;
 	$ticketID	= $ticketObj->createTicket($ErrSource, '1', $errorType[$errno]);
 	$ticketObj->createAnswer($ticketID, $ErrSource, $ErrName, $errorType[$errno], $errorText, 0);
-	
 }
 /*
  *
@@ -615,55 +633,48 @@ function exceptionHandler($exception)
  */
 function errorHandler($errno, $errstr, $errfile, $errline)
 {
-    if (!($errno & error_reporting())) {
-        return false;
-    }
-	
+	if (!($errno & error_reporting())) {
+		return false;
+	}
+
 	throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
 }
 
 // "workaround" for PHP version pre 5.3.0
-if (!function_exists('array_replace_recursive'))
-{
-    function array_replace_recursive()
-    {
-        if (!function_exists('recurse')) {
-            function recurse($array, $array1)
-            {
-                foreach ($array1 as $key => $value)
-                {
-                    // create new key in $array, if it is empty or not an array
-                    if (!isset($array[$key]) || (isset($array[$key]) && !is_array($array[$key])))
-                    {
-                        $array[$key] = array();
-                    }
+if (!function_exists('array_replace_recursive')) {
+	function array_replace_recursive()
+	{
+		if (!function_exists('recurse')) {
+			function recurse($array, $array1)
+			{
+				foreach ($array1 as $key => $value) {
+					// create new key in $array, if it is empty or not an array
+					if (!isset($array[$key]) || (isset($array[$key]) && !is_array($array[$key]))) {
+						$array[$key] = array();
+					}
 
-                    // overwrite the value in the base array
-                    if (is_array($value))
-                    {
-                        $value = recurse($array[$key], $value);
-                    }
-                    $array[$key] = $value;
-                }
-                return $array;
-            }
-        }
+					// overwrite the value in the base array
+					if (is_array($value)) {
+						$value = recurse($array[$key], $value);
+					}
+					$array[$key] = $value;
+				}
+				return $array;
+			}
+		}
 
-        // handle the arguments, merge one by one
-        $args = func_get_args();
-        $array = $args[0];
-        if (!is_array($array))
-        {
-            return $array;
-        }
-        $count = count($args);
-        for ($i = 1; $i < $count; ++$i)
-        {
-            if (is_array($args[$i]))
-            {
-                $array = recurse($array, $args[$i]);
-            }
-        }
-        return $array;
-    }
+		// handle the arguments, merge one by one
+		$args = func_get_args();
+		$array = $args[0];
+		if (!is_array($array)) {
+			return $array;
+		}
+		$count = count($args);
+		for ($i = 1; $i < $count; ++$i) {
+			if (is_array($args[$i])) {
+				$array = recurse($array, $args[$i]);
+			}
+		}
+		return $array;
+	}
 }
