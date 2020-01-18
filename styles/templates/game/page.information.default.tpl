@@ -34,12 +34,6 @@
 	</tr>
 	</tbody>
 </table>
-{if !empty($productionTable.production)}
-{include file="shared.information.production.tpl"}
-{/if}
-{if !empty($productionTable.storage)}
-{include file="shared.information.storage.tpl"}
-{/if}
 {if !empty($FleetInfo)}
 {include file="shared.information.shipInfo.tpl"}
 {/if}
@@ -48,5 +42,11 @@
 {/if}
 {if !empty($MissileList)}
 {include file="shared.information.missiles.tpl"}
+{/if}
+{if !empty($productionTable.production)}
+{include file="shared.information.production.tpl"}
+{/if}
+{if !empty($productionTable.storage)}
+{include file="shared.information.storage.tpl"}
 {/if}
 {/block}

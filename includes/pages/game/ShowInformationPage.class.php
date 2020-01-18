@@ -214,7 +214,7 @@ class ShowInformationPage extends AbstractGamePage
 
 		$ressIDs			= array_merge(array(), $reslist['resstype'][1], $reslist['resstype'][2]);
 
-		if(in_array($elementID, $reslist['prod']) && in_array($elementID, $reslist['build']))
+		if(in_array($elementID, $reslist['prod']))
 		{
 
 			/* Data for eval */
@@ -249,7 +249,7 @@ class ShowInformationPage extends AbstractGamePage
 
 			$productionTable['usedResource']	= array_keys($productionTable['production'][$BuildStartLvl]);
 		}
-		elseif(in_array($elementID, $reslist['storage']))
+		if(in_array($elementID, $reslist['storage']))
 		{
 			$CurrentLevel		= $PLANET[$resource[$elementID]];
 			$BuildStartLvl   	= max($CurrentLevel - 2, 0);
@@ -270,7 +270,7 @@ class ShowInformationPage extends AbstractGamePage
 
 			$productionTable['usedResource']	= array_keys($productionTable['storage'][$BuildStartLvl]);
 		}
-		elseif(in_array($elementID, $reslist['fleet']))
+		if(in_array($elementID, $reslist['fleet']))
 		{
 			$FleetInfo	= array(
 				'structure'		=> $pricelist[$elementID]['cost'][901] + $pricelist[$elementID]['cost'][902],
@@ -301,7 +301,7 @@ class ShowInformationPage extends AbstractGamePage
 				}
 			}
 		}
-		elseif (in_array($elementID, $reslist['defense']))
+		if (in_array($elementID, $reslist['defense']))
 		{
 			$FleetInfo	= array(
 				'structure'		=> $pricelist[$elementID]['cost'][901] + $pricelist[$elementID]['cost'][902],
