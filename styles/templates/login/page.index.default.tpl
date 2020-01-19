@@ -16,7 +16,14 @@
 						<select name="uni" id="universe" class="changeAction">{html_options options=$universeSelect selected=$UNI}</select>
 						<input name="username" id="username" type="text" placeholder="{$LNG.loginUsername}">
 						<input name="password" id="password" type="password" placeholder="{$LNG.loginPassword}">
-						<input type="submit" value="{$LNG.loginButton}">
+						{if $verkey["capaktiv"]==1}
+							<script src='https://www.google.com/recaptcha/api.js'></script>
+							<script>function onSubmit() { document.getElementById("login").submit(); } </script>
+							<input class="g-recaptcha" data-sitekey="{$verkey["cappublic"]}" data-callback="onSubmit" type="submit" value="{$LNG.loginButton}">
+						{else}
+							<input type="submit" value="{$LNG.loginButton}">
+						{/if}
+
 					</div>
 				</form>
 				{if $facebookEnable}<a href="#" data-href="index.php?page=externalAuth&method=facebook" class="fb_login"><img src="styles/resource/images/facebook/fb-connect-large.png" alt=""></a>{/if}

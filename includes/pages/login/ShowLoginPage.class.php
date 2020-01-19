@@ -42,6 +42,22 @@ class ShowLoginPage extends AbstractLoginPage
 			':username'	=> $username
 		));
 
+		$sql = "SELECT capaktiv, cappublic, capprivate FROM uni1_config";
+		$verkey = $db->selectSingle($sql);
+
+		if (!empty($verkey["capaktiv"]) && !empty($verkey["cappublic"]) && !empty($verkey["capprivate"])) {
+			require 'includes/libs/reCAPTCHA/invisible/Recaptcha.php';
+			$recaptcha = $_POST['g-recaptcha-response'];
+			$object = new Recaptcha(['client-key' => $verkey["cappublic"], 'secret-key' => $verkey["capprivate"]]);
+			$response = $object->verifyResponse($recaptcha);
+
+			if(isset($response['success']) and $response['success'] != true) {
+				echo "An Error Occured and Error code is :".$response['error-codes'][0].'<br>';
+				echo 'You will be redirected to the home page in 5 seconds.';
+				die('<meta http-equiv="refresh" content="5; url=index.php" />');
+				}
+		}
+
 		if (!empty($loginData))
 		{
 			$hashedPassword = PlayerUtil::cryptPassword($password);
@@ -64,7 +80,7 @@ class ShowLoginPage extends AbstractLoginPage
 			$session->adminAccess	= 0;
 			$session->save();
 
-			HTTP::redirectTo('game.php');	
+			HTTP::redirectTo('game.php');
 		}
 		else
 		{
