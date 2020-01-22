@@ -146,6 +146,12 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
         $attInfo = updatePlayers($attackerGroupObj, $attackers);
         $defInfo = updatePlayers($defenderGroupObj, $defenders);
         $ROUND[$i] = roundInfo($report, $attackers, $defenders, $attackerGroupObj, $defenderGroupObj, $i + 1, $attInfo, $defInfo);
+        $true_armor = $ROUND[$i]["attackers"][0]["techs"][1];
+        $ROUND[$i]["attackers"][0]["techs"][1]=$ROUND[$i]["attackers"][0]["techs"][2];
+        $ROUND[$i]["attackers"][0]["techs"][2]=$true_armor;
+        $true_armor = $ROUND[$i]["defenders"][0]["techs"][1];
+        $ROUND[$i]["defenders"][0]["techs"][1]=$ROUND[$i]["defenders"][0]["techs"][2];
+        $ROUND[$i]["defenders"][0]["techs"][2]=$true_armor;
     }
 
     /********** DEBRIS **********/
@@ -239,7 +245,7 @@ function updatePlayers(PlayerGroup $playerGroup, &$players)
                     {
                         $shipType = $fleet->getShipType($idShipType);
                         //used to show life,power and shield of each ships in the report
-                        $plyArray[$idFleet][$idShipType] = array('def' => $shipType->getHull() * $shipType->getCount(),'shield' => $shipType->getShield() * $shipType->getCount(),'att' => $shipType->getPower() * $shipType->getCount());
+                        $plyArray[$idFleet][$idShipType] = array('def' => $shipType->getShield() * $shipType->getCount(),'shield' => $shipType->getHull() * $shipType->getCount(),'att' => $shipType->getPower() * $shipType->getCount());
                         $players[$idFleet]['unit'][$idShipType] = $shipType->getCount();
                     }
                     else //all ships of this type were destroyed
@@ -319,8 +325,8 @@ function getFleet($id)
 function getTechsFromArray($player)
 {
     $attTech = $player['military_tech'] + $player['factor']['Attack'] / WEAPONS_TECH_INCREMENT_FACTOR;
-    $shieldTech = $player['shield_tech'] + $player['factor']['Shield'] / SHIELDS_TECH_INCREMENT_FACTOR;
-    $defenceTech = $player['defence_tech'] + $player['factor']['Defensive'] / ARMOUR_TECH_INCREMENT_FACTOR;
+    $shieldTech = $player['defence_tech'] + $player['factor']['Shield'] / SHIELDS_TECH_INCREMENT_FACTOR;
+    $defenceTech = $player['shield_tech'] + $player['factor']['Defensive'] / ARMOUR_TECH_INCREMENT_FACTOR;
     return array($attTech,$defenceTech,$shieldTech);
 }
 
