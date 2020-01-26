@@ -234,3 +234,6 @@ $LNG['type_planet_short_3']  				= 'M';
 $LNG['type_planet_1']  					= 'Planet';
 $LNG['type_planet_2']  					= 'Trümmerfeld';
 $LNG['type_planet_3']  					= 'Mond';
+
+$LNG['sys_transfer_mess_owner'] = $LNG['sys_tran_mess_owner'];
+$LNG['sys_transfer_mess_user'] = $LNG['sys_tran_mess_user'];

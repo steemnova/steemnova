@@ -236,3 +236,6 @@ $LNG['type_planet_short_3']          = 'Л';
 $LNG['type_planet_1']                = 'Планета';
 $LNG['type_planet_2']                = 'Поле обломков';
 $LNG['type_planet_3']                = 'Луна';
+
+$LNG['sys_transfer_mess_owner'] = $LNG['sys_tran_mess_owner'];
+$LNG['sys_transfer_mess_user'] = $LNG['sys_tran_mess_user'];

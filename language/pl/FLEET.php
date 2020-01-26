@@ -213,7 +213,8 @@ $LNG['type_planet_1']  					= 'Planeta';
 $LNG['type_planet_2']  					= 'Pole zniszczeń';
 $LNG['type_planet_3']  					= 'Księżyc';
 
-
+$LNG['sys_transfer_mess_owner'] = $LNG['sys_tran_mess_owner'];
+$LNG['sys_transfer_mess_user'] = $LNG['sys_tran_mess_user'];
 
 // Translated into Polish by Sirgomo . All rights reversed (C) 2012
 // Edited by TheRavikin. All rights resteemed (C) 2018

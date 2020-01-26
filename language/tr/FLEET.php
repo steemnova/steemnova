@@ -215,3 +215,6 @@ $LNG['type_planet_short_3']  				= 'A';
 $LNG['type_planet_1']  					= 'Gezegen';
 $LNG['type_planet_2']  					= 'Harabe';
 $LNG['type_planet_3']  					= 'Ay';
+
+$LNG['sys_transfer_mess_owner'] = $LNG['sys_tran_mess_owner'];
+$LNG['sys_transfer_mess_user'] = $LNG['sys_tran_mess_user'];
