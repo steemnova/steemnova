@@ -31,7 +31,7 @@ class ShowSettingsPage extends AbstractGamePage
 		{
 			$this->assign(array(
 				'vacationUntil'			=> _date($LNG['php_tdformat'], $USER['urlaubs_until'], $USER['timezone']),
-				'delete'				=> $USER['db_deaktjava'],
+				'db_deaktjava'				=> $USER['db_deaktjava'],
 				'canVacationDisbaled'	=> $USER['urlaubs_until'] < TIMESTAMP,
 			));
 			
@@ -66,7 +66,7 @@ class ShowSettingsPage extends AbstractGamePage
 				'spycount'			=> $USER['spio_anz'],
 				'fleetActions'		=> $USER['settings_fleetactions'],
 				'timezone'			=> $USER['timezone'],
-				'delete'			=> $USER['db_deaktjava'],
+				'db_deaktjava'			=> $USER['db_deaktjava'],
 				'queueMessages'		=> $USER['hof'],
 				'spyMessagesMode'	=> $USER['spyMessagesMode'],
 				'galaxySpy' 		=> $USER['settings_esp'],

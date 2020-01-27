@@ -101,7 +101,7 @@
 		</tr>
 		<tr>
 			<td><a title="{$LNG.op_dlte_account_descrip}">{$LNG.op_dlte_account}</a></td>
-			<td><input name="delete" type="checkbox" value="1" {if $delete > 0}checked="checked"{/if}></td>
+			<td><input name="delete" type="checkbox" value="1" {if $db_deaktjava > 0}checked="checked"{/if}></td>
 		</tr>
 		{if isModuleAvailable($smarty.const.MODULE_BANNER)}
 		<tr>
