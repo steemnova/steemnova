@@ -114,6 +114,9 @@ define('ENABLE_MULTIALERT'			, false);
 // UTF-8 support for names (required for non-english chars!)
 define('UTF8_SUPPORT'				, true);
 
+// Prevent the use of one account on multiple devices
+define('PREVENT_MULTISESSIONS'			, false);
+
 // Define, how its more hard to spy all inforation
 /*
 	if [Spy tech level of sender] > [Spy tech level of target]

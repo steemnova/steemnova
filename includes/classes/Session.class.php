@@ -221,6 +221,15 @@ class Session
 
 		$db		= Database::get();
 
+		// Remove multisessions
+		if(PREVENT_MULTISESSIONS == true) {
+			$sql	= 'DELETE FROM %%SESSION%% WHERE (userID = :userId AND sessionID != :sessionId);';
+			$db->delete($sql, array(
+				':userId'	=> $this->data['userId'],
+				':sessionId'	=> session_id(),
+			)); }
+
+
 		$db->replace($sql, array(
 			':sessionId'	=> session_id(),
 			':userId'		=> $this->data['userId'],
