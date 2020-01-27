@@ -129,6 +129,7 @@ class Language implements ArrayAccess {
 		}
 	}
 
+
 	public function includeData($files)
 	{
 		// Fixed BOM problems.
@@ -144,20 +145,28 @@ class Language implements ArrayAccess {
 				require $filePath;
 			}
 		}
+		
+		$DEFAULT = $LNG;
 
-		//LANGUAGE
+		// Get current client language
 		$path	= 'language/'.$this->getLanguage().'/';
-
-        foreach($files as $file) {
-			$filePath	= $path.$file.'.php';
-			if(file_exists($filePath))
-			{
+		foreach ($files as $file) {
+			$filePath	= $path . $file . '.php';
+			if (file_exists($filePath)) {
 				require $filePath;
 			}
 		}
+		
+		// Build missing language data from English to client language
+		foreach ($DEFAULT as $TextKey => $TextData) {
+			if (is_array($TextData)) {
+				foreach ($TextData as $Element => $ElementText) {
+					if (array_key_exists($Element, $LNG[$TextKey])) continue;
+					$LNG[$TextKey][$Element] = $ElementText;
+				}
+			}
+		}
 
-		$filePath	= $path.'CUSTOM.php';
-		require $filePath;
 		ob_end_clean();
 
 		$this->addData($LNG);
