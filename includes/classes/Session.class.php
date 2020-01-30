@@ -217,23 +217,25 @@ class Session
 		sessionID	= :sessionId,
 		userID		= :userId,
 		lastonline	= :lastActivity,
+		created		= :created,
 		userIP		= :userAddress;';
 
 		$db		= Database::get();
 
-		// Remove multisessions
-		if(PREVENT_MULTISESSIONS == true) {
-			$sql	= 'DELETE FROM %%SESSION%% WHERE (userID = :userId AND sessionID != :sessionId);';
-			$db->delete($sql, array(
-				':userId'	=> $this->data['userId'],
-				':sessionId'	=> session_id(),
-			)); }
+		$sql_created = 'SELECT created FROM %%SESSION%% WHERE sessionID = :sessionId AND userID = :userId;';
 
+		$created = $db->selectSingle($sql_created, array(
+			':sessionId'	=> session_id(),
+			':userId'		=> $this->data['userId'],
+		), 'created');
+
+		if(empty($created)) { $created = time(); }
 
 		$db->replace($sql, array(
 			':sessionId'	=> session_id(),
 			':userId'		=> $this->data['userId'],
 			':lastActivity'	=> TIMESTAMP,
+			':created'	=> $created,
 			':userAddress'	=> $userIpAddress,
 		));
 
@@ -248,6 +250,23 @@ class Session
 		   ':lastActivity'	=> TIMESTAMP,
 		   ':userId'		=> $this->data['userId'],
 		));
+
+		// Remove multisessions
+		if(PREVENT_MULTISESSIONS == true) {
+			$sql	= 'DELETE FROM %%SESSION%% WHERE (userID = :userId AND sessionID != :sessionId);';
+			$db->delete($sql, array(
+				':userId'	=> $this->data['userId'],
+				':sessionId'	=> session_id(),
+			)); }
+
+		// Remove old sessions
+		if($created + SESSION_LIFETIME < time()) {
+			$sql	= 'DELETE FROM %%SESSION%% WHERE (userID = :userId AND sessionID = :sessionId);';
+
+		$db->delete($sql, array(
+			':userId'		=> $this->data['userId'],
+			':sessionId'	=> session_id(),
+		));}
 
 		$this->data['lastActivity']  = TIMESTAMP;
 		$this->data['sessionId']	 = session_id();

@@ -618,6 +618,7 @@ CREATE TABLE `%PREFIX%session` (
   `userID` int(10) unsigned NOT NULL,
   `userIP` varchar(40) NOT NULL,
   `lastonline` int(11) NOT NULL,
+  `created` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`sessionID`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8;
 
