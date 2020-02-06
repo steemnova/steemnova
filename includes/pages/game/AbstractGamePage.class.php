@@ -97,7 +97,7 @@ abstract class AbstractGamePage
 		$config			= Config::get();
 
 		$PlanetSelect	= array();
-if($USER['bana']==1) { echo 'You received a Ban. If you think this is a mistake, write on our Discord: <a href="https://discord.gg/ff3TjvK">https://discord.gg/ff3TjvK</a>'; die(); }
+		if($USER['bana']==1) { echo 'You received a Ban. If you think this is a mistake, write on our Discord: <a href="https://discord.gg/g6UHwXE">https://discord.gg/g6UHwXE</a>'; die(); }
 		if(isset($USER['PLANETS'])) {
 			$USER['PLANETS']	= getPlanets($USER);
 		}

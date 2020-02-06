@@ -69,7 +69,7 @@ SteemNova is intended and directed at individuals of all ages.
 
 ##COMMUNITY FORUMS/FEEDBACK:
 
-We collect feedbacks from SteemNova App users about their experiences with other SteemNova users as well as on the App. Please note that any feedback you provide via the **Discord** - https://discord.gg/dTXWMSS, is publicly viewable via the Server. You may choose, through such features or otherwise, to submit or post questions, comments, or other content (collectively, “User Forum Content”). On very rare occasions, we may remove feedback pursuant to the relevant provisions of our Terms of Service, including the Terms of Use.
+We collect feedbacks from SteemNova App users about their experiences with other SteemNova users as well as on the App. Please note that any feedback you provide via the **Discord** - https://discord.gg/g6UHwXE, is publicly viewable via the Server. You may choose, through such features or otherwise, to submit or post questions, comments, or other content (collectively, “User Forum Content”). On very rare occasions, we may remove feedback pursuant to the relevant provisions of our Terms of Service, including the Terms of Use.
 
 
 ##CHANGES TO THIS PRIVACY POLICY:
@@ -77,4 +77,4 @@ We collect feedbacks from SteemNova App users about their experiences with other
 We may change this Privacy Policy from time to time. If we do, we will let you know by revising the date at the top of the policy. If we make a change to this policy that, in our sole discretion, is material, we will provide you with additional notice. We encourage you to review the Privacy Policy whenever you access or use our Service or otherwise interact with us to stay informed about our information practices and the ways you can help protect your privacy. If you continue to use our Services after Privacy Policy changes go into effect, you consent to the revised policy.
 
 
-**Contact** - Questions or comments about SteemNova may be directed to -https://discord.gg/dTXWMSS
+**Contact** - Questions or comments about SteemNova may be directed to - https://discord.gg/g6UHwXE

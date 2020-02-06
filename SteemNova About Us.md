@@ -21,4 +21,4 @@ Users are not asked for any sign up fee, gaining access to **SteemNova** for fre
 - Biggest "Ogame Retro"-clone server as of 2018
 
 
-**For questions, concerns, doubts and suggestions, there is contact to hosts and developers at discord https://discord.gg/dTXWMSS or at GitHub @https://github.com/steemnova/steemnova**
+**For questions, concerns, doubts and suggestions, there is contact to hosts and developers at discord https://discord.gg/g6UHwXE or at GitHub @https://github.com/steemnova/steemnova**
