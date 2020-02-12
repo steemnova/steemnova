@@ -57,6 +57,8 @@ class ShowRecordsPage extends AbstractGamePage
 				$buildList[$recordRow['elementID']][]		= $recordRow;
 			} elseif (in_array($recordRow['elementID'], $reslist['officier'])) {
 				$officerList[$recordRow['elementID']][]		= $recordRow;
+			} elseif (in_array($recordRow['elementID'], $reslist['missile'])) {
+				$defenseList[$recordRow['elementID']][]		= $recordRow; 
 			}
 		}
 
