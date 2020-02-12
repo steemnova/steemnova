@@ -64,6 +64,11 @@ class MissionCaseExpedition extends MissionFunctions implements Mission
 			'fleet_end_planet' => $this->_fleet['fleet_end_planet']
 		), 'total');
 		
+
+		// Get a seed into the number generator (to make the results unpredictable).
+		mt_srand(microtime(TRUE)*10000);
+		usleep(50);
+
 		// Hold time bonus
 		$holdTime = ($this->_fleet['fleet_end_stay'] - $this->_fleet['fleet_start_time']) / 3600;
 
