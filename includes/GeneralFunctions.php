@@ -567,7 +567,7 @@ function exceptionHandler($exception)
 	    serverTime.setSeconds(serverTime.getSeconds()+1);
 	    relativeTime++;
 	}
-    }, 25);
+    }, 1);
 	</script>
 	<script type="text/javascript" src="' . $DIR . '/scripts/base/jquery.js?v=2123"></script>
 	<script type="text/javascript" src="' . $DIR . '/scripts/base/jquery.ui.js?v=2123"></script>
