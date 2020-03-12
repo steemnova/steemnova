@@ -58,12 +58,17 @@ class PhysicShot
         $this->fighters = $shipType->cloneMe();
 
 
-	if($count<100) { $multiplier = 1.1+($count/1000); } else { $multiplier=1.2; }
-	$destack = 0.1;
-	$multiplier1 = $multiplier-$destack;
-	$multiplier2 = $multiplier+$destack;
+        $count_battle = min($count, 100);
+        $damage = rand($damage - (1/$count_battle * $damage), $damage + (1/$count_battle * $damage));
 
-	if($GLOBALS['round']==1) { $this->damage=rand($damage*$multiplier1*1.199, $damage*$multiplier2*1.20); } else if($GLOBALS['round']==2) {$this->damage=rand($damage*$multiplier1*0.999, $damage*$multiplier2*1.00); } else if($GLOBALS['round']==3) { $this->damage=rand($damage*$multiplier1*0.299, $damage*$multiplier2*0.30); } else if($GLOBALS['round']==4){$this->damage=rand($damage*$multiplier1*0.249, $damage*$multiplier2*0.25);} else if($GLOBALS['round']==5) {$this->damage=rand($damage*$multiplier1*0.599, $damage*$multiplier2*0.60);} else { $this->damage = rand($damage*$multiplier1*0.499, $damage*$multiplier2*0.50); }
+        if($GLOBALS['round']==1) { $damage = $damage*1.20; }
+        else if($GLOBALS['round']==2) {}
+        else if($GLOBALS['round']==3) { $damage = $damage*0.30; }
+        else if($GLOBALS['round']==4) { $damage = $damage*0.25; }
+        else if($GLOBALS['round']==5) { $damage = $damage*0.60; }
+        else { $damage = $damage*0.50;}
+
+        $this->damage = $damage;
         $this->count = $count;
     }
 
