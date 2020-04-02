@@ -227,7 +227,7 @@ class ShowShipyardPage extends AbstractGamePage
 		}
 		
 		$MaxMissiles	= BuildFunctions::getMaxConstructibleRockets($USER, $PLANET, $Missiles);
-		
+
 		foreach($elementIDs as $Element)
 		{
 			if(!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element))
@@ -238,6 +238,7 @@ class ShowShipyardPage extends AbstractGamePage
 			$elementTime    	= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costResources);
 			$buyable			= BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
 			$maxBuildable		= BuildFunctions::getMaxConstructibleElements($USER, $PLANET, $Element, $costResources);
+			$SolarEnergy		= round((($PLANET['temp_max']+160)/6)*Config::get()->energySpeed, 1);
 
 			if(isset($MaxMissiles[$Element])) {
 				$maxBuildable	= min($maxBuildable, $MaxMissiles[$Element]);
@@ -264,6 +265,7 @@ class ShowShipyardPage extends AbstractGamePage
 			'maxlength'		=> strlen(Config::get()->max_fleet_per_build),
 			'mode'			=> $mode,
 			'messages'		=> ($Messages > 0) ? (($Messages == 1) ? $LNG['ov_have_new_message'] : sprintf($LNG['ov_have_new_messages'], pretty_number($Messages))): false,
+			'SolarEnergy'		=> $SolarEnergy,
 		));
 
 		$this->display('page.shipyard.default.tpl');
