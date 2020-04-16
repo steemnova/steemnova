@@ -27,8 +27,16 @@ while($created!=1) {
 	$planet = rand(1, 15);
 	$is_empty = mysqli_fetch_all(mysqli_query($connection, "SELECT id FROM uni1_planets WHERE galaxy=$galaxy AND system=$system AND planet=$planet"));
 		if(empty($is_empty)) {
+
+			// Image
+			if($planet>=13) { $image = 'eisplanet'.sprintf('%02d', mt_rand(1,10)); }
+			else if($planet>=9) { $temp_image=array('normaltempplanet'.sprintf('%02d',mt_rand(1,7)), 'wasserplanet'.sprintf('%02d',mt_rand(1,9))); $image=$temp_image[array_rand($temp_image)]; }
+			else if($planet>=7) { $image = 'normaltempplanet'.sprintf('%02d',mt_rand(1,7)); }
+			else if($planet>=4) { $image = 'dschjungel'.sprintf('%02d',mt_rand(1,10)); }
+			else { $temp_image=array('trockenplanet'.sprintf('%02d',mt_rand(1,10)), 'wuestenplanet'.sprintf('%02d',mt_rand(1,4))); $image=$temp_image[array_rand($temp_image)]; }
+
 			$planet_name = trim($nickname_db[rand(1, count($nickname_db)-1)]);
-			echo mysqli_query($connection, "INSERT INTO uni1_planets (id_owner, name, universe, last_update, galaxy, system, planet) VALUES (1, '$planet_name', 1, 1, '$galaxy', '$system', '$planet')");
+			echo mysqli_query($connection, "INSERT INTO uni1_planets (id_owner, name, universe, last_update, galaxy, system, planet, image) VALUES (1, '$planet_name', 1, 1, '$galaxy', '$system', '$planet', '$image')");
 			$id = (mysqli_fetch_array(mysqli_query($connection, "SELECT id FROM uni1_planets ORDER by ID desc LIMIT 1")))[0];
 			$created=1;
 
