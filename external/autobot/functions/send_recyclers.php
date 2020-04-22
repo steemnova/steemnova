@@ -68,6 +68,7 @@ for ($i = 0;$i <= count($get_bots_techs) - 1;$i++) {
 	    mysqli_query($connection, "INSERT INTO uni1_log_fleets (fleet_id, fleet_owner, fleet_mission, fleet_amount, fleet_array, fleet_universe, fleet_start_id, fleet_start_galaxy, fleet_start_system, fleet_start_planet, fleet_start_type, fleet_end_id, fleet_end_galaxy, fleet_end_system, fleet_end_planet, fleet_end_type, start_time, fleet_start_time, fleet_end_stay, fleet_end_time) VALUES  ($fleet_id, $id_owner, 8, 1, '209,1', 1, $fleet_start_id, $fleet_start_galaxy, $fleet_start_system, $fleet_start_planet, 1, $id_planet_recycled, $x, $y, $z, 2, $start_time, $fleet_start_time, $fleet_end_stay, $fleet_end_time)");
 	    mysqli_query($connection, "INSERT INTO uni1_fleet_event (fleetID, time) VALUES ($fleet_id, $fleet_start_time)");
 	    mysqli_query($connection, "UPDATE uni1_planets SET recycler = recycler - 1 WHERE id=$fleet_start_id");
+	    mysqli_query($connection, "UPDATE uni1_users SET onlinetime = $start_time WHERE id=$id_owner");
 	}
 	$max_fleets--;
     }
