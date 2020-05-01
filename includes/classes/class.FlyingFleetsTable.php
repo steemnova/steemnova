@@ -120,23 +120,7 @@ class FlyingFleetsTable
 		$Time	= 0;
 		$Rest	= 0;
 
-		if ($FleetState == 0 && !$this->IsPhalanx && $fleetRow['fleet_group'] != 0)
-		{
-			$acsResult		= $this->getFleets($fleetRow['fleet_group']);
-			$EventString	= '';
-
-			foreach($acsResult as $acsRow)
-			{
-				$Return			= $this->getEventData($acsRow, $FleetState);
-
-				$Rest			= $Return[0];
-				$EventString    .= $Return[1].'<br><br>';
-				$Time			= $Return[2];
-			}
-
-			$EventString	= substr($EventString, 0, -8);
-		}
-		if ($FleetState == 0 && $this->IsPhalanx && $fleetRow['fleet_group'] != 0)
+		if ($FleetState == 0 && $this->IsPhalanx && $fleetRow['fleet_group'] != 0 && (strpos((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]", 'page=phalanx') !== false))
 		{
 			// Rebuilt the code above to eliminate possible errors with ACS without Phalanx.
 			$acsResult		= $this->getFleets($fleetRow['fleet_group']);
@@ -151,6 +135,22 @@ class FlyingFleetsTable
 				$EventString    .= $Return[1].'<br><br>';
 				$Time			= $Return[2];
 				}
+			}
+
+			$EventString	= substr($EventString, 0, -8);
+		}
+		else if ($FleetState == 0 && $fleetRow['fleet_group'] != 0)
+		{
+			$acsResult		= $this->getFleets($fleetRow['fleet_group']);
+			$EventString	= '';
+
+			foreach($acsResult as $acsRow)
+			{
+				$Return			= $this->getEventData($acsRow, $FleetState);
+
+				$Rest			= $Return[0];
+				$EventString    .= $Return[1].'<br><br>';
+				$Time			= $Return[2];
 			}
 
 			$EventString	= substr($EventString, 0, -8);
