@@ -109,7 +109,7 @@ class ShowTraderPage extends AbstractGamePage
 			{
 				continue;  
 			}
-			$used = 0;
+
 			if(isset($PLANET[$resource[$resourceID]]))
 			{
 				$usedResources	= $tradeAmount * self::$Charge[$resourceID][$tradeRessID];
