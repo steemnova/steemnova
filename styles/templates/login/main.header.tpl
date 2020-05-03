@@ -20,7 +20,7 @@
 	<meta property="og:title" content="SteemNova">
 	<meta property="og:type" content="website">
 	<meta property="og:description" content="Massively Multiplayer Online Strategy Game (MMOSG) for Steemians. Space Browsergame with competition between Alliances for Steem cryptocurrency. Free-to-play, win-to-pay style.">
-	<meta property="og:image" content="https://steemnova.intinte.org/styles/resource/images/meta.png">
+	<meta property="og:image" content="styles/resource/images/meta.png">
 	<!--[if lt IE 9]>
 	<script src="scripts/base/html5.js"></script>
 	<![endif]-->
