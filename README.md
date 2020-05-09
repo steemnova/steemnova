@@ -55,8 +55,6 @@ SteemNova expansion goes as follows:
 
 - Clone the repo: `git clone https://github.com/steemnova/steemnova`
 - Install components: `apt install apache2 php7.3 php7.3-gd php7.3-fpm php7.3-mysql php7.3-curl php-ds libapache2-mod mysql-server`
-- Install HTML_BBCodeParser2
-    - `pear install HTML_BBCodeParser2-0.1.0`
 - Setup mysql: `create user USER identified by PASSWORD; create database DB; grant all privileges on DB.* to USER;`
 - Set write privileges to dirs: `cache/`, `includes/`
 - Run wizard: `127.0.0.1/install/install.php`
