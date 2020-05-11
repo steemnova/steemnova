@@ -22,6 +22,8 @@ define('ROOT_PATH', str_replace('\\', '/',dirname(__FILE__)).'/');
 set_include_path(ROOT_PATH.'includes/libs/BBCodeParser2/'.':'.ROOT_PATH.':'.get_include_path());
 require_once('HTML/BBCodeParser2.php');
 
+require 'includes/pages/game/AbstractGamePage.class.php';
+require 'includes/pages/game/ShowErrorPage.class.php';
 require 'includes/common.php';
 require 'includes/classes/class.Log.php';
 
