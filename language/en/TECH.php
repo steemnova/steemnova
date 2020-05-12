@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  *  2Moons
  *   by Jan-Otto Kröpke 2009-2016
@@ -331,8 +331,8 @@ $LNG['longDescription'] = array(
 120 => 'Focusing light produces a beam that causes damage when it strikes an object.',
 121 => 'A deadly beam of accelerated ions. This causes enormous damage when striking an object.',
 122 => 'A further development of ion technology which accelerates high-energy Plasma, a result of super-heating Ions. This has a devastating effect when striking an object.',
-123 => 'Researchers on different planets communicate via this network.',
-124 => 'With an astrophysics research module, ships can undertake long expeditions. Every second level of this technology will allow you to colonise an extra planet. You can also send more expedition in to deep space.<br><br><li>Level 1-3 - 1 expedition</li><li>Level 4-8 - 2 expeditions</li><li>Level 9-15 - 3 expeditions</li><li>Level 16-24 - 4 expeditions</li>',
+123 => 'Researchers on different planets communicate via this network. Each level allows one extra lab to join with the lab where you begin research, effectively adding their levels together to compute research time.',
+124 => 'With an astrophysics research module, ships can undertake long expeditions. Every second level of this technology (starting from the 1st) will allow you to colonise an extra planet. You can also send more expedition in to deep space.<br><br><li>Level 1-3 - 1 expedition</li><li>Level 4-8 - 2 expeditions</li><li>Level 9-15 - 3 expeditions</li><li>Level 16-24 - 4 expeditions</li>',
 131 => 'Increases the production of Metal by 2%',
 132 => 'Increases the production of Crystal by 2%',
 133 => 'Increases the production of Deuterium by 2%',
@@ -391,7 +391,7 @@ $LNG['longDescription'] = array(
 
 
 701 => 'Increases the attack value of the ships and defenses.',
-702 => 'Increases the value of ships shields and defenses',
+702 => 'Increases the value of ships shields',
 703 => 'Shorten the construction time for buildings',
 704 => 'Increases resource production',
 705 => 'Increases energy production',
