@@ -6,6 +6,13 @@ class LangImplementation implements Lang
     public function __construct()
     {
         global $LNG;
+
+        if(empty($LNG)) {
+            // Fallback language
+            $LNG = new Language('en');
+            $LNG->includeData(array('L18N', 'INGAME', 'TECH', 'CUSTOM'));
+        }
+
         $this->lang = $LNG;
     }
 
