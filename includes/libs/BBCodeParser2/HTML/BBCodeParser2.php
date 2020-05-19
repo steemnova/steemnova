@@ -494,7 +494,7 @@ class HTML_BBCodeParser2
                 {
                     if (trim($tag['text']) == '') {
                         //just an empty indentation or newline without value?
-                        continue;
+                        continue 2;
                     }
                     $newTagArray[] = $child;
                     $openTags[] = $child['tag'];
