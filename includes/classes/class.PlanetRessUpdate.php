@@ -489,6 +489,14 @@ class ResourceUpdate
 						if(!isset($costResources[902])) { $costResources[902] = 0; }
 						if(!isset($costResources[903])) { $costResources[903] = 0; }
 						
+						global $LNG;
+
+						if(empty($LNG)) {
+						// Fallback language
+							$LNG = new Language('en');
+							$LNG->includeData(array('L18N', 'INGAME', 'TECH', 'CUSTOM'));
+						}
+
 						$Message     = sprintf($LNG['sys_notenough_money'], $this->PLANET['name'], $this->PLANET['id'], $this->PLANET['galaxy'], $this->PLANET['system'], $this->PLANET['planet'], $LNG['tech'][$Element], pretty_number ($this->PLANET['metal']), $LNG['tech'][901], pretty_number($this->PLANET['crystal']), $LNG['tech'][902], pretty_number ($this->PLANET['deuterium']), $LNG['tech'][903], pretty_number($costResources[901]), $LNG['tech'][901], pretty_number ($costResources[902]), $LNG['tech'][902], pretty_number ($costResources[903]), $LNG['tech'][903]);
 					}
 
@@ -619,6 +627,14 @@ class ResourceUpdate
 					if(!isset($costResources[902])) { $costResources[902] = 0; }
 					if(!isset($costResources[903])) { $costResources[903] = 0; }
 					
+					global $LNG;
+
+					if(empty($LNG)) {
+					// Fallback language
+						$LNG = new Language('en');
+						$LNG->includeData(array('L18N', 'INGAME', 'TECH', 'CUSTOM'));
+					}
+
 					$Message     = sprintf($LNG['sys_notenough_money'], $PLANET['name'], $PLANET['id'], $PLANET['galaxy'], $PLANET['system'], $PLANET['planet'], $LNG['tech'][$Element], pretty_number ($PLANET['metal']), $LNG['tech'][901], pretty_number($PLANET['crystal']), $LNG['tech'][902], pretty_number ($PLANET['deuterium']), $LNG['tech'][903], pretty_number($costResources[901]), $LNG['tech'][901], pretty_number ($costResources[902]), $LNG['tech'][902], pretty_number ($costResources[903]), $LNG['tech'][903]);
 					PlayerUtil::sendMessage($this->USER['id'], 0,$LNG['sys_techlist'], 99, $LNG['sys_buildlist_fail'], $Message, $this->TIME);
 				}

@@ -270,16 +270,18 @@ class ShowFleetStep1Page extends AbstractGamePage
 				$this->sendJSON($LNG['fl_error_no_moon']);
 			}
 
-			if ($targetPlanetType != 2 && $planetData['urlaubs_modus'])
+			if ($targetPlanetType != 2 && !empty($planetData['urlaubs_modus']))
 			{
 				$this->sendJSON($LNG['fl_in_vacation_player']);
 			}
 
+			if(!empty($planetData))
 			if ($planetData['id'] != $USER['id'] && Config::get()->adm_attack == 1 && $planetData['authattack'] > $USER['authlevel'])
 			{
 				$this->sendJSON($LNG['fl_admin_attack']);
 			}
 
+			if(!empty($planetData))
 			if ($planetData['destruyed'] != 0)
 			{
 				$this->sendJSON($LNG['fl_error_not_avalible']);
@@ -295,6 +297,7 @@ class ShowFleetStep1Page extends AbstractGamePage
 				(SELECT COUNT(*) FROM %%MULTI%% WHERE userID = :dataID)
 			) as count;';
 
+			if(!empty($planetData))
 			$multiCount	= $db->selectSingle($sql ,array(
 				':userID' => $USER['id'],
 				':dataID' => $planetData['id']
