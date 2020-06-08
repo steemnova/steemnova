@@ -335,6 +335,13 @@ class FleetFunctions
 			':fleetNoMReturn'  => 0,
 		));
 
+		if(empty($fleetResult['start_time'])) { $fleetResult['start_time'] = 0; }
+		if(empty($fleetResult['fleet_start_time'])) { $fleetResult['fleet_start_time'] = 0; }
+		if(empty($fleetResult['fleet_mission'])) { $fleetResult['fleet_mission'] = 0; }
+		if(empty($fleetResult['fleet_group'])) { $fleetResult['fleet_group'] = 0; }
+		if(empty($fleetResult['fleet_owner'])) { $fleetResult['fleet_owner'] = 0; }
+		if(empty($fleetResult['fleet_mess'])) { $fleetResult['fleet_mess'] = 0; }
+
 		if ($fleetResult['fleet_owner'] != $USER['id'] || $fleetResult['fleet_mess'] == 1)
 		{
 			return false;

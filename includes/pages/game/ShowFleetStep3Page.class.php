@@ -193,7 +193,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 		}
 		else
 		{
-			if ($targetPlanetData["destruyed"] != 0) {
+			if (!empty($targetPlanetData["destruyed"])) {
 				$this->printMessage($LNG['fl_no_target'], array(array(
 					'label'	=> $LNG['sys_back'],
 					'url'	=> 'game.php?page=fleetStep1'
