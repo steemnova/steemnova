@@ -34,7 +34,7 @@
 						<p>As a security best practice, it is recommended to use private POSTING key</p>
 					</div>
 				</div>
-				
+				<a href="/index.php?page=register"><input value="{$LNG.buttonRegister}"></a>
 				<!-- <br><span class="small">{$loginInfo}</span> -->
 			
 	</div>
