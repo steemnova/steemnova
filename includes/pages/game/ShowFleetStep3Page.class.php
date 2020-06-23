@@ -72,7 +72,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 		if($ownPlanet != $PLANET['id']){
 			$this->printMessage($LNG['fl_own_planet_error'], array(array(
 			'label'	=> $LNG['sys_back'],
-			'url'	=> 'game.php?page=fleet1'
+			'url'	=> 'game.php?page=fleetStep1'
 		    )));
 		}
 
