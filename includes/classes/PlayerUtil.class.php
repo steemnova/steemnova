@@ -19,15 +19,7 @@ class PlayerUtil
 {
 	static public function cryptPassword($password)
 	{
-		$salt = NULL;
-		// @see: http://www.phpgangsta.de/schoener-hashen-mit-bcrypt
-		require 'includes/config.php';
-		
-		if(!CRYPT_BLOWFISH || is_null($salt)) {
-			return md5($password);
-		} else {
-			return crypt($password, '$2a$09$'.$salt.'$');
-		}
+		return password_hash($password, PASSWORD_BCRYPT, ['cost' => 13]);
 	}
 
 	static public function isPositionFree($universe, $galaxy, $system, $position, $type = 1)

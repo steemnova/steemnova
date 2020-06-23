@@ -44,12 +44,12 @@ function ShowLoginPage()
 
 	if(isset($_REQUEST['admin_pw']))
 	{
-		$password	= PlayerUtil::cryptPassword($_REQUEST['admin_pw']);
 
-		if ($password == $USER['password']) {
+		if(password_verify($_REQUEST['admin_pw'], $USER['password'])) {
 			$session->adminAccess	= 1;
 			HTTP::redirectTo('admin.php');
 		}
+
 	}
 
 	$template	= new template();
