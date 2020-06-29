@@ -31,7 +31,7 @@ class ShowSettingsPage extends AbstractGamePage
 		{
 			$this->assign(array(
 				'vacationUntil'			=> _date($LNG['php_tdformat'], $USER['urlaubs_until'], $USER['timezone']),
-				'db_deaktjava'				=> $USER['db_deaktjava'],
+				'delete'				=> $USER['db_deaktjava'],
 				'canVacationDisbaled'	=> $USER['urlaubs_until'] < TIMESTAMP,
 			));
 			
@@ -66,7 +66,7 @@ class ShowSettingsPage extends AbstractGamePage
 				'spycount'			=> $USER['spio_anz'],
 				'fleetActions'		=> $USER['settings_fleetactions'],
 				'timezone'			=> $USER['timezone'],
-				'db_deaktjava'			=> $USER['db_deaktjava'],
+				'delete'			=> $USER['db_deaktjava'],
 				'queueMessages'		=> $USER['hof'],
 				'spyMessagesMode'	=> $USER['spyMessagesMode'],
 				'galaxySpy' 		=> $USER['settings_esp'],
@@ -279,7 +279,7 @@ class ShowSettingsPage extends AbstractGamePage
 			}
 		}
 		
-		if (!empty($newpassword) && PlayerUtil::cryptPassword($password) == $USER["password"] && $newpassword == $newpassword2)
+		if (!empty($newpassword) && !empty($password) && password_verify($password, $USER['password']) && $newpassword == $newpassword2)
 		{
 			$newpass 	 = PlayerUtil::cryptPassword($newpassword);
 			$sql = "UPDATE %%USERS%% SET password = :newpass WHERE id = :userID;";
@@ -292,8 +292,7 @@ class ShowSettingsPage extends AbstractGamePage
 
 		if (!empty($email) && $email != $USER['email'])
 		{
-			if(PlayerUtil::cryptPassword($password) != $USER['password'])
-			{
+			if (!password_verify($password, $USER['password'])) {
 				$this->printMessage($LNG['op_need_pass_mail'], array(array(
 					'label'	=> $LNG['sys_back'],
 					'url'	=> 'game.php?page=settings'

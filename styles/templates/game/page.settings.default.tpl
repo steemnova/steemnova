@@ -18,7 +18,27 @@
 		</tr>
 		<tr>
 			<td width="50%">{$LNG.op_username}</td>
-			<td width="50%" style="height:22px;">@{$username}</td>
+	    <td width="50%" style="height:22px;">{if $changeNickTime < 0}<input name="username" size="20" value="{$username}" type="text">{else}{$username}{/if}</td>
+	</tr>
+	<tr>
+	    <td>{$LNG.op_old_pass}</td>
+	    <td><input name="password" size="20" type="password" class="autocomplete"></td>
+	</tr>
+	<tr>
+	    <td>{$LNG.op_new_pass}</td>
+	    <td><input name="newpassword" size="20" maxlength="40" type="password" class="autocomplete"></td>
+	</tr>
+	<tr>
+	    <td>{$LNG.op_repeat_new_pass}</td>
+	    <td><input name="newpassword2" size="20" maxlength="40" type="password" class="autocomplete"></td>
+	</tr>
+	<tr>
+	    <td><a title="{$LNG.op_email_adress_descrip}">{$LNG.op_email_adress}</a></td>
+	    <td><input name="email" maxlength="64" size="20" value="{$email}" type="text"></td>
+	</tr>
+	<tr>
+	    <td style="height:22px;">{$LNG.op_permanent_email_adress}</td>
+	    <td>{$permaEmail}</td>
 		</tr>
 		<tr>
 			<th colspan="2">{$LNG.op_general_settings}</th>
@@ -43,7 +63,7 @@
 				{html_options name=planetOrder options=$Selectors.SortUpDown selected=$planetOrder}
 			</td>
 		</tr>
-		{if 1==0 and count($Selectors.Skins) > 1} <!-- disable -->
+		{if count($Selectors.Skins) > 1}
 		<tr>
 			<td>{$LNG.op_skin_example}</td>
 			<td>{html_options options=$Selectors.Skins selected=$theme name="theme" id="theme"}</td>
@@ -101,7 +121,7 @@
 		</tr>
 		<tr>
 			<td><a title="{$LNG.op_dlte_account_descrip}">{$LNG.op_dlte_account}</a></td>
-			<td><input name="delete" type="checkbox" value="1" {if $db_deaktjava > 0}checked="checked"{/if}></td>
+			<td><input name="delete" type="checkbox" value="1" {if $delete > 0}checked="checked"{/if}></td>
 		</tr>
 		{if isModuleAvailable($smarty.const.MODULE_BANNER)}
 		<tr>
