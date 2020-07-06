@@ -59,6 +59,8 @@ SteemNova expansion goes as follows:
 - Set write privileges to dirs: `cache/`, `includes/`
 - Run wizard: `127.0.0.1/install/install.php`
 
+### If you run SteemNova on NGINX - Read nginx.md file!
+
 ## Screenshots
 
 <p align="center">
