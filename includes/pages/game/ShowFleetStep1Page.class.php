@@ -287,7 +287,7 @@ class ShowFleetStep1Page extends AbstractGamePage
 				$this->sendJSON($LNG['fl_error_not_avalible']);
 			}
 
-			if($targetPlanetType == 2 && $planetData['der_metal'] == 0 && $planetData['der_crystal'] == 0)
+			if($targetPlanetType == 2 && empty($planetData['der_metal']) && empty($planetData['der_crystal']))
 			{
 				$this->sendJSON($LNG['fl_error_empty_derbis']);
 			}
