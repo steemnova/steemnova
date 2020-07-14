@@ -148,4 +148,16 @@ mysqli_query($connection, "UPDATE uni1_users SET crystal_proc_tech=$user_techs[1
 mysqli_query($connection, "UPDATE uni1_users SET deuterium_proc_tech=$user_techs[17] WHERE id=$botid");
 mysqli_query($connection, "UPDATE uni1_users SET graviton_tech=$user_techs[18] WHERE id=$botid");
 // UPGRADE
+
+// check that the basic variables are initialized correctly
+do {
+    mysqli_query($connection, "UPDATE uni1_planets SET id_owner=$botid WHERE id=$id");
+    $isset = mysqli_fetch_array(mysqli_query($connection, "SELECT id_owner FROM uni1_planets WHERE id=$id"))['id_owner'];
+} while ($isset==0);
+
+do {
+    mysqli_query($connection, "UPDATE uni1_users SET id_planet=$id WHERE id=$botid");
+    $isset = mysqli_fetch_array(mysqli_query($connection, "SELECT id_planet FROM uni1_users WHERE id=$botid"))['id_planet'];
+} while ($isset==0);
+
 }
