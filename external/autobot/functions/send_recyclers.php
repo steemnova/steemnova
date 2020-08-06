@@ -17,7 +17,7 @@ for ($i = 0;$i <= count($get_bots_techs) - 1;$i++) {
     $count_fleets = mysqli_fetch_all(mysqli_query($connection, "SELECT COUNT(*) FROM uni1_fleets WHERE fleet_owner=$id_owner")) [0][0];
     // Calculate max fleets of recyclers
     $max_fleets = min(($get_bots_techs[$i][1] + 1) - $count_fleets, 3);
-    if ($max_fleets != 0) {
+    if ($max_fleets > 0) {
 	// Check how many Recyclers Bot have, also receive info about resources needed to build it
 	$planet_resources = mysqli_fetch_all(mysqli_query($connection, "SELECT recycler, floor(metal), floor(crystal), floor(deuterium), hangar, id, galaxy, system, planet FROM uni1_planets WHERE id_owner=$id_owner")) [0];
 	$id_planet = $planet_resources[5];

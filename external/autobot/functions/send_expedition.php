@@ -10,7 +10,7 @@ for ($i = 0;$i <= count($get_bots_techs) - 1;$i++) {
     $count_fleets_on_expedition = mysqli_fetch_all(mysqli_query($connection, "SELECT COUNT(*) FROM uni1_fleets WHERE fleet_owner=$id_owner AND fleet_mission=15")) [0][0];
     // Calculate max fleets expeditions
     $max_expedition_fleets = min(floor($get_bots_techs[$i][1] + 1) - $count_fleets, floor(($get_bots_techs[$i][2] / 2) - $count_fleets_on_expedition));
-    while ($max_expedition_fleets != 0) {
+    while ($max_expedition_fleets > 0) {
 	// Check how many Small Cargo Bot have, also receive info about resources needed to build it
 	$planet_resources = mysqli_fetch_all(mysqli_query($connection, "SELECT small_ship_cargo, floor(metal), floor(crystal), hangar, id, galaxy, system, planet FROM uni1_planets WHERE id_owner=$id_owner")) [0];
 	$id_planet = $planet_resources[4];
