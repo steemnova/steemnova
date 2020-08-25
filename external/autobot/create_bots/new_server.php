@@ -32,7 +32,7 @@ while($created!=1) {
 			if($planet>=13) { $image = 'eisplanet'.sprintf('%02d', mt_rand(1,10)); }
 			else if($planet>=9) { $temp_image=array('normaltempplanet'.sprintf('%02d',mt_rand(1,7)), 'wasserplanet'.sprintf('%02d',mt_rand(1,9))); $image=$temp_image[array_rand($temp_image)]; }
 			else if($planet>=7) { $image = 'normaltempplanet'.sprintf('%02d',mt_rand(1,7)); }
-			else if($planet>=4) { $image = 'dschjungel'.sprintf('%02d',mt_rand(1,10)); }
+			else if($planet>=4) { $image = 'dschjungelplanet'.sprintf('%02d',mt_rand(1,10)); }
 			else { $temp_image=array('trockenplanet'.sprintf('%02d',mt_rand(1,10)), 'wuestenplanet'.sprintf('%02d',mt_rand(1,4))); $image=$temp_image[array_rand($temp_image)]; }
 
 			$planet_name = trim($nickname_db[rand(1, count($nickname_db)-1)]);
