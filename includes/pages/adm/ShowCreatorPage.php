@@ -24,6 +24,7 @@ function ShowCreatorPage()
 
 	$template	= new template();
 
+	if(empty($_GET['mode'])) { $_GET['mode'] = $_GET['page']; }
 	switch ($_GET['mode'])
 	{
 		case 'user':

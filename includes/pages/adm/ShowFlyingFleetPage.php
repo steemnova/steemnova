@@ -65,6 +65,7 @@ function ShowFlyingFleetPage()
 			$shipList[$shipDetail[0]]	= $shipDetail[1];
 		}
 		
+		global $USER;
 		$FleetList[]	= array(
 			'fleetID'				=> $fleetRow['fleet_id'],
 			'lock'					=> !empty($fleetRow['lock']),
