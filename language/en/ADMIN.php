@@ -584,7 +584,7 @@ $LNG['ff_no_fleets'] = "Is not present any fleet";
 $LNG['sb_top_memory'] = 'Peak memory: %p KB / max. %m KB <br>';
 $LNG['sb_final_memory'] = 'Memory consumed by the end: %e KB / max. %m KB<br>';
 $LNG['sb_start_memory'] = 'Memory consumed at the beginning: %i KB / max. %m KB<br>';
-$LNG['sb_stats_update'] = 'Stats updated in: %t segundos<br>';
+$LNG['sb_stats_update'] = 'Stats updated in: %s seconds<br>';
 $LNG['sb_stats_updated'] = 'Updated stats. <br>Resuming:<br>';
 $LNG['sb_sql_counts'] = 'SQL Querys: %d';
 
