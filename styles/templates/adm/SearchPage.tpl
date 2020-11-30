@@ -54,7 +54,7 @@
 		{html_options name=search_in options=$Selector.search selected=$SearchFor}
 	</td>
 	<td>
-		{html_options name=fucki options=$Selector.filter selected=$Searchmethod}
+		{html_options name=fucki options=$Selector.filter selected=$SearchMethod}
 	</td>
 	<td>
 		{html_options name=limit options=$Selector.limit selected=$limit}

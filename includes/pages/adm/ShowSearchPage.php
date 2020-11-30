@@ -21,6 +21,7 @@ function ShowSearchPage()
 {
 	global $LNG, $USER;
 	
+	if(!isset($_GET['delete'])) { $_GET['delete']=''; }
 	if ($_GET['delete'] == 'user') {
         PlayerUtil::deletePlayer((int) $_GET['user']);
         message($LNG['se_delete_succes_p'], '?page=search&search=users&minimize=on', 2);
@@ -323,6 +324,12 @@ function MyCrazyLittleSearch($SpecifyItems, $WhereItem, $SpecifyWhere, $SpecialS
 	{
 		$NumberOfPages = ceil($CountQuery['total'] / $Limit);
 	
+		if(!isset($_GET['fuki'])) { $_GET['fuki'] = ''; }
+		if(!isset($_GET['search_in'])) { $_GET['search_in'] = ''; }
+		if(!isset($_GET['key_user'])) { $_GET['key_user'] = ''; }
+		if(!isset($_GET['key_order'])) { $_GET['key_order'] = ''; }
+		if(!isset($_GET['key_acc'])) { $_GET['key_acc'] = ''; }
+
 		$UrlForPage	= "?page=search
 						&search=".$SearchFile."
 						&search_in=".$_GET['search_in']."
