@@ -57,7 +57,7 @@ class DebugManager
         {
             set_error_handler($errorHandler);
             set_exception_handler($exceptionHandler);
-            $return = call_user_func_array($func, func_get_args($func));
+            $return = call_user_func_array($func, func_get_args());
             restore_exception_handler();
             restore_error_handler();
             return $return;
