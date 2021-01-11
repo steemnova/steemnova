@@ -1,7 +1,7 @@
 {include file="overall_header.tpl"}
 <table style="width:760px">
 	<tr>
-		<th>{$mip_ip}</th>
+		<th>IP:</th>
 		<th>{$LNG.se_id_owner}</th>
 		<th>{$LNG.se_name}</th>
 		<th>{$LNG.se_email}</th>

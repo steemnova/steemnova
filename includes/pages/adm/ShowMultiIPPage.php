@@ -21,6 +21,7 @@ function ShowMultiIPPage()
 {
 	global $LNG;
 	
+	if(!isset($_GET['action'])) { $_GET['action'] = ''; }
 	switch($_GET['action'])
 	{
 		case 'known':
