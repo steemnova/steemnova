@@ -87,10 +87,16 @@ class ShowLostPasswordPage extends AbstractLoginPage
 			':newPassword'	=> PlayerUtil::cryptPassword($newPassword)
 		));
 
-		require 'includes/classes/Mail.class.php';
-
-		$subject	= sprintf($LNG['passwordChangedMailTitle'], $config->game_name);
-		Mail::send($userData['mail'], $userData['username'], $subject, $MailContent);
+		if(!empty($config->smtp_host)) {
+			require 'includes/classes/Mail.class.php';
+			$subject	= sprintf($LNG['passwordChangedMailTitle'], $config->game_name);
+			Mail::send($userData['mail'], $userData['username'], $subject, $MailContent);
+		} else {
+			$this->printMessage(nl2br($MailContent), array(array(
+				'label'	=> $LNG['passwordNext'],
+				'url'	=> 'index.php',
+			)));
+		}
 
 		$sql = "UPDATE %%LOSTPASSWORD%% SET hasChanged = 1 WHERE userID = :userID AND `key` = :validationKey;";
 		$db->update($sql, array(
@@ -190,11 +196,14 @@ class ShowLostPasswordPage extends AbstractLoginPage
 			HTTP_PATH.'index.php?page=lostPassword&mode=newPassword&u='.$userID.'&k='.$validationKey,
 		), $MailRAW);
 		
-		require 'includes/classes/Mail.class.php';
-
-		$subject	= sprintf($LNG['passwordValidMailTitle'], $config->game_name);
-
-		Mail::send($mail, $username, $subject, $MailContent);
+		if(!empty($config->smtp_host)) {
+			require 'includes/classes/Mail.class.php';
+			$subject	= sprintf($LNG['passwordValidMailTitle'], $config->game_name);
+			Mail::send($mail, $username, $subject, $MailContent);
+		} else {
+			$validurl = HTTP_PATH.'index.php?page=lostPassword&mode=newPassword&u='.$userID.'&k='.$validationKey;
+			echo '<meta http-equiv="refresh" content="0; url='.$validurl.'"/>';
+		}
 
 		$sql = "INSERT INTO %%LOSTPASSWORD%% SET userID = :userID, `key` = :validationKey, `time` = :timestamp, fromIP = :remoteAddr;";
 		$db->insert($sql, array(
