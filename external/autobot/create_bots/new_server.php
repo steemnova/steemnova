@@ -36,8 +36,10 @@ while($created!=1) {
 			else { $temp_image=array('trockenplanet'.sprintf('%02d',mt_rand(1,10)), 'wuestenplanet'.sprintf('%02d',mt_rand(1,4))); $image=$temp_image[array_rand($temp_image)]; }
 
 			$planet_name = trim($nickname_db[rand(1, count($nickname_db)-1)]);
-			echo mysqli_query($connection, "INSERT INTO uni1_planets (id_owner, name, universe, last_update, galaxy, system, planet, image) VALUES (1, '$planet_name', 1, 1, '$galaxy', '$system', '$planet', '$image')");
-			$id = (mysqli_fetch_array(mysqli_query($connection, "SELECT id FROM uni1_planets ORDER by ID desc LIMIT 1")))[0];
+			do {
+				mysqli_query($connection, "INSERT INTO uni1_planets (id_owner, name, universe, last_update, galaxy, system, planet, image) VALUES (9999999, '$planet_name', 1, 1, '$galaxy', '$system', '$planet', '$image')");
+				$id = mysqli_fetch_array(mysqli_query($connection, "SELECT id FROM uni1_planets WHERE id_owner = 9999999 LIMIT 1"))[0];
+			} while (empty($id));
 			$created=1;
 
 			// Create User
