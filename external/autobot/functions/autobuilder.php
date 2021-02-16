@@ -39,7 +39,6 @@ for ($j = 0;$j <= count($bots) - 1;$j++)
         $planet_buildings = mysqli_fetch_array(mysqli_query($connection, "SELECT metal_mine, crystal_mine, deuterium_sintetizer, solar_plant, fusion_plant, robot_factory, nano_factory, hangar, metal_store, crystal_store, deuterium_store, laboratory ,terraformer, university, ally_deposit, silo FROM uni1_planets WHERE (id=$id_planet AND b_building = '')"));
         $planet_position = mysqli_fetch_array(mysqli_query($connection, "SELECT galaxy, system, planet FROM uni1_planets WHERE (id=$id_planet AND b_building = '')"));
         $bot_resources = mysqli_fetch_array(mysqli_query($connection, "SELECT metal, crystal, deuterium FROM uni1_planets WHERE (id=$id_planet AND b_building = '')"));
-        mysqli_query($connection, "UPDATE uni1_planets SET spy_sonde = 0 WHERE id=$id_planet");
 
         if (empty($planet_buildings) || !empty($bot_data[4]))
         {
@@ -143,7 +142,6 @@ for ($j = 0;$j <= count($bots) - 1;$j++)
             $b_building_array[0][3] = $endTime;
             $b_building_array[0][4] = "build";
             $b_building_id = serialize($b_building_array);
-
             mysqli_query($connection, "UPDATE uni1_planets SET b_building = $endTime WHERE id=$id_planet");
             mysqli_query($connection, "UPDATE uni1_planets SET b_building_id = '$b_building_id' WHERE id=$id_planet");
             mysqli_query($connection, "UPDATE uni1_planets SET metal = metal - $metal WHERE id=$id_planet");
@@ -181,11 +179,6 @@ for ($j = 0;$j <= count($bots) - 1;$j++)
         $fleet_end_time = $endTime + 3;
 
         mysqli_query($connection, "UPDATE uni1_users SET onlinetime = $start_time WHERE id=$id_bot");
-        mysqli_query($connection, "INSERT INTO uni1_fleets (fleet_owner, fleet_mission, fleet_amount, fleet_array, fleet_universe, fleet_start_id, fleet_start_galaxy, fleet_start_system, fleet_start_planet, fleet_start_type, fleet_end_id, fleet_end_galaxy, fleet_end_system, fleet_end_planet, fleet_end_type, start_time, fleet_start_time, fleet_end_stay, fleet_end_time, fleet_target_owner) VALUES  ($id_bot, 6, 1, '210,1', 1, $id_planet, $fleet_start_galaxy, $fleet_start_system, $fleet_start_planet, 1, $id_planet, $fleet_start_galaxy, $fleet_start_system, $fleet_start_planet, 1, $start_time, $fleet_start_time, $fleet_end_stay, $fleet_end_time, $id_bot)");
-        $fleet_id = mysqli_fetch_all(mysqli_query($connection, "SELECT fleet_id FROM uni1_fleets ORDER by fleet_id DESC LIMIT 1")) [0][0];
-        mysqli_query($connection, "INSERT INTO uni1_log_fleets (fleet_id, fleet_owner, fleet_mission, fleet_amount, fleet_array, fleet_universe, fleet_start_id, fleet_start_galaxy, fleet_start_system, fleet_start_planet, fleet_start_type, fleet_end_id, fleet_end_galaxy, fleet_end_system, fleet_end_planet, fleet_end_type, start_time, fleet_start_time, fleet_end_stay, fleet_end_time, fleet_target_owner) VALUES ($fleet_id, $id_bot, 6, 1, '213,1', 1, $id_planet, $fleet_start_galaxy, $fleet_start_system, $fleet_start_planet, 1, $id_planet, $fleet_start_galaxy, $fleet_start_system, $fleet_start_planet, 1, $start_time, $fleet_start_time, $fleet_end_stay, $fleet_end_time, $id_bot)");
-        mysqli_query($connection, "INSERT INTO uni1_fleet_event (fleetID, time) VALUES ($fleet_id, $fleet_start_time)");
-
         echo "I'm starting to work!" . PHP_EOL;
 
     }
