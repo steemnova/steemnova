@@ -60,7 +60,7 @@
 		{if $Message.type == 1 && $MessID != 999}
 		<a href="#" onclick="return Dialog.PM({$Message.sender}, Message.CreateAnswer('{$Message.subject}'));" title="{$LNG.mg_answer_to} {strip_tags($Message.from)}"><img src="{$dpath}img/m.gif" border="0"></a>
 		{/if}
-		<a href="#" onclick="Message.delMessage({$Message.id});return false;"><img src="{$dpath}img/deletemsg.png"></a>
+		{if $MessID != 999}<a href="#" onclick="Message.delMessage({$Message.id});return false;"><img src="{$dpath}img/deletemsg.png"></a>{/if}
 		</td>
 	</tr>
 	<tr class="message_{$Message.id} messages_body{if $MessID != 999 && $Message.unread == 1} mes_unread{/if}">
