@@ -1,18 +1,13 @@
-# Quest of Galaxy - 2Moons engine-based browsergame for Steemians
+# Quest of Galaxy - 2Moons engine-based browsergame
 
-![](https://steemitimages.com/DQmNhKvcRhp5THpijqS45M18MiDpg1Cvc78Sv9rKCiJi5NJ/image.png)
+![](https://cuneros.app/uploads/2021-08/Ks0Jxh.png)
 
 
 ## The game
 
 The open source browsergame framework is based on [2Moons](https://gitter.im/2MoonsGame/Lobby/).
 
-Full source code is placed at [github.com/steemnova/steemnova](https://github.com/steemnova/steemnova) repository. It is fork of [jkroepke/2Moons](https://github.com/jkroepke/2Moons) for Steem community purposes. SteemNova repository is the center of the game. The opportunity was given to change the game code by Steemians, most probably [Utopians](https://utopian.io/) as a contribution. There are many things to modify starting from **graphics, languages, code improvements up to Steem integration and bughunting**.
-
-<p align="center">
-<img src="https://www.steem.center/images/archive/5/55/20160814202358%21Steem_Logo.png">
-</p>
-
+Full source code is placed at [https://github.com/bastiedotorg/quest-of-galaxy](https://github.com/bastiedotorg/quest-of-galaxy) repository. It is fork of [jkroepke/2Moons](https://github.com/jkroepke/2Moons) for bootstrap5
 
 ## Repository structure
 
@@ -41,15 +36,9 @@ Full source code is placed at [github.com/steemnova/steemnova](https://github.co
 
 ## Roadmap
 
-SteemNova expansion goes as follows:
-1. ~~Reorganize github code. Specify README and LICENSE documentation~~. Fix any game issues if there will be any.
-2. ~~Create SteemNova Board community on top of Steem blockchain~~. (https://chainbb.com/f/steemnova)
-3. Game manual and tips & tricks for newbies.
-4. ~~Specify detailed explanation how the reward system will work~~. (https://steemit.com/steemnova/@steemnova/steemnova-weekly-sbd-reward-scheme-for-members-of-the-best-alliances)
-5. Announce bug bounties, artwork contests and utopian-io task requests for contributors (mobile UI, visual bugs etc.).
-6. ~~Steem accounts integration.~~ (https://github.com/steemnova/steemnova/pull/67)
-7. Fix all known bugs
-8. Complete new design
+1. migration to bootstrap 5
+2. design improvements
+3. integration of cuneros payment
 
 ## Local installation
 
