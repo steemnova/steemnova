@@ -1,6 +1,7 @@
 body {
     min-height: 75rem;
     overflow-y: hidden;
+    background-image: url("../../images/login/background.jpg");
 }
 
 .img-avatar {

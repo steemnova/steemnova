@@ -1,14 +1,15 @@
 {block name="title" prepend}{$LNG.siteTitleIndex}{/block}
 {block name="content"}
     <main class="container">
-        <div class="bg-light p-5 rounded">
-            <h1>{$descHeader}</h1>
-            <p class="lead">{$descText}</p>
-            <ul id="desc_list">{foreach $gameInformations as $info}
-                    <li>{$info}</li>{/foreach}</ul>
-        </div>
+<div class="row">
+    <div class="bg-light p-5 rounded col-xl-6 col-12">
+        <img class="img-fluid" src="styles/resource/images/header.png" />
+        <p class="lead">{$descText}</p>
+        <ul id="desc_list">{foreach $gameInformations as $info}
+                <li>{$info}</li>{/foreach}</ul>
+    </div>
 
-        <div class="col-xl-6 col-12">
+    <div class="col-xl-6 col-12">
             <div class="card">
                 <div class="card-header">
                     <h2>{$LNG.loginHeader}</h2>
@@ -57,6 +58,7 @@
                 </div>
             </div>
         </div>
+</div>
     </main>
 {/block}
 {block name="script" append}

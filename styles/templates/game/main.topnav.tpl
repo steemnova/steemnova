@@ -39,8 +39,7 @@
                     {/foreach}
                 </ul>
                 <ul class="navbar-nav ms-auto flex-nowrap">
-                    <li class="nav-item">
-                        <label class="planetSelectorName" for="planetSelector"></label>
+                    <li class="nav-item pe-2 pt-2">
                         <select id="planetSelector" class="form-control">
                             {html_options options=$PlanetSelect selected=$current_pid}
                         </select>

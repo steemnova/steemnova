@@ -1,6 +1,7 @@
 
 
 <div class=" p-3 " style="width: 280px;" id="mainNav">
+    <img src="styles/resource/images/logo.png" class="img-fluid"/>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item"><a class="btn btn-toggle align-items-center rounded" href="game.php?page=overview">{$LNG.lm_overview}</a></li>
 
@@ -66,5 +67,5 @@
 
         {if isModuleAvailable($smarty.const.MODULE_ALLIANCE)}<li class="nav-item"><a class="btn btn-toggle align-items-center rounded" href="game.php?page=alliance">{$LNG.lm_alliance}</a></li>{/if}
 
-        {if $authlevel > 0}<li class="nav-item"><a class="nav-link" href="./admin.php" style="color:lime">{$LNG.lm_administration} ({$VERSION})</a></li>{/if}
+        {if $authlevel > 0}<li class="nav-item"><a class="btn btn-danger" href="./admin.php">{$LNG.lm_administration} ({$VERSION})</a></li>{/if}
 </div>

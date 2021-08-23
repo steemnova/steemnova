@@ -1,5 +1,8 @@
 body {
-	padding-top: 4.5rem;
+	min-height: 75rem;
+	overflow-y: hidden;
+	padding-top: 5.5em;
+	background-image: url("../../images/login/background.jpg");
 }
 
 #language li{

@@ -208,6 +208,7 @@ define('MODULE_STATISTICS'			, 25);
 define('MODULE_SUPPORT'				, 27);
 define('MODULE_TECHTREE'			, 28);
 define('MODULE_TRADER'				, 13);
+define('MODULE_CUNEROS'			, 100);
 
 // FLEET STATE
 define('FLEET_OUTWARD'				, 0);

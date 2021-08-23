@@ -30,18 +30,6 @@ function ShowLoginPage()
 		HTTP::redirectTo('admin.php');
 	}
 
-	if(isset($_REQUEST['access_token'])) // SteemConnectv2 callback
-	{
-		require 'includes/classes/extauth/externalAuth.interface.php';
-		require 'includes/classes/extauth/steemconnect.class.php';
-		$authObj = new SteemconnectAuth;
-		if($authObj->isActiveMode() && $authObj->isValid() && !empty($authObj->getLoginData()))
-		{
-			$session->adminAccess	= 1;
-			HTTP::redirectTo('admin.php');
-		}
-	}
-
 	if(isset($_REQUEST['admin_pw']))
 	{
 
@@ -54,13 +42,9 @@ function ShowLoginPage()
 
 	$template	= new template();
 
-	require 'includes/libs/steemconnect/steemconnect.php';
-	$steemconnectUrl = Steemconnect::getAdminUrl();
-
 	$template->assign_vars(array(	
 		'bodyclass'	=> 'standalone',
 		'username'	=> $USER['username'],
-		'steemconnectUrl' => $steemconnectUrl
 	));
 	$template->show('LoginPage.tpl');
 }

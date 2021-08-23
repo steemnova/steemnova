@@ -54,13 +54,15 @@
             <!-- mines? -->
             <div class="col collapse show {if ($ID == 1 || $ID == 2 || $ID == 3 || $ID == 4 || $ID == 12 || $ID == 22 || $ID == 23 || $ID == 24)}mining{else}non-mining{/if} building {if !$Element.buyable}non-buyable{else}buyable{/if}">
                 <div class="card">
+                    <div class="card-header">
+                       <h6 class="card-title" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}
+                           <small class="card-subtitle">{if $Element.level > 0} ({$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}){/if}</small>
+                       </h6>
+                    </div>
+
                     <a href="#" onclick="return Dialog.info({$ID})">
                         <img class="card-img-top" src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}">
                     </a>
-                    <div class="card-header">
-                        <a href="#"
-                           onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a>{if $Element.level > 0} ({$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}){/if}
-                    </div>
                     <div class="card-body">
                         <!-- missing ress -->
                         {if !$Element.buyable}

@@ -19,11 +19,11 @@
                     <br/>
                     {$LNG.ov_admins_online}
                     :&nbsp;{foreach $AdminsOnline as $ID => $Name}{if !$Name@first}&nbsp;&bull;&nbsp;{/if}
-                    <a href="#" onclick="return Dialog.PM({$ID})" style="color:lime">{$Name}</a>{foreachelse}{/foreach}
+                    <a href="#" onclick="return Dialog.PM({$ID})">{$Name}</a>{foreachelse}{/foreach}
                     <br/>
                     {$LNG.ov_online}
-                    <a style="color:lime">{$usersOnline}</a> {$LNG.ov_players}<br/>
-                    <a style="color:lime">{$fleetsOnline}</a> {$LNG.ov_moving_fleets}<br/>
+                    {$usersOnline} {$LNG.ov_players}<br/>
+                    {$fleetsOnline} {$LNG.ov_moving_fleets}<br/>
                     {$LNG.ov_points} {$rankInfo}<br/>
                     {if $is_news}
                         <div class="collapse" id="news">
