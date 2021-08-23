@@ -1,15 +1,15 @@
 {include file="ins_header.tpl"}
-<tr>
-	<td colspan="2">
-		<div id="main" class="left">
-			<h2>{$LNG.step6_head}</h2>
-			<p>{$LNG.step6_desc}</p>
-			<h2>{$LNG.step6_info_head}</h2>
-			<p>{$LNG.step6_info_additional}</p>
-			<div style="text-align:center;"><p>
-				<a href="../admin.php"><button>{$LNG.login}</button></a>
-			</p></div>
-		</div>
-	</td>
-</tr>
+<div class="card">
+	<div class="card-header">
+		<h2>{$LNG.step6_head}</h2>
+	</div>
+	<div class="card-body">
+		<p class="card-text">{$LNG.step6_desc}</p>
+		<p class="card-text">{$LNG.step6_info_additional}</p>
+	</div>
+	<div class="card-footer">
+		<a class="btn btn-primary float-end" href="../admin.php">{$LNG.continue}</a>
+	</div>
+</div>
+
 {include file="ins_footer.tpl"}

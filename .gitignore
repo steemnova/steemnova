@@ -1,0 +1,5 @@
+cache/*.php
+sesssions/sess*
+templates/*tpl.php
+includes/config.php
+node_modules

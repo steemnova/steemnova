@@ -48,7 +48,7 @@ $LNG['user_level_2']						= 'Operator';
 $LNG['user_level_3']                       			= 'Administrator';
 
 // GAME.PHP
-$LNG['page_doesnt_exist']					= 'Die Aufgerufene Seite existiert nicht';
+$LNG['page_doesnt_exist']					= 'Die aufgerufene Seite existiert nicht';
 $LNG['bad_forum_url']				    		= 'Keine Foren-URL definiert!';
 $LNG['admin_access_1']				    		= 'Sie haben temporären Zugriff auf administrative Funktionen.';
 $LNG['admin_access_link']				    	= 'Deaktivieren Sie diesen Zugriff';
@@ -1211,3 +1211,12 @@ $LNG['lo_continue']						= 'Klicken Sie hier, um nicht zu warten';
 
 // Translated into German by Jan . All rights reversed (C) 2011
 
+$LNG['bd_next_level_cost'] = 'Baukosten';
+$LNG['build_toggle_mining'] = 'Minen';
+$LNG['build_toggle_other'] = 'Nicht-Minen';
+$LNG['build_toggle_all'] = 'Alle';
+$LNG['build_toggle_buyable'] = 'Baubar';
+$LNG['build_toggle_non_buyable'] = 'Nicht baubar';
+
+$LNG['toggle_news'] = 'News zeigen';
+$LNG['toggle_fleets'] = 'Flottenbewegungen zeigen';

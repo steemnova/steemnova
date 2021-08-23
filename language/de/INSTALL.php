@@ -1,18 +1,18 @@
 <?php
 
 /**
- *  2Moons 
+ *  Quest of Galaxy 
  *   by Jan-Otto Kröpke 2009-2016
  *
  * For the full copyright and license information, please view the LICENSE
  *
- * @package 2Moons
+ * @package Quest of Galaxy
  * @author Jan-Otto Kröpke <slaver7@gmail.com>
  * @copyright 2009 Lucky
  * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
  * @licence MIT
  * @version 1.8.0
- * @link https://github.com/jkroepke/2Moons
+ * @link https://github.com/jkroepke/Quest of Galaxy
  */
 
 $LNG['back']					= 'Zurück';
@@ -29,10 +29,10 @@ $LNG['title_install']			= 'Installer';
 
 $LNG['intro_lang']				= 'Sprache';
 $LNG['intro_install']			= 'Zur Installation';
-$LNG['intro_welcome']			= 'Herzlich Willkommen beim 2Moons!';
-$LNG['intro_text']				= '2Moons ist eines der besten Klone von OGame.<br>2Moons ist die neueste und stabilste XNova Version je entwickelt wurde. 2Moons glänzt durch Stabilität, Flexibilität, Dynamik, Qualität und Benutzerfreundlichkeit. Wir hoffen immer besser zu sein als ihre Erwartungen.<br><br>Das Installations-System führt Sie durch die Installation, oder Upgrade auf einer vorherigen Version auf die neueste ein. Jede Frage, ein Problem zögern Sie bitte nicht, unsere Entwicklung und Unterstützung zu ersuchen.<br><br>2Moons ist ein OpenSource-Projekt und ist under GNU GPL v3 lizenziert. Zur Lizenz klicken Sie bitte im Menu auf die entsprechenden Menüpunkt.<br><br>Bevor die Installation gestartet werden kann, wird vorher ein kleiner Test durchgeführt, ob sie die Mindestanforderungen unterstützen.';
-$LNG['intro_upgrade_head']		= '2Moons schon installiert?';
-$LNG['intro_upgrade_text']		= '<p>Du hast 2Moons bereits installiert und möchtest einfach updaten?</p><p>Hier kann du deine alte Datenbank mit wenigen klicks aktualisieren!</p>';
+$LNG['intro_welcome']			= 'Herzlich Willkommen beim Quest of Galaxy!';
+$LNG['intro_text']				= 'Quest of Galaxy ist eines der besten Klone von OGame.<br>Quest of Galaxy ist die neueste und stabilste XNova Version je entwickelt wurde. Quest of Galaxy glänzt durch Stabilität, Flexibilität, Dynamik, Qualität und Benutzerfreundlichkeit. Wir hoffen immer besser zu sein als ihre Erwartungen.<br><br>Das Installations-System führt Sie durch die Installation, oder Upgrade auf einer vorherigen Version auf die neueste ein. Jede Frage, ein Problem zögern Sie bitte nicht, unsere Entwicklung und Unterstützung zu ersuchen.<br><br>Quest of Galaxy ist ein OpenSource-Projekt und ist under GNU GPL v3 lizenziert. Zur Lizenz klicken Sie bitte im Menu auf die entsprechenden Menüpunkt.<br><br>Bevor die Installation gestartet werden kann, wird vorher ein kleiner Test durchgeführt, ob sie die Mindestanforderungen unterstützen.';
+$LNG['intro_upgrade_head']		= 'Quest of Galaxy schon installiert?';
+$LNG['intro_upgrade_text']		= '<p>Du hast Quest of Galaxy bereits installiert und möchtest einfach updaten?</p><p>Hier kann du deine alte Datenbank mit wenigen klicks aktualisieren!</p>';
 
 $LNG['upgrade_success']			= 'Update der Datenbank erfolgreich. Datenbank ist jetzt auf dem Stand von Revision %s.';
 $LNG['upgrade_nothingtodo']		= 'Keine Aktion erforderlich. Datenbank ist bereits auf dem neusten Stand von Revision %s.';
@@ -40,7 +40,7 @@ $LNG['upgrade_back']			= 'Zurück';
 $LNG['upgrade_intro_welcome']	= 'Willkommen beim Datenbank-Upgrader!';
 $LNG['upgrade_available']		= 'Es sind Updates für deine Datenbank verfügbar! Die Datenbank ist auf dem Stand von Revision %s und kann durch ein Update auf Revision %s gebracht werden.';
 $LNG['upgrade_notavailable']	= 'Die verwendete Revision %s ist die Aktuellste für deine Datenbank.';
-$LNG['upgrade_required_rev']	= 'Der Updater kann nur ab Revision r2579 (2Moons v1.7) oder höher updaten.';
+$LNG['upgrade_required_rev']	= 'Der Updater kann nur ab Revision r2579 (Quest of Galaxy v1.7) oder höher updaten.';
 
 $LNG['licence_head']			= 'Lizenzbestimmungen';
 $LNG['licence_desc']			= 'Bitte lesen Sie die folgenden Lizenzbestimmungen. Verwenden Sie die Bildlaufleiste, um das gesamte Dokument anzuzeigen.';
@@ -48,7 +48,7 @@ $LNG['licence_accept']			= 'Akzeptieren Sie sämtliche Bedingungen der Lizenzbes
 $LNG['licence_need_accept']		= 'Um mit der Installation fortfahren zu können, müssen Sie die Lizenzbestimmungen akzeptieren.';
 
 $LNG['req_head']				= 'Benötigte Systemvoraussetzungen';
-$LNG['req_desc']				= 'Bevor die Installation fortgesetzt werden kann, wird 2Moons einige Tests zu deiner Server-Konfiguration und deinen Dateien durchführen, um sicherzustellen, dass du 2Moons installieren und benutzen kannst. Bitte lies die Ergebnisse aufmerksam durch und fahre nicht weiter fort, bevor alle erforderlichen Tests bestanden sind. Falls du irgendeine der Funktionen, die unter den optionalen Modulen aufgeführt sind, nutzen möchtest, solltest du sicherstellen, dass die entsprechenden Tests auch bestanden werden.';
+$LNG['req_desc']				= 'Bevor die Installation fortgesetzt werden kann, wird Quest of Galaxy einige Tests zu deiner Server-Konfiguration und deinen Dateien durchführen, um sicherzustellen, dass du Quest of Galaxy installieren und benutzen kannst. Bitte lies die Ergebnisse aufmerksam durch und fahre nicht weiter fort, bevor alle erforderlichen Tests bestanden sind. Falls du irgendeine der Funktionen, die unter den optionalen Modulen aufgeführt sind, nutzen möchtest, solltest du sicherstellen, dass die entsprechenden Tests auch bestanden werden.';
 $LNG['reg_yes']					= 'Ja';
 $LNG['reg_no']					= 'Nein';
 $LNG['reg_found']				= 'Gefunden';
@@ -58,7 +58,7 @@ $LNG['reg_not_writable']		= 'Nicht Beschreibbar';
 $LNG['reg_file']				= 'Datei &raquo;%s&laquo; beschreibbar?';
 $LNG['reg_dir']					= 'Ordner &raquo;%s&laquo; beschreibbar?';
 $LNG['req_php_need']			= 'Installierte Version der Skriptsprache &raquo;PHP&laquo;';
-$LNG['req_php_need_desc']		= '<strong>Voraussetzung</strong> — PHP ist die Serverseitige Sprache, in der 2Moons geschrieben ist. Damit 2Moons ohne Einschränkungen funktioniert, wird die PHP Version 5.2.5 vorrausgesetzt.';
+$LNG['req_php_need_desc']		= '<strong>Voraussetzung</strong> — PHP ist die Serverseitige Sprache, in der Quest of Galaxy geschrieben ist. Damit Quest of Galaxy ohne Einschränkungen funktioniert, wird die PHP Version 5.2.5 vorrausgesetzt.';
 $LNG['reg_gd_need']				= 'Installierte Version der Grafikbearbeitungs-Bibliothek &raquo;gdlib&laquo;';
 $LNG['reg_gd_desc']				= '<strong>Optional</strong> — Grafikbearbeitungs-Bibliothek &raquo;gdlib&laquo; ist für die dynamische Generierung von Bildern zuständig. Ohne sie werden einige Funktionalitäten der Software nicht funktionieren.';
 $LNG['reg_pdo_active']			= 'Unterstützung der &raquo;PDO&laquo; Extension';
@@ -66,19 +66,19 @@ $LNG['reg_pdo_desc']			= '<strong>Voraussetzung</strong> — Du musst Unterstüt
 $LNG['reg_json_need']			= 'Erweiterung &raquo;JSON&laquo; verfügbar?';
 $LNG['reg_iniset_need']			= 'PHP-Funktion &raquo;ini_set&laquo; vorhanden?';
 $LNG['reg_global_need']			= 'register_globals deaktiviert?';
-$LNG['reg_global_desc']			= '2Moons wird auch funktionieren, wenn diese Einstellung aktiviert ist. Allerdings wird aus Sicherheitsgründen empfohlen, register_globals in der PHP-Installation zu deaktivieren, falls dies möglich ist.';
+$LNG['reg_global_desc']			= 'Quest of Galaxy wird auch funktionieren, wenn diese Einstellung aktiviert ist. Allerdings wird aus Sicherheitsgründen empfohlen, register_globals in der PHP-Installation zu deaktivieren, falls dies möglich ist.';
 $LNG['req_ftp_head']			= 'Eingabe der Zugangsdaten für FTP';
-$LNG['req_ftp_desc']			= 'Geben Sie Ihre FTP Daten ein, damit 2Moons automatisch die Probleme beheben kann. Alternativ können Sie auch manuell die Schreibrechte vergeben.';
+$LNG['req_ftp_desc']			= 'Geben Sie Ihre FTP Daten ein, damit Quest of Galaxy automatisch die Probleme beheben kann. Alternativ können Sie auch manuell die Schreibrechte vergeben.';
 $LNG['req_ftp_host']			= 'Hostname';
 $LNG['req_ftp_username']		= 'Benutzername';
 $LNG['req_ftp_password']		= 'Kennwort';
-$LNG['req_ftp_dir']				= 'Installationspfad zu 2Moons';
+$LNG['req_ftp_dir']				= 'Installationspfad zu Quest of Galaxy';
 $LNG['req_ftp_send']			= 'Absenden';
 $LNG['req_ftp_error_data']		= 'Mit den angegebenen Zugangsdaten konnte keine Verbindung zu einem FTP-Server hergestellt werden.';
 $LNG['req_ftp_error_dir']		= 'Das eingegebene Verzeichnis ist ungültig.';
 
 $LNG['step1_head']				= 'Datenbankzugang konfigurieren';
-$LNG['step1_desc']				= 'Nachdem nun festgestellt wurde, dass 2Moons auf deinem Server betrieben werden kann, musst du noch einige Informationen angeben. Wenn du nicht weißt, wie die Verbindungsdaten für deine Datenbank lauten, kontaktiere bitte als erstes deinen Webhosting-Provider oder wende dich an die 2Moons Support-Foren. Wenn du Daten eingibst, prüfe diese bitte sorgfältig, bevor du fortfährst.';
+$LNG['step1_desc']				= 'Nachdem nun festgestellt wurde, dass Quest of Galaxy auf deinem Server betrieben werden kann, musst du noch einige Informationen angeben. Wenn du nicht weißt, wie die Verbindungsdaten für deine Datenbank lauten, kontaktiere bitte als erstes deinen Webhosting-Provider oder wende dich an die Quest of Galaxy Support-Foren. Wenn du Daten eingibst, prüfe diese bitte sorgfältig, bevor du fortfährst.';
 $LNG['step1_mysql_server']		= 'Datenbankserver-Hostname oder DSN';
 $LNG['step1_mysql_port']		= 'Datenbankserver-Port';
 $LNG['step1_mysql_dbuser']		= 'Datenbank-Benutzername';
@@ -96,7 +96,7 @@ $LNG['step2_conf_create']		= 'config.php erfolgreich erstellt...';
 $LNG['step2_db_done']			= 'Verbindung zur Datenbank war erfolgreich!';
 
 $LNG['step3_head']				= 'Datenbank-Tabellen erstellen';
-$LNG['step3_desc']				= 'Die von 2Moons genutzten Datenbank-Tabellen wurden nun erstellt und mit einigen Ausgangswerten gefüllt. Geh weiter zum nächsten Schritt, um die Installation von 2Moons abzuschließen.';
+$LNG['step3_desc']				= 'Die von Quest of Galaxy genutzten Datenbank-Tabellen wurden nun erstellt und mit einigen Ausgangswerten gefüllt. Geh weiter zum nächsten Schritt, um die Installation von Quest of Galaxy abzuschließen.';
 $LNG['step3_db_error']			= 'Fehler beim Erstellen der Datenbank-Tabellen:';
 
 $LNG['step4_head']				= 'Administrator erstellen';
@@ -108,11 +108,11 @@ $LNG['step4_admin_pass_desc']	= 'Bitte gib ein Passwort mit einer Länge von 6 b
 $LNG['step4_admin_mail']		= 'Kontakt-E-Mail-Adresse:';
 
 $LNG['step6_head']				= 'Herzlichen Glückwunsch!';
-$LNG['step6_desc']				= 'Du hast 2Moons erfolgreich installiert.';
-$LNG['step6_info_head']			= 'Starte mit 2Moons durch!';
+$LNG['step6_desc']				= 'Du hast Quest of Galaxy erfolgreich installiert.';
+$LNG['step6_info_head']			= 'Starte mit Quest of Galaxy durch!';
 $LNG['step6_info_additional']	= 'Wenn du unten auf die Schaltfläche klickst, wirst du zu einem Formular im Administrations-Bereich weitergeleitet. Anschließend solltest du dir etwas Zeit nehmen, um die verfügbaren Optionen kennen zu lernen.<br/><br/><strong>Bitte lösche die Datei &raquo;includes/ENABLE_INSTALL_TOOL&laquo; oder nenne es um, bevor du dein Spiel benutzt. Solange diese Datei existiert, ist dein Spiel potenziell gefährdet!</strong>';
 
 $LNG['step8_need_fields']		= 'Du muust alle Felder ausfüllen.';
 
 $LNG['sql_close_reason']		= 'Game ist zurzeit geschlossen';
-$LNG['sql_welcome']				= 'Herzlich Willkommen zu 2Moons v';
+$LNG['sql_welcome']				= 'Herzlich Willkommen zu Quest of Galaxy v';

@@ -1226,3 +1226,13 @@ $LNG['lo_notify']							= 'Will be redirected in <span id="seconds">5</span> sec
 $LNG['lo_continue']							= 'Click to continue.';
 
 //----------------------------------------------------------------------------//
+
+$LNG['bd_next_level_cost'] = 'Upgrade cost';
+$LNG['build_toggle_mining'] = 'Toggle mines';
+$LNG['build_toggle_other'] = 'Toggle non-mines';
+$LNG['build_toggle_all'] = 'Toggle all';
+$LNG['build_toggle_buyable'] = 'Toggle buildable';
+$LNG['build_toggle_non_buyable'] = 'Toggle non-buildable';
+
+$LNG['toggle_news'] = 'Toggle news';
+$LNG['toggle_fleets'] = 'Toggle fleet operations';

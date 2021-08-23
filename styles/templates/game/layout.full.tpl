@@ -1,54 +1,32 @@
 {include file="main.header.tpl" bodyclass="full"}
 
-<div class="wrapper">
+            {include file="main.topnav.tpl"}
 
-	<top>
-		<div class="fixed">
-		</div>
-	</top>
+            {include file="main.navigation.tpl"}
 
-	<logo>
-		<div class="fixed">
-			<a href="game.php?page=overview"><img src="styles/resource/images/meta.png" /></a>
-		</div>
-	</logo>
-	
-	<header>
-		<div class="fixed">
-			{include file="main.topnav.tpl"}
-		</div>
-	</header>
+    <div class="container">
+        {if $hasAdminAccess}
+            <div class="globalWarning">
+                {$LNG.admin_access_1} <a id="drop-admin">{$LNG.admin_access_link}</a>{$LNG.admin_access_2}
+            </div>
+        {/if}
+        {if $closed}
+            <div class="infobox">{$LNG.ov_closed}</div>
+        {elseif $delete}
+            <div class="infobox">{$delete}</div>
+        {elseif $vacation}
+            <div class="infobox">{$LNG.tn_vacation_mode} {$vacation}</div>
+        {/if}
 
-	<input style="display:none;" type="checkbox" id="toggle-menu" role="button">
-	<menu>
-		<div class="fixed">
-			{include file="main.navigation.tpl"}
-		</div>
-	</menu>
-	
-	<content>
-		{if $hasAdminAccess}
-		<div class="globalWarning">
-		{$LNG.admin_access_1} <a id="drop-admin">{$LNG.admin_access_link}</a>{$LNG.admin_access_2}
-		</div>
-		{/if}
-		{if $closed}
-		<div class="infobox">{$LNG.ov_closed}</div>
-		{elseif $delete}
-		<div class="infobox">{$delete}</div>
-		{elseif $vacation}
-		<div class="infobox">{$LNG.tn_vacation_mode} {$vacation}</div>
-		{/if}
-		
-		{block name="content"}{/block}
-		<table class="hack"></table>
-	</content>
 
-	<footer>
-		{foreach $cronjobs as $cronjob}<img src="cronjob.php?cronjobID={$cronjob}" alt="">{/foreach}
-		
-		{include file="main.footer.tpl" nocache}
-	</footer>
+        {block name="content"}{/block}
+    </div>
+
+    <footer>
+        {foreach $cronjobs as $cronjob}<img src="cronjob.php?cronjobID={$cronjob}" alt="">{/foreach}
+
+        {include file="main.footer.tpl" nocache}
+    </footer>
 </div>
 
 </body>

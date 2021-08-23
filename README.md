@@ -1,4 +1,4 @@
-# SteemNova 2 - 2Moons engine-based browsergame for Steemians
+# Quest of Galaxy - 2Moons engine-based browsergame for Steemians
 
 ![](https://steemitimages.com/DQmNhKvcRhp5THpijqS45M18MiDpg1Cvc78Sv9rKCiJi5NJ/image.png)
 
@@ -69,6 +69,8 @@ SteemNova expansion goes as follows:
 </p>
 
 ## Copyright and license
+
+Quest Galaxy is a fork of SteemNova.
 
 SteemNova is a fork of Open Source Browsergame Framework [jkroepke/2Moons](https://github.com/jkroepke/2Moons) engine.
 

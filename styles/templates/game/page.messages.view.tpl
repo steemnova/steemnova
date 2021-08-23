@@ -5,9 +5,16 @@
 <input type="hidden" name="ajax" value="1">
 <input type="hidden" name="messcat" value="{$MessID}">
 <input type="hidden" name="side" value="{$page}">
+	<div class="col">
+		<div class="card">
+			<div class="card-header">
+				{$LNG.mg_message_title}
+			</div>
+		</div>
+	</div>
 <table id="messagestable">
 	<tr>
-		<th colspan="4">{$LNG.mg_message_title}</th>
+		<th colspan="4"></th>
 	</tr>
 	{if $MessID != 999}
 	<tr>

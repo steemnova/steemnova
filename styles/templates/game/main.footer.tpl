@@ -1,3 +1,4 @@
+</main>
 {if $ga_active}
 <script type="text/javascript">
 	var _gaq = _gaq || [];

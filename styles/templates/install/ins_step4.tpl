@@ -1,18 +1,23 @@
 {include file="ins_header.tpl"}
-<tr>
-	<td colspan="2">
-		{nocache}<div id="main" class="left">
-			<div class="{$class}"><p>{$message}</p></div>
-			{if $class == 'noerror'}
-			<div style="text-align:center;"><p>
-				<a href="index.php?mode=install&step=5"><button>{$LNG.continue}</button></a>
-			</p></div>
-			{else}
-			<div><p>
-				{nocache}<a href="index.php?mode=install&step=3&amp;host={$host}&amp;port={$port}&amp;user={$user}&amp;dbname={$dbname}&amp;prefix={$prefix}">{/nocache}<button>{$LNG.back}</button></a>
-			</p></div>
-			{/if}
-		</div>{/nocache}
-	</td>
-</tr>
+
+<div class="card">
+	<div class="card-header">
+		<h2></h2>
+	</div>
+	<div class="card-body">
+		{if $class == 'noerror'}
+		<p class="alert alert-success">{$message}</p>
+		{else}
+			<p class="alert alert-danger">{$message}</p>
+		{/if}
+	</div>
+	<div class="card-footer">
+		{if $class == 'noerror'}
+			<a class="btn btn-primary float-end" href="index.php?mode=install&step=5">{$LNG.continue}</a>
+		{else}
+			{nocache}<a class="btn btn-warning float-begin" href="index.php?mode=install&step=3&amp;host={$host}&amp;port={$port}&amp;user={$user}&amp;dbname={$dbname}&amp;prefix={$prefix}">{/nocache}{$LNG.back}</a>
+		{/if}
+	</div>
+</div>
+
 {include file="ins_footer.tpl"}

@@ -1,218 +1,95 @@
-<label class="hamburger" for="toggle-menu" class="toggle-menu"><i class="fas fa-bars"></i></label>
+<nav class="navbar navbar-expand-md  navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a href="game.php?page=overview" class="navbar-brand">
+            <img src="{$dpath}planeten/{$image}.jpg" width="50" height="50"
+                 alt="{$LNG.lm_overview}"></a>
+        <a class="navbar-brand" href="game.php?page=overview">Quest of Galaxy</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="d-flex flex-grow-1">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    {foreach $resourceTable as $resourceID => $resourceData}
+                        <li class="nav-item res-item"><a class="nav-link" href="#"
+                                                         onclick="return Dialog.info({$resourceID});">
+                                <img src="{$dpath}images/{$resourceData.name}.gif">
+                                <span class="d-lg-block">{$LNG.tech.$resourceID}</span>
+                                {if !isset($resourceData.current)}
+                                    {$resourceData.currentt = $resourceData.max + $resourceData.used}
+                                    <span title="{$resourceData.currentt|number}">
+                                        <span{if $resourceData.currentt < 0} style="color:red"{/if}>{$resourceData.currentt|number}&nbsp;/&nbsp;{$resourceData.max|number}</span>
+                                    </span>
+                                {else}
+                                    <span class="res_current" id="current_{$resourceData.name}"
+                                          data-real="{$resourceData.current}">
+                                        {$resourceData.current|number}
+                                    </span>
+                                {/if}
+                                {if !isset($resourceData.current) || !isset($resourceData.max)}
+                                {else}
+                                    /
+                                    <span class="res_max" id="max_{$resourceData.name}"
+                                          data-real="{$resourceData.current}">{$resourceData.max|number}</span>
+                                {/if}
+                            </a>
+                        </li>
+                    {/foreach}
+                </ul>
+                <ul class="navbar-nav ms-auto flex-nowrap">
+                    <li class="nav-item">
+                        <label class="planetSelectorName" for="planetSelector"></label>
+                        <select id="planetSelector" class="form-control">
+                            {html_options options=$PlanetSelect selected=$current_pid}
+                        </select>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{$avatar}" alt="" width="50" height="50" class="rounded-circle me-2">
+                                <strong>{$username}</strong>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                                {if isModuleAvailable($smarty.const.MODULE_MESSAGES)}<li class="nav-item"><a class="nav-link" href="game.php?page=messages">{$LNG.lm_messages}{nocache}{if $new_message > 0}<span id="newmes"> (<span id="newmesnum">{$new_message}</span>)</span>{/if}{/nocache}</a></li>{/if}
+                                <li class="nav-item"><a class="nav-link" href="game.php?page=settings">{$LNG.lm_options}</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="nav-item"><a class="nav-link" href="game.php?page=logout">{$LNG.lm_logout}</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
 
 <div class="planetImage no-mobile">
-   <img src="{$avatar}" width="50" height="50"></a>
-   <div>{$LNG.tech.615}</div>
-   <div><a href="game.php?page=settings"><b>{$username}</b></div>
 </div>
 
-<div class="planetSelectorWrapper">
-	<a href="game.php?page=overview"><img src="{$dpath}planeten/{$image}.jpg" width="50" height="50" alt="{$LNG.lm_overview}"></a>
-	<div class="planetSelectorName" for="planetSelector"></div>
-	<div class="no-mobile">&nbsp;</div>
-	<div class="no-mobile">&nbsp;</div>
-	<select id="planetSelector">
-		{html_options options=$PlanetSelect selected=$current_pid}
-	</select>
-</div>
 
-<div id="resources_mobile">
-	{foreach $resourceTable as $resourceID => $resourceData}
-	<div id="resource_mobile">
-		<a href="#" onclick="return Dialog.info({$resourceID});">
-			<img src="{$dpath}images/{$resourceData.name}.gif">
-			<div class="resource_name no-mobile">{$LNG.tech.$resourceID}</div>
-			
-			<div class="no-mobile">
-				{if !isset($resourceData.current)}
-					{$resourceData.currentt = $resourceData.max + $resourceData.used}
-						<td class="res_current tooltip" data-tooltip-content="{$resourceData.currentt|number}">
-							<span{if $resourceData.currentt < 0} style="color:red"{/if}>{$resourceData.currentt|number}&nbsp;/&nbsp;{$resourceData.max|number} </span>
-						</td>
-				{else}
-					<div class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|number}{if $resourceID == 921} <br><!--<a href="google.com/wallet">piniondz</a>-->{/if} </div>
-				{/if}
-				{if !isset($resourceData.current) || !isset($resourceData.max)}
-					<div>&nbsp;</div>
-				{else}
-					<div class="res_max" id="max_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.max|number}</div>
-				{/if}
-			</div>
-			
-			<div class="mobile">
-				{if !isset($resourceData.current)}
-					{$resourceData.currentt = $resourceData.max + $resourceData.used}
-						<td class="res_current tooltip" data-tooltip-content="{$resourceData.currentt|number}">
-							<span{if $resourceData.currentt < 0} style="color:red"{/if}>{shortly_number($resourceData.currentt)}</span>
-						</td>
-{/if}
-{if !isset($resourceData.max)}
-
-						<td class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{shortly_number($resourceData.current)}</td>
-				{/if}
-				{if !isset($resourceData.current) || !isset($resourceData.max)}
-					
-				{else}
-					<td class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}"><span{if $resourceData.current >= {$resourceData.max}} style="color:red"{/if}>{shortly_number($resourceData.current)}</span></td>
-				{/if}
-			</div>
-		
-			<!--
-			<div class="mobile">
-				{if !isset($resourceData.current)}
-					{$resourceData.current = $resourceData.max + $resourceData.used}
-						<td class="res_current tooltip mobile" data-tooltip-content="{$resourceData.current|number}">
-							<span{if $resourceData.current < 0} style="color:red"{/if}>!{shortly_number($resourceData.current)}</span>
-							<span{if $resourceData.current < 0} style="color:red"{/if} class="no-mobile">&nbsp;/&nbsp;@{$resourceData.max|number}</span>
-						</td>
-						<td class="res_current tooltip no-mobile" data-tooltip-content="{$resourceData.current|number}">
-							<span{if $resourceData.current < 0} style="color:red"{/if}>!{$resourceData.current}</span>
-							<span{if $resourceData.current < 0} style="color:red"{/if} class="no-mobile">&nbsp;/&nbsp;@{$resourceData.max|number}</span>
-						</td>
-				{else}
-					<td class="res_current tooltip mobile" id="current_{$resourceData.name}" data-real="{$resourceData.current}" data-tooltip-content="{$resourceData.current|number}">#{shortly_number($resourceData.current)}</td>
-					<td class="res_current no-mobile" id="current_{$resourceData.name}" data-real="{$resourceData.current}">#{$resourceData.current}</td>
-				{/if}
-				{if !isset($resourceData.current) || !isset($resourceData.max)}
-				{else}
-					<div class="res_max no-mobile" id="max_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.max|number}</div>
-				{/if}
-			</div>
-			-->
-			
-			<!--
-			<div>
-			{if true or $shortlyNumber}
-				{if !isset($resourceData.current)}
-				{$resourceData.current = $resourceData.max + $resourceData.used}
-				<td class="res_current tooltip" data-tooltip-content="{$resourceData.current|number}"><span{if $resourceData.current < 0} style="color:red"{/if}>{shortly_number($resourceData.current)}</span></td>
-				{else}
-				<td class="res_current tooltip" id="current_{$resourceData.name}" data-real="{$resourceData.current}" data-tooltip-content="{$resourceData.current|number}">{shortly_number($resourceData.current)}</td>
-				{/if}
-			{else}
-				{if !isset($resourceData.current)}
-				{$resourceData.current = $resourceData.max + $resourceData.used}
-				<div class="res_current"><span{if $resourceData.current < 0} style="color:red"{/if}>{$resourceData.current|number}&nbsp;/&nbsp;{$resourceData.max|number}</span></div>
-				{else}
-				<div class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|number}</div>
-				{/if}
-				{if !isset($resourceData.current) || !isset($resourceData.max)}
-				<div>&nbsp;</div>
-				{else}
-				<div class="res_max" id="max_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.max|number}</div>
-				{/if}
-			{/if}
-			</div>
-				-->
-		</a>
-	</div>
-	{/foreach}
-	
-</div>
-
-<!--
-<table id="headerTable">
-	<tbody>
-		<tr>
-			<td id="planetImage">
-			   <img src="{$avatar}" width="50" height="50" alt="">
-			   <div>{$LNG.tech.615} <b>{$username}</b></div>
-			</td>
-			<td id="planetSelectorWrapper">
-			   <img src="{$dpath}planeten/{$image}.jpg" width="50" height="50" alt="">
-				<label for="planetSelector"></label>
-				<select id="planetSelector">
-					{html_options options=$PlanetSelect selected=$current_pid}
-				</select>
-			</td>
-			<td id="resourceWrapper">
-				<table id="resourceTable">
-					<tbody>
-						<tr>
-							{foreach $resourceTable as $resourceID => $resourceData}
-							<td>
-								<a href="#" onclick="return Dialog.info({$resourceID});">
-									<img src="{$dpath}images/{$resourceData.name}.gif" alt="">
-								</a>
-							</td>
-							{/foreach}
-						</tr>
-						<tr>
-							{foreach $resourceTable as $resourceID => $resourceData}
-							<td class="res_name">
-								<a href="#" onclick="return Dialog.info({$resourceID});">
-									<span style="color:red">
-									{$LNG.tech.$resourceID}
-									</span>
-								</a>
-							</td>
-							{/foreach}
-						</tr>
-						{if $shortlyNumber}
-						<tr>
-							{foreach $resourceTable as $resourceID => $resourceData}
-							{if !isset($resourceData.current)}
-							{$resourceData.current = $resourceData.max + $resourceData.used}
-							<td class="res_current tooltip" data-tooltip-content="{$resourceData.current|number}&nbsp;/&nbsp;{$resourceData.max|number}"><span{if $resourceData.current < 0} style="color:red"{/if}>{shortly_number($resourceData.current)}&nbsp;/&nbsp;{shortly_number($resourceData.max)}</span></td>
-							{else}
-							<td class="res_current tooltip" id="current_{$resourceData.name}" data-real="{$resourceData.current}" data-tooltip-content="{$resourceData.current|number}">{shortly_number($resourceData.current)}</td>
-							{/if}
-							{/foreach}
-						</tr>
-						<tr>
-							{foreach $resourceTable as $resourceID => $resourceData}
-							{if !isset($resourceData.current) || !isset($resourceData.max)}
-							<td>&nbsp;</td>
-							{else}
-							<td class="res_max tooltip" id="max_{$resourceData.name}" data-real="{$resourceData.max}" data-tooltip-content="{$resourceData.max|number}">{shortly_number($resourceData.max)}</td>
-							{/if}
-							{/foreach}
-						</tr>
-						{else}
-						<tr>
-							{foreach $resourceTable as $resourceID => $resourceData}
-							{if !isset($resourceData.current)}
-							{$resourceData.current = $resourceData.max + $resourceData.used}
-							<td class="res_current"><span{if $resourceData.current < 0} style="color:red"{/if}>{$resourceData.current|number}&nbsp;/&nbsp;{$resourceData.max|number}</span></td>
-							{else}
-							<td class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|number}</td>
-							{/if}
-							{/foreach}
-						</tr>
-						<tr>
-							{foreach $resourceTable as $resourceID => $resourceData}
-							{if !isset($resourceData.current) || !isset($resourceData.max)}
-							<td>&nbsp;</td>
-							{else}
-							<td class="res_max" id="max_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.max|number}</td>
-							{/if}
-							{/foreach}
-						</tr>
-						{/if}
-					</tbody>
-				</table>
-			</td>
-		</tr>
-	</tbody>
-</table>
--->
 {if !$vmode}
-<script type="text/javascript">
-var viewShortlyNumber	= {$shortlyNumber|json};
-var vacation			= {$vmode};
-$(function() {
-{foreach $resourceTable as $resourceID => $resourceData}
-{if isset($resourceData.production)}
-	resourceTicker({
-		available: {$resourceData.current|json},
-		limit: [0, {$resourceData.max|json}],
-		production: {$resourceData.production|json},
-		valueElem: "current_{$resourceData.name}"
-	}, true);
-{/if}
-{/foreach}
-});
-</script>
-<script src="scripts/game/topnav.js"></script>
-{if $hasGate}<script src="scripts/game/gate.js"></script>{/if}
+    <script type="text/javascript">
+        var viewShortlyNumber = {$shortlyNumber|json};
+        var vacation = {$vmode};
+        $(function () {
+            {foreach $resourceTable as $resourceID => $resourceData}
+            {if isset($resourceData.production)}
+            resourceTicker({
+                available: {$resourceData.current|json},
+                limit: [0, {$resourceData.max|json}],
+                production: {$resourceData.production|json},
+                valueElem: "current_{$resourceData.name}"
+            }, true);
+            {/if}
+            {/foreach}
+        });
+    </script>
+    <script src="scripts/game/topnav.js"></script>
+    {if $hasGate}
+        <script src="scripts/game/gate.js"></script>
+    {/if}
 {/if}

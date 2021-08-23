@@ -26,7 +26,9 @@ function resourceTicker(config, init) {
 			element.attr('data-tooltip-content', NumberGetHumanReadable(nrResource));
 			element.html(shortly_number(nrResource));
 		} else {
-			element.html(NumberGetHumanReadable(nrResource));
+//			element.html(NumberGetHumanReadable(nrResource));
+			element.html(shortly_number(nrResource));
+
 		}
 	} else {
 		element.addClass('res_current_max');
