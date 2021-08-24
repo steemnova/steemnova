@@ -1,4 +1,4 @@
-{include file="overall_header.tpl"}
+{include file="html_header.tpl"}
 <div id="leftmenu">
 	<ul id="menu">
 		<li style="background-image: url('./styles/theme/gow/img/menu-top.png');height:100px;"></li>

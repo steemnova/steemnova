@@ -4,9 +4,18 @@
 	<input type="hidden" name="token" value="{$token}">
 	<input type="hidden" name="fleet_group" value="0">
 	<input type="hidden" name="target_mission" value="{$mission}">
+	<div class="col">
+		<div class="card">
+			<div class="card-header">
+				<h2 class="card-title">
+					{$LNG.fl_send_fleet}
+				</h2>
+			</div>
+		</div>
+	</div>
 	<table class="table519" style="table-layout: fixed;">
 		<tr style="height:20px;">
-			<th colspan="2">{$LNG.fl_send_fleet}</th>
+			<th colspan="2"></th>
 		</tr>
 		<tr style="height:20px;">
 			<td style="width:50%">{$LNG.fl_destiny}</td>

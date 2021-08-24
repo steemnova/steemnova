@@ -1,5 +1,4 @@
 {include file="overall_header.tpl"}
-<center>
 	<h1>{$LNG.ow_title}</h1>
 	<table width="90%" style="border:2px {if empty($Messages)}lime{else}red{/if} solid;text-align:center;font-weight:bold;">
 		<tr>
@@ -218,7 +217,6 @@
 			</td>
 		</tr>
 	</table>
-</center>
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript">
 	google.load("feeds", "1");
@@ -233,4 +231,5 @@
         //feedControl.draw(document.getElementById("news"));
 	}
 </script>
+
 {include file="overall_footer.tpl"}

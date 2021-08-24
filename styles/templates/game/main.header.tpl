@@ -14,7 +14,7 @@
     {/if}
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <link href="./styles/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <script src="./styles/resource/bootstrap/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <link href="./styles/resource/fontawesome/css/all.min.css" rel="stylesheet" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="./styles/resource/css/base/boilerplate.css?v={$REV}">
     <link rel="stylesheet" type="text/css" href="./styles/resource/css/ingame/main.css?v={$REV}">
@@ -22,7 +22,6 @@
     <link rel="stylesheet" type="text/css" href="./styles/resource/css/base/jquery.fancybox.css?v={$REV}">
     <link rel="stylesheet" type="text/css" href="./styles/resource/css/base/validationEngine.jquery.css?v={$REV}">
     <link rel="stylesheet" type="text/css" href="{$dpath}formate.css?v={$REV}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <script type="text/javascript">
         var ServerTimezoneOffset = {$Offset};

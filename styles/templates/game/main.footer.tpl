@@ -12,6 +12,18 @@
 	})();
 </script>
 {/if}
+<script src="./styles/resource/bootstrap/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script>
+	document.querySelectorAll("a").forEach(function(item) {
+		item.classList.remove("active");
+	});
+	let a = document.location.pathname.substring(1)+document.location.search;
+	document.querySelectorAll("a[href='"+a+"']").forEach(function(item) {
+		item.classList.add("active");
+		item.parentElement.parentElement.parentElement.classList.add("show");
+	});
+
+</script>
 {if $debug == 1}
 <script type="text/javascript">
 	onerror = handleErr;

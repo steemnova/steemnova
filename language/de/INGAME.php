@@ -74,7 +74,7 @@ $LNG['lm_resources']						= 'Rohstoffe';
 $LNG['lm_officiers']						= 'Offiziere';
 $LNG['lm_trader']						= 'Händler';
 $LNG['lm_fleettrader']						= 'Schrotthändler';
-$LNG['lm_technology']						= 'Technologie';
+$LNG['lm_technology']						= 'Technologiebaum';
 $LNG['lm_messages']						= 'Nachrichten';
 $LNG['lm_alliance']						= 'Allianz';
 $LNG['lm_buddylist']						= 'Buddylist';
@@ -187,7 +187,7 @@ $LNG['gl_all_defenses']						= 'Alle';
 $LNG['gl_objective']						= 'Primäres Ziel';
 $LNG['gl_missil_launch_action']					= 'Abschicken';
 $LNG['gl_galaxy']						= 'Galaxy';
-$LNG['gl_solar_system']						= 'System';
+$LNG['gl_solar_system']						= 'Sonnensystem';
 $LNG['gl_show']							= 'Display';
 $LNG['gl_pos']							= 'Pos';
 $LNG['gl_planet']						= 'Planet';
@@ -398,7 +398,7 @@ $LNG['bd_research']						= 'Forschung';
 $LNG['bd_shipyard_required']					= 'Du musst zuerst eine Schiffswerft auf diesem Planeten Bauen!';
 $LNG['bd_building_shipyard']					= 'Die Nanitenfabrik oder Raumschiffwerft wird zurzeit ausgebaut!';
 $LNG['bd_available']						= 'Vorhanden: ';
-$LNG['bd_build_ships']						= 'Absenden';
+$LNG['bd_build_ships']						= 'Bauen';
 $LNG['bd_protection_shield_only_one']				= 'Sie können nur eine Schildkuppel Bauen!';
 $LNG['bd_build_defenses']					= 'Absenden';
 $LNG['bd_actual_production']					= 'Aktuelle Produktion:';
@@ -412,8 +412,8 @@ $LNG['bd_maxlevel']						= 'Maximale Stufe erreicht';
 $LNG['bd_on']							= 'auf';
 $LNG['bd_max_builds']						= 'Sie können max. %d Aufträge versenden!';
 $LNG['bd_next_level']						= 'Next Level:';
-$LNG['bd_need_engine']						= 'Verbraucht <span style="color:#FF0000">%s</span> %s mehr';
-$LNG['bd_more_engine']						= 'Produziert <span style="color:#00FF00">%s</span> %s mehr';
+$LNG['bd_need_engine']						= 'Verbraucht <span style="color:darkred; font-weight:bold">%s</span> %s mehr';
+$LNG['bd_more_engine']						= 'Produziert <span style="color:darkgreen; font-weight:bold">%s</span> %s mehr';
 $LNG['bd_jump_gate_action']					= 'Springen';
 $LNG['bd_cancel_warning']					= 'Bei Abbruch werden nur 60% der Ressourcen wiederhergestellt!';
 $LNG['bd_cancel_send']						= 'Markierte - Löschen';
@@ -467,7 +467,7 @@ $LNG['tr_exchange']						= 'Tauschen';
 
 //----------------------------------------------------------------------------//
 //TECHTREE
-$LNG['tt_requirements']						= 'Benötigt';
+$LNG['tt_requirements']						= 'Voraussetzungen';
 $LNG['tt_lvl']							= 'Stufe ';
 
 //----------------------------------------------------------------------------//

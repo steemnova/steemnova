@@ -8,8 +8,6 @@ main {
     height: 100vh;
     height: -webkit-fill-available;
     max-height: 100vh;
-    overflow-x: auto;
-    overflow-y: auto;
     padding-top: 6em;
 }
 
@@ -62,8 +60,35 @@ main {
 
 #mainNav {
     background-color: rgba(255,255,255,0.8);
+    position:fixed;
+    width: 280px;
 }
 
 .card {
     background-color: rgba(255,255,255,0.8);
+}
+
+.build-gutter .card {
+    text-align: center;
+}
+
+
+.build-gutter .card .card-img-top{
+    max-width: 120px;
+}
+
+.tip {
+    position: absolute;
+    z-index: 9999;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid black;
+    padding: 1em;
+    border-radius: 5px;
+    max-width: 450px;
+    display: none;
+}
+
+.tooltip {
+    position: initial !important;
+    opacity: 1;
 }

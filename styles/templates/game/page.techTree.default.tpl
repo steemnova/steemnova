@@ -1,45 +1,61 @@
-
 {block name="title" prepend}
-{$LNG.lm_technology}{/block}
+    {$LNG.lm_technology}{/block}
 
 {block name="content"}
-	
-<style>
-.techi {
-        display:none;	}
-.minus {
-        display:none;	}
-</style>
+
 {if $messages}
-	<div class="message"><a href="?page=messages">{$messages}</a></div>
-	
-	{/if}
-<div>
-<div class="infos"> 
-{foreach $TechTreeList as $elementID => $requireList}
-{if !is_array($requireList)}
-
-<div class="techb" id="{$requireList}"> <button> <span class="plus" id="{$requireList}s"><i class="fa fa-plus"></i></span>
-  <span class="minus" id="{$requireList}h"><i class="fa fa-minus"></i></span></button> {$LNG.tech.$requireList}</div>
-	
-{else}{if $requireList}
-<div class="techi" id="h{$elementID}">
-<span style="max-width: 42%; display: inline-block;"><a href="#" onclick="return Dialog.info({$elementID})">{$LNG.tech.$elementID}</a></span>
-<a href="#" onclick="return Dialog.info({$elementID})"><img src="{$dpath}gebaeude/{$elementID}.{if $elementID >=600 && $elementID <= 699}jpg{else}gif{/if}" width="89"></a>
-</br>
-{$LNG.tt_requirements}: </br>
-{foreach $requireList as $requireID => $NeedLevel}
-<a href="#" onclick="return Dialog.info({$requireID})"><span style="color:{if $NeedLevel.own < $NeedLevel.count}#ffd600{else}lime{/if};">{$LNG.tech.$requireID} ({$LNG.tt_lvl} {$NeedLevel.own}/{$NeedLevel.count})</span></a>{if !$NeedLevel@last}<br>{/if}
-
-{/foreach}
-</div>
-
+    <div class="alert alert-info"><a href="?page=messages">{$messages}</a></div>
 {/if}
 
+<div class="card">
+    <ul class="nav nav-tabs px-3" id="myTab" role="tablist">
+        {foreach from=$TechTreeList key=$elementID item=$requireList name=techniques}
+            {if !is_array($requireList)}
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link p-3 {if $smarty.foreach.techniques.iteration == 1}active{/if}" id="tab-{$requireList}" data-bs-toggle="tab"
+                            data-bs-target="#content-{$requireList}" type="button" role="tab"
+                            aria-controls="content-{$requireList}"
+                            aria-selected="true">{$LNG.tech.$requireList}</button>
+                </li>
+            {/if}
+        {/foreach}
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div><div>
+            {foreach from=$TechTreeList key=$ID item=$requireList name=techniques}
+            {if !is_array($requireList)}
+            </div></div>
+        <div class="tab-pane fade {if $smarty.foreach.techniques.iteration == 1}show active{/if}" id="content-{$requireList}" role="tabpanel" aria-labelledby="tab-{$requireList}">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-2 build-gutter">
+            {else}
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="card-title" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}
+                        </h6>
+                    </div>
 
-</td>
+                    <a href="#" onclick="return Dialog.info({$ID})">
+                        <img class="card-img-top"
+                             src="{$dpath}gebaeude/{$ID}.{if $ID >=600 && $ID <= 699}jpg{else}gif{/if}"
+                             alt="{$LNG.tech.{$ID}}">
+                    </a>
+                    <div class="card-body">
+                        {if $requireList }
+                        {$LNG.tt_requirements}
+                        <ul class="list-group">
+                        {foreach $requireList as $requireID => $NeedLevel}
+                        <li onclick="return Dialog.info({$requireID});" class="list-group-item list-group-item-{if $NeedLevel.own < $NeedLevel.count}danger{else}success{/if}">{$LNG.tech.$requireID} ({$LNG.tt_lvl} {$NeedLevel.own}/{$NeedLevel.count})</li>
+                        {/foreach}
+                        </ul>
+                        {/if}
+                    </div>
 
-{/if}
-{/foreach}</div>
-</table>
-{/block}
+                </div>
+            </div>
+
+            {/if}
+            {/foreach}
+        </div>
+
+        {/block}

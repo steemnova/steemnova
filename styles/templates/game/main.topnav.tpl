@@ -37,8 +37,16 @@
                             </a>
                         </li>
                     {/foreach}
+
                 </ul>
                 <ul class="navbar-nav ms-auto flex-nowrap">
+
+                    {if isModuleAvailable($smarty.const.MODULE_BUILDING)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=buildings" title="{$LNG.lm_buildings}"><i class="fs-2 fas fa-hammer"></i></a></li>{/if}
+                    {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_FLEET)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=shipyard&amp;mode=fleet" title="{$LNG.lm_shipshard}"><i class="fs-2 fas fa-space-shuttle"></i></a></li>{/if}
+                    {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_DEFENSIVE)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=shipyard&amp;mode=defense" title="{$LNG.lm_defenses}"><i class="fs-2 fas fa-shield-alt"></i></a></li>{/if}
+                    {if isModuleAvailable($smarty.const.MODULE_RESEARCH)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=research" title="{$LNG.lm_research}"><i class="fs-2 fas fa-flask"></i></a></li>{/if}
+                    <li class="nav-item ps-4 fs-1" title=""></li>
+
                     <li class="nav-item pe-2 pt-2">
                         <select id="planetSelector" class="form-control">
                             {html_options options=$PlanetSelect selected=$current_pid}

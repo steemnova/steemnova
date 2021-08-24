@@ -1,26 +1,25 @@
 {include file="overall_header.tpl"}
+
 <div id="content">
-	<form action="" method="POST">
-    <table style="width:569px;margin-top:30px;">
-		<tr>
-            <th>{$LNG.adm_login}</th>
-        </tr>
-		<tr>
-            <td>
-				<div><label style="display:inline-block;width:100px;">{$LNG.adm_username}:</label><input type="text" readonly value="{$username}"></div>
-				<div><label style="display:inline-block;width:100px;">{$LNG.adm_password}:</label><input type="password" name="admin_pw"></div>
-				<div><input type="submit" value="{$LNG.adm_absenden}"></div>
-			</td>
-        </tr>
-		<tr>
-			<div class="wrapper">
-				<div class="container">
-					<a href="{$steemconnectUrl}" class="login-button button_standard button-steem" title="Log in with SteemConnect"><span class="icon icon-steem"></span>Log in with SteemConnect</a>
-					<p>As a security best practice, it is recommended to use private POSTING key</p>
-				</div>
-			</div>
-		</tr>
-    </table>
-	</form>
+    <div class="col-12 col-md-6">
+        <form action="" method="POST">
+            <div class="card mt-2">
+                <div class="card-header">
+                    <h1 class="card-title">{$LNG.adm_login}</h1>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label" for="id_username">{$LNG.adm_username}:</label>
+                        <input class="form-control" id="id_username" type="text" value="{$username}" />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="id_password">{$LNG.adm_password}:</label>
+                        <input class="form-control" id="id_password" type="password" name="admin_pw" />
+                    </div>
+                    <div><input class="btn btn-primary" type="submit" value="{$LNG.adm_absenden}"></div>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 {include file="overall_footer.tpl"}

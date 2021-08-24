@@ -1,3 +1,4 @@
+</div>
 {if isset($smarty.get.reload)}
 {if $smarty.get.reload == 't'}
 <script type="text/javascript">

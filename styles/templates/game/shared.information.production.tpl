@@ -23,8 +23,8 @@
 					<td><span{if $CurrentLevel == $elementLevel} style="color:#ff0000"{/if}>{$elementLevel}</span></td>
 					{foreach $productionData as $resourceID => $production}
 					{$productionDiff = $production - $productionTable.production.$CurrentLevel.$resourceID}
-					<td><span style="color:{if $production > 0}lime{elseif $production < 0}red{else}white{/if}">{$production|number}</span></td>
-					<td><span style="color:{if $productionDiff > 0}lime{elseif $productionDiff < 0}red{else}white{/if}">{$productionDiff|number}</span></td>
+					<td><span style="color:{if $production > 0}darkgreen{elseif $production < 0}red{else}white{/if}">{$production|number}</span></td>
+					<td><span style="color:{if $productionDiff > 0}darkgreen{elseif $productionDiff < 0}red{else}white{/if}">{$productionDiff|number}</span></td>
 					{/foreach}
 				</tr>
 				{/foreach}

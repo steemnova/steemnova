@@ -32,7 +32,7 @@
         </div>
     {/if}
     <!-- /building queue-->
-    <div class="planeto">
+    <div class="planeto bg-light rounded mb-2">
         <a class="btn btn-toggle btn-primary" data-bs-toggle="collapse"
            data-bs-target=".mining">{$LNG.build_toggle_mining}</a>
         |
@@ -48,8 +48,7 @@
         <a class="btn btn-toggle btn-primary" data-bs-toggle="collapse"
            data-bs-target=".non-buyable">{$LNG.build_toggle_non_buyable}</a>
     </div>
-    <div class="row row-cols-1 row-cols-md-4 g-4">
-
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-2 build-gutter">
         {foreach $BuildInfoList as $ID => $Element}
             <!-- mines? -->
             <div class="col collapse show {if ($ID == 1 || $ID == 2 || $ID == 3 || $ID == 4 || $ID == 12 || $ID == 22 || $ID == 23 || $ID == 24)}mining{else}non-mining{/if} building {if !$Element.buyable}non-buyable{else}buyable{/if}">
@@ -86,7 +85,7 @@
                                 data-bs-toggle="tooltip"
                                 title="{$LNG.tech.{$RessID}}: {$LNG.shortDescription.$RessID}">{$LNG.tech.{$RessID}}</a>
                                 <strong><span
-                                            style="color:{if $Element.costOverflow[$RessID] == 0}lime{else}#ffd600{/if}">{$RessAmount|number}</span></strong>
+                                            style="color:{if $Element.costOverflow[$RessID] == 0}darkgreen{else}darkred{/if}">{$RessAmount|number}</span></strong>
                             </li>
                             {/foreach}
                             {if !empty($Element.infoEnergy)}
