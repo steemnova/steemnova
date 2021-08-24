@@ -10,3 +10,7 @@ body {
     width: auto;
     padding-right: 0.25em;
 }
+
+.container {
+    margin-left: 280px;
+}
