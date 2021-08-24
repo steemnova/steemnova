@@ -1,22 +1,25 @@
-<nav class="navbar navbar-expand-md  navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
+        <button id="navToggler" class="d-inline-block d-md-none btn-sm btn btn-outline-secondary" type="button">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        <a href="game.php?page=overview" class="navbar-brand">
+        <script>
+            document.getElementById("navToggler").onclick = function(item) {
+                document.querySelector("body").classList.toggle("show_menu");
+            }
+        </script>
+        <a href="game.php?page=overview" class="navbar-brand d-none d-md-inline-block">
             <img src="{$dpath}planeten/{$image}.jpg" width="50" height="50"
                  alt="{$LNG.lm_overview}"></a>
-        <a class="navbar-brand" href="game.php?page=overview">Quest of Galaxy</a>
+        <a class="navbar-brand d-none d-md-inline-block" href="game.php?page=overview">Quest of Galaxy</a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="d-flex flex-grow-1">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     {foreach $resourceTable as $resourceID => $resourceData}
-                        <li class="nav-item res-item"><a class="nav-link" href="#"
-                                                         onclick="return Dialog.info({$resourceID});">
+                        <li class="nav-item res-item">
+                            <a class="nav-link" href="#" onclick="return Dialog.info({$resourceID});">
                                 <img src="{$dpath}images/{$resourceData.name}.gif">
-                                <span class="d-lg-block">{$LNG.tech.$resourceID}</span>
+                                <span class="d-lg-block d-none">{$LNG.tech.$resourceID}</span>
                                 {if !isset($resourceData.current)}
                                     {$resourceData.currentt = $resourceData.max + $resourceData.used}
                                     <span title="{$resourceData.currentt|number}">
@@ -41,13 +44,13 @@
                 </ul>
                 <ul class="navbar-nav ms-auto flex-nowrap">
 
-                    {if isModuleAvailable($smarty.const.MODULE_BUILDING)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=buildings" title="{$LNG.lm_buildings}"><i class="fs-2 fas fa-hammer"></i></a></li>{/if}
-                    {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_FLEET)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=shipyard&amp;mode=fleet" title="{$LNG.lm_shipshard}"><i class="fs-2 fas fa-space-shuttle"></i></a></li>{/if}
-                    {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_DEFENSIVE)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=shipyard&amp;mode=defense" title="{$LNG.lm_defenses}"><i class="fs-2 fas fa-shield-alt"></i></a></li>{/if}
-                    {if isModuleAvailable($smarty.const.MODULE_RESEARCH)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=research" title="{$LNG.lm_research}"><i class="fs-2 fas fa-flask"></i></a></li>{/if}
+                    {if isModuleAvailable($smarty.const.MODULE_BUILDING)}<li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=buildings" title="{$LNG.lm_buildings}"><i class="fs-2 fas fa-hammer"></i></a></li>{/if}
+                    {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_FLEET)}<li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=shipyard&amp;mode=fleet" title="{$LNG.lm_shipshard}"><i class="fs-2 fas fa-space-shuttle"></i></a></li>{/if}
+                    {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_DEFENSIVE)}<li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=shipyard&amp;mode=defense" title="{$LNG.lm_defenses}"><i class="fs-2 fas fa-shield-alt"></i></a></li>{/if}
+                    {if isModuleAvailable($smarty.const.MODULE_RESEARCH)}<li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=research" title="{$LNG.lm_research}"><i class="fs-2 fas fa-flask"></i></a></li>{/if}
                     <li class="nav-item ps-4 fs-1" title=""></li>
 
-                    <li class="nav-item pe-2 pt-2">
+                    <li class="nav-item pe-2 pt-2 d-none d-md-inline-block ">
                         <select id="planetSelector" class="form-control">
                             {html_options options=$PlanetSelect selected=$current_pid}
                         </select>
@@ -55,7 +58,7 @@
                     <li class="nav-item">
                         <div class="dropdown">
                             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{$avatar}" alt="" width="50" height="50" class="rounded-circle me-2">
+                                <img src="{$avatar}" alt="" width="50" height="50" class="rounded-circle me-2 d-none d-md-inline-block ">
                                 <strong>{$username}</strong>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
