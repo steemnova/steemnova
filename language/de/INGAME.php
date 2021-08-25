@@ -1235,8 +1235,8 @@ $LNG['cuneros_payin_unsuccessful'] = 'Konnte keine Dunkle Materie aufladen: %s';
 $LNG['cuneros_payin_successful'] = 'Dunkle Materie erfolgreich aufgeladen';
 
 
-$LNG['sy_toggle_civil'] = 'Toggle civil craft';
-$LNG['sy_toggle_military'] = 'Toggle military craft';
+$LNG['sy_toggle_civil'] = 'Zivil';
+$LNG['sy_toggle_military'] = 'Militärisch';
 
 $LNG['research_toggle_imperial'] = 'Imperial';
 $LNG['research_toggle_military'] = 'Militär';
