@@ -1236,3 +1236,5 @@ $LNG['build_toggle_non_buyable'] = 'Toggle non-buildable';
 
 $LNG['toggle_news'] = 'Toggle news';
 $LNG['toggle_fleets'] = 'Toggle fleet operations';
+
+$LNG['al_add_rank']					        = 'Add rank';

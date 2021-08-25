@@ -1220,3 +1220,5 @@ $LNG['build_toggle_non_buyable'] = 'Nicht baubar';
 
 $LNG['toggle_news'] = 'News zeigen';
 $LNG['toggle_fleets'] = 'Flottenbewegungen zeigen';
+
+$LNG['al_add_rank']					        = 'Rang hinzuf&uuml;gen';
