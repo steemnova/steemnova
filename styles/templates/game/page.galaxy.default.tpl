@@ -80,7 +80,7 @@
 								</td>
 								<td>
 									{if $currentPlanet.debris}
-										<a class="tooltip_sticky" data-tooltip-content="{include "debis.actions.tpl"}">
+										<a class="tooltip_sticky" data-tooltip-content="{include "debris.actions.tpl"}">
 											<img src="{$dpath}planeten/debris.jpg" height="22" width="22" alt="">
 										</a>
 									{/if}
