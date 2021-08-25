@@ -102,3 +102,12 @@ main {
 .flight .tooltip, .return .tooltip {
     display: inline-block !important;
 }
+
+.popup {
+    background: white;
+    margin: 1em;
+}
+
+.popup main {
+    padding-top: 0;
+}
