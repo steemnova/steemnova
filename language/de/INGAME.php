@@ -1233,3 +1233,12 @@ $LNG['cuneros_generate_otp'] = 'OTP erzeugen';
 $LNG['cuneros_upload'] = 'Cuneros einzahlen';
 $LNG['cuneros_payin_unsuccessful'] = 'Konnte keine Dunkle Materie aufladen: %s';
 $LNG['cuneros_payin_successful'] = 'Dunkle Materie erfolgreich aufgeladen';
+
+
+$LNG['sy_toggle_civil'] = 'Toggle civil craft';
+$LNG['sy_toggle_military'] = 'Toggle military craft';
+
+$LNG['research_toggle_imperial'] = 'Imperial';
+$LNG['research_toggle_military'] = 'Militär';
+$LNG['research_toggle_engine'] = 'Antrieb';
+$LNG['research_toggle_mining'] = 'Minen';

@@ -1250,3 +1250,11 @@ $LNG['cuneros_generate_otp'] = 'Create OTP';
 $LNG['cuneros_upload'] = 'Upload Cuneros';
 $LNG['cuneros_payin_unsuccessful'] = 'Could not upload dark matter: %s';
 $LNG['cuneros_payin_successful'] = 'Successfully uploaded dark matter';
+
+$LNG['sy_toggle_civil'] = 'Toggle civil craft';
+$LNG['sy_toggle_military'] = 'Toggle military craft';
+
+$LNG['research_toggle_imperial'] = 'Toggle Imperial';
+$LNG['research_toggle_military'] = 'Toggle Military';
+$LNG['research_toggle_engine'] = 'Toggle Engine';
+$LNG['research_toggle_mining'] = 'Toggle Mining';
