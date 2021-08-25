@@ -1,159 +1,62 @@
 <?php
 
 /**
- *  2Moons 
- *   by Jan-Otto Kröpke 2009-2016
+ *  Quest of Galaxy
+ *   by Bastian Lüttig 2021
  *
  * For the full copyright and license information, please view the LICENSE
  *
- * @package 2Moons
- * @author Jan-Otto Kröpke <slaver7@gmail.com>
+ * @package 2Quest of Galaxy
+ * @author Bastian Lüttig <bastian.luettig@bastie.space>
  * @copyright 2009 Lucky
- * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
+ * @copyright Bastian Lüttig <bastian.luettig@bastie.space>
  * @licence MIT
  * @version 1.8.0
  * @link https://github.com/jkroepke/2Moons
  */
-
-
-class ShowOfficierPage extends AbstractGamePage
+require 'includes/libs/cuneros/cuneros_api.class.inc.php';
+require 'includes/config.php';
+class ShowCunerosPage extends AbstractGamePage
 {
-	public static $requireModule = 0;
+    public static $requireModule = 0;
 
-	function __construct() 
-	{
-		parent::__construct();
-	}
-	
-	public function UpdateExtra($Element)
-	{
-		global $PLANET, $USER, $resource, $pricelist;
-		
-		$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element);
-			
-		if (!BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources)) {
-			return;
-		}
-			
-		$USER[$resource[$Element]]	= max($USER[$resource[$Element]], TIMESTAMP) + $pricelist[$Element]['time'];
-			
-		if(isset($costResources[901])) { $PLANET[$resource[901]]	-= $costResources[901]; }
-		if(isset($costResources[902])) { $PLANET[$resource[902]]	-= $costResources[902]; }
-		if(isset($costResources[903])) { $PLANET[$resource[903]]	-= $costResources[903]; }
-		if(isset($costResources[921])) { $USER[$resource[921]]		-= $costResources[921]; }
+    function __construct()
+    {
+        parent::__construct();
+    }
 
-		$sql	= 'UPDATE %%USERS%% SET
-				'.$resource[$Element].' = :newTime
-				WHERE
-				id = :userId;';
+    public function UpdateDarkMatter()
+    {
+        global $PLANET, $USER, $resource, $cuneros, $LNG;
 
-		Database::get()->update($sql, array(
-			':newTime'	=> $USER[$resource[$Element]],
-			':userId'	=> $USER['id']
-		));
-	}
+        $api = new \Access($_POST['password'], $_POST['username'], $cuneros['api_key'], $cuneros['project_id']);
+        $api->get($_POST['amount'], $cuneros['payin_subject']);
+        if($api->get_status()) {
+            $USER[$resource[921]]	+= intval($_POST['amount'])*$cuneros['factor'];
+            $this->assign(['return_message'=> $LNG['cuneros_payin_successful']] );
+        } else {
+            $this->assign(['return_message'=> sprintf($LNG['cuneros_payin_unsuccessful'], $api->get_error_message())] );
+        }
+    }
 
-	public function UpdateOfficier($Element)
-	{
-		global $USER, $PLANET, $resource, $pricelist;
-		
-		$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element);
-			
-		if (!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element) 
-			|| !BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources) 
-			|| $pricelist[$Element]['max'] <= $USER[$resource[$Element]]) {
-			return;
-		}
-		
-		$USER[$resource[$Element]]	+= 1;
-		
-		if(isset($costResources[901])) { $PLANET[$resource[901]]	-= $costResources[901]; }
-		if(isset($costResources[902])) { $PLANET[$resource[902]]	-= $costResources[902]; }
-		if(isset($costResources[903])) { $PLANET[$resource[903]]	-= $costResources[903]; }
-		if(isset($costResources[921])) { $USER[$resource[921]]		-= $costResources[921]; }
+    public function show()
+    {
+        global $USER, $PLANET, $resource, $reslist, $LNG, $cuneros;
 
-		$sql	= 'UPDATE %%USERS%% SET
-		'.$resource[$Element].' = :newTime
-		WHERE
-		id = :userId;';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isModuleAvailable(MODULE_CUNEROS)) {
+                $this->UpdateDarkMatter();
+            }
+        }
 
-		Database::get()->update($sql, array(
-			':newTime'	=> $USER[$resource[$Element]],
-			':userId'	=> $USER['id']
-		));
-	}
-	
-	public function show()
-	{
-		global $USER, $PLANET, $resource, $reslist, $LNG, $pricelist;
-		
-		$updateID	  = HTTP::_GP('id', 0);
-				
-		if (!empty($updateID) && $_SERVER['REQUEST_METHOD'] === 'POST' && $USER['urlaubs_modus'] == 0)
-		{
-			if(isModuleAvailable(MODULE_OFFICIER) && in_array($updateID, $reslist['officier'])) {
-				$this->UpdateOfficier($updateID);
-			} elseif(isModuleAvailable(MODULE_DMEXTRAS) && in_array($updateID, $reslist['dmfunc'])) {
-				$this->UpdateExtra($updateID);
-			}
-		}
-		
-		$darkmatterList	= array();
-		$officierList	= array();
-		
-		if(isModuleAvailable(MODULE_DMEXTRAS))
-		{
-			foreach($reslist['dmfunc'] as $Element)
-			{
-				if($USER[$resource[$Element]] > TIMESTAMP) {
-					$this->tplObj->execscript("GetOfficerTime(".$Element.", ".($USER[$resource[$Element]] - TIMESTAMP).");");
-				}
-			
-				$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element);
-				$buyable			= BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
-				$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costResources);
-				$elementBonus		= BuildFunctions::getAvalibleBonus($Element);
+        if (isModuleAvailable(MODULE_CUNEROS)) {
 
-				$darkmatterList[$Element]	= array(
-					'timeLeft'			=> max($USER[$resource[$Element]] - TIMESTAMP, 0),
-					'costResources'		=> $costResources,
-					'buyable'			=> $buyable,
-					'time'				=> $pricelist[$Element]['time'],
-					'costOverflow'		=> $costOverflow,
-					'elementBonus'		=> $elementBonus,
-				);
-			}
-		}
-		
-		if(isModuleAvailable(MODULE_OFFICIER))
-		{
-			foreach($reslist['officier'] as $Element)
-			{
-				if (!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element))
-					continue;
-					
-				$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element);
-				$buyable			= BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
-				$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costResources);
-				$elementBonus		= BuildFunctions::getAvalibleBonus($Element);
-				
-				$officierList[$Element]	= array(
-					'level'				=> $USER[$resource[$Element]],
-					'maxLevel'			=> $pricelist[$Element]['max'],
-					'costResources'		=> $costResources,
-					'buyable'			=> $buyable,
-					'costOverflow'		=> $costOverflow,
-					'elementBonus'		=> $elementBonus,
-				);
-			}
-		}
-		
-		$this->assign(array(
-			'officierList'		=> $officierList,
-			'darkmatterList'	=> $darkmatterList,
-			'of_dm_trade'		=> sprintf($LNG['of_dm_trade'], $LNG['tech'][921]),
-		));
-		
-		$this->display('page.officier.default.tpl');
-	}
+            $this->assign(array(
+                'project_id' => $cuneros['project_id'],
+                'info_data'=> sprintf($LNG['cun_info'], $cuneros['factor']),
+        ));
+
+            $this->display('page.cuneros.default.tpl');
+        }
+    }
 }

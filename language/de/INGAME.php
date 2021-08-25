@@ -1223,3 +1223,13 @@ $LNG['toggle_fleets'] = 'Flottenbewegungen zeigen';
 
 $LNG['al_add_rank']					        = 'Rang hinzuf&uuml;gen';
 $LNG['al_cancel_application']					        = 'Bewerbung zur&uuml;ckziehen';
+$LNG['lm_cuneros'] = 'Dunkle Materie aufladen';
+$LNG['cun_info'] = 'Hier kannst du Schwarze Materie gegen Cuneros aufladen. <br />Für 1 Cuneros bekommst du %d Dunkle Materie.';
+$LNG['cuneros_description'] = 'Cuneros werden auf <a href="https://www.cuneros.de/">Cuneros.de</a> für Aktivität verschenkt. Zusätzlich bekommst du sie auch auf anderen externen Seiten.';
+$LNG['cuneros_amount'] = 'Cuneros-Anzahl';
+$LNG['cuneros_username'] = 'Cuneros.de Nutzername';
+$LNG['cuneros_otp'] = 'Einmalpasswort (OTP)';
+$LNG['cuneros_generate_otp'] = 'OTP erzeugen';
+$LNG['cuneros_upload'] = 'Cuneros einzahlen';
+$LNG['cuneros_payin_unsuccessful'] = 'Konnte keine Dunkle Materie aufladen: %s';
+$LNG['cuneros_payin_successful'] = 'Dunkle Materie erfolgreich aufgeladen';

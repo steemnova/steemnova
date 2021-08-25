@@ -1239,3 +1239,14 @@ $LNG['toggle_fleets'] = 'Toggle fleet operations';
 
 $LNG['al_add_rank']					        = 'Add rank';
 $LNG['al_cancel_application']					        = 'Cancel application';
+
+$LNG['lm_cuneros'] = 'Upload Dark Matter';
+$LNG['cun_info'] = 'You can get dark matter in exchange for cuneros. <br />1 Cuneros will give you %d dark matter.';
+$LNG['cuneros_description'] = 'Cuneros are a gift from <a href="https://www.cuneros.de/">Cuneros.de</a> for activity. Additionally, Cuneros can be obtained from other external sites.';
+$LNG['cuneros_amount'] = 'Cuneros-Amount';
+$LNG['cuneros_username'] = 'Cuneros.de Username';
+$LNG['cuneros_otp'] = 'One Time Password (OTP)';
+$LNG['cuneros_generate_otp'] = 'Create OTP';
+$LNG['cuneros_upload'] = 'Upload Cuneros';
+$LNG['cuneros_payin_unsuccessful'] = 'Could not upload dark matter: %s';
+$LNG['cuneros_payin_successful'] = 'Successfully uploaded dark matter';
