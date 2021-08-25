@@ -1,16 +1,18 @@
 {block name="title" prepend}{$LNG.lm_research}{/block}
 {block name="content"}
-<form action="game.php?page=alliance&amp;mode=cancelApply" method="post">
-	<table class="table519">
-	<tr>
-		<th>{$LNG.al_your_request_title}</th>
-	</tr>
-	<tr>
-		<td>{$request_text}</td>
-	</tr>
-	<tr>
-		<td><input type="submit" value="{$LNG.al_continue}"></td>
-	</tr>
-</table>
-</form>
+    <form action="game.php?page=alliance&amp;mode=cancelApply" method="post">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">{$LNG.al_your_request_title}</h2>
+                </div>
+                <div class="card-body">
+                    {$request_text}
+                </div>
+                <div class="card-footer">
+                    <input type="submit" class="btn btn-primary" value="{$LNG.al_continue}">
+                </div>
+            </div>
+        </div>
+    </form>
 {/block}

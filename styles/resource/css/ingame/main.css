@@ -92,3 +92,9 @@ main {
     position: initial !important;
     opacity: 1;
 }
+
+.ui-widget-content {
+    border: 1px solid #555555;
+    background: initial !important;
+    color: initial !important;
+}

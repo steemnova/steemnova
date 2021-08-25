@@ -1,10 +1,17 @@
 {block name="title" prepend}{$LNG.lm_marketplace}{/block}
 {block name="content"}
-
+<div class="card">
+	<div class="card-header">
+		<h2 class="card-title">{$LNG.market_info_header}</h2>
+	</div>
+	<div class="card-body">
+		<p class="card-text">{$LNG.market_info_description}</p>
+	</div>
+</div>
 <table style="width:80%">
 	<tr>
 		<th colspan="2">
-			{$LNG.market_info_header}
+
 		</th>
 	</tr>
 	<tr>
@@ -18,7 +25,7 @@
 	<tr>
 		<td colspan="2">
 			<p>
-				{$LNG.market_info_description}
+
 			</p>
 		</td>
 	</tr>
