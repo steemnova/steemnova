@@ -3,7 +3,7 @@
     <div class="col">
         <div class="card">
             <div class="card-header">
-                <h2 class="card-title"><h2>{{$LNG.siteTitleBattleHall}}</h2>
+                <h2 class="card-title"><h2>{$LNG.siteTitleBattleHall}</h2>
             </div>
             <div class="card-body">
 
