@@ -101,8 +101,8 @@
                                 class="btn btn-sm btn-success"
                                 href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}: {$LNG.ov_free}</a>
                         <br>{/if}
-                        </br>
-                        {$LNG.ov_diameter}: {$LNG.ov_distance_unit} (<a
+                        <br>
+                        {$LNG.ov_diameter}: {$planet_diameter} {$LNG.ov_distance_unit} (<a
                                 title="{$LNG.ov_developed_fields}">{$planet_field_current}</a> / <a
                                 title="{$LNG.ov_max_developed_fields}">{$planet_field_max}</a> {$LNG.ov_fields})
                         <br>{$LNG.ov_temperature}
