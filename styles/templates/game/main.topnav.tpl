@@ -17,25 +17,21 @@
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     {foreach $resourceTable as $resourceID => $resourceData}
                         <li class="nav-item res-item">
-                            <a class="nav-link" href="#" onclick="return Dialog.info({$resourceID});">
+                            <a class="nav-link {if !$resourceID|in_array:[921,911] and $resourceData.max == $resourceData.current}text-danger{/if}" href="#" onclick="return Dialog.info({$resourceID});">
                                 <img src="{$dpath}images/{$resourceData.name}.gif">
                                 <span class="d-lg-block d-none">{$LNG.tech.$resourceID}</span>
-                                {if !isset($resourceData.current)}
+                                {if $resourceID == 911} <!-- energy -->
                                     {$resourceData.currentt = $resourceData.max + $resourceData.used}
                                     <span title="{$resourceData.currentt|number}">
                                         <span{if $resourceData.currentt < 0} style="color:red"{/if}>{$resourceData.currentt|number}&nbsp;/&nbsp;{$resourceData.max|number}</span>
                                     </span>
                                 {else}
-                                    <span class="res_current" id="current_{$resourceData.name}"
-                                          data-real="{$resourceData.current}">
+                                    <span class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">
                                         {$resourceData.current|number}
                                     </span>
-                                {/if}
-                                {if !isset($resourceData.current) || !isset($resourceData.max)}
-                                {else}
-                                    /
-                                    <span class="res_max" id="max_{$resourceData.name}"
+                                {if $resourceID != 921} <!-- not dark matter --> / <span class="res_max" id="max_{$resourceData.name}"
                                           data-real="{$resourceData.current}">{$resourceData.max|number}</span>
+                                {/if}
                                 {/if}
                             </a>
                         </li>

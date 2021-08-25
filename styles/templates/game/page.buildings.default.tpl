@@ -51,7 +51,7 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-2 build-gutter">
         {foreach $BuildInfoList as $ID => $Element}
             <!-- mines? -->
-            <div class="col collapse show {if ($ID == 1 || $ID == 2 || $ID == 3 || $ID == 4 || $ID == 12 || $ID == 22 || $ID == 23 || $ID == 24)}mining{else}non-mining{/if} building {if !$Element.buyable}non-buyable{else}buyable{/if}">
+            <div class="col collapse show {if $ID|in_array:[1,2,3,4,12,22,23,24]}mining{else}non-mining{/if} building {if !$Element.buyable}non-buyable{else}buyable{/if}">
                 <div class="card">
                     <div class="card-header">
                        <h6 class="card-title" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}
