@@ -8,9 +8,9 @@
             <div class="card-body">
 
                 <ul>
-                    <li>{$LNG.disclamerLabelAddress}: {$disclamerAddress}</li>
-                    <li>        {$LNG.disclamerLabelPhone}: {$disclamerPhone}</li>
-                    <li>{$LNG.disclamerLabelMail}: <a href="{$disclamerMail}">{$disclamerMail}</a></li>
+                    <li>{$LNG.disclamerLabelAddress} {$disclamerAddress}</li>
+                    <li>{$LNG.disclamerLabelPhone} {$disclamerPhone}</li>
+                    <li>{$LNG.disclamerLabelMail} <a href="mailto:{$disclamerMail}">{$disclamerMail}</a></li>
                 </ul>
                 <h3>{$LNG.disclamerLabelNotice}</h3>
                 <p class="card-text">{$disclamerNotice}</p>
