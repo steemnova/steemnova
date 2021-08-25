@@ -1238,3 +1238,4 @@ $LNG['toggle_news'] = 'Toggle news';
 $LNG['toggle_fleets'] = 'Toggle fleet operations';
 
 $LNG['al_add_rank']					        = 'Add rank';
+$LNG['al_cancel_application']					        = 'Cancel application';

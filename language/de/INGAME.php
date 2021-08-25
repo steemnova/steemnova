@@ -770,7 +770,7 @@ $LNG['al_rank_desc']['RANKS']					= 'Rangverwaltung';
 $LNG['al_rank_desc']['MANAGEUSERS']				= 'Kann Mitglieder verwalten';
 $LNG['al_rank_desc']['EVENTS']					= 'Kann Ereignisse im internen Bereich sehen';
 $LNG['al_invalid_rank_name']					= 'Im Ranknamen sind nur Zahlen, Buchstaben, Leerzeichen, _, -, . erlaubt!';
-$LNG['al_new_apply']                      	= 'Your alliance has received a new application from - <a href="#" onclick="return Dialog.Playercard(%s, \'%s\');">%s</a>';
+$LNG['al_new_apply']                      	= 'Deine Allianz hat eine neue Bewertung von <a href="#" onclick="return Dialog.Playercard(%s, \'%s\');">%s</a> erhalten.';
 
 //----------------------------------------------------------------------------//
 //BUDDY
@@ -1222,3 +1222,4 @@ $LNG['toggle_news'] = 'News zeigen';
 $LNG['toggle_fleets'] = 'Flottenbewegungen zeigen';
 
 $LNG['al_add_rank']					        = 'Rang hinzuf&uuml;gen';
+$LNG['al_cancel_application']					        = 'Bewerbung zur&uuml;ckziehen';

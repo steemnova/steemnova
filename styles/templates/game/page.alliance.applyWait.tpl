@@ -10,7 +10,7 @@
                     {$request_text}
                 </div>
                 <div class="card-footer">
-                    <input type="submit" class="btn btn-primary" value="{$LNG.al_continue}">
+                    <input type="submit" class="btn btn-danger" value="{$LNG.al_cancel_application}">
                 </div>
             </div>
         </div>
