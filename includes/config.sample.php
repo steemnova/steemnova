@@ -2,6 +2,7 @@
 /**
  *  2Moons 
  *   by Jan-Otto Kröpke 2009-2016
+ *   by Bastian Luettig 2021
  *
  * For the full copyright and license information, please view the LICENSE
  *
@@ -25,5 +26,11 @@ $database['databasename']	= '%s';
 $database['tableprefix']	= '%s';
 $salt						= '%s'; // 22 digits from the alphabet "./0-9A-Za-z"
 
+// configuration for cuneros api
+$cuneros = array();
+$cuneros['project_id'] = 0;
+$cuneros['api_key'] = '';
+$cuneros['payin_subject'] ='Dunkle Materie aufgeladen';
+$cuneros['factor'] = 10;
+
 //### Do not change beyond here ###//
-?>
