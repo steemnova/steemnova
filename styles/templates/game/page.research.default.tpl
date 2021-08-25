@@ -97,9 +97,9 @@
                     </div>
                     <div class="card-footer">
                         {if $Element.maxLevel == $Element.levelToBuild}
-                            <span style="color:#ffd600">{$LNG.bd_maxlevel}</span>
+                            <span class="btn btn-success disabled">{$LNG.bd_maxlevel}</span>
                         {elseif $IsLabinBuild || $IsFullQueue || !$Element.buyable}
-                            <span style="color:#ffd600">{if $Element.level == 0 && $Element.levelToBuild == 0}{$LNG.bd_tech}{else}{$LNG.bd_tech_next_level}{$Element.levelToBuild + 1}{/if}</span>
+                            <span class="btn btn-secondary disabled">{if $Element.level == 0 && $Element.levelToBuild == 0}{$LNG.bd_tech}{else}{$LNG.bd_tech_next_level}{$Element.levelToBuild + 1}{/if}</span>
                         {else}
                             <form action="game.php?page=research" method="post" class="build_form">
                                 <input type="hidden" name="cmd" value="insert">
