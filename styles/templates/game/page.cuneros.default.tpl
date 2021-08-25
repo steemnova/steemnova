@@ -6,7 +6,7 @@
             window.open(url, "Cuneros OTP", "width=750,height=900,status=yes,scrollbars=yes,resizable=yes").focus();
         }
     </script>
-    {if isset($return_message)}
+    {if $return_message}
         <div class="alert alert-info">{$return_message}</div>
     {/if}
 

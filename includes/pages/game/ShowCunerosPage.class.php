@@ -33,19 +33,19 @@ class ShowCunerosPage extends AbstractGamePage
         $api->get($_POST['amount'], $cuneros['payin_subject']);
         if($api->get_status()) {
             $USER[$resource[921]]	+= intval($_POST['amount'])*$cuneros['factor'];
-            $this->assign(['return_message'=> $LNG['cuneros_payin_successful']] );
+            return $LNG['cuneros_payin_successful'];
         } else {
-            $this->assign(['return_message'=> sprintf($LNG['cuneros_payin_unsuccessful'], $api->get_error_message())] );
+            return  sprintf($LNG['cuneros_payin_unsuccessful'], $api->get_error_message());
         }
     }
 
     public function show()
     {
         global $USER, $PLANET, $resource, $reslist, $LNG, $cuneros;
-
+        $message = "";
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isModuleAvailable(MODULE_CUNEROS)) {
-                $this->UpdateDarkMatter();
+                $message = $this->UpdateDarkMatter();
             }
         }
 
@@ -54,7 +54,8 @@ class ShowCunerosPage extends AbstractGamePage
             $this->assign(array(
                 'project_id' => $cuneros['project_id'],
                 'info_data'=> sprintf($LNG['cun_info'], $cuneros['factor']),
-        ));
+                'return_message' => $message,
+            ));
 
             $this->display('page.cuneros.default.tpl');
         }

@@ -344,8 +344,9 @@ class Access {
         $dat                = http_build_query($this->build_params($src, $dst, $action, $amount, $subject, $external_id, $random_number));
         $data               = $this->server_request($this->server, $action_url, $dat);
         $this->error_id     = $data->error_code;
-        if($this->error_id)
+        if($data->error_code != 0) {
             $this->error_string = $data->error_message;
+        }
         $this->server_ip    = $data->ip;
 	if($data == FALSE) {
 		$this->error_id = 999998;
