@@ -9,7 +9,7 @@
             </div>
             <div class="card-body">
 
-                <table class="table519">
+                <table class="table table-striped">
                     <tr style="height:20px">
                         <td>{$LNG.fl_mission}</td>
                         <td>{$LNG["type_mission_{$targetMission}"]}</td>

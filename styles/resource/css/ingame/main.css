@@ -98,3 +98,7 @@ main {
     background: initial !important;
     color: initial !important;
 }
+
+.flight .tooltip, .return .tooltip {
+    display: inline-block !important;
+}

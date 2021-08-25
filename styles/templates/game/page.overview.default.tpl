@@ -40,13 +40,9 @@
                 </div>
                 <div class="card-body">
                     <p class="card-text"></p>
-                    <ul class="collapse show" id="fleet-info">
+                    <ul class="collapse show list-group" id="fleet-info">
                         {foreach $fleets as $index => $fleet}
-                            <li style="">
-                        <span id="fleettime_{$index}" class="fleets"
-                              data-fleet-end-time="{$fleet.returntime}"
-                              data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}
-		                </span>
+                            <li class="list-group-item"><span id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</span>
                                 <span id="fleettime_{$index}">{$fleet.text}</span>
                             </li>
                         {/foreach}

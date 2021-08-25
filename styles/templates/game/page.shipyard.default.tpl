@@ -7,25 +7,25 @@
     {if !$NotBuilding}
         <div class="alert alert-info">{$LNG.bd_building_shipyard}</div>{/if}
     {if !empty($BuildList)} <!-- fleet training list -->
-        <div style="text-align: center;">
-
-            <div id="bx" class="z"></div>
-            <div class="ship">
-                <form action="game.php?page=shipyard&amp;mode={$mode}" method="post">
-                    <input type="hidden" name="action" value="delete">
-                    <div>
-
+        <div class="bg-light mb-2 p-2 rounded">
+            <form action="game.php?page=shipyard&amp;mode={$mode}" method="post">
+                <input type="hidden" name="action" value="delete">
+                <div class="row">
+                    <div class="col">
                         <select name="auftr[]" id="auftr" onchange="this.form.myText.setAttribute('size', this.value);"
-                                multiple class="shipl">
+                                multiple class="shipl form-control">
                             <option>&nbsp;</option>
-                        </select><br><br>{$LNG.bd_cancel_warning}<br><input class="z" type="submit"
-                                                                            value="{$LNG.bd_cancel_send}"/>
-
+                        </select>
                     </div>
-                </form>
-                <br><span id="timeleft"></span><br><br>
-
-            </div>
+                    <div class="col">
+                        <div class="alert alert-warning">{$LNG.bd_cancel_warning}</div>
+                    </div>
+                    <div class="col">
+                        <input type="submit" value="{$LNG.bd_cancel_send}" class="btn btn-danger"/><br/><span
+                                class="btn btn-primary" id="timeleft"></span>
+                    </div>
+                </div>
+            </form>
         </div>
     {/if}
     <div>
@@ -89,7 +89,7 @@
                         <div class="card-footer">
                             {if $Element.AlreadyBuild}<span
                                     style="color:red">{$LNG.bd_protection_shield_only_one}</span>{elseif $NotBuilding && $Element.buyable}
-                                <input type="text" class="form-control" name="fmenge[{$ID}]" id="input_{$ID}" size="3"
+                                <input type="number" class="form-control" name="fmenge[{$ID}]" id="input_{$ID}" size="3"
                                        maxlength="{$maxlength}" value="0"
                                        tabindex="{$smarty.foreach.FleetList.iteration}">
                                 <input type="button" class="btn btn-secondary" value="{$LNG.bd_max_ships}"
