@@ -41,71 +41,67 @@
         </div>
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-4 build-gutter">
-    {foreach $elementList as $ID => $Element}
-        <form action="game.php?page=shipyard&amp;mode={$mode}" method="post" id="s{$ID}">
-            <div class="col collapse show" id="s{$ID}">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 onclick="return Dialog.info({$ID})">{$Element.available|number}x
-                            <small>{$LNG.tech.{$ID}}</small></h3>
-                    </div>
-                    <a href="#" onclick="return Dialog.info({$ID})">
-                        <img src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}" class="card-img-top">
-                    </a>
-                    <div class="card-body">
-                        <!-- missing ress -->
-                        {if !$Element.buyable}
-                            <ul class="list-group">
-                                <li class="list-group-item">{$LNG.bd_remaining}</li>
-                                {foreach $Element.costOverflow as $ResType => $ResCount}
-                                    {if $ResCount > 0}
-                                        <li class="list-group-item" onclick="return Dialog.info({$ResType});"
-                                            data-bs-toggle="tooltip" data-bs-placement="top"
-                                            title="{$LNG.tech.{$ResType}}: {$LNG.shortDescription.$ResType}">{$LNG.tech.{$ResType}}</a>
-                                            : <span style="font-weight:700">{$ResCount|number}</span></li>
-                                    {/if}
-                                {/foreach}
-                            </ul>
-                        {/if}
-                        {$LNG.bd_next_level_cost}<br/>
-
-                        <ul class="list-group">
-                            {foreach $Element.costResources as $RessID => $RessAmount}
-                                <li class="list-group-item" onclick="return Dialog.info({$RessID});"
-                                    data-bs-toggle="tooltip"
-                                    title="{$LNG.tech.{$RessID}}: {$LNG.shortDescription.$RessID}">{$LNG.tech.{$RessID}}</a>
-                                    <strong><span
-                                                style="color:{if $Element.costOverflow[$RessID] == 0}darkgreen{else}darkred{/if}">{$RessAmount|number}</span></strong>
-                                </li>
-                            {/foreach}
-                            {if !empty($Element.infoEnergy)}
-                                <li class="list-group-item">{$Element.infoEnergy}</li>
+        {foreach $elementList as $ID => $Element}
+            <form action="game.php?page=shipyard&amp;mode={$mode}" method="post" id="s{$ID}">
+                <div class="col collapse show" id="s{$ID}">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 onclick="return Dialog.info({$ID})">{$Element.available|number}x
+                                <small>{$LNG.tech.{$ID}}</small></h3>
+                        </div>
+                        <a href="#" onclick="return Dialog.info({$ID})">
+                            <img src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}" class="card-img-top">
+                        </a>
+                        <div class="card-body">
+                            <!-- missing ress -->
+                            {if !$Element.buyable}
+                                <ul class="list-group">
+                                    <li class="list-group-item">{$LNG.bd_remaining}</li>
+                                    {foreach $Element.costOverflow as $ResType => $ResCount}
+                                        {if $ResCount > 0}
+                                            <li class="list-group-item" onclick="return Dialog.info({$ResType});"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                title="{$LNG.tech.{$ResType}}: {$LNG.shortDescription.$ResType}">{$LNG.tech.{$ResType}}</a>
+                                                : <span style="font-weight:700">{$ResCount|number}</span></li>
+                                        {/if}
+                                    {/foreach}
+                                </ul>
                             {/if}
-                            <li class="list-group-item">{$LNG.fgf_time}: {$Element.elementTime|time}</li>
-                            {if $ID==212}
-                                <li class="list-group-item list-group-item-success">
-                                +{$SolarEnergy} {$LNG.tech.911}</li>{/if}
-                    </div>
-                    <div class="card-footer">
-                        {if $Element.AlreadyBuild}<span
-                                style="color:red">{$LNG.bd_protection_shield_only_one}</span>{elseif $NotBuilding && $Element.buyable}
-                            <input type="text" class="form-control" name="fmenge[{$ID}]" id="input_{$ID}" size="3"
-                                   maxlength="{$maxlength}" value="0"
-                                   tabindex="{$smarty.foreach.FleetList.iteration}">
-                            <input type="button" class="btn btn-secondary" value="{$LNG.bd_max_ships}"
-                                   onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')">
-                            <input class="b btn btn-primary" type="submit" value="{$LNG.bd_build_ships}">
-                        {/if}
+                            {$LNG.bd_next_level_cost}<br/>
+
+                            <ul class="list-group">
+                                {foreach $Element.costResources as $RessID => $RessAmount}
+                                    <li class="list-group-item" onclick="return Dialog.info({$RessID});"
+                                        data-bs-toggle="tooltip"
+                                        title="{$LNG.tech.{$RessID}}: {$LNG.shortDescription.$RessID}">{$LNG.tech.{$RessID}}</a>
+                                        <strong><span
+                                                    style="color:{if $Element.costOverflow[$RessID] == 0}darkgreen{else}darkred{/if}">{$RessAmount|number}</span></strong>
+                                    </li>
+                                {/foreach}
+                                {if !empty($Element.infoEnergy)}
+                                    <li class="list-group-item">{$Element.infoEnergy}</li>
+                                {/if}
+                                <li class="list-group-item">{$LNG.fgf_time}: {$Element.elementTime|time}</li>
+                                {if $ID==212}
+                                    <li class="list-group-item list-group-item-success">
+                                    +{$SolarEnergy} {$LNG.tech.911}</li>{/if}
+                        </div>
+                        <div class="card-footer">
+                            {if $Element.AlreadyBuild}<span
+                                    style="color:red">{$LNG.bd_protection_shield_only_one}</span>{elseif $NotBuilding && $Element.buyable}
+                                <input type="text" class="form-control" name="fmenge[{$ID}]" id="input_{$ID}" size="3"
+                                       maxlength="{$maxlength}" value="0"
+                                       tabindex="{$smarty.foreach.FleetList.iteration}">
+                                <input type="button" class="btn btn-secondary" value="{$LNG.bd_max_ships}"
+                                       onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')">
+                                <input class="b btn btn-primary" type="submit" value="{$LNG.bd_build_ships}">
+                            {/if}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
-        </div>
-    {/foreach}
-    {if $NotBuilding}
-        <div class="planeto"></div>
-    {/if}
-
+            </form>
+        {/foreach}
+    </div>
 {/block}
 {block name="script" append}
     <script type="text/javascript">
