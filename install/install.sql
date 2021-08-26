@@ -727,7 +727,7 @@ CREATE TABLE `%PREFIX%users` (
   `ip_at_reg` varchar(40) NOT NULL DEFAULT '',
   `register_time` int(11) NOT NULL DEFAULT '0',
   `onlinetime` int(11) NOT NULL DEFAULT '0',
-  `dpath` varchar(20) NOT NULL DEFAULT 'nova',
+  `dpath` varchar(20) NOT NULL DEFAULT 'qog',
   `timezone` varchar(32) NOT NULL DEFAULT 'Europe/London',
   `planet_sort` tinyint(1) NOT NULL DEFAULT '0',
   `planet_sort_order` tinyint(1) NOT NULL DEFAULT '0',
@@ -944,7 +944,7 @@ CREATE TABLE `%PREFIX%vars_requriements` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `%PREFIX%config` (`uni`, `VERSION`, `uni_name`, `game_name`, `close_reason`, `OverviewNewsText`, `moduls`, `disclamerAddress`, `disclamerPhone`, `disclamerMail`, `disclamerNotice`) VALUES
-(1, '%VERSION%', '', 'SteemNova', '', '', '', '', '', '', '');
+(1, '%VERSION%', '', 'Quest of Galaxy', '', '', '', '', '', '', '');
 
 INSERT INTO `%PREFIX%cronjobs` (`cronjobID`, `name`, `isActive`, `min`, `hours`, `dom`, `month`, `dow`, `class`, `nextTime`, `lock`) VALUES
 (NULL, 'referral', 1, '0,30', '*', '*', '*', '*', 'ReferralCronjob', 0, NULL),
