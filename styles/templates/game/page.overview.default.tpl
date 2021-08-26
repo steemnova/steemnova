@@ -65,42 +65,36 @@
                     </div>
                     <h2>{$LNG["type_planet_{$planet_type}"]} {$planetname}</h2>
                 </div>
-                <div class="card-body">
+                <div class="card-body d-flex">
                     <div class="d-inline-block">
                         <img style="float: left;" src="{$dpath}planeten/{$planetimage}.jpg" height="200" width="200"
                              alt="{$planetname}">
                     </div>
-                    <div class="d-inline-block ps-1">
-                        {$planetname}<br>
-
-                        {if $buildInfo.buildings}<a class="btn btn-sm btn-warning"
-                                                    href="game.php?page=buildings">{$LNG.lm_buildings}
+                    <div class="d-inline-block ps-1 flex-grow-1">
+                        <ul class="list-group">
+                        {if $buildInfo.buildings}
+                            <li class="list-group-item list-group-item-warning"><a href="game.php?page=buildings">{$LNG.lm_buildings}
                             : </a>{$LNG.tech[$buildInfo.buildings['id']]} ({$buildInfo.buildings['level']})
-                            <br>
-                            <div class="timer"
-                                 data-time="{$buildInfo.buildings['timeleft']}">{$buildInfo.buildings['starttime']}</div>{else}
-                            <a class="btn btn-sm btn-success" href="game.php?page=buildings">{$LNG.lm_buildings}
-                                : {$LNG.ov_free}</a>
-                            <br>
+                                <span class="timer float-end" data-time="{$buildInfo.buildings['timeleft']}"></span></li>
+                        {else}
+                            <li class="list-group-item list-group-item-success"><a href="game.php?page=buildings">{$LNG.lm_buildings}
+                                : {$LNG.ov_free}</a></li>
                         {/if}
-                        {if $buildInfo.tech}<a class="btn btn-sm btn-warning"
-                                               href="game.php?page=research">{$LNG.lm_research}
-                            : </a>{$LNG.tech[$buildInfo.tech['id']]} ({$buildInfo.tech['level']})
-                            <br>
-                            <div class="timer"
-                                 data-time="{$buildInfo.tech['timeleft']}">{$buildInfo.tech['starttime']}</div>{else}<a
-                                class="btn btn-sm btn-success" href="game.php?page=research">{$LNG.lm_research}
-                            : {$LNG.ov_free}</a>
-                            <br>
+                        {if $buildInfo.tech}
+                            <li class="list-group-item list-group-item-warning"><a href="game.php?page=research">{$LNG.lm_research}: </a>{$LNG.tech[$buildInfo.tech['id']]} ({$buildInfo.tech['level']})
+
+                            <span class="timer float-end" data-time="{$buildInfo.tech['timeleft']}"></span></li>
+                                {else}
+                            <li class="list-group-item list-group-item-success"><a href="game.php?page=research">{$LNG.lm_research}: {$LNG.ov_free}</a></li>
                         {/if}
-                        {if $buildInfo.fleet}<a class="btn btn-sm btn-warning"
-                                                href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}
-                        : </a>{$LNG.tech[$buildInfo.fleet['id']]} ({$buildInfo.fleet['level']})<br>
-                        <div class="timer"
-                             data-time="{$buildInfo.fleet['timeleft']}">{$buildInfo.fleet['starttime']}</div>{else}<a
-                                class="btn btn-sm btn-success"
-                                href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}: {$LNG.ov_free}</a>
-                        <br>{/if}
+                        {if $buildInfo.fleet}
+                            <li class="list-group-item list-group-item-warning"><a href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}: </a>{$LNG.tech[$buildInfo.fleet['id']]} ({$buildInfo.fleet['level']})
+                                <span class="timer float-end" data-time="{$buildInfo.fleet['timeleft']}"></span></li>
+                                {else}
+                            <li class="list-group-item list-group-item-success"><a href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}: {$LNG.ov_free}</a></li>
+                        {/if}
+                            <li class="list-group-item {if $planet_coins > 0}list-group-item-danger{/if}">{$LNG.cuneros_coins}: {$planet_coins}{if $planet_coins > 0}<a class="btn btn-primary btn-sm float-end json-request" data-href="game.php?page=overview&amp;mode=claim_coins">{$LNG.cuneros_claim}</a>{/if}</li>
+                        </ul>
                         <br>
                         {$LNG.ov_diameter}: {$planet_diameter} {$LNG.ov_distance_unit} (<a
                                 title="{$LNG.ov_developed_fields}">{$planet_field_current}</a> / <a

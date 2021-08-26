@@ -81,15 +81,6 @@ abstract class AbstractGamePage
 		return http_build_query($queryString);
 	}
 
-	protected function getCronjobsTodo()
-	{
-		require_once 'includes/classes/Cronjob.class.php';
-
-		$this->assign(array(
-			'cronjobs'		=> Cronjob::getNeedTodoExecutedJobs()
-		));
-	}
-
 	protected function getNavigationData()
 	{
 		global $PLANET, $LNG, $USER, $THEME, $resource, $reslist;
@@ -183,7 +174,6 @@ abstract class AbstractGamePage
 
 		if($this->getWindow() === 'full') {
 			$this->getNavigationData();
-			$this->getCronjobsTodo();
 		}
 
 		$dateTimeServer		= new DateTime("now");

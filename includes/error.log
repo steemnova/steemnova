@@ -1,0 +1,1249 @@
+[22-Aug-2021 16:50:09 UTC] PHP Fatal error:  Uncaught ErrorException: Undefined index: host in /home/bastian/Projekte/quest-of-galaxy/includes/classes/Database.class.php:50
+Stack trace:
+#0 /home/bastian/Projekte/quest-of-galaxy/includes/classes/Database.class.php(50): errorHandler()
+#1 /home/bastian/Projekte/quest-of-galaxy/includes/classes/Database.class.php(30): Database->__construct()
+#2 /home/bastian/Projekte/quest-of-galaxy/includes/classes/class.SupportTickets.php(29): Database::get()
+#3 /home/bastian/Projekte/quest-of-galaxy/includes/GeneralFunctions.php(624): SupportTickets->createTicket()
+#4 [internal function]: exceptionHandler()
+#5 {main}
+  thrown in /home/bastian/Projekte/quest-of-galaxy/includes/classes/Database.class.php on line 50
+[22-Aug-2021 17:13:12] WARNING: "require(includes/libs/steemconnect/steemconnect.php): failed to open stream: Datei oder Verzeichnis nicht gefunden"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/pages/login/ShowIndexPage.class.php | Line: 55
+URL: http://localhost:5000/ | Version: 1.8.git
+Stack trace:
+#0 /includes/pages/login/ShowIndexPage.class.php(55): errorHandler()
+#1 /includes/pages/login/ShowIndexPage.class.php(55): require()
+#2 /index.php(62): ShowIndexPage-&gt;show()
+#3 {main}
+[22-Aug-2021 17:47:40] NOTICE: "Undefined index: languages"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/de^ca0f178923ea279b0cb50c33d32c1e51613ee1ac_1.extends.page.overview.default.tpl.cache.php | Line: 793
+URL: http://localhost:5000/game.php | Version: 1.8.git
+Stack trace:
+#0 /cache/de^ca0f178923ea279b0cb50c33d32c1e51613ee1ac_1.extends.page.overview.default.tpl.cache.php(793): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_61228dbc3e8323_93819536()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /cache/de^ca0f178923ea279b0cb50c33d32c1e51613ee1ac_1.extends.page.overview.default.tpl.cache.php(1548): Smarty_Internal_Template-&gt;_subTemplateRender()
+#4 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_61228dbc360618_47982318()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#6 /cache/de^ca0f178923ea279b0cb50c33d32c1e51613ee1ac_1.extends.page.overview.default.tpl.cache.php(67): Smarty_Internal_Template-&gt;_subTemplateRender()
+#7 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_61228dbc79d2f5_97461979()
+#8 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#10 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#12 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#13 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#14 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#15 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#16 /includes/pages/game/ShowOverviewPage.class.php(311): AbstractGamePage-&gt;display()
+#17 /game.php(58): ShowOverviewPage-&gt;show()
+#18 {main}
+[22-Aug-2021 21:40:55] NOTICE: "Undefined index: messages"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/de^bd96a7864df62a318313ecf57e8ae4c0c7e72f73_1.extends.error.default.tpl.cache.php | Line: 730
+URL: http://localhost:5000/game.php?page=shipyard&mode=fleet | Version: 1.8.git
+Stack trace:
+#0 /cache/de^bd96a7864df62a318313ecf57e8ae4c0c7e72f73_1.extends.error.default.tpl.cache.php(730): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6122c4675d02e0_71914956()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /cache/de^bd96a7864df62a318313ecf57e8ae4c0c7e72f73_1.extends.error.default.tpl.cache.php(67): Smarty_Internal_Template-&gt;_subTemplateRender()
+#4 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6122c46780c127_08049768()
+#5 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#7 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#11 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#12 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#13 /includes/pages/game/AbstractGamePage.class.php(236): AbstractGamePage-&gt;display()
+#14 /includes/pages/game/ShowShipyardPage.class.php(141): AbstractGamePage-&gt;printMessage()
+#15 /game.php(58): ShowShipyardPage-&gt;show()
+#16 {main}
+[22-Aug-2021 21:42:00] NOTICE: "Undefined index: messages"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/de^bd96a7864df62a318313ecf57e8ae4c0c7e72f73_1.extends.error.default.tpl.cache.php | Line: 730
+URL: http://localhost:5000/game.php?page=shipyard&mode=defense | Version: 1.8.git
+Stack trace:
+#0 /cache/de^bd96a7864df62a318313ecf57e8ae4c0c7e72f73_1.extends.error.default.tpl.cache.php(730): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6122c4675d02e0_71914956()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /cache/de^bd96a7864df62a318313ecf57e8ae4c0c7e72f73_1.extends.error.default.tpl.cache.php(67): Smarty_Internal_Template-&gt;_subTemplateRender()
+#4 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6122c46780c127_08049768()
+#5 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#7 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#11 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#12 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#13 /includes/pages/game/AbstractGamePage.class.php(236): AbstractGamePage-&gt;display()
+#14 /includes/pages/game/ShowShipyardPage.class.php(141): AbstractGamePage-&gt;printMessage()
+#15 /game.php(58): ShowShipyardPage-&gt;show()
+#16 {main}
+[22-Aug-2021 21:42:06] NOTICE: "Undefined index: messages"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/de^bd96a7864df62a318313ecf57e8ae4c0c7e72f73_1.extends.error.default.tpl.cache.php | Line: 730
+URL: http://localhost:5000/game.php?page=research | Version: 1.8.git
+Stack trace:
+#0 /cache/de^bd96a7864df62a318313ecf57e8ae4c0c7e72f73_1.extends.error.default.tpl.cache.php(730): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6122c4675d02e0_71914956()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /cache/de^bd96a7864df62a318313ecf57e8ae4c0c7e72f73_1.extends.error.default.tpl.cache.php(67): Smarty_Internal_Template-&gt;_subTemplateRender()
+#4 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6122c46780c127_08049768()
+#5 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#7 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#11 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#12 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#13 /includes/pages/game/AbstractGamePage.class.php(236): AbstractGamePage-&gt;display()
+#14 /includes/pages/game/ShowResearchPage.class.php(337): AbstractGamePage-&gt;printMessage()
+#15 /game.php(58): ShowResearchPage-&gt;show()
+#16 {main}
+[22-Aug-2021 21:42:22] NOTICE: "Undefined index: messages"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/de^177d2f725c1a579a00c50a3037ea2e49c605c332_1.extends.page.fleetTable.default.tpl.cache.php | Line: 1082
+URL: http://localhost:5000/game.php?page=fleetTable | Version: 1.8.git
+Stack trace:
+#0 /cache/de^177d2f725c1a579a00c50a3037ea2e49c605c332_1.extends.page.fleetTable.default.tpl.cache.php(1082): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6122c4beaf1a60_89907621()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /cache/de^177d2f725c1a579a00c50a3037ea2e49c605c332_1.extends.page.fleetTable.default.tpl.cache.php(68): Smarty_Internal_Template-&gt;_subTemplateRender()
+#4 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6122c4bed0ba56_31485087()
+#5 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#7 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#11 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#12 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#13 /includes/pages/game/ShowFleetTablePage.class.php(296): AbstractGamePage-&gt;display()
+#14 /game.php(58): ShowFleetTablePage-&gt;show()
+#15 {main}
+[22-Aug-2021 21:43:15] NOTICE: "Undefined index: messages"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/de^40d190a6abe3a17798082e95ee1f7c96aa853a35_1.extends.page.messages.default.tpl.cache.php | Line: 1007
+URL: http://localhost:5000/game.php?page=messages | Version: 1.8.git
+Stack trace:
+#0 /cache/de^40d190a6abe3a17798082e95ee1f7c96aa853a35_1.extends.page.messages.default.tpl.cache.php(1007): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6122c4f34d2ef4_10201527()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /cache/de^40d190a6abe3a17798082e95ee1f7c96aa853a35_1.extends.page.messages.default.tpl.cache.php(67): Smarty_Internal_Template-&gt;_subTemplateRender()
+#4 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6122c4f36fbc31_86962251()
+#5 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#7 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#11 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#12 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#13 /includes/pages/game/ShowMessagesPage.class.php(555): AbstractGamePage-&gt;display()
+#14 /game.php(58): ShowMessagesPage-&gt;show()
+#15 {main}
+[22-Aug-2021 21:58:58] WARNING: "require(includes/libs/steemconnect/steemconnect.php): failed to open stream: Datei oder Verzeichnis nicht gefunden"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/pages/adm/ShowLoginPage.php | Line: 57
+URL: http://localhost:5000/admin.php | Version: 1.8.git
+Stack trace:
+#0 /includes/pages/adm/ShowLoginPage.php(57): errorHandler()
+#1 /includes/pages/adm/ShowLoginPage.php(57): require()
+#2 /admin.php(39): ShowLoginPage()
+#3 {main}
+[22-Aug-2021 22:14:04] USER ERROR: "Unable to load template 'extends:layout.full.tpl|page.cuneros.default.tpl'"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/libs/Smarty/sysplugins/smarty_internal_template.php | Line: 163
+URL: http://localhost:5000/game.php?page=cuneros | Version: 1.8.git
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#2 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#3 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#4 /includes/pages/game/ShowCunerosPage.class.php(68): AbstractGamePage-&gt;display()
+#5 /game.php(58): ShowCunerosPage-&gt;show()
+#6 {main}
+[23-Aug-2021 18:40:29] NOTICE: "Undefined index: isBusy"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^21de8bfc0fe6cbbcff5de5f15cbd08ad2f7cdd27.page.research.default.tpl.php | Line: 601
+URL: http://localhost:5000/game.php?page=research | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^21de8bfc0fe6cbbcff5de5f15cbd08ad2f7cdd27.page.research.default.tpl.php(601): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6123cf7e394030_10971267()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowResearchPage.class.php(415): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowResearchPage-&gt;show()
+#11 {main}
+[23-Aug-2021 18:43:22] NOTICE: "Undefined index: isBusy"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^21de8bfc0fe6cbbcff5de5f15cbd08ad2f7cdd27.page.research.default.tpl.php | Line: 441
+URL: http://localhost:5000/game.php?page=research | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^21de8bfc0fe6cbbcff5de5f15cbd08ad2f7cdd27.page.research.default.tpl.php(441): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6123d02a4d6f62_90660394()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowResearchPage.class.php(415): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowResearchPage-&gt;show()
+#11 {main}
+[24-Aug-2021 14:11:44] NOTICE: "Undefined index: dpath"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/de^fbd6b20ea7d9e977e01b44248cfc6ccc995e286a_1.extends.page.index.default.tpl.cache.php | Line: 254
+URL: http://localhost:5000/ | Version: 1.8.git
+Stack trace:
+#0 /cache/de^fbd6b20ea7d9e977e01b44248cfc6ccc995e286a_1.extends.page.index.default.tpl.cache.php(254): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6124e2009065d7_33336762()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /cache/de^fbd6b20ea7d9e977e01b44248cfc6ccc995e286a_1.extends.page.index.default.tpl.cache.php(452): Smarty_Internal_Template-&gt;_subTemplateRender()
+#4 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6124e200903c09_45740003()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#6 /cache/de^fbd6b20ea7d9e977e01b44248cfc6ccc995e286a_1.extends.page.index.default.tpl.cache.php(66): Smarty_Internal_Template-&gt;_subTemplateRender()
+#7 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6124e200979881_09257489()
+#8 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#10 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#12 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#13 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#14 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#15 /includes/pages/login/AbstractLoginPage.class.php(169): template-&gt;display()
+#16 /includes/pages/login/ShowIndexPage.class.php(68): AbstractLoginPage-&gt;display()
+#17 /index.php(62): ShowIndexPage-&gt;show()
+#18 {main}
+[24-Aug-2021 14:28:40] USER ERROR: "Unable to load template 'file:planet.actions.tpl' in 'extends:layout.full.tpl|page.galaxy.default.tpl'"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/libs/Smarty/sysplugins/smarty_internal_template.php | Line: 163
+URL: http://localhost:5000/game.php?page=galaxy | Version: 1.8.git
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(350): Smarty_Internal_Template-&gt;render()
+#1 /cache/templates/de^c587e83981f1216fb8e7b612b38870c912ecf302.page.galaxy.default.tpl.php(485): Smarty_Internal_Template-&gt;_subTemplateRender()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6124e5f87aeca9_73727092()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#4 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#8 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#9 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#10 /includes/pages/game/ShowGalaxyPage.class.php(132): AbstractGamePage-&gt;display()
+#11 /game.php(58): ShowGalaxyPage-&gt;show()
+#12 {main}
+[24-Aug-2021 17:53:53] NOTICE: "Undefined index: Element"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^5120692a5c527f3695511d30285c1f92b8a17175.page.techTree.default.tpl.php | Line: 463
+URL: http://localhost:5000/game.php?page=techtree | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^5120692a5c527f3695511d30285c1f92b8a17175.page.techTree.default.tpl.php(463): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6125161179ad11_24389609()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowTechtreePage.class.php(78): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowTechtreePage-&gt;show()
+#11 {main}
+[24-Aug-2021 18:04:12] NOTICE: "Undefined index: ID"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^5120692a5c527f3695511d30285c1f92b8a17175.page.techTree.default.tpl.php | Line: 459
+URL: http://localhost:5000/game.php?page=techtree | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^5120692a5c527f3695511d30285c1f92b8a17175.page.techTree.default.tpl.php(459): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6125187c4a8e63_56901124()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowTechtreePage.class.php(78): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowTechtreePage-&gt;show()
+#11 {main}
+[24-Aug-2021 18:12:07] NOTICE: "Undefined index: elementID"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/de^d9fd3f5e0204d802252d4cd03533fb469aea470e_1.file.resource.info.tpl.php | Line: 28
+URL: http://localhost:5000/game.php?page=resources | Version: 1.8.git
+Stack trace:
+#0 /cache/de^d9fd3f5e0204d802252d4cd03533fb469aea470e_1.file.resource.info.tpl.php(28): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_612503e3ece290_94352992()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(184): Smarty_Template_Compiled-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(350): Smarty_Internal_Template-&gt;render()
+#5 /cache/templates/de^0f383523075e4a99c7ec9eb28535315df4a5a261.page.resources.default.tpl.php(444): Smarty_Internal_Template-&gt;_subTemplateRender()
+#6 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_61251a579dcd40_10828287()
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#8 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#12 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#13 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#14 /includes/pages/game/ShowResourcesPage.class.php(225): AbstractGamePage-&gt;display()
+#15 /game.php(58): ShowResourcesPage-&gt;show()
+#16 {main}
+[24-Aug-2021 18:12:21] NOTICE: "Undefined index: elementID"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/de^d9fd3f5e0204d802252d4cd03533fb469aea470e_1.file.resource.info.tpl.php | Line: 28
+URL: http://localhost:5000/game.php?page=resources | Version: 1.8.git
+Stack trace:
+#0 /cache/de^d9fd3f5e0204d802252d4cd03533fb469aea470e_1.file.resource.info.tpl.php(28): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_612503e3ece290_94352992()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(184): Smarty_Template_Compiled-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(350): Smarty_Internal_Template-&gt;render()
+#5 /cache/templates/de^0f383523075e4a99c7ec9eb28535315df4a5a261.page.resources.default.tpl.php(447): Smarty_Internal_Template-&gt;_subTemplateRender()
+#6 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_61251a66357d71_85250966()
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#8 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#12 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#13 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#14 /includes/pages/game/ShowResourcesPage.class.php(225): AbstractGamePage-&gt;display()
+#15 /game.php(58): ShowResourcesPage-&gt;show()
+#16 {main}
+[24-Aug-2021 18:13:30] NOTICE: "Undefined index: elementID"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/de^44a9d3446559d5e33f03d3b792d0ffe81a201728_1.extends.page.resources.default.tpl.cache.php | Line: 85
+URL: http://localhost:5000/game.php?page=resources | Version: 1.8.git
+Stack trace:
+#0 /cache/de^44a9d3446559d5e33f03d3b792d0ffe81a201728_1.extends.page.resources.default.tpl.cache.php(85): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_61251aaa1dfd71_60033963()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /cache/de^44a9d3446559d5e33f03d3b792d0ffe81a201728_1.extends.page.resources.default.tpl.cache.php(145): Smarty_Internal_Template-&gt;_subTemplateRender()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(219): Block_181761486461251aaa39dea4_31258290-&gt;callBlock()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(162): Smarty_Internal_Runtime_Inheritance-&gt;callBlock()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(164): Smarty_Internal_Runtime_Inheritance-&gt;process()
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(136): Smarty_Internal_Runtime_Inheritance-&gt;process()
+#8 /cache/de^44a9d3446559d5e33f03d3b792d0ffe81a201728_1.extends.page.resources.default.tpl.cache.php(1020): Smarty_Internal_Runtime_Inheritance-&gt;instanceBlock()
+#9 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_61251aaa3a6100_73761866()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#11 /cache/de^44a9d3446559d5e33f03d3b792d0ffe81a201728_1.extends.page.resources.default.tpl.cache.php(75): Smarty_Internal_Template-&gt;_subTemplateRender()
+#12 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_61251aaa5da633_07762623()
+#13 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#14 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#15 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#16 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#17 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#18 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#19 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#20 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#21 /includes/pages/game/ShowResourcesPage.class.php(225): AbstractGamePage-&gt;display()
+#22 /game.php(58): ShowResourcesPage-&gt;show()
+#23 {main}
+[24-Aug-2021 18:27:45] NOTICE: "Undefined index: RessID"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^1e353e0d0ad9400106efabee1094517f0dd87b12.page.officier.default.tpl.php | Line: 477
+URL: http://localhost:5000/game.php?page=officier | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^1e353e0d0ad9400106efabee1094517f0dd87b12.page.officier.default.tpl.php(477): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_61251e01b7cd25_61795911()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowOfficierPage.class.php(157): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowOfficierPage-&gt;show()
+#11 {main}
+[24-Aug-2021 18:32:27] NOTICE: "Undefined index: time"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^1e353e0d0ad9400106efabee1094517f0dd87b12.page.officier.default.tpl.php | Line: 574
+URL: http://localhost:5000/game.php?page=officier | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^1e353e0d0ad9400106efabee1094517f0dd87b12.page.officier.default.tpl.php(574): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_61251f1b7b6854_34456468()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowOfficierPage.class.php(157): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowOfficierPage-&gt;show()
+#11 {main}
+[24-Aug-2021 18:32:51] NOTICE: "Undefined index: timeLeft"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^1e353e0d0ad9400106efabee1094517f0dd87b12.page.officier.default.tpl.php | Line: 590
+URL: http://localhost:5000/game.php?page=officier | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^1e353e0d0ad9400106efabee1094517f0dd87b12.page.officier.default.tpl.php(590): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_61251f334d2190_40665480()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowOfficierPage.class.php(157): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowOfficierPage-&gt;show()
+#11 {main}
+[24-Aug-2021 21:11:36] USER ERROR: "Syntax error in template "file:/home/bastian/Projekte/quest-of-galaxy/styles/templates/game/page.trader.default.tpl"  on line 28 "{$LNG.tr_call_trader}" unclosed {block} tag"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php | Line: 28
+URL: http://localhost:5000/game.php?page=trader | Version: 1.8.git
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_compilebase.php(187): Smarty_Internal_TemplateCompilerBase-&gt;trigger_template_error()
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_compile_if.php(200): Smarty_Internal_CompileBase-&gt;closeTag()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Ifclose-&gt;compile()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(1882): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2730): Smarty_Internal_Templateparser-&gt;yy_r55()
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2825): Smarty_Internal_Templateparser-&gt;yy_reduce()
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(324): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource()
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(216): Smarty_Internal_Compile_Include-&gt;compileInlineTemplate()
+#12 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Include-&gt;compile()
+#13 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler()
+#14 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#15 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(115): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#16 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(81): Smarty_Internal_Compile_Extends-&gt;compileInclude()
+#17 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Extends-&gt;compile()
+#18 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler()
+#19 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#20 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(1670): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#21 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2730): Smarty_Internal_Templateparser-&gt;yy_r32()
+#22 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2825): Smarty_Internal_Templateparser-&gt;yy_reduce()
+#23 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse()
+#24 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile()
+#25 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(335): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource()
+#26 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(199): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplate()
+#27 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(98): Smarty_Template_Compiled-&gt;compileTemplateSource()
+#28 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(161): Smarty_Template_Compiled-&gt;process()
+#29 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#30 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#31 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#32 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#33 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#34 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#35 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#36 /includes/pages/game/ShowTraderPage.class.php(47): AbstractGamePage-&gt;display()
+#37 /game.php(58): ShowTraderPage-&gt;show()
+#38 {main}
+[25-Aug-2021 03:06:03] USER ERROR: "Syntax error in template "file:/home/bastian/Projekte/quest-of-galaxy/styles/templates/game/page.alliance.memberList.tpl"  on line 81 "0: {sorter: false},"  - Unexpected ": ", expected one of: "}""
+File: /home/bastian/Projekte/quest-of-galaxy/includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php | Line: 81
+URL: http://localhost:5000/game.php?page=alliance&mode=memberList | Version: 1.8.git
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2773): Smarty_Internal_TemplateCompilerBase-&gt;trigger_template_error()
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2832): Smarty_Internal_Templateparser-&gt;yy_syntax_error()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(324): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(216): Smarty_Internal_Compile_Include-&gt;compileInlineTemplate()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Include-&gt;compile()
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler()
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(115): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(81): Smarty_Internal_Compile_Extends-&gt;compileInclude()
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Extends-&gt;compile()
+#12 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler()
+#13 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#14 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(1670): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#15 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2730): Smarty_Internal_Templateparser-&gt;yy_r32()
+#16 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2825): Smarty_Internal_Templateparser-&gt;yy_reduce()
+#17 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse()
+#18 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile()
+#19 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(335): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource()
+#20 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(199): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplate()
+#21 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(98): Smarty_Template_Compiled-&gt;compileTemplateSource()
+#22 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(161): Smarty_Template_Compiled-&gt;process()
+#23 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#24 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#25 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#26 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#27 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#28 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#29 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#30 /includes/pages/game/ShowAlliancePage.class.php(666): AbstractGamePage-&gt;display()
+#31 /game.php(58): ShowAlliancePage-&gt;memberList()
+#32 {main}
+[25-Aug-2021 03:06:29] USER ERROR: "Syntax error in template "file:/home/bastian/Projekte/quest-of-galaxy/styles/templates/game/page.alliance.memberList.tpl"  on line 80 "0: {sorter: false},"  - Unexpected ": ", expected one of: "}""
+File: /home/bastian/Projekte/quest-of-galaxy/includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php | Line: 80
+URL: http://localhost:5000/game.php?page=alliance&mode=memberList | Version: 1.8.git
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2773): Smarty_Internal_TemplateCompilerBase-&gt;trigger_template_error()
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2832): Smarty_Internal_Templateparser-&gt;yy_syntax_error()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(324): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(216): Smarty_Internal_Compile_Include-&gt;compileInlineTemplate()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Include-&gt;compile()
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler()
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(115): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(81): Smarty_Internal_Compile_Extends-&gt;compileInclude()
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Extends-&gt;compile()
+#12 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler()
+#13 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#14 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(1670): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#15 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2730): Smarty_Internal_Templateparser-&gt;yy_r32()
+#16 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2825): Smarty_Internal_Templateparser-&gt;yy_reduce()
+#17 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse()
+#18 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile()
+#19 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(335): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource()
+#20 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(199): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplate()
+#21 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(98): Smarty_Template_Compiled-&gt;compileTemplateSource()
+#22 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(161): Smarty_Template_Compiled-&gt;process()
+#23 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#24 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#25 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#26 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#27 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#28 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#29 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#30 /includes/pages/game/ShowAlliancePage.class.php(666): AbstractGamePage-&gt;display()
+#31 /game.php(58): ShowAlliancePage-&gt;memberList()
+#32 {main}
+[25-Aug-2021 03:44:56] USER ERROR: "Syntax error in template "file:/home/bastian/Projekte/quest-of-galaxy/styles/templates/game/page.alliance.admin.members.tpl"  on line 87 "0: {sorter: false},"  - Unexpected ": ", expected one of: "}""
+File: /home/bastian/Projekte/quest-of-galaxy/includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php | Line: 87
+URL: http://localhost:5000/game.php?page=alliance&mode=admin&action=members | Version: 1.8.git
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2773): Smarty_Internal_TemplateCompilerBase-&gt;trigger_template_error()
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2832): Smarty_Internal_Templateparser-&gt;yy_syntax_error()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(324): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(216): Smarty_Internal_Compile_Include-&gt;compileInlineTemplate()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Include-&gt;compile()
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler()
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(115): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(81): Smarty_Internal_Compile_Extends-&gt;compileInclude()
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Extends-&gt;compile()
+#12 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler()
+#13 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#14 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(1670): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#15 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2730): Smarty_Internal_Templateparser-&gt;yy_r32()
+#16 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2825): Smarty_Internal_Templateparser-&gt;yy_reduce()
+#17 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse()
+#18 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile()
+#19 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(335): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource()
+#20 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(199): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplate()
+#21 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(98): Smarty_Template_Compiled-&gt;compileTemplateSource()
+#22 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(161): Smarty_Template_Compiled-&gt;process()
+#23 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#24 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#25 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#26 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#27 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#28 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#29 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#30 /includes/pages/game/ShowAlliancePage.class.php(1400): AbstractGamePage-&gt;display()
+#31 /includes/pages/game/ShowAlliancePage.class.php(766): ShowAlliancePage-&gt;adminMembers()
+#32 /game.php(58): ShowAlliancePage-&gt;admin()
+#33 {main}
+[25-Aug-2021 04:14:08] NOTICE: "Undefined index: current"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php | Line: 239
+URL: http://localhost:5000/game.php?page=alliance&mode=memberList | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php(239): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6125a7712b9a46_03446736()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowAlliancePage.class.php(666): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowAlliancePage-&gt;memberList()
+#11 {main}
+[25-Aug-2021 04:17:03] NOTICE: "Undefined index: current"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php | Line: 260
+URL: http://localhost:5000/game.php?page=alliance&mode=memberList | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php(260): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6125a81fdbb9b9_38785801()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowAlliancePage.class.php(666): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowAlliancePage-&gt;memberList()
+#11 {main}
+[25-Aug-2021 04:17:20] NOTICE: "Undefined index: current"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php | Line: 260
+URL: http://localhost:5000/game.php?page=alliance&mode=memberList | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php(260): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6125a831323330_29953366()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowAlliancePage.class.php(666): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowAlliancePage-&gt;memberList()
+#11 {main}
+[25-Aug-2021 04:18:02] NOTICE: "Undefined index: max"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php | Line: 272
+URL: http://localhost:5000/game.php?page=alliance&mode=memberList | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php(272): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6125a85ab823d4_33190067()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowAlliancePage.class.php(666): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowAlliancePage-&gt;memberList()
+#11 {main}
+[25-Aug-2021 04:25:22] NOTICE: "Undefined index: current"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php | Line: 274
+URL: http://localhost:5000/game.php?page=alliance&mode=memberList | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php(274): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6125aa129f4f14_17140034()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowAlliancePage.class.php(666): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowAlliancePage-&gt;memberList()
+#11 {main}
+[25-Aug-2021 08:01:42] NOTICE: "Undefined index: max"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php | Line: 270
+URL: http://localhost:5000/game.php?page=alliance&mode=memberList | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php(270): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6125dcc6a27a04_49632172()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowAlliancePage.class.php(666): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowAlliancePage-&gt;memberList()
+#11 {main}
+[25-Aug-2021 08:02:12] NOTICE: "Undefined index: max"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php | Line: 270
+URL: http://localhost:5000/game.php?page=alliance&mode=memberList | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php(270): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6125dce5394c87_49514355()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowAlliancePage.class.php(666): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowAlliancePage-&gt;memberList()
+#11 {main}
+[25-Aug-2021 08:02:18] NOTICE: "Undefined index: max"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php | Line: 270
+URL: http://localhost:5000/game.php?page=alliance&mode=memberList | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php(270): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6125dcea4d9f69_37285208()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowAlliancePage.class.php(666): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowAlliancePage-&gt;memberList()
+#11 {main}
+[25-Aug-2021 08:04:14] NOTICE: "Undefined index: current"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php | Line: 239
+URL: http://localhost:5000/game.php?page=alliance&mode=memberList | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php(239): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6125dd5ee8d508_31682772()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowAlliancePage.class.php(666): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowAlliancePage-&gt;memberList()
+#11 {main}
+[25-Aug-2021 08:05:27] NOTICE: "Undefined index: current"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php | Line: 239
+URL: http://localhost:5000/game.php?page=alliance&mode=memberList | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^fd3d973d050dfdda9d3706f1172373dc28f29cb2.page.alliance.memberList.tpl.php(239): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6125dda75d6f82_42795439()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#9 /includes/pages/game/ShowAlliancePage.class.php(666): AbstractGamePage-&gt;display()
+#10 /game.php(58): ShowAlliancePage-&gt;memberList()
+#11 {main}
+[25-Aug-2021 09:22:44] USER ERROR: "Unable to load template 'extends:layout.full.tpl|page.cuneros.default.tpl'"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/libs/Smarty/sysplugins/smarty_internal_template.php | Line: 163
+URL: http://localhost:5000/game.php?page=cuneros | Version: 1.8.git
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#2 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#3 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#4 /includes/pages/game/ShowCunerosPage.class.php(68): AbstractGamePage-&gt;display()
+#5 /game.php(58): ShowCunerosPage-&gt;show()
+#6 {main}
+[25-Aug-2021 09:38:02] WARNING: "require(../libs/cuneros/cuneros_api.class.inc.php): failed to open stream: Datei oder Verzeichnis nicht gefunden"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/pages/game/ShowCunerosPage.class.php | Line: 17
+URL: http://localhost:5000/game.php?page=cuneros | Version: 1.8.git
+Stack trace:
+#0 /includes/pages/game/ShowCunerosPage.class.php(17): errorHandler()
+#1 /includes/pages/game/ShowCunerosPage.class.php(17): require()
+#2 /game.php(40): require('/home/bastian/P...')
+#3 {main}
+[25-Aug-2021 09:38:11] WARNING: "require(../../libs/cuneros/cuneros_api.class.inc.php): failed to open stream: Datei oder Verzeichnis nicht gefunden"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/pages/game/ShowCunerosPage.class.php | Line: 17
+URL: http://localhost:5000/game.php?page=cuneros | Version: 1.8.git
+Stack trace:
+#0 /includes/pages/game/ShowCunerosPage.class.php(17): errorHandler()
+#1 /includes/pages/game/ShowCunerosPage.class.php(17): require()
+#2 /game.php(40): require('/home/bastian/P...')
+#3 {main}
+[25-Aug-2021 09:57:15] NOTICE: "Undefined index: cuneros"
+File: /home/bastian/Projekte/quest-of-galaxy/cache/de^915c90ec939c9c1521f1ec8685627c739277e6f0_1.extends.page.cuneros.default.tpl.cache.php | Line: 98
+URL: http://localhost:5000/game.php?page=cuneros | Version: 1.8.git
+Stack trace:
+#0 /cache/de^915c90ec939c9c1521f1ec8685627c739277e6f0_1.extends.page.cuneros.default.tpl.cache.php(98): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(219): Block_3076235206125f7db591924_80971551-&gt;callBlock()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(162): Smarty_Internal_Runtime_Inheritance-&gt;callBlock()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(164): Smarty_Internal_Runtime_Inheritance-&gt;process()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(136): Smarty_Internal_Runtime_Inheritance-&gt;process()
+#5 /cache/de^915c90ec939c9c1521f1ec8685627c739277e6f0_1.extends.page.cuneros.default.tpl.cache.php(784): Smarty_Internal_Runtime_Inheritance-&gt;instanceBlock()
+#6 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6125f7db593d77_39708064()
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#8 /cache/de^915c90ec939c9c1521f1ec8685627c739277e6f0_1.extends.page.cuneros.default.tpl.cache.php(67): Smarty_Internal_Template-&gt;_subTemplateRender()
+#9 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6125f7db7e96e3_14897582()
+#10 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#12 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#13 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#14 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#15 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#16 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#17 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#18 /includes/pages/game/ShowCunerosPage.class.php(62): AbstractGamePage-&gt;display()
+#19 /game.php(58): ShowCunerosPage-&gt;show()
+#20 {main}
+[25-Aug-2021 09:57:50] NOTICE: "Trying to access array offset on value of type null"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/pages/game/ShowCunerosPage.class.php | Line: 57
+URL: http://localhost:5000/game.php?page=cuneros | Version: 1.8.git
+Stack trace:
+#0 /includes/pages/game/ShowCunerosPage.class.php(57): errorHandler()
+#1 /game.php(58): ShowCunerosPage-&gt;show()
+#2 {main}
+[25-Aug-2021 09:59:28] USER ERROR: "Too few arguments to function ShowCunerosPage::UpdateDarkMatter(), 0 passed in /home/bastian/Projekte/quest-of-galaxy/includes/pages/game/ShowCunerosPage.class.php on line 50 and exactly 1 expected"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/pages/game/ShowCunerosPage.class.php | Line: 28
+URL: http://localhost:5000/game.php?page=cuneros | Version: 1.8.git
+Stack trace:
+#0 /includes/pages/game/ShowCunerosPage.class.php(50): ShowCunerosPage-&gt;UpdateDarkMatter()
+#1 /game.php(58): ShowCunerosPage-&gt;show()
+#2 {main}
+[25-Aug-2021 09:59:38] NOTICE: "Undefined variable: Element"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/pages/game/ShowCunerosPage.class.php | Line: 39
+URL: http://localhost:5000/game.php?page=cuneros | Version: 1.8.git
+Stack trace:
+#0 /includes/pages/game/ShowCunerosPage.class.php(39): errorHandler()
+#1 /includes/pages/game/ShowCunerosPage.class.php(50): ShowCunerosPage-&gt;UpdateDarkMatter()
+#2 /game.php(58): ShowCunerosPage-&gt;show()
+#3 {main}
+[25-Aug-2021 10:07:16] NOTICE: "Undefined property: stdClass::$error_message"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/libs/cuneros/cuneros_api.class.inc.php | Line: 347
+URL: http://localhost:5000/game.php?page=cuneros | Version: 1.8.git
+Stack trace:
+#0 /includes/libs/cuneros/cuneros_api.class.inc.php(347): errorHandler()
+#1 /includes/libs/cuneros/cuneros_api.class.inc.php(121): Access-&gt;request()
+#2 /includes/pages/game/ShowCunerosPage.class.php(33): Access-&gt;get()
+#3 /includes/pages/game/ShowCunerosPage.class.php(56): ShowCunerosPage-&gt;UpdateDarkMatter()
+#4 /game.php(58): ShowCunerosPage-&gt;show()
+#5 {main}
+[25-Aug-2021 10:09:41] NOTICE: "Trying to get property 'error_code' of non-object"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/libs/cuneros/cuneros_api.class.inc.php | Line: 346
+URL: http://localhost:5000/game.php?page=cuneros | Version: 1.8.git
+Stack trace:
+#0 /includes/libs/cuneros/cuneros_api.class.inc.php(346): errorHandler()
+#1 /includes/libs/cuneros/cuneros_api.class.inc.php(121): Access-&gt;request()
+#2 /includes/pages/game/ShowCunerosPage.class.php(33): Access-&gt;get()
+#3 /includes/pages/game/ShowCunerosPage.class.php(56): ShowCunerosPage-&gt;UpdateDarkMatter()
+#4 /game.php(58): ShowCunerosPage-&gt;show()
+#5 {main}
+[25-Aug-2021 10:10:38] NOTICE: "Undefined property: stdClass::$error_message"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/libs/cuneros/cuneros_api.class.inc.php | Line: 347
+URL: http://localhost:5000/game.php?page=cuneros | Version: 1.8.git
+Stack trace:
+#0 /includes/libs/cuneros/cuneros_api.class.inc.php(347): errorHandler()
+#1 /includes/libs/cuneros/cuneros_api.class.inc.php(121): Access-&gt;request()
+#2 /includes/pages/game/ShowCunerosPage.class.php(33): Access-&gt;get()
+#3 /includes/pages/game/ShowCunerosPage.class.php(56): ShowCunerosPage-&gt;UpdateDarkMatter()
+#4 /game.php(58): ShowCunerosPage-&gt;show()
+#5 {main}
+[25-Aug-2021 13:23:36] USER ERROR: "Syntax error in template "file:/home/bastian/Projekte/quest-of-galaxy/styles/templates/game/page.fleetStep2.default.tpl"  on line 72 "{$LNG.tech.901}" unclosed {block} tag"
+File: /home/bastian/Projekte/quest-of-galaxy/includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php | Line: 72
+URL: http://localhost:5000/game.php?page=fleetStep2 | Version: 1.8.git
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_compilebase.php(187): Smarty_Internal_TemplateCompilerBase-&gt;trigger_template_error()
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_compile_foreach.php(316): Smarty_Internal_CompileBase-&gt;closeTag()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Foreachclose-&gt;compile()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(1882): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2730): Smarty_Internal_Templateparser-&gt;yy_r55()
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2825): Smarty_Internal_Templateparser-&gt;yy_reduce()
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(324): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource()
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(216): Smarty_Internal_Compile_Include-&gt;compileInlineTemplate()
+#12 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Include-&gt;compile()
+#13 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler()
+#14 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#15 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(115): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#16 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(81): Smarty_Internal_Compile_Extends-&gt;compileInclude()
+#17 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Extends-&gt;compile()
+#18 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler()
+#19 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#20 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(1670): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#21 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2730): Smarty_Internal_Templateparser-&gt;yy_r32()
+#22 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2825): Smarty_Internal_Templateparser-&gt;yy_reduce()
+#23 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse()
+#24 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile()
+#25 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(335): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource()
+#26 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(199): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplate()
+#27 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(98): Smarty_Template_Compiled-&gt;compileTemplateSource()
+#28 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(161): Smarty_Template_Compiled-&gt;process()
+#29 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#30 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#31 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#32 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#33 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#34 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#35 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#36 /includes/pages/game/ShowFleetStep2Page.class.php(138): AbstractGamePage-&gt;display()
+#37 /game.php(58): ShowFleetStep2Page-&gt;show()
+#38 {main}
+[25-Aug-2021 13:31:56] USER ERROR: "Syntax error in template "file:/home/bastian/Projekte/quest-of-galaxy/styles/templates/game/page.fleetStep2.default.tpl"  on line 40 "{elif $ElementID == 902}" unknown tag "elif""
+File: /home/bastian/Projekte/quest-of-galaxy/includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php | Line: 40
+URL: http://localhost:5000/game.php?page=fleetStep2 | Version: 1.8.git
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(737): Smarty_Internal_TemplateCompilerBase-&gt;trigger_template_error()
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(1670): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2730): Smarty_Internal_Templateparser-&gt;yy_r32()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2825): Smarty_Internal_Templateparser-&gt;yy_reduce()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile()
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(324): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource()
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_compile_include.php(216): Smarty_Internal_Compile_Include-&gt;compileInlineTemplate()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Include-&gt;compile()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler()
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#12 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(115): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#13 /includes/libs/Smarty/sysplugins/smarty_internal_compile_extends.php(81): Smarty_Internal_Compile_Extends-&gt;compileInclude()
+#14 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(868): Smarty_Internal_Compile_Extends-&gt;compile()
+#15 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(528): Smarty_Internal_TemplateCompilerBase-&gt;callTagCompiler()
+#16 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(486): Smarty_Internal_TemplateCompilerBase-&gt;compileTag2()
+#17 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(1670): Smarty_Internal_TemplateCompilerBase-&gt;compileTag()
+#18 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2730): Smarty_Internal_Templateparser-&gt;yy_r32()
+#19 /includes/libs/Smarty/sysplugins/smarty_internal_templateparser.php(2825): Smarty_Internal_Templateparser-&gt;yy_reduce()
+#20 /includes/libs/Smarty/sysplugins/smarty_internal_smartytemplatecompiler.php(114): Smarty_Internal_Templateparser-&gt;doParse()
+#21 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(404): Smarty_Internal_SmartyTemplateCompiler-&gt;doCompile()
+#22 /includes/libs/Smarty/sysplugins/smarty_internal_templatecompilerbase.php(335): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplateSource()
+#23 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(199): Smarty_Internal_TemplateCompilerBase-&gt;compileTemplate()
+#24 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(98): Smarty_Template_Compiled-&gt;compileTemplateSource()
+#25 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(161): Smarty_Template_Compiled-&gt;process()
+#26 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#27 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#28 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#29 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#30 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#31 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#32 /includes/pages/game/AbstractGamePage.class.php(270): template-&gt;display()
+#33 /includes/pages/game/ShowFleetStep2Page.class.php(138): AbstractGamePage-&gt;display()
+#34 /game.php(58): ShowFleetStep2Page-&gt;show()
+#35 {main}
+[26-Aug-2021 02:03:25 UTC] PHP Fatal error:  Uncaught Error: Undefined class constant 'MYSQL_ATTR_INIT_COMMAND' in /home/bastie/Projekte/quest-of-galaxy/includes/classes/Database.class.php:51
+Stack trace:
+#0 /home/bastie/Projekte/quest-of-galaxy/includes/classes/Database.class.php(30): Database->__construct()
+#1 /home/bastie/Projekte/quest-of-galaxy/includes/classes/Config.class.php(78): Database::get()
+#2 /home/bastie/Projekte/quest-of-galaxy/includes/classes/Config.class.php(55): Config::generateInstances()
+#3 /home/bastie/Projekte/quest-of-galaxy/includes/GeneralFunctions.php(533): Config::get()
+#4 [internal function]: exceptionHandler()
+#5 {main}
+  thrown in /home/bastie/Projekte/quest-of-galaxy/includes/classes/Database.class.php on line 51
+[26-Aug-2021 02:04:09 UTC] PHP Fatal error:  Uncaught Error: Undefined class constant 'MYSQL_ATTR_INIT_COMMAND' in /home/bastie/Projekte/quest-of-galaxy/includes/classes/Database.class.php:51
+Stack trace:
+#0 /home/bastie/Projekte/quest-of-galaxy/includes/classes/Database.class.php(30): Database->__construct()
+#1 /home/bastie/Projekte/quest-of-galaxy/includes/classes/Config.class.php(78): Database::get()
+#2 /home/bastie/Projekte/quest-of-galaxy/includes/classes/Config.class.php(55): Config::generateInstances()
+#3 /home/bastie/Projekte/quest-of-galaxy/includes/GeneralFunctions.php(533): Config::get()
+#4 [internal function]: exceptionHandler()
+#5 {main}
+  thrown in /home/bastie/Projekte/quest-of-galaxy/includes/classes/Database.class.php on line 51
+[26-Aug-2021 02:04:10 UTC] PHP Fatal error:  Uncaught Error: Undefined class constant 'MYSQL_ATTR_INIT_COMMAND' in /home/bastie/Projekte/quest-of-galaxy/includes/classes/Database.class.php:51
+Stack trace:
+#0 /home/bastie/Projekte/quest-of-galaxy/includes/classes/Database.class.php(30): Database->__construct()
+#1 /home/bastie/Projekte/quest-of-galaxy/includes/classes/Config.class.php(78): Database::get()
+#2 /home/bastie/Projekte/quest-of-galaxy/includes/classes/Config.class.php(55): Config::generateInstances()
+#3 /home/bastie/Projekte/quest-of-galaxy/includes/GeneralFunctions.php(533): Config::get()
+#4 [internal function]: exceptionHandler()
+#5 {main}
+  thrown in /home/bastie/Projekte/quest-of-galaxy/includes/classes/Database.class.php on line 51
+[26-Aug-2021 02:05:58 UTC] PHP Fatal error:  Uncaught Error: Undefined class constant 'MYSQL_ATTR_INIT_COMMAND' in /home/bastie/Projekte/quest-of-galaxy/includes/classes/Database.class.php:51
+Stack trace:
+#0 /home/bastie/Projekte/quest-of-galaxy/includes/classes/Database.class.php(30): Database->__construct()
+#1 /home/bastie/Projekte/quest-of-galaxy/includes/classes/Config.class.php(78): Database::get()
+#2 /home/bastie/Projekte/quest-of-galaxy/includes/classes/Config.class.php(55): Config::generateInstances()
+#3 /home/bastie/Projekte/quest-of-galaxy/includes/GeneralFunctions.php(533): Config::get()
+#4 [internal function]: exceptionHandler()
+#5 {main}
+  thrown in /home/bastie/Projekte/quest-of-galaxy/includes/classes/Database.class.php on line 51
+[26-Aug-2021 11:27:12] NOTICE: "Undefined index: cronjobs"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/de^c0bfa28c182484dbb72bab9455da16b11ffea49f_1.extends.page.overview.default.tpl.cache.php | Line: 1126
+URL: http://localhost:5000/game.php?page=overview&action=claim | Version: 1.8.git
+Stack trace:
+#0 /cache/de^c0bfa28c182484dbb72bab9455da16b11ffea49f_1.extends.page.overview.default.tpl.cache.php(1126): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f920685c50_37808572()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /cache/de^c0bfa28c182484dbb72bab9455da16b11ffea49f_1.extends.page.overview.default.tpl.cache.php(67): Smarty_Internal_Template-&gt;_subTemplateRender()
+#4 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f920701830_28518517()
+#5 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#7 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#11 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#12 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#13 /includes/pages/game/ShowOverviewPage.class.php(321): AbstractGamePage-&gt;display()
+#14 /game.php(58): ShowOverviewPage-&gt;show()
+#15 {main}
+[26-Aug-2021 11:27:12] NOTICE: "Undefined index: cronjobs"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/de^c0bfa28c182484dbb72bab9455da16b11ffea49f_1.extends.page.overview.default.tpl.cache.php | Line: 1126
+URL: http://localhost:5000/game.php?page=overview&action=claim | Version: 1.8.git
+Stack trace:
+#0 /cache/de^c0bfa28c182484dbb72bab9455da16b11ffea49f_1.extends.page.overview.default.tpl.cache.php(1126): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f920685c50_37808572()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /cache/de^c0bfa28c182484dbb72bab9455da16b11ffea49f_1.extends.page.overview.default.tpl.cache.php(67): Smarty_Internal_Template-&gt;_subTemplateRender()
+#4 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f920701830_28518517()
+#5 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#7 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#8 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#9 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#10 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#11 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#12 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#13 /includes/pages/game/ShowOverviewPage.class.php(321): AbstractGamePage-&gt;display()
+#14 /game.php(58): ShowOverviewPage-&gt;show()
+#15 {main}
+[26-Aug-2021 11:27:43] NOTICE: "Trying to access array offset on value of type bool"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php | Line: 416
+URL: http://localhost:5000/game.php?page=overview&mode=claim_coins& | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php(416): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f93f1c2da9_73451799()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(103): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#6 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#7 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#9 /includes/pages/game/AbstractGamePage.class.php(226): AbstractGamePage-&gt;display()
+#10 /includes/pages/game/ShowErrorPage.class.php(34): AbstractGamePage-&gt;printMessage()
+#11 /game.php(53): ShowErrorPage::printError()
+#12 {main}
+[26-Aug-2021 11:29:25] NOTICE: "Trying to access array offset on value of type bool"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php | Line: 416
+URL: http://localhost:5000/game.php?page=overview&mode=claim_coins& | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php(416): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f93f1c2da9_73451799()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#7 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(226): AbstractGamePage-&gt;display()
+#9 /includes/pages/game/ShowErrorPage.class.php(34): AbstractGamePage-&gt;printMessage()
+#10 /game.php(53): ShowErrorPage::printError()
+#11 {main}
+[26-Aug-2021 11:30:13] NOTICE: "Trying to access array offset on value of type bool"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php | Line: 416
+URL: http://localhost:5000/game.php?page=overview&mode=claim_coins& | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php(416): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f93f1c2da9_73451799()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#7 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(226): AbstractGamePage-&gt;display()
+#9 /includes/pages/game/ShowErrorPage.class.php(34): AbstractGamePage-&gt;printMessage()
+#10 /game.php(53): ShowErrorPage::printError()
+#11 {main}
+[26-Aug-2021 11:30:25] NOTICE: "Trying to access array offset on value of type bool"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php | Line: 416
+URL: http://localhost:5000/game.php?page=overview&mode=claim_coins& | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php(416): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f93f1c2da9_73451799()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#7 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(226): AbstractGamePage-&gt;display()
+#9 /includes/pages/game/ShowErrorPage.class.php(34): AbstractGamePage-&gt;printMessage()
+#10 /game.php(53): ShowErrorPage::printError()
+#11 {main}
+[26-Aug-2021 11:30:53] NOTICE: "Trying to access array offset on value of type bool"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php | Line: 416
+URL: http://localhost:5000/game.php?page=overview&mode=claim_coins& | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php(416): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f93f1c2da9_73451799()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#7 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(226): AbstractGamePage-&gt;display()
+#9 /includes/pages/game/ShowErrorPage.class.php(34): AbstractGamePage-&gt;printMessage()
+#10 /game.php(53): ShowErrorPage::printError()
+#11 {main}
+[26-Aug-2021 11:30:57] NOTICE: "Trying to access array offset on value of type bool"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php | Line: 416
+URL: http://localhost:5000/game.php?page=overview&mode=claim_coins& | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php(416): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f93f1c2da9_73451799()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#7 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(226): AbstractGamePage-&gt;display()
+#9 /includes/pages/game/ShowErrorPage.class.php(34): AbstractGamePage-&gt;printMessage()
+#10 /game.php(53): ShowErrorPage::printError()
+#11 {main}
+[26-Aug-2021 11:31:01] NOTICE: "Trying to access array offset on value of type bool"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php | Line: 416
+URL: http://localhost:5000/game.php?page=overview&mode=claim_coins& | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php(416): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f93f1c2da9_73451799()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#7 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(226): AbstractGamePage-&gt;display()
+#9 /includes/pages/game/ShowErrorPage.class.php(34): AbstractGamePage-&gt;printMessage()
+#10 /game.php(53): ShowErrorPage::printError()
+#11 {main}
+[26-Aug-2021 11:31:03] NOTICE: "Trying to access array offset on value of type bool"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php | Line: 416
+URL: http://localhost:5000/game.php?page=overview&mode=claim_coins& | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php(416): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f93f1c2da9_73451799()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#7 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(226): AbstractGamePage-&gt;display()
+#9 /includes/pages/game/ShowErrorPage.class.php(34): AbstractGamePage-&gt;printMessage()
+#10 /game.php(53): ShowErrorPage::printError()
+#11 {main}
+[26-Aug-2021 11:31:14] NOTICE: "Trying to access array offset on value of type bool"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php | Line: 416
+URL: http://localhost:5000/game.php?page=overview&mode=claim_coins& | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php(416): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f93f1c2da9_73451799()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#7 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(226): AbstractGamePage-&gt;display()
+#9 /includes/pages/game/ShowErrorPage.class.php(34): AbstractGamePage-&gt;printMessage()
+#10 /game.php(53): ShowErrorPage::printError()
+#11 {main}
+[26-Aug-2021 11:31:15] NOTICE: "Trying to access array offset on value of type bool"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php | Line: 416
+URL: http://localhost:5000/game.php?page=overview&mode=claim_coins& | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php(416): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f93f1c2da9_73451799()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#7 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(226): AbstractGamePage-&gt;display()
+#9 /includes/pages/game/ShowErrorPage.class.php(34): AbstractGamePage-&gt;printMessage()
+#10 /game.php(53): ShowErrorPage::printError()
+#11 {main}
+[26-Aug-2021 11:31:19] NOTICE: "Trying to access array offset on value of type bool"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php | Line: 416
+URL: http://localhost:5000/game.php?page=overview&mode=claim_coins | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php(416): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f93f1c2da9_73451799()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#7 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(226): AbstractGamePage-&gt;display()
+#9 /includes/pages/game/ShowErrorPage.class.php(34): AbstractGamePage-&gt;printMessage()
+#10 /game.php(53): ShowErrorPage::printError()
+#11 {main}
+[26-Aug-2021 11:31:21] NOTICE: "Trying to access array offset on value of type bool"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php | Line: 416
+URL: http://localhost:5000/game.php?page=overview&mode=claim | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php(416): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f93f1c2da9_73451799()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#7 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(226): AbstractGamePage-&gt;display()
+#9 /includes/pages/game/ShowErrorPage.class.php(34): AbstractGamePage-&gt;printMessage()
+#10 /game.php(53): ShowErrorPage::printError()
+#11 {main}
+[26-Aug-2021 11:31:49] NOTICE: "Trying to access array offset on value of type bool"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php | Line: 416
+URL: http://localhost:5000/game.php?page=overview&mode=claim | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php(416): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f93f1c2da9_73451799()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#7 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(226): AbstractGamePage-&gt;display()
+#9 /includes/pages/game/ShowErrorPage.class.php(34): AbstractGamePage-&gt;printMessage()
+#10 /game.php(53): ShowErrorPage::printError()
+#11 {main}
+[26-Aug-2021 11:36:17] NOTICE: "Undefined index: USER"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/de^f461526ac58347d9fb57e0febf844fc94a37b9dc_1.extends.page.cuneros.default.tpl.cache.php | Line: 169
+URL: http://localhost:5000/game.php?page=cuneros | Version: 1.8.git
+Stack trace:
+#0 /cache/de^f461526ac58347d9fb57e0febf844fc94a37b9dc_1.extends.page.cuneros.default.tpl.cache.php(169): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(219): Block_11886246006127fb41dec8f5_26059862-&gt;callBlock()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(162): Smarty_Internal_Runtime_Inheritance-&gt;callBlock()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(164): Smarty_Internal_Runtime_Inheritance-&gt;process()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_inheritance.php(136): Smarty_Internal_Runtime_Inheritance-&gt;process()
+#5 /cache/de^f461526ac58347d9fb57e0febf844fc94a37b9dc_1.extends.page.cuneros.default.tpl.cache.php(796): Smarty_Internal_Runtime_Inheritance-&gt;instanceBlock()
+#6 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127fb41dee7c4_68564575()
+#7 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(341): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#8 /cache/de^f461526ac58347d9fb57e0febf844fc94a37b9dc_1.extends.page.cuneros.default.tpl.cache.php(67): Smarty_Internal_Template-&gt;_subTemplateRender()
+#9 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127fb41eb3160_68844470()
+#10 /includes/libs/Smarty/sysplugins/smarty_template_compiled.php(170): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#11 /includes/libs/Smarty/sysplugins/smarty_internal_runtime_updatecache.php(89): Smarty_Template_Compiled-&gt;render()
+#12 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(142): Smarty_Internal_Runtime_UpdateCache-&gt;updateCache()
+#13 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#14 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#15 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#16 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#17 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#18 /includes/pages/game/ShowCunerosPage.class.php(60): AbstractGamePage-&gt;display()
+#19 /game.php(58): ShowCunerosPage-&gt;show()
+#20 {main}
+[26-Aug-2021 11:42:13] NOTICE: "Trying to access array offset on value of type bool"
+File: /home/bastie/Projekte/quest-of-galaxy/cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php | Line: 416
+URL: http://localhost:5000/game.php?page=cuneros | Version: 1.8.git
+Stack trace:
+#0 /cache/templates/de^36575c0a7f4eb714c440393ef2d3f6c1bea9a46c.error.default.tpl.php(416): errorHandler()
+#1 /includes/libs/Smarty/sysplugins/smarty_template_resource_base.php(128): content_6127f93f1c2da9_73451799()
+#2 /includes/libs/Smarty/sysplugins/smarty_template_cached.php(136): Smarty_Template_Resource_Base-&gt;getRenderedTemplateCode()
+#3 /includes/libs/Smarty/sysplugins/smarty_internal_template.php(179): Smarty_Template_Cached-&gt;render()
+#4 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(199): Smarty_Internal_Template-&gt;render()
+#5 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(114): Smarty_Internal_TemplateBase-&gt;_execute()
+#6 /includes/classes/class.template.php(137): Smarty_Internal_TemplateBase-&gt;display()
+#7 /includes/pages/game/AbstractGamePage.class.php(260): template-&gt;display()
+#8 /includes/pages/game/AbstractGamePage.class.php(226): AbstractGamePage-&gt;display()
+#9 /includes/pages/game/ShowErrorPage.class.php(34): AbstractGamePage-&gt;printMessage()
+#10 /game.php(53): ShowErrorPage::printError()
+#11 {main}
+[26-Aug-2021 12:15:04] USER ERROR: "SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE id = '2'' at line 6
+
+Query-Code:UPDATE uni1_planets SET
+		metal		= metal - 292.5,
+		crystal		= crystal - 271.25,
+		deuterium	= deuterium - 0,
+        coins       = coins - 544,
+		WHERE id = 2;"
+File: /home/bastie/Projekte/quest-of-galaxy/includes/classes/Database.class.php | Line: 126
+URL: http://localhost:5000/game.php?page=overview | Version: 1.8.git
+Stack trace:
+#0 /includes/classes/Database.class.php(177): Database-&gt;_query()
+#1 /includes/classes/missions/MissionCaseAttack.class.php(493): Database-&gt;update()
+#2 /includes/classes/class.FlyingFleetHandler.php(82): MissionCaseAttack-&gt;TargetEvent()
+#3 /includes/FleetHandler.php(31): FlyingFleetHandler-&gt;run()
+#4 /includes/common.php(124): require('/home/bastie/Pr...')
+#5 /game.php(25): require('/home/bastie/Pr...')
+#6 {main}
+[26-Aug-2021 12:30:19] USER ERROR: "SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE id IN (2)' at line 7
+
+Query-Code:UPDATE uni1_users SET
+		`loos` = `loos` + 1,
+		kbmetal		= kbmetal + 0,
+		kbcrystal	= kbcrystal + 0,
+		lostunits	= lostunits + 0,
+		desunits	= desunits + 0,
+		WHERE id IN (2);"
+File: /home/bastie/Projekte/quest-of-galaxy/includes/classes/Database.class.php | Line: 126
+URL: http://localhost:5000/game.php?page=overview | Version: 1.8.git
+Stack trace:
+#0 /includes/classes/Database.class.php(177): Database-&gt;_query()
+#1 /includes/classes/missions/MissionCaseAttack.class.php(540): Database-&gt;update()
+#2 /includes/classes/class.FlyingFleetHandler.php(82): MissionCaseAttack-&gt;TargetEvent()
+#3 /includes/FleetHandler.php(31): FlyingFleetHandler-&gt;run()
+#4 /includes/common.php(124): require('/home/bastie/Pr...')
+#5 /game.php(25): require('/home/bastie/Pr...')
+#6 {main}

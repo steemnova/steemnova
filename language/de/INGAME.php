@@ -1223,7 +1223,7 @@ $LNG['toggle_fleets'] = 'Flottenbewegungen zeigen';
 
 $LNG['al_add_rank']					        = 'Rang hinzuf&uuml;gen';
 $LNG['al_cancel_application']					        = 'Bewerbung zur&uuml;ckziehen';
-$LNG['lm_cuneros'] = 'Dunkle Materie aufladen';
+$LNG['lm_cuneros'] = 'Cuneros';
 $LNG['cun_info'] = 'Hier kannst du Schwarze Materie gegen Cuneros aufladen. <br />Für 1 Cuneros bekommst du %d Dunkle Materie.';
 $LNG['cuneros_description'] = 'Cuneros werden auf <a href="https://www.cuneros.de/">Cuneros.de</a> für Aktivität verschenkt. Zusätzlich bekommst du sie auch auf anderen externen Seiten.';
 $LNG['cuneros_amount'] = 'Cuneros-Anzahl';
@@ -1242,3 +1242,16 @@ $LNG['research_toggle_imperial'] = 'Imperial';
 $LNG['research_toggle_military'] = 'Militär';
 $LNG['research_toggle_engine'] = 'Antrieb';
 $LNG['research_toggle_mining'] = 'Minen';
+
+$LNG['coins_claim_success'] = 'Cuneros erfolgreich eingesammelt!';
+$LNG['cuneros_account_info'] = 'Du hast aktuell %d Cuneros im Tresor, ab 1.000 kannst du sie auszahlen.';
+$LNG['cuneros_coins'] = 'Cuneros offen';
+$LNG['cuneros_payout'] = 'Cuneros auszahlen';
+$LNG['cuneros_claim'] = 'Einsammeln';
+$LNG['cuneros_exchange'] = 'Cuneros tauschen';
+$LNG['cuneros_account_exchange'] = 'Du hast aktuell %d Cuneros im Tresor, du kannst sie in Dunkle Materie eintauschen.';
+
+$LNG['cuneros_unsufficient'] = 'Du hast nicht genügend Cuneros.';
+$LNG['cuneros_invalid'] = 'Betrag ungültig.';
+
+$LNG['fl_transfer_alert_message']		    = 'Achtung! Deine Flotte wird hier an einen anderen Nutzer übertragen!';

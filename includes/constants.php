@@ -28,7 +28,7 @@ if(PHP_SAPI === 'cli')
 
 	//debug mode
 	define('HTTP_BASE'					, str_replace(array('\\', '//'), '/', dirname($_SERVER['SCRIPT_NAME']).'/'));
-	define('HTTP_ROOT'					, str_replace(basename($_SERVER['SCRIPT_FILENAME']), '', parse_url($requestUrl, PHP_URL_PATH)));
+	define('HTTP_ROOT'					, str_replace(array('\\', '//'), '/', dirname($_SERVER['SCRIPT_NAME']).'/'));
 
 	define('HTTP_FILE'					, basename($_SERVER['SCRIPT_NAME']));
 	define('HTTP_HOST'					, '127.0.0.1');

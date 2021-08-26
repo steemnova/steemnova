@@ -20,6 +20,8 @@ class ShowCunerosPage extends AbstractGamePage
 {
     public static $requireModule = 0;
 
+    protected $_message = '';
+
     function __construct()
     {
         parent::__construct();
@@ -27,34 +29,65 @@ class ShowCunerosPage extends AbstractGamePage
 
     public function UpdateDarkMatter()
     {
-        global $PLANET, $USER, $resource, $cuneros, $LNG;
+    }
 
+    public function payin() {
+        global $PLANET, $USER, $resource, $cuneros, $LNG;
+        if($_POST['amount'] < 0) exit;
         $api = new \Access($_POST['password'], $_POST['username'], $cuneros['api_key'], $cuneros['project_id']);
         $api->get($_POST['amount'], $cuneros['payin_subject']);
         if($api->get_status()) {
             $USER[$resource[921]]	+= intval($_POST['amount'])*$cuneros['factor'];
-            return $LNG['cuneros_payin_successful'];
+            $this->_message = $LNG['cuneros_payin_successful'];
         } else {
-            return  sprintf($LNG['cuneros_payin_unsuccessful'], $api->get_error_message());
+            $this->_message = sprintf($LNG['cuneros_payin_unsuccessful'], $api->get_error_message());
         }
+        $this->show();
     }
 
+    public function payout() {
+        global $PLANET, $USER, $resource, $cuneros, $LNG;
+        $this->checkAmount(1000);
+
+        $USER['coins'] -= $_POST['amount'];
+        $api = new \Access($_POST['password'], $_POST['username'], $cuneros['api_key'], $cuneros['project_id']);
+        $api->send($_POST['amount'], $cuneros['payout_subject']);
+        if($api->get_status()) {
+            $this->_message = $LNG['cuneros_payout_successful'];
+        } else {
+            $this->_message = sprintf($LNG['cuneros_payout_unsuccessful'], $api->get_error_message());
+        }
+        $this->show();
+    }
+
+    protected function checkAmount($min=0) {
+        global $LNG, $USER;
+        if($_POST['amount'] < $min) $this->_message = $LNG['cuneros_invalid'];
+        elseif($_POST['amount'] > $USER['coins'])  $this->_message = $LNG['cuneros_unsufficient'];
+        else return true;
+
+        $this->show();
+    }
+
+    public function exchange() {
+        global $PLANET, $USER, $resource, $cuneros, $LNG;
+        $this->checkAmount();
+
+        $USER[$resource[921]]	+= intval($_POST['amount'])*$cuneros['factor'];
+        $USER['coins'] -= $_POST['amount'];
+        $this->show();
+    }
     public function show()
     {
         global $USER, $PLANET, $resource, $reslist, $LNG, $cuneros;
-        $message = "";
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (isModuleAvailable(MODULE_CUNEROS)) {
-                $message = $this->UpdateDarkMatter();
-            }
-        }
 
         if (isModuleAvailable(MODULE_CUNEROS)) {
 
             $this->assign(array(
                 'project_id' => $cuneros['project_id'],
                 'info_data'=> sprintf($LNG['cun_info'], $cuneros['factor']),
-                'return_message' => $message,
+                'return_message' => $this->_message,
+                'user_coins' => floor($USER['coins'])
             ));
 
             $this->display('page.cuneros.default.tpl');

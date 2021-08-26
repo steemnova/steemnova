@@ -266,3 +266,87 @@ $(function() {
 		return false;
 	});
 });
+let base = null;
+function addEvent(elementClass, evtName, eventFunc) {
+	let iOS = navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+	let touchEvent = ('ontouchstart' in window && iOS) ? 'touchstart' : 'click';
+	let eventName = 'click' === evtName ? touchEvent : evtName;
+	document.addEventListener(eventName, function (event) {
+		// If the clicked element doesn't have the right selector, bail
+		if (base === null) {
+			base = document.querySelector("body");
+		}
+		let closest = event.target.closest(elementClass);
+		if (closest && base.contains(closest)) {
+			if (eventFunc(closest, event) === false) {
+				event.preventDefault();
+			}
+		}
+	});
+}
+class HttpHandler {
+
+	csrfToken = null;
+
+	constructor(csrfToken) {
+		this.csrfToken = csrfToken;
+	}
+
+	encodeUrlData(data) {
+		let urlEncodedData = "",
+			urlEncodedDataPairs = [],
+			name;
+
+		for (name in data) {
+			urlEncodedDataPairs.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]));
+		}
+		return urlEncodedDataPairs.join('&').replace(/%20/g, '+');
+	}
+
+	post(targetUrl, data, successFunction, failFunction = null, hasFormData = false, isJson = true) {
+		let xhr = new XMLHttpRequest();
+		xhr.open('POST', targetUrl, true);
+		xhr.setRequestHeader('X-CSRFToken', this.csrfToken);
+		xhr.onreadystatechange = () => {
+			handleReturn(xhr, successFunction, failFunction, isJson)
+		};
+
+		if (hasFormData) {
+			xhr.send(data);
+		} else {
+			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.send(this.encodeUrlData(data));
+		}
+	}
+
+	get(targetUrl, data, successFunction, failFunction, isJson = true) {
+		let xhr = new XMLHttpRequest();
+		let divider = targetUrl.indexOf("?") > -1 ? "&":"?";
+		xhr.open('GET', targetUrl + divider + this.encodeUrlData(data), true);
+		xhr.onreadystatechange = xhr.onreadystatechange = () => {
+			handleReturn(xhr, successFunction, failFunction, isJson)
+		};
+
+		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		xhr.send();
+	}
+}
+
+function handleReturn(xhr, successFunction, failFunction, isJson = true) {
+	if (xhr.readyState !== 4) return;
+	if (xhr.status === 200 || xhr.status === 201 || xhr.status === 202) {
+		let data = isJson ? JSON.parse(xhr.responseText) : xhr.responseText;
+		successFunction(data);
+	} else {
+		if (failFunction)
+			failFunction();
+	}
+}
+
+
+addEvent('.json-request', 'click', (target) => {
+	let http = new HttpHandler(null);
+	http.get(target.dataset.href, {}, (data) => {
+		alert(data.message);
+	})
+});
