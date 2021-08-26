@@ -590,6 +590,7 @@ CREATE TABLE `%PREFIX%planets` (
   `der_metal` double(50,0) unsigned NOT NULL DEFAULT '0',
   `der_crystal` double(50,0) unsigned NOT NULL DEFAULT '0',
   `id_luna` int(11) NOT NULL DEFAULT '0',
+  `coins` float default 0.0 null,
   PRIMARY KEY (`id`),
   KEY `id_luna` (`id_luna`),
   KEY `id_owner` (`id_owner`),
@@ -805,6 +806,7 @@ CREATE TABLE `%PREFIX%users` (
   `ref_id` int(11) NOT NULL DEFAULT '0',
   `ref_bonus` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `inactive_mail` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `coins` float default 0.0 null,
   PRIMARY KEY (`id`),
   KEY `authlevel` (`authlevel`),
   KEY `ref_bonus` (`ref_bonus`),
@@ -1340,6 +1342,18 @@ INSERT INTO `%PREFIX%vars_requriements` (`elementID`, `requireID`, `requireLevel
 (614, 613, 3),
 (615, 614, 1),
 (615, 609, 1);
+
+create table `%PREFIX%coinpot`
+(
+    id int auto_increment,
+    next_payout int null,
+    is_active bool null,
+    amount float null,
+    time_paid int null,
+    constraint %PREFIX%coinpot_pk
+    primary key (id)
+    );
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
