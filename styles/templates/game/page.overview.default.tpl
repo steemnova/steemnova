@@ -3,7 +3,7 @@
     {if $messages}
         <div class="alert alert-info"><a href="?page=messages">{$messages}</a></div>
     {/if}
-    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="row row-cols-1 row-cols-lg-2 g-4">
         <div class="col mb-2">
             <div class="card">
                 <div class="card-header">
