@@ -11,7 +11,7 @@
         <a href="game.php?page=overview" class="navbar-brand d-none d-md-inline-block">
             <img src="{$dpath}planeten/{$image}.jpg" width="50" height="50"
                  alt="{$LNG.lm_overview}"></a>
-        <a class="navbar-brand d-none d-md-inline-block" href="game.php?page=overview">Quest of Galaxy</a>
+        <a class="navbar-brand d-none d-md-inline-block" href="game.php?page=overview"><img class="img-fluid img-header" src="{$dpath}/img/qog_logo.png"></a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="d-flex flex-grow-1">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">

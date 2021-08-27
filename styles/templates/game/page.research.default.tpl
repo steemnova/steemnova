@@ -1,8 +1,7 @@
 {block name="title" prepend}{$LNG.lm_research}{/block}
 {block name="content"}
-    {if $messages}
-        <div class="alert alert-info"><a href="?page=messages">{$messages}</a></div>
-    {/if}
+    {include "messages.partial.tpl"}
+
     <!-- building queue-->
     {if !empty($Queue)}
         <div id="buildlist" class="infos1">

@@ -30,7 +30,8 @@
                         <input type="hidden" name="ajax" value="1">
                         <input type="hidden" name="messcat" value="{$MessID}">
                         <input type="hidden" name="side" value="{$page}">
-                        <select name="actionTop">
+                        <div class="input-group mb-3">
+                        <select name="actionTop" class="form-control">
                             <option value="readmarked">{$LNG.mg_read_marked}</option>
                             <option value="readtypeall">{$LNG.mg_read_type_all}</option>
                             <option value="readall">{$LNG.mg_read_all}</option>
@@ -39,20 +40,23 @@
                             <option value="deletetypeall">{$LNG.mg_delete_type_all}</option>
                             <option value="deleteall">{$LNG.mg_delete_all}</option>
                         </select>
-                        <input value="{$LNG.mg_confirm}" type="submit" name="submitTop">
-
+                        <input value="{$LNG.mg_confirm}" type="submit" name="submitTop" class="btn btn-sm btn-primary">
+                        </div>
                         <table id="messagestable" class="table table-striped">
+                            <thead>
                             <tr>
-                                <td>{$LNG.mg_action}</td>
-                                <td>{$LNG.mg_date}</td>
-                                <td>{if $MessID != 999}{$LNG.mg_from}{else}{$LNG.mg_to}{/if}</td>
-                                <td>{$LNG.mg_subject}</td>
+                                <th>{$LNG.mg_action}</th>
+                                <th>{$LNG.mg_date}</th>
+                                <th>{if $MessID != 999}{$LNG.mg_from}{else}{$LNG.mg_to}{/if}</th>
+                                <th>{$LNG.mg_subject}</th>
                             </tr>
+                            </thead>
+                            <tbody>
                             {foreach $MessageList as $Message}
                                 <tr id="message_{$Message.id}"
                                     class="message_{$Message.id} message_head{if $MessID != 999 && $Message.unread == 1} mes_unread{/if}">
                                     <td rowspan="2">
-                                        {if $MessID != 999}<input name="messageID[{$Message.id}]" value="1"
+                                        {if $MessID != 999}<input name="messageID[{$Message.id}]" value="1" class="form-check"
                                                                   type="checkbox">{/if}
                                     </td>
                                     <td>{$Message.time}</td>
@@ -76,20 +80,23 @@
                                     </td>
                                 </tr>
                             {/foreach}
-                            <tr style="height: 20px;">
-                                <td class="right" colspan="4">{$LNG.mg_page}: {if $page != 1}<a
-                                        href="game.php?page=messages&category={$MessID}&side=1">
-                                            &laquo;</a>&nbsp;{/if}{if $page > 5}..&nbsp;{/if}{for $site=1 to $maxPage}<a
-                                        href="game.php?page=messages&category={$MessID}&side={$site}">{if $site == $page}
-                                            <b>
-                                            [{$site}
-                                            ]&nbsp;</b>{elseif ($site > $page-5 && $site < $page+5)}[{$site}]&nbsp;{/if}
-                                        </a>{/for}{if $page < $maxPage-4}..&nbsp;{/if}{if $page != $maxPage}&nbsp;<a
-                                            href="game.php?page=messages&category={$MessID}&side={$maxPage}">
-                                            &raquo;</a>{/if}</td>
-                            </tr>
+                            </tbody>
                         </table>
                     </form>
+                </div>
+                <div class="card-footer">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link">{$LNG.mg_page}</a></li>
+                            <li class="page-item"><a class="page-link" href="game.php?page=messages&category={$MessID}&side=1">&laquo;</a></li>
+                            {for $site=1 to $maxPage}
+                            <li class="page-item {if $page == $site} active{/if}">
+                                <a class="page-link" href="game.php?page=messages&category={$MessID}&side={$site}">{$site}</a>
+                            </li>
+                            {/for}
+                            <li class="page-item"><a class="page-link" href="game.php?page=messages&category={$MessID}&side={$maxPage}">&raquo;</a></li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>

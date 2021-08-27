@@ -1,8 +1,7 @@
 {block name="title" prepend}{$LNG.lm_overview}{/block}
 {block name="content"}
-    {if $messages}
-        <div class="alert alert-info"><a href="?page=messages">{$messages}</a></div>
-    {/if}
+    {include "messages.partial.tpl"}
+
     <div class="row row-cols-1 row-cols-lg-2 g-4">
         <div class="col mb-2">
             <div class="card">

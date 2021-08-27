@@ -1,9 +1,8 @@
 {block name="title" prepend}{if $mode == "defense"}{$LNG.lm_defenses}{else}{$LNG.lm_shipshard}{/if}{/block}
 {block name="content"}
 
-    {if $messages}
-        <div class="alert alert-info"><a href="?page=messages">{$messages}</a></div>
-    {/if}
+    {include "messages.partial.tpl"}
+
     {if !$NotBuilding}
         <div class="alert alert-info">{$LNG.bd_building_shipyard}</div>{/if}
     {if !empty($BuildList)} <!-- fleet training list -->
