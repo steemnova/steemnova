@@ -1,54 +1,48 @@
 <?php
 
 /**
- *  2Moons 
- *   by Jan-Otto Kröpke 2009-2016
+ *  Quest of Galaxy
+ *   by Bastian Luettig - 2021
  *
  * For the full copyright and license information, please view the LICENSE
  *
- * @package 2Moons
- * @author Jan-Otto Kröpke <slaver7@gmail.com>
+ * @package QoG
+ * @author Bastian Luettig <bastian.luettig@bastie.space>
  * @copyright 2009 Lucky
  * @copyright 2016 Jan-Otto Kröpke <slaver7@gmail.com>
+ * @copyright 2021 Bastian Luettig <bastian.luettig@bastie.space>
  * @licence MIT
- * @version 1.8.0
- * @link https://github.com/jkroepke/2Moons
+ * @version 2.0
+ * @link https://github.com/bastiedotorg/quest-of-galaxy
  */
-
 define('MODE', 'CRON');
 define('ROOT_PATH', str_replace('\\', '/',dirname(__FILE__)).'/');
+define('TIMESTAMP', time());
+require 'includes/constants.php';
+require 'includes/GeneralFunctions.php';
+
 set_include_path(ROOT_PATH);
-
-require 'includes/common.php';
-
-$session	= Session::load();
-
-// Output transparent gif
-HTTP::sendHeader('Cache-Control', 'no-cache');
-HTTP::sendHeader('Content-Type', 'image/gif');
-HTTP::sendHeader('Expires', '0');
-
-
-echo("\x47\x49\x46\x38\x39\x61\x01\x00\x01\x00\x80\x00\x00\x00\x00\x00\x00\x00\x00\x21\xF9\x04\x01\x00\x00\x00\x00\x2C\x00\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02\x44\x01\x00\x3B");
-
-if(!$session->isValidSession())
-{
-	exit;
-}
-
-$cronjobID	= HTTP::_GP('cronjobID', 0);
-
-if(empty($cronjobID))
-{
-	exit;
-}
-
+require 'includes/classes/ArrayUtil.class.php';
+require 'includes/classes/Cache.class.php';
+require 'includes/classes/Database.class.php';
+require 'includes/classes/Config.class.php';
+require 'includes/classes/class.FleetFunctions.php';
+require 'includes/classes/Language.class.php';
+require 'includes/classes/PlayerUtil.class.php';
+require 'includes/classes/Session.class.php';
+require 'includes/classes/Universe.class.php';
 require 'includes/classes/Cronjob.class.php';
 
-$cronjobsTodo	= Cronjob::getNeedTodoExecutedJobs();
-if(!in_array($cronjobID, $cronjobsTodo))
-{
-	exit;
-}
+require 'includes/classes/class.theme.php';
+require 'includes/classes/class.template.php';
 
-Cronjob::execute($cronjobID);
+
+require 'includes/vars.php';
+
+require 'includes/classes/class.BuildFunctions.php';
+require 'includes/classes/class.PlanetRessUpdate.php';
+
+foreach(Cronjob::getNeedTodoExecutedJobs() as $cronjobID) {
+    Cronjob::execute($cronjobID);
+}
+print("done");
