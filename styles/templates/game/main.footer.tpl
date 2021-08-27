@@ -17,7 +17,7 @@
 	document.querySelectorAll("a").forEach(function(item) {
 		item.classList.remove("active");
 	});
-	let a = document.location.pathname.substring(1)+document.location.search;
+	let a = document.location.pathname.split("/").pop()+document.location.search;
 	document.querySelectorAll("a[href='"+a+"']").forEach(function(item) {
 		item.classList.add("active");
 		item.parentElement.parentElement.parentElement.classList.add("show");
