@@ -53,10 +53,10 @@ class MissionCaseAttack extends MissionFunctions implements Mission
 <div class="raportMessage">
 	<table class="table table-striped">
 		<tr>
-			<td colspan="2"><a href="game.php?page=raport&raport=%s" target="_blank"><span class="%s">%s %s (%s)</span></a></td>
+			<td colspan="2"><a href="game.php?page=raport&raport=%s"><span class="%s">%s %s (%s)</span></a></td>
 		</tr>
 		<tr>
-			<td>%s</td><td><span class="%s">%s: %s</span>&nbsp;<span class="%s">%s: %s</span></td>
+			<td>%s</td><td><span class="%s">%s: %s</span>,&nbsp;<span class="%s">%s: %s</span></td>
 		</tr>
 		<tr>
 			<td>%s</td><td><span>%s:&nbsp;<span class="reportSteal element901">%s</span>,&nbsp;</span><span>%s:&nbsp;<span class="reportSteal element902">%s</span>,&nbsp;</span><span>%s:&nbsp;<span class="reportSteal element903">%s</span></span>,&nbsp;<span>%s:&nbsp;<span class="reportSteal elementCoins">%s</span></span></td>
