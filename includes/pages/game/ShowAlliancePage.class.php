@@ -225,7 +225,7 @@ class ShowAlliancePage extends AbstractGamePage
 			$db	= Database::get();
 			$sql	= "SELECT id, ally_name, ally_tag, ally_members
 			FROM %%ALLIANCE%%
-			WHERE ally_universe = :universe AND ally_name LIKE :searchTextEqual
+			WHERE ally_universe = :universe AND ally_name LIKE :searchTextLike
 			ORDER BY (
 			  IF(ally_name = :searchTextEqual, 1, 0) + IF(ally_name LIKE :searchTextLike, 1, 0)
 			) DESC,ally_name ASC LIMIT 25;";
