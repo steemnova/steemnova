@@ -37,7 +37,7 @@
                         </li>
                     {/foreach}
                     <li class="nav-item res-item">
-                        <a class="nav-link">
+                        <a class="nav-link"  onclick="return Dialog.info(925);">
                         <img src="{$dpath}images/cuneros.png">
                         <span class="d-lg-block d-none">Cuneros</span>
                         <span class="res_current">{$coins|number}</span></li>

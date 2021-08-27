@@ -186,6 +186,7 @@ $LNG['tech'] = array(
 	903 => 'Deuterium',
 	911 => 'Energie',
 	921 => 'Dunkle Materie',
+    925 => 'Cuneros',
 );
 
 $LNG['shortDescription'] = array(
@@ -399,4 +400,5 @@ $LNG['longDescription'] = array(
 	903 => 'Deuterium ist schwerer Wasserstoff. Die größten Vorräte sind am Grund des Meeres. Deshalb werden für die Gewinnung von Deuterium großen Mengen Energie benötigt. Deuterium wird als Treibstoff für Raumschiffe, für fast alle Forschungen, für einen Blick in die Galaxie sowie für den Sensorphalanx-Scan benötigt.',
 	911 => 'Energie wird für das gewinnnen jeglicher Rohstoffe benötigt. Man sagt, man könne mit unmengen an Energie, die Gravitation beeinflussen und dadurch zerstörerische Waffen bauen. Allerdings ist dies bis heute noch kaum jemanden gelungen.',
 	921 => 'Dunkle Materie ist die geheimnisvollste, seltenste und kostbarste Ressource im ganzen Universum. Mit ihr können unter anderem legendäre Offiziere vergangener Zeiten angeworben oder gierige Händler gerufen werden. Anders als die herkömmlichen Ressourcen kann dunkle Materie (noch) nicht abgebaut werden und ist interplanetar verfügbar, niemand weiß warum. Ebenfalls weiß man nicht, woher Dunkle Materie kommt und wie man sie hersellt, doch Wissenschaftler sollen beobachtet haben, dass hin und wieder eine bestimmte Menge dieser einfach so auftaucht. Mysteriös...',
+    925 => 'Alle aktiven User bekommen täglich mehrfach in unregelmäßigen Abständen Cuneros gutgeschrieben. Diese befinden sich frei auf deinen Planeten. Wirst du durch einen anderen User erfolgreich angegriffen, werden dir bis zu 50 % deiner Cuneros gestohlen. Du kannst deine offenen Cuneros jederzeit schützen, in dem du diese in ein Lager verschiebst. Dort sind sie vor Angriffen sicher und können auf Cuneros.de ausgezahlt oder in neue Dunkle Materie investiert werden.',
 );
