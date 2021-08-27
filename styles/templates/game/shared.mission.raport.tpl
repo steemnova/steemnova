@@ -2,7 +2,9 @@
 {block name="content"}
 <div class="card">
     <div class="card-header">
-        <h3>{if $Raport.mode == 1}{$LNG.sys_destruc_title}{else}{$LNG.sys_attack_title}{/if} <small>{$Raport.time}</small>
+        <h3>
+            <small class="card-subtitle float-end">{$Raport.time}</small>
+            {if $Raport.mode == 1}{$LNG.sys_destruc_title}{else}{$LNG.sys_attack_title}{/if}
         </h3>
     </div>
     <div class="card-body">
@@ -10,10 +12,10 @@
     {if isset($Info)}
         <table>
             <tr>
-                <td class="transparent"
+                <td 
                     style="width:40%;font-size:22px;font-weight:bold;padding:10px 0 30px;color:{if $Raport.result == "a"}lime{elseif $Raport.result == "r"}red{else}white{/if}">{$Info.0}</td>
-                <td class="transparent" style="font-size:22px;font-weight:bold;padding:10px 0 30px;">VS</td>
-                <td class="transparent"
+                <td  style="font-size:22px;font-weight:bold;padding:10px 0 30px;">VS</td>
+                <td 
                     style="width:40%;font-size:22px;font-weight:bold;padding:10px 0 30px;color:{if $Raport.result == "r"}lime{elseif $Raport.result == "a"}red{else}white{/if}">{$Info.1}</td>
             </tr>
         </table>
@@ -24,46 +26,7 @@
             <h4>{$LNG.sys_attack_attacker_pos} {$PlayerInfo.name} {if isset($Info)}([XX:XX:XX]){else}([{$PlayerInfo.koords[0]}:{$PlayerInfo.koords[1]}:{$PlayerInfo.koords[2]}]{if isset($PlayerInfo.koords[3])} ({$LNG["type_planet_short_{$PlayerInfo.koords[3]}"]}){/if}){/if}</h4>
             <br>
             {$LNG.sys_ship_weapon} {$PlayerInfo.tech[0]}% - {$LNG.sys_ship_shield} {$PlayerInfo.tech[1]}% - {$LNG.sys_ship_armour} {$PlayerInfo.tech[2]}%
-            <table class="table table-striped">
-                {if !empty($Player.ships)}
-                    <tr>
-                        <td class="transparent">{$LNG.sys_ship_type}</td>
-                        {foreach $Player.ships as $ShipID => $ShipData}
-                            <td class="transparent">{$LNG.shortNames.{$ShipID}}</td>
-                        {/foreach}
-                    </tr>
-                    <tr>
-                        <td class="transparent">{$LNG.sys_ship_count}</td>
-                        {foreach $Player.ships as $ShipID => $ShipData}
-                            <td class="transparent">{$ShipData[0]|number}</td>
-                        {/foreach}
-                    </tr>
-                    <tr>
-                        <td class="transparent">{$LNG.sys_ship_weapon}</td>
-                        {foreach $Player.ships as $ShipID => $ShipData}
-                            <td class="transparent">{$ShipData[1]|number}</td>
-                        {/foreach}
-                    </tr>
-                    <tr>
-                        <td class="transparent">{$LNG.sys_ship_shield}</td>
-                        {foreach $Player.ships as $ShipID => $ShipData}
-                            <td class="transparent">{$ShipData[2]|number}</td>
-                        {/foreach}
-                    </tr>
-                    <tr>
-                        <td class="transparent">{$LNG.sys_ship_armour}</td>
-                        {foreach $Player.ships as $ShipID => $ShipData}
-                            <td class="transparent">{$ShipData[3]|number}</td>
-                        {/foreach}
-                    </tr>
-                {else}
-                    <tr>
-                        <td class="transparent">
-                            <br>{$LNG.sys_destroyed}<br><br>
-                        </td>
-                    </tr>
-                {/if}
-            </table>
+            {include "shared.shiptable.part.tpl"}
         {/foreach}
 
         {foreach $RoundInfo.defender as $Player}
@@ -73,46 +36,8 @@
             {$LNG.sys_ship_weapon} {$PlayerInfo.tech[0]}%
             - {$LNG.sys_ship_shield} {$PlayerInfo.tech[1]}%
             - {$LNG.sys_ship_armour} {$PlayerInfo.tech[2]}%
-            <table class="table table-striped">
-                {if !empty($Player.ships)}
-                    <tr>
-                        <td class="transparent">{$LNG.sys_ship_type}</td>
-                        {foreach $Player.ships as $ShipID => $ShipData}
-                            <td class="transparent">{$LNG.shortNames.{$ShipID}}</td>
-                        {/foreach}
-                    </tr>
-                    <tr>
-                        <td class="transparent">{$LNG.sys_ship_count}</td>
-                        {foreach $Player.ships as $ShipID => $ShipData}
-                            <td class="transparent">{$ShipData[0]|number}</td>
-                        {/foreach}
-                    </tr>
-                    <tr>
-                        <td class="transparent">{$LNG.sys_ship_weapon}</td>
-                        {foreach $Player.ships as $ShipID => $ShipData}
-                            <td class="transparent">{$ShipData[1]|number}</td>
-                        {/foreach}
-                    </tr>
-                    <tr>
-                        <td class="transparent">{$LNG.sys_ship_shield}</td>
-                        {foreach $Player.ships as $ShipID => $ShipData}
-                            <td class="transparent">{$ShipData[2]|number}</td>
-                        {/foreach}
-                    </tr>
-                    <tr>
-                        <td class="transparent">{$LNG.sys_ship_armour}</td>
-                        {foreach $Player.ships as $ShipID => $ShipData}
-                            <td class="transparent">{$ShipData[3]|number}</td>
-                        {/foreach}
-                    </tr>
-                {else}
-                    <tr>
-                        <td class="transparent">
-                            <br>{$LNG.sys_destroyed}<br><br>
-                        </td>
-                    </tr>
-                {/if}
-            </table>
+            {include "shared.shiptable.part.tpl"}
+
         {/foreach}
 
         {if !$RoundInfo@last}
