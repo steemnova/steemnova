@@ -29,6 +29,7 @@ function ShowConfigUniPage()
 	if(!$coinData) {
         $sql = 'INSERT INTO %%COINPOT%% (next_payout, amount, is_active, universe_id) VALUES(:nextTime, :amount, 1, :universeId)';
         Database::get()->insert($sql, [':nextTime' => time()+(180+mt_rand(0,240))*60, ':amount' => 0, ':universeId' => Universe::getEmulated()]);
+        $sql = 'SELECT * FROM %%COINPOT%% WHERE universe_id = :universeId AND is_active=1';
         $coinData = Database::get()->selectSingle($sql, [":universeId" => Universe::getEmulated()]);
 	}
 
