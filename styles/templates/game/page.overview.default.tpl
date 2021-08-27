@@ -93,7 +93,7 @@
                                 {else}
                             <li class="list-group-item list-group-item-success"><a href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}: {$LNG.ov_free}</a></li>
                         {/if}
-                            <li class="list-group-item {if $planet_coins > 0}list-group-item-danger{/if}">{$LNG.cuneros_coins}: {$planet_coins}{if $planet_coins > 0}<a class="btn btn-primary btn-sm float-end json-request" data-href="game.php?page=overview&amp;mode=claim_coins">{$LNG.cuneros_claim}</a>{/if}</li>
+                            <li class="list-group-item {if $planet_coins > 0}list-group-item-danger{/if}">{$LNG.cuneros_coins}: {$planet_coins|number_format}{if $planet_coins > 0}<a class="btn btn-primary btn-sm float-end json-request" data-href="game.php?page=overview&amp;mode=claim_coins">{$LNG.cuneros_claim}</a>{/if}</li>
                         </ul>
                         <br>
                         {$LNG.ov_diameter}: {$planet_diameter} {$LNG.ov_distance_unit} (<a
