@@ -1269,4 +1269,7 @@ $LNG['cuneros_account_exchange'] = 'Du hast aktuell %d Cuneros im Tresor, du kan
 $LNG['cuneros_unsufficient'] = 'Du hast nicht genügend Cuneros.';
 $LNG['cuneros_invalid'] = 'Betrag ungültig.';
 
+$LNG['cuneros_payout_successful'] = 'Cuneros erfolgreich ausgezahlt!';
+
+
 $LNG['fl_transfer_alert_message']		    = 'Achtung! Deine Flotte wird hier an einen anderen Nutzer übertragen!';
