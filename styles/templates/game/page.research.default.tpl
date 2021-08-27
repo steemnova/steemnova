@@ -37,7 +37,7 @@
 
     <!-- what is this for? -->
     {if $IsLabinBuild}
-        <div class="hidden-div">{$LNG.bd_building_lab}</div>{/if}
+        <div class="alert alert-info">{$LNG.bd_building_lab}</div>{/if}
     <div class="planeto rounded bg-light mb-2">
         <a class="btn btn-toggle btn-primary" data-bs-toggle="collapse"
            data-bs-target=".imperial">{$LNG.research_toggle_imperial}</a> |
