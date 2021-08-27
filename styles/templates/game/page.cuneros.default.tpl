@@ -89,6 +89,7 @@
                         <input type="submit" value="{$LNG.cuneros_payout}" class="btn btn-primary"/>
                     </div>
                 </div>
+            </form>
         </div>
         <div class="col">
             <form class="" method="post">
@@ -111,6 +112,7 @@
                         <input type="submit" value="{$LNG.cuneros_exchange}" class="btn btn-primary"/>
                     </div>
                 </div>
+            </form>
         </div>
     </div>
 {/block}
