@@ -5,7 +5,7 @@
             <div class="card">
                 <form action="?page=galaxy" method="post" id="galaxy_form">
                     <input type="hidden" id="auto" value="dr">
-                    <input type="hiddem" name="system" value="{$system}">
+                    <input type="hidden" name="system" value="{$system}">
                     <input type="hidden" name="galaxy" value="{$galaxy}">
                     <div class="card-header">
                         <h2 class="card-title">{$LNG.gl_galaxy}</h2>
