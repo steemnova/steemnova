@@ -1,12 +1,5 @@
 {block name="title" prepend}{$pageTitle}{/block}
 {block name="content"}
-<div class="card">
-    <div class="card-header">
-        <h3>{if $Raport.mode == 1}{$LNG.sys_destruc_title}{else}{$LNG.sys_attack_title}{/if} <small>{$Raport.time}</small>
-        </h3>
-    </div>
-    <div class="card-body">
-
     {if isset($Info)}
         <table>
             <tr>
@@ -18,6 +11,8 @@
             </tr>
         </table>
     {/if}
+    <h3>{if $Raport.mode == 1}{$LNG.sys_destruc_title}{else}{$LNG.sys_attack_title}{/if} <small>{$Raport.time}</small>
+    </h3>
     {foreach $Raport.rounds as $Round => $RoundInfo}
         {foreach $RoundInfo.attacker as $Player}
             {$PlayerInfo = $Raport.players[$Player.userID]}
@@ -179,7 +174,4 @@
     {/if}
 
     {$Raport.additionalInfo}
-
-    </div>
-</div>
-        {/block}
+{/block} 

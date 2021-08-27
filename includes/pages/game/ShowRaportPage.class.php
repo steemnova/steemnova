@@ -129,7 +129,7 @@ class ShowRaportPage extends AbstractGamePage
 		global $LNG, $USER;
 		
 		$LNG->includeData(array('FLEET'));		
-		$this->setWindow('popup');
+		//$this->setWindow('popup');
 
 		$db = Database::get();
 
