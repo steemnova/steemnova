@@ -58,7 +58,7 @@
                                 <strong>{$username}</strong>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                                {if isModuleAvailable($smarty.const.MODULE_MESSAGES)}<li class="nav-item"><a class="nav-link" href="game.php?page=messages">{$LNG.lm_messages}{nocache}{if $new_message > 0}<span id="newmes"> (<span id="newmesnum">{$new_message}</span>)</span>{/if}{/nocache}</a></li>{/if}
+                                {if isModuleAvailable($smarty.const.MODULE_MESSAGES)}<li class="nav-item"><a class="nav-link" href="game.php?page=messages&amp;category=100">{$LNG.lm_messages}{nocache}{if $new_message > 0}<span id="newmes"> (<span id="newmesnum">{$new_message}</span>)</span>{/if}{/nocache}</a></li>{/if}
                                 <li class="nav-item"><a class="nav-link" href="game.php?page=settings">{$LNG.lm_options}</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li class="nav-item"><a class="nav-link" href="game.php?page=logout">{$LNG.lm_logout}</a></li>

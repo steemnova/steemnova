@@ -521,6 +521,21 @@ $LNG['mg_type'][50]						= 'Game Nachrichten';
 $LNG['mg_type'][99]   						= 'Bauschleife';
 $LNG['mg_type'][100]						= 'Alle Nachrichten';
 $LNG['mg_type'][999]						= 'Postausgang';
+
+
+$LNG['short_mg_type'][0]    						= 'Spio';
+$LNG['short_mg_type'][1]    						= 'Msg';
+$LNG['short_mg_type'][2]   						= 'Ally';
+$LNG['short_mg_type'][3]    						= 'KB';
+$LNG['short_mg_type'][4]    						= 'Sys';
+$LNG['short_mg_type'][5]    						= 'Tra';
+$LNG['short_mg_type'][15]   						= 'Exp';
+$LNG['short_mg_type'][50]						= 'GN';
+$LNG['short_mg_type'][99]   						= 'Bau';
+$LNG['short_mg_type'][100]						= 'All';
+$LNG['short_mg_type'][999]						= 'Out';
+
+
 $LNG['mg_no_subject']						= 'Kein Betreff';
 $LNG['mg_no_text']						= 'Kein Text angegeben';
 $LNG['mg_msg_sended']						= 'Nachricht gesendet!';

@@ -539,6 +539,21 @@ $LNG['mg_type'][50]                         = 'Game messages';
 $LNG['mg_type'][99]                         = 'Construction messages';
 $LNG['mg_type'][100]                        = 'All messages';
 $LNG['mg_type'][999]                        = 'Outbox';
+
+
+$LNG['short_mg_type'][0]    						= 'Spy';
+$LNG['short_mg_type'][1]    						= 'Msg';
+$LNG['short_mg_type'][2]   						= 'Ally';
+$LNG['short_mg_type'][3]    						= 'Fight';
+$LNG['short_mg_type'][4]    						= 'Sys';
+$LNG['short_mg_type'][5]    						= 'Tra';
+$LNG['short_mg_type'][15]   						= 'Exp';
+$LNG['short_mg_type'][50]						= 'GN';
+$LNG['short_mg_type'][99]   						= 'Build';
+$LNG['short_mg_type'][100]						= 'All';
+$LNG['short_mg_type'][999]						= 'Out';
+
+
 $LNG['mg_no_subject']			            = 'No subject';
 $LNG['mg_no_text']				            = 'Without text';
 $LNG['mg_msg_sended']			            = 'Message sent';
