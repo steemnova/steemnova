@@ -277,6 +277,16 @@
     <td><textarea name="NewsText" cols="80" rows="5">{$NewsTextVal}</textarea></td>
 	<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_news_limit}"></td>
 </tr>
+	<tr>
+		<td>{$se_coin_amount}</td>
+		<td><input type="number" value="{$CoinAmountVal}" name="coinAmountVal"/></td>
+		<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_coin_amount_val}"></td>
+	</tr>
+	<tr>
+		<td>{$se_coin_update}</td>
+		<td>{$CoinUpdateVal|date_format:"%d.%m.%Y %H:%M:%S"}</td>
+		<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_coin_update_val}"></td>
+	</tr>
 <tr>
 	<td colspan="3"><input value="{$se_save_parameters}" type="submit"></td>
 </tr>
