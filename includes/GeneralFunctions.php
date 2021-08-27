@@ -290,7 +290,7 @@ function abbreviateTotalCount($value)
 function pretty_number($n, $dec = 0)
 {
     if ($n < 0) {
-        return -abbreviateTotalCount(-$n);
+        return '-' . abbreviateTotalCount(-$n);
     } else if ($n == 0) {
         return 0;
     } else {
