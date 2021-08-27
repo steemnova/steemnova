@@ -51,7 +51,7 @@ class MissionCaseAttack extends MissionFunctions implements Mission
 
         $messageHTML = <<<HTML
 <div class="raportMessage">
-	<table>
+	<table class="table table-striped">
 		<tr>
 			<td colspan="2"><a href="game.php?page=raport&raport=%s" target="_blank"><span class="%s">%s %s (%s)</span></a></td>
 		</tr>
@@ -432,7 +432,7 @@ HTML;
                     pretty_number($stealResource[902]),
                     $LNG['tech'][903],
                     pretty_number($stealResource[903]),
-                    $LNG['coins'],
+                    $LNG['tech'][925],
                     pretty_number($stealResource[925]),
                     $LNG['sys_debris'],
                     $LNG['tech'][901],
