@@ -1,7 +1,7 @@
 {block name="title" prepend}{$LNG.lm_messages}{/block}
 {block name="content"}
 <div class="row">
-    <div class="col-4 col-xl-3">
+    <div class="col-12 col-xl-3">
         <div class="card">
             <div class="card-header">
                 {$LNG.mg_overview}
@@ -21,7 +21,7 @@
             </div>
         </div>
     </div>
-    <div class="col-8 col-xl-9">
+    <div class="col-12 col-xl-9">
         <div class="card">
             <div class="card-header">
                 {$LNG.mg_message_title}
