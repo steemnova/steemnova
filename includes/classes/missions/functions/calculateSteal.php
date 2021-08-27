@@ -23,7 +23,7 @@ function calculateSteal($attackFleets, $defenderPlanet, $simulate = false)
     $firstResource = 901;
     $secondResource = 902;
     $thirdResource = 903;
-    $coinResource = 940;
+    $coinResource = 925;
 
     $SortFleets = array();
     $capacity = 0;
