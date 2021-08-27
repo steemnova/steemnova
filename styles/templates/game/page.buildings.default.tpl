@@ -14,10 +14,10 @@
                 <div class="d-flex justify-content-between alert {if $List@first}alert-info{else}alert-secondary{/if}">
                     <span>{$List@iteration}.: {$LNG.tech.{$ID}} {$List.level}{if $List.destroy} {$LNG.bd_dismantle}{else} {$LNG.bd_build}{/if}</span>
                     <div id="time" data-time="{$List.time}"><br></div>
-                    <span data-time="{$List.endtime}" class="timer">{$List.display}</span>
+                    <span data-time="{$List.endtime}" class="timer d-none d-md-inline-block">{$List.display}</span>
 
                     {if !($isBusy.research && ($ID == 6 || $ID == 31)) && !($isBusy.shipyard && ($ID == 15 || $ID == 21)) && $RoomIsOk && $CanBuildElement && $BuildInfoList[$ID].buyable}
-                        <form class="d-inline-block build_form" action="game.php?page=buildings" method="post">
+                        <form class="d-inline-block build_form d-none d-md-inline-block" action="game.php?page=buildings" method="post">
                             <input type="hidden" name="cmd" value="insert">
                             <input type="hidden" name="building" value="{$ID}">
                             <button type="submit" class="build_submit onlist btn btn-success">{$LNG.tech.{$ID}} {$List.level+1}{if $List.destroy} {$LNG.bd_dismantle}{else} {$LNG.bd_build}{/if}</button>
