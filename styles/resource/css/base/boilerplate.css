@@ -26,4 +26,7 @@ body {
     .container {
         margin-left: 280px;
     }
+    .tooltip .container {
+        margin-left: 0!important;
+    }
 }
