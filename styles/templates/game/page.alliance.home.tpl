@@ -188,7 +188,7 @@
                 {if !$isOwner}
                     <a class="btn btn-danger" href="game.php?page=alliance&amp;mode=close"
                        onclick="return confirm('{$LNG.al_leave_ally}');">
-                        <button>{$LNG.al_continue}</button>
+                        {$LNG.al_leave_alliance}
                     </a>
                 {/if}
             </div>
