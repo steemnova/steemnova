@@ -26,7 +26,7 @@ body {
     .container {
         margin-left: 280px;
     }
-    .tooltip .container {
+    .tip .container {
         margin-left: 0!important;
     }
 }
