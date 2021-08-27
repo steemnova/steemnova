@@ -36,6 +36,7 @@
                             </a>
                         </li>
                     {/foreach}
+                    <li class="nav-item res-item">C {$coins|number}</li>
 
                 </ul>
                 <ul class="navbar-nav ms-auto flex-nowrap">
