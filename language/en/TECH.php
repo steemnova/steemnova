@@ -188,6 +188,8 @@ $LNG['tech'] = array(
 	903 => 'Deuterium',
 	911 => 'Energy',
 	921 => 'Dark Matter',
+    925 => 'Cuneros',
+
 );
 
 $LNG['shortDescription'] = array(
@@ -403,4 +405,6 @@ $LNG['longDescription'] = array(
 903 => 'Deuterium is found in the deepest sea. It belongs to the rarest resources in the Universe. Because you have to get to the ground of the sea in order to get Deuterium, it is the most expensive resource.',
 911 => 'Energy is needed for the production of every resource.',
 921 => 'Dark Matter is a very mysterious resource. Nobody really knows where it comes from. Sometimes it just appears out of nowhere and sometimes it is even found in old ships. Some even say that it doesn\'t exist, but it has been proven otherwise. You can use Dark Matter to hire the most experienced officers in the universe.',
-);
+    925 => 'All active users receive daily multiple cuneros earnings. These are claimable on your planets. As long as you did not claim them, a successful attack can cost you up to 50% of these cuneros. Once claimed, you can either withdraw them to your cuneros account or exchange them for dark matter.',
+
+    );
