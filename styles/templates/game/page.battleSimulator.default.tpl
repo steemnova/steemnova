@@ -142,8 +142,8 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <input type="button" onClick="return check();" value="{$LNG.bs_send}" class="btn btn-primary">&nbsp;<input
-                            type="reset" value="{$LNG.bs_cancel}" class="btn btn-secondary">
+                    <a onClick="return check();" class="btn btn-primary">{$LNG.bs_send}</a>
+                    <input type="reset" value="{$LNG.bs_cancel}" class="btn btn-secondary">
                 </div>
             </div>
         </form>

@@ -27,7 +27,7 @@ class ShowBattleSimulatorPage extends AbstractGamePage
 	function send()
 	{
 		global $reslist, $pricelist, $LNG;
-		
+
 		if(!isset($_REQUEST['battleinput'])) {
 			$this->sendJSON(0);
 		}
@@ -133,7 +133,8 @@ class ShowBattleSimulatorPage extends AbstractGamePage
 			$stealResource = calculateSteal($attackers, array(
 			'metal' => $BattleArray[0][1][901],
 			'crystal' => $BattleArray[0][1][902],
-			'deuterium' => $BattleArray[0][1][903]
+			'deuterium' => $BattleArray[0][1][903],
+                'coins' => 0
 			), true);
 		}
 		else
