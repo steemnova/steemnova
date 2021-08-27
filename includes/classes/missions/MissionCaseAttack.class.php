@@ -41,7 +41,7 @@ class MissionCaseAttack extends MissionFunctions implements Mission
             901 => 0,
             902 => 0,
             903 => 0,
-            940 => 0,
+            925 => 0,
         );
 
         $debris = array();
@@ -433,7 +433,7 @@ HTML;
                     $LNG['tech'][903],
                     pretty_number($stealResource[903]),
                     $LNG['coins'],
-                    pretty_number($stealResource[940]),
+                    pretty_number($stealResource[925]),
                     $LNG['sys_debris'],
                     $LNG['tech'][901],
                     pretty_number($debris[901]),
@@ -489,7 +489,7 @@ HTML;
             ':metal' => $stealResource[901],
             ':crystal' => $stealResource[902],
             ':deuterium' => $stealResource[903],
-            ':coins' => $stealResource[940],
+            ':coins' => $stealResource[925],
             ':planetId' => $this->_fleet['fleet_end_id']
         ));
 
@@ -521,7 +521,7 @@ HTML;
             ':debrisMetal' => $debris[901],
             ':debrisCrystal' => $debris[902],
             ':lostUnits' => $combatResult['unitLost']['attacker'],
-            ':stolenCoins' => $stealResource[940] / count($userAttack),
+            ':stolenCoins' => $stealResource[925] / count($userAttack),
             ':destroyedUnits' => $combatResult['unitLost']['defender']
         ));
 
