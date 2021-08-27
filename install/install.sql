@@ -1350,7 +1350,8 @@ create table `%PREFIX%coinpot`
     is_active bool null,
     amount float null,
     time_paid int null,
-    constraint %PREFIX%coinpot_pk
+    universe_id int null,
+constraint %PREFIX%coinpot_pk
     primary key (id)
     );
 

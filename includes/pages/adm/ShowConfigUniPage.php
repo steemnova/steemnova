@@ -22,10 +22,21 @@ function ShowConfigUniPage()
 	global $LNG;
 
 	$config = Config::get(Universe::getEmulated());
-	
+
+    $sql = 'SELECT * FROM %%COINPOT%% WHERE universe_id = :universeId AND is_active=1';
+
+    $coinData = Database::get()->selectSingle($sql, [":universeId" => Universe::getEmulated()]);
+	if(!$coinData) {
+        $sql = 'INSERT INTO %%COINPOT%% (next_payout, amount, is_active, universe_id) VALUES(:nextTime, :amount, 1, :universeId)';
+        Database::get()->insert($sql, [':nextTime' => time()+(180+mt_rand(0,240))*60, ':amount' => 0, ':universeId' => Universe::getEmulated()]);
+        $coinData = Database::get()->selectSingle($sql, [":universeId" => Universe::getEmulated()]);
+	}
+
+	$CoinAmountVal = $coinData['amount'];
+	$CoinUpdateVal = $coinData['next_payout'];
 	if (!empty($_POST))
 	{
-		$config_before = array(
+        $config_before = array(
 			'noobprotectiontime'	=> $config->noobprotectiontime,
 			'noobprotectionmulti'	=> $config->noobprotectionmulti,
 			'noobprotection'		=> $config->noobprotection,
@@ -157,7 +168,11 @@ function ShowConfigUniPage()
 		$ref_max_referals		= HTTP::_GP('ref_max_referals', 0);
 		$max_dm_missions		= HTTP::_GP('max_dm_missions', 1);
 		$alliance_create_min_points = HTTP::_GP('alliance_create_min_points', 0);
-			
+		$CoinAmountVal = HTTP::_GP('coinAmountVal', 0);
+
+		$sql = 'UPDATE %%COINPOT%% SET amount = :amountVal WHERE universe_id = :universeId AND is_active=1 LIMIT 1';
+		Database::get()->update($sql, [':universeId' => Universe::getEmulated(), ':amountVal' => $CoinAmountVal]);
+
 		$config_after = array(
 			'noobprotectiontime'	=> $noobprotectiontime,
 			'noobprotectionmulti'	=> $noobprotectionmulti,
@@ -243,6 +258,7 @@ function ShowConfigUniPage()
 	$template	= new template();
 	$template->loadscript('../base/jquery.autosize-min.js');
 	$template->execscript('$(\'textarea\').autosize();');
+
 
 	$template->assign_vars(array(
 		'se_server_parameters'			=> $LNG['se_server_parameters'],
@@ -387,6 +403,10 @@ function ShowConfigUniPage()
 		'se_silo_factor_info'			=> $LNG['se_silo_factor_info'],
 		'se_max_dm_missions'			=> $LNG['se_max_dm_missions'],
 		'se_alliance_create_min_points' => $LNG['se_alliance_create_min_points'],
+		'se_coin_amount'                => $LNG['se_coin_amount'],
+		'se_coin_update'                => $LNG['se_coin_update'],
+		'CoinAmountVal'                 => $CoinAmountVal,
+		'CoinUpdateVal'                 => $CoinUpdateVal,
 		'game_name'						=> $config->game_name,
 		'uni_name'						=> $config->uni_name,
 		'game_speed'					=> ($config->game_speed / 2500),

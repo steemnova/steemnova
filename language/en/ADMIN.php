@@ -1321,3 +1321,6 @@ $LNG['du_select_all_tables'] = 'All Tables';
 $LNG['du_choose_tables'] = 'Select tables';
 $LNG['du_success'] = 'Backup created successfully! File: %s';
 $LNG['du_not_tables_selected'] = 'You have no tables selected to backup!';
+
+$LNG['se_coin_amount'] = 'Current CoinPot';
+$LNG['se_coin_update'] = 'Next Coin payout';

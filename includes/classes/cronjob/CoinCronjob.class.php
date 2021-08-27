@@ -20,18 +20,31 @@ require_once 'includes/classes/cronjob/CronjobTask.interface.php';
 class CoinCronJob implements CronjobTask
 {
 	function run()
-	{		
-		$db	= Database::get();
-        $coinPot = 100;
+	{
+        $defaultAmount = 1000;
+	    // check if coinpot is valid
+        $sql = 'SELECT * from %%COINPOT%% WHERE next_payout < :time AND is_active=1 LIMIT 1';
+        $data = Database::get()->selectSingle($sql, [':time' => time()]);
+        if (!$data)
+            return;
+        $coinPot = $data['amount'];
+        print_r($data);
+        $sql = 'UPDATE %%COINPOT%% SET `time_paid`=:nowTime, is_active=0 WHERE `id` = :id LIMIT 1';
+        Database::get()->update($sql, [':nowTime' => time(), ':id' => $data['id'] ]);
+
+        $sql = 'INSERT INTO %%COINPOT%% (next_payout, amount, is_active, universe_id) VALUES(:nextTime, :amount, 1, :universeId)';
+        Database::get()->insert($sql, [':nextTime' => time()+(180+mt_rand(0,240))*60, ':amount' => $defaultAmount, ':universeId' => $data['universe_id']]);
 		// get active user planets
-		$sql	= 'SELECT COUNT(p.id) as counter FROM %%PLANETS%% AS p LEFT JOIN %%USERS%% as u on p.id_owner = u.id WHERE u.onlinetime > :validTime';
+		$sql	= 'SELECT COUNT(p.id) as counter FROM %%PLANETS%% AS p LEFT JOIN %%USERS%% as u on p.id_owner = u.id WHERE p.universe = :universeId AND u.onlinetime > :validTime';
         $planets = Database::get()->selectSingle($sql, array(
             ':validTime' => time()-60*60*3,
+            ':universeId' => $data['universe_id'],
         ), 'counter');
-        $coinPotPart = $coinPot * 0.5 / $planets;
-        $sql	= 'UPDATE %%PLANETS%% SET `coins` = coins + :coinCount WHERE `id` IN(SELECT p.id FROM %%PLANETS%% AS p LEFT JOIN %%USERS%% as u on p.id_owner = u.id WHERE u.onlinetime > :validTime)';
+        $coinPotPart = $coinPot * 0.5 / max(1,$planets);
+        $sql	= 'UPDATE %%PLANETS%% SET `coins` = coins + :coinCount WHERE `id` IN(SELECT p.id FROM %%PLANETS%% AS p LEFT JOIN %%USERS%% as u on p.id_owner = u.id WHERE p.universe = :universeId AND u.onlinetime > :validTime)';
         $planets = Database::get()->update($sql, array(
             ':coinCount' => $coinPotPart,
+            ':universeId' => $data['universe_id'],
             ':validTime' => time()-60*60*3,
         ));
 
@@ -39,14 +52,15 @@ class CoinCronJob implements CronjobTask
         // foreach
 
 		// ress bonus by production
-        $sql	= 'SELECT SUM(metal_perhour) as sumMetal, SUM(crystal_perhour) as sumCrystal, SUM(deuterium_perhour) as sumDeuterium FROM %%PLANETS%%';
-        $totalData = Database::get()->select($sql, array())[0];
+        $sql	= 'SELECT SUM(metal_perhour) as sumMetal, SUM(crystal_perhour) as sumCrystal, SUM(deuterium_perhour) as sumDeuterium FROM %%PLANETS%% WHERE universe = :universeId';
+        $totalData = Database::get()->select($sql, array(':universeId' => $data['universe_id']))[0];
         print_r($totalData);
-        $sql	= 'UPDATE %%PLANETS%% SET `coins` = `coins` + `metal_perhour`*:metalFactor+ `crystal_perhour`*:crystalFactor+ `deuterium_perhour` * :deuteriumFactor';
+        $sql	= 'UPDATE %%PLANETS%% SET `coins` = `coins` + `metal_perhour`*:metalFactor+ `crystal_perhour`*:crystalFactor+ `deuterium_perhour` * :deuteriumFactor WHERE universe = :universeId';
         Database::get()->update($sql, array(
             ":metalFactor" =>$coinPot*0.1/max(1,$totalData['sumMetal']),
             ":crystalFactor" => $coinPot*0.2/max(1,$totalData['sumCrystal']),
-            ":deuteriumFactor" => $coinPot*0.2/max(1,$totalData['sumDeuterium'])
+            ":deuteriumFactor" => $coinPot*0.2/max(1,$totalData['sumDeuterium']),
+            ':universeId' => $data['universe_id']
         ));
         return true;
 	}
