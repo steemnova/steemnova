@@ -275,20 +275,27 @@ function BuildPlanetAddressLink($CurrentPlanet)
 {
     return '<a href="game.php?page=galaxy&amp;galaxy=' . $CurrentPlanet['galaxy'] . '&amp;system=' . $CurrentPlanet['system'] . '">[' . $CurrentPlanet['galaxy'] . ':' . $CurrentPlanet['system'] . ':' . $CurrentPlanet['planet'] . ']</a>';
 }
+
 /** from stackoverflow  https://stackoverflow.com/questions/13049851/php-number-abbreviator */
 function abbreviateTotalCount($value)
 {
     $abbreviations = array(12 => 'T', 9 => 'B', 6 => 'M', 3 => 'K', 0 => '');
     foreach ($abbreviations as $exponent => $abbreviation) {
         if ($value >= pow(10, $exponent)) {
-            return round(floatval($value / pow(10, $exponent)),1).$abbreviation;
+            return round(floatval($value / pow(10, $exponent)), 1) . $abbreviation;
         }
     }
 }
 
 function pretty_number($n, $dec = 0)
 {
-    return abbreviateTotalCount($n); //number_format(floatToString($n, $dec), $dec, ',', '.');
+    if ($n < 0) {
+        return -abbreviateTotalCount(-$n);
+    } else if ($n == 0) {
+        return 0;
+    } else {
+        return abbreviateTotalCount($n); //number_format(floatToString($n, $dec), $dec, ',', '.');
+    }
 }
 
 function GetUserByID($userId, $GetInfo = "*")
