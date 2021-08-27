@@ -36,8 +36,12 @@
                             </a>
                         </li>
                     {/foreach}
-                    <li class="nav-item res-item">C {$coins|number}</li>
-
+                    <li class="nav-item res-item">
+                        <a class="nav-link">
+                        <img src="{$dpath}images/cuneros.png">
+                        <span class="d-lg-block d-none">Cuneros</span>
+                        <span class="res_current">{$coins|number}</span></li>
+                    </a>
                 </ul>
                 <ul class="navbar-nav ms-auto flex-nowrap">
 
