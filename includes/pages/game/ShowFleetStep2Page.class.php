@@ -47,13 +47,17 @@ class ShowFleetStep2Page extends AbstractGamePage
 		$fleetArray    				= $_SESSION['fleet'][$token]['fleet'];
 
 		$db = Database::get();
-		$sql = "SELECT id, id_owner, der_metal, der_crystal FROM %%PLANETS%% WHERE universe = :universe AND galaxy = :targetGalaxy AND system = :targetSystem AND planet = :targetPlanet AND planet_type = '1';";
+		$sql = "SELECT id, id_owner, der_metal, der_crystal, id_owner FROM %%PLANETS%% WHERE universe = :universe AND galaxy = :targetGalaxy AND system = :targetSystem AND planet = :targetPlanet AND planet_type = '1';";
 		$targetPlanetData = $db->selectSingle($sql, array(
 			':universe' => Universe::current(),
 			':targetGalaxy' => $targetGalaxy,
 			':targetSystem' => $targetSystem,
 			':targetPlanet' => $targetPlanet
 		));
+
+		// check if planet has owner
+        $sql = 'SELECT a.username, a.ally_id, b.ally_name, b.ally_tag FROM %%USERS%% as a LEFT JOIN %%ALLIANCE%% as b ON a.ally_id=b.id WHERE a.id=:ownerId';
+        $ownerData = $db->selectSingle($sql, [':ownerId' => $targetPlanetData['id_owner']]);
 
 		if($targetType == 2 && $targetPlanetData['der_metal'] == 0 && $targetPlanetData['der_crystal'] == 0)
 		{
@@ -133,6 +137,8 @@ class ShowFleetStep2Page extends AbstractGamePage
 			'fl_dm_alert_message'			=> sprintf($LNG['fl_dm_alert_message'], $LNG['type_mission_11'], $LNG['tech'][921]),
 			'fl_continue'					=> $LNG['fl_continue'],
 			'token' 						=> $token,
+            'owner_data'                    => $ownerData,
+            'own_ally'                      => $ownerData['ally_id'] == $USER['ally_id'] and $ownerData['ally_id'] != 0,
 		));
 
 		$this->display('page.fleetStep2.default.tpl');

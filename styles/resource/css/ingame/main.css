@@ -112,3 +112,6 @@ main {
     padding-top: 0;
     height: initial !important;
 }
+.galaxy-alliance-member {
+    font-weight: bold;
+}

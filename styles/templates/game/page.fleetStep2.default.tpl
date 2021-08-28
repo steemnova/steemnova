@@ -9,6 +9,9 @@
                         <h3>{$LNG.fl_mission}: {$galaxy}:{$system}:{$planet} - {$LNG["type_planet_{$type}"]}</h3>
                     </div>
                     <div class="card-body">
+                        {if $own_ally}
+                            <div class="alert alert-warning">{$LNG.attack_own_ally}</div>
+                        {/if}
                         {foreach $MissionSelector as $MissionID}
                             <div class="form-check">
                                 <input type="radio" value="{$MissionID}" class="form-check-input" name="mission"
