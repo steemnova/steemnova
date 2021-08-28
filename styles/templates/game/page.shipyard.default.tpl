@@ -41,8 +41,9 @@
     </div>
     <div class="row row-cols-1 row-cols-md-4 g-4 build-gutter">
         {foreach $elementList as $ID => $Element}
-            <form action="game.php?page=shipyard&amp;mode={$mode}" method="post" id="s{$ID}">
-                <div class="col collapse show ship {if $ID|in_array:[202, 203, 209, 208, 212, 216, 217, 218, 219, 220]}civil{else}military{/if}" id="s{$ID}">
+            <div class="col collapse show ship {if $ID|in_array:[202, 203, 209, 208, 212, 216, 217, 218, 219, 220]}civil{else}military{/if}"
+                 id="s{$ID}">
+                <form action="game.php?page=shipyard&amp;mode={$mode}" method="post" id="s{$ID}">
                     <div class="card">
                         <div class="card-header">
                             <h3 onclick="return Dialog.info({$ID})">{$Element.available|number}x
@@ -97,8 +98,8 @@
                             {/if}
                         </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         {/foreach}
     </div>
 {/block}
