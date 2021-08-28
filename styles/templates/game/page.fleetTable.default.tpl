@@ -30,7 +30,7 @@
                     <tr>
                         <td>{$smarty.foreach.FlyingFleets.iteration}</td>
                         <td>
-                            <a data-tooltip-content="<table style='width:200px'><tr><td style='width:50%;color:white'>{$LNG['tech'][901]}</td><td style='width:50%;color:white'>{$FlyingFleetRow.metal}</td></tr><tr><td style='width:50%;color:white'>{$LNG['tech'][902]}</td><td style='width:50%;color:white'>{$FlyingFleetRow.crystal}</td></tr><tr><td style='width:50%;color:white'>{$LNG['tech'][903]}</td><td style='width:50%;color:white'>{$FlyingFleetRow.deuterium}</td></tr><tr><td style='width:50%;color:white'>{$LNG['tech'][921]}</td><td style='width:50%;color:white'>{$FlyingFleetRow.dm}</td></tr></table>"
+                            <a data-tooltip-content="{include "fleet.resources.tpl"}"
                                class="tooltip">
                                 {$LNG["type_mission_{$FlyingFleetRow.mission}"]}
                             </a>
@@ -43,7 +43,7 @@
                             {/if}
                         </td>
                         <td><a class="tooltip_sticky"
-                               data-tooltip-content="<table><tr><th colspan='2' style='text-align:center;'>{$LNG.fl_info_detail}</th></tr>{foreach $FlyingFleetRow.FleetList as $shipID => $shipCount}<tr><td class='transparent'>{$LNG.tech.{$shipID}}:</td><td class='transparent'>{$shipCount}</td></tr>{/foreach}</table>">{$FlyingFleetRow.amount}</a>
+                               data-tooltip-content="{include "fleet.info.tpl"}">{$FlyingFleetRow.amount}</a>
                         </td>
                         <td>
                             <a href="game.php?page=galaxy&amp;galaxy={$FlyingFleetRow.startGalaxy}&amp;system={$FlyingFleetRow.startSystem}">[{$FlyingFleetRow.startGalaxy}
