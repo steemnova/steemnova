@@ -1275,3 +1275,10 @@ $LNG['research_toggle_engine'] = 'Toggle Engine';
 $LNG['research_toggle_mining'] = 'Toggle Mining';
 
 $LNG['attack_own_ally'] = 'WARNING! The target is in your alliance!';
+
+
+$LNG['ov_fleet_planet'] = 'Units on this planet';
+$LNG['ov_fleet_incoming'] = 'Incoming fleets';
+
+$LNG['weakness'] = 'Weakness';
+$LNG['strength'] = 'Strength';

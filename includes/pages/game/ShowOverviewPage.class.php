@@ -133,7 +133,7 @@ class ShowOverviewPage extends AbstractGamePage
 
     function show()
     {
-        global $LNG, $PLANET, $USER;
+        global $LNG, $PLANET, $USER, $reslist, $resource;
 
         $AdminsOnline = array();
         $chatOnline = array();
@@ -274,12 +274,28 @@ class ShowOverviewPage extends AbstractGamePage
 			FROM %%FLEETS%%'
         )['COUNT(*)'];
 
+        $defElementIDs	= array_merge($reslist['defense'], $reslist['missile']);
+        $fleetElementIDs	= $reslist['fleet'];
+
+        $defMissiles	= array();
+        $offMissiles = array();
+
+        foreach($defElementIDs as $elementID)
+        {
+            $defMissiles[$elementID]	= $PLANET[$resource[$elementID]];
+        }
+        foreach($fleetElementIDs as $elementID)
+        {
+            $offMissiles[$elementID]	= $PLANET[$resource[$elementID]];
+        }
         $this->assign(array(
             'rankInfo' => $rankInfo,
             'is_news' => $config->OverviewNewsFrame,
             'news' => makebr($config->OverviewNewsText),
             'usersOnline' => $usersOnline,
             'fleetsOnline' => $fleetsOnline,
+            'defMissiles' => $defMissiles,
+            'offMissiles' => $offMissiles,
             'planetname' => $PLANET['name'],
             'planetimage' => $PLANET['image'],
             'galaxy' => $PLANET['galaxy'],

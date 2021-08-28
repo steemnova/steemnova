@@ -1275,3 +1275,10 @@ $LNG['cuneros_payout_successful'] = 'Cuneros erfolgreich ausgezahlt!';
 $LNG['fl_transfer_alert_message']		    = 'Achtung! Deine Flotte wird hier an einen anderen Nutzer übertragen!';
 
 $LNG['attack_own_ally'] = 'ACHTUNG! Das Ziel ist in deiner Allianz!';
+
+
+$LNG['ov_fleet_planet'] = 'Einheiten auf dem Planeten';
+$LNG['ov_fleet_incoming'] = 'Ankommende Flotten';
+
+$LNG['weakness'] = 'Schwächen';
+$LNG['strength'] = 'Stärken';

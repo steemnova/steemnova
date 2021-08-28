@@ -35,10 +35,10 @@
         <div class="col mb-2">
             <div class="card">
                 <div class="card-header">
-                    <h2>{$LNG.ov_events}</h2>
+                    <h2>{$LNG.in_units}</h2>
                 </div>
                 <div class="card-body">
-                    <p class="card-text"></p>
+                    <h5 class="card-subtitle mb-2">{$LNG.ov_fleet_incoming}</h5>
                     <ul class="collapse show list-group" id="fleet-info">
                         {foreach $fleets as $index => $fleet}
                             <li class="list-group-item"><span id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</span>
@@ -46,6 +46,26 @@
                             </li>
                         {/foreach}
                     </ul>
+                    <hr />
+                    <h5 class="card-subtitle mb-2">{$LNG.ov_fleet_planet}</h5>
+                    <div class="d-flex w-100">
+                    <ul class="list-group flex-grow-1">
+                        <li class="list-group-item"><a class="nav-link" href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_fleet}</a></li>
+                        {foreach $offMissiles as $ID => $amount}
+                            {if $amount > 0}
+                                <li class="list-group-item d-flex justify-content-between align-items-center"><span class="badge bg-primary rounded-pill">{$amount|number}</span> <a href="#" onclick="return Dialog.info({$ID});">{$LNG.tech.{$ID}}</a></li>
+                            {/if}
+                        {/foreach}
+                    </ul>
+                    <ul class="list-group flex-grow-1">
+                        <li class="list-group-item"><a class="nav-link" href="game.php?page=shipyard&amp;mode=defense">{$LNG.lm_defenses}</a></li>
+                        {foreach $defMissiles as $ID => $amount}
+                            {if $amount > 0}
+                                <li class="list-group-item d-flex justify-content-between align-items-center"> <span class="badge bg-info rounded-pill">{$amount|number}</span> <a href="#" onclick="return Dialog.info({$ID});">{$LNG.tech.{$ID}}</a></li>
+                            {/if}
+                        {/foreach}
+                    </ul>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <button class="btn btn-sm btn-info" data-bs-target="#fleet-info"
