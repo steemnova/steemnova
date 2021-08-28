@@ -116,6 +116,6 @@ main {
     font-weight: bold;
 }
 
-#chat .content {
+#chat #content {
     width: 100%;
 }
