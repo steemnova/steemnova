@@ -141,7 +141,7 @@
                 </div>
             </div>
             {if $Moon}
-                <div class="card">
+                <div class="card mt-2">
                     <div class="card-header">
                         <h2>{$LNG.fcm_moon}</h2>
                     </div>
@@ -157,7 +157,7 @@
             {/if}
 
             {if $AllPlanets}
-                <div class="card">
+                <div class="card mt-2">
                     <div class="card-header">
                         <h2 class="card-title">{$LNG.lv_planet_other}</h2>
                     </div>
