@@ -1205,7 +1205,7 @@ $LNG['bs_reset']						= 'Reset';
 //----------------------------------------------------------------------------//
 // Fleettrader
 
-$LNG['ft_head']							= 'Schrotthandler';
+$LNG['ft_head']							= 'Schrotthändler';
 $LNG['ft_count']						= 'Anzahl';
 $LNG['ft_max']							= 'max';
 $LNG['ft_total']						= 'TOTAL';

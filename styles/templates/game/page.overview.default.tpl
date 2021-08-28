@@ -72,22 +72,21 @@
                     <div class="d-inline-block ps-1 flex-grow-1">
                         <ul class="list-group">
                         {if $buildInfo.buildings}
-                            <li class="list-group-item list-group-item-warning"><a href="game.php?page=buildings">{$LNG.lm_buildings}
-                            : </a>{$LNG.tech[$buildInfo.buildings['id']]} ({$buildInfo.buildings['level']})
+                            <li class="list-group-item list-group-item-warning"><a href="game.php?page=buildings">{$LNG.lm_buildings}:</a> {$LNG.tech[$buildInfo.buildings['id']]} ({$buildInfo.buildings['level']})
                                 <span class="timer float-end" data-time="{$buildInfo.buildings['timeleft']}"></span></li>
                         {else}
                             <li class="list-group-item list-group-item-success"><a href="game.php?page=buildings">{$LNG.lm_buildings}
                                 : {$LNG.ov_free}</a></li>
                         {/if}
                         {if $buildInfo.tech}
-                            <li class="list-group-item list-group-item-warning"><a href="game.php?page=research">{$LNG.lm_research}: </a>{$LNG.tech[$buildInfo.tech['id']]} ({$buildInfo.tech['level']})
+                            <li class="list-group-item list-group-item-warning"><a href="game.php?page=research">{$LNG.lm_research}:</a> {$LNG.tech[$buildInfo.tech['id']]} ({$buildInfo.tech['level']})
 
                             <span class="timer float-end" data-time="{$buildInfo.tech['timeleft']}"></span></li>
                                 {else}
                             <li class="list-group-item list-group-item-success"><a href="game.php?page=research">{$LNG.lm_research}: {$LNG.ov_free}</a></li>
                         {/if}
                         {if $buildInfo.fleet}
-                            <li class="list-group-item list-group-item-warning"><a href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}: </a>{$LNG.tech[$buildInfo.fleet['id']]} ({$buildInfo.fleet['level']})
+                            <li class="list-group-item list-group-item-warning"><a href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}:</a> {$LNG.tech[$buildInfo.fleet['id']]} ({$buildInfo.fleet['level']})
                                 <span class="timer float-end" data-time="{$buildInfo.fleet['timeleft']}"></span></li>
                                 {else}
                             <li class="list-group-item list-group-item-success"><a href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}: {$LNG.ov_free}</a></li>

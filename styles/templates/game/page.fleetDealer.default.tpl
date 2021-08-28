@@ -1,15 +1,16 @@
 {block name="title" prepend}{$LNG.lm_fleettrader}{/block}
 {block name="content"}
     <div class="card">
-        <div class="card-header">
-            <h2 class="card-title">{$LNG.ft_head}</h2>
-            <select name="shipID" id="shipID" class="float-end form-control" onchange="updateVars()">
-                {foreach $shipIDs as $shipID}
-                    <option value="{$shipID}">{$LNG.tech.$shipID}</option>
-                {/foreach}
-            </select>
-        </div>
         <form action="game.php?page=fleetDealer" method="post">
+
+            <div class="card-header">
+                <h2 class="card-title">{$LNG.ft_head}</h2>
+                <select name="shipID" id="shipID" class="float-end form-control" onchange="updateVars()">
+                    {foreach $shipIDs as $shipID}
+                        <option value="{$shipID}">{$LNG.tech.$shipID}</option>
+                    {/foreach}
+                </select>
+            </div>
             <input type="hidden" name="mode" value="send">
             <div class="card-body">
                 <img id="img" class="float-end" alt="" data-src="{$dpath}gebaeude/"><br/>
