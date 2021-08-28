@@ -1,7 +1,6 @@
 {block name="title" prepend}{$LNG.lm_overview}{/block}
 {block name="content"}
     {include "messages.partial.tpl"}
-
     <div class="row row-cols-1 row-cols-lg-2 g-4">
         <div class="col mb-2">
             <div class="card">
@@ -21,34 +20,45 @@
                             {$LNG.ov_news}:&nbsp;{$news}
                         </div>
                     {/if}
-<hr />
+                    <hr/>
                     <h5 class="card-subtitle mb-2">{$LNG.ov_fleet_incoming}</h5>
                     <ul class="collapse show list-group" id="fleet-info">
                         {foreach $fleets as $index => $fleet}
-                            <li class="list-group-item"><span id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</span>
+                            <li class="list-group-item"><span id="fleettime_{$index}" class="fleets"
+                                                              data-fleet-end-time="{$fleet.returntime}"
+                                                              data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</span>
                                 <span id="fleettime_{$index}">{$fleet.text}</span>
                             </li>
                         {/foreach}
                     </ul>
-                    <hr />
+                    <hr/>
                     <h5 class="card-subtitle mb-2">{$LNG.ov_fleet_planet}</h5>
                     <div class="d-flex w-100">
-                    <ul class="list-group flex-grow-1">
-                        <li class="list-group-item"><a class="nav-link" href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_fleet}</a></li>
-                        {foreach $offMissiles as $ID => $amount}
-                            {if $amount > 0}
-                                <li class="list-group-item d-flex justify-content-between align-items-center"><span class="badge bg-primary rounded-pill">{$amount|number}</span> <a href="#" onclick="return Dialog.info({$ID});">{$LNG.tech.{$ID}}</a></li>
-                            {/if}
-                        {/foreach}
-                    </ul>
-                    <ul class="list-group flex-grow-1">
-                        <li class="list-group-item"><a class="nav-link" href="game.php?page=shipyard&amp;mode=defense">{$LNG.lm_defenses}</a></li>
-                        {foreach $defMissiles as $ID => $amount}
-                            {if $amount > 0}
-                                <li class="list-group-item d-flex justify-content-between align-items-center"> <span class="badge bg-info rounded-pill">{$amount|number}</span> <a href="#" onclick="return Dialog.info({$ID});">{$LNG.tech.{$ID}}</a></li>
-                            {/if}
-                        {/foreach}
-                    </ul>
+                        <ul class="list-group flex-grow-1">
+                            <li class="list-group-item"><a class="nav-link"
+                                                           href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_fleet}</a>
+                            </li>
+                            {foreach $offMissiles as $ID => $amount}
+                                {if $amount > 0}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span
+                                                class="badge bg-primary rounded-pill">{$amount|number}</span> <a
+                                                href="#" onclick="return Dialog.info({$ID});">{$LNG.tech.{$ID}}</a></li>
+                                {/if}
+                            {/foreach}
+                        </ul>
+                        <ul class="list-group flex-grow-1">
+                            <li class="list-group-item"><a class="nav-link"
+                                                           href="game.php?page=shipyard&amp;mode=defense">{$LNG.lm_defenses}</a>
+                            </li>
+                            {foreach $defMissiles as $ID => $amount}
+                                {if $amount > 0}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center"><span
+                                                class="badge bg-info rounded-pill">{$amount|number}</span> <a href="#"
+                                                                                                              onclick="return Dialog.info({$ID});">{$LNG.tech.{$ID}}</a>
+                                    </li>
+                                {/if}
+                            {/foreach}
+                        </ul>
                     </div>
                 </div>
                 <div class="card-footer">
@@ -78,27 +88,43 @@
                     </div>
                     <div class="d-inline-block ps-1 flex-grow-1">
                         <ul class="list-group">
-                        {if $buildInfo.buildings}
-                            <li class="list-group-item list-group-item-warning"><a href="game.php?page=buildings">{$LNG.lm_buildings}:</a> {$LNG.tech[$buildInfo.buildings['id']]} ({$buildInfo.buildings['level']})
-                                <span class="timer float-end" data-time="{$buildInfo.buildings['timeleft']}"></span></li>
-                        {else}
-                            <li class="list-group-item list-group-item-success"><a href="game.php?page=buildings">{$LNG.lm_buildings}
-                                : {$LNG.ov_free}</a></li>
-                        {/if}
-                        {if $buildInfo.tech}
-                            <li class="list-group-item list-group-item-warning"><a href="game.php?page=research">{$LNG.lm_research}:</a> {$LNG.tech[$buildInfo.tech['id']]} ({$buildInfo.tech['level']})
+                            {if $buildInfo.buildings}
+                                <li class="list-group-item list-group-item-warning"><a
+                                            href="game.php?page=buildings">{$LNG.lm_buildings}
+                                        :</a> {$LNG.tech[$buildInfo.buildings['id']]} ({$buildInfo.buildings['level']})
+                                    <span class="timer float-end" data-time="{$buildInfo.buildings['timeleft']}"></span>
+                                </li>
+                            {else}
+                                <li class="list-group-item list-group-item-success"><a
+                                            href="game.php?page=buildings">{$LNG.lm_buildings}
+                                        : {$LNG.ov_free}</a></li>
+                            {/if}
+                            {if $buildInfo.tech}
+                                <li class="list-group-item list-group-item-warning"><a
+                                            href="game.php?page=research">{$LNG.lm_research}
+                                        :</a> {$LNG.tech[$buildInfo.tech['id']]} ({$buildInfo.tech['level']})
 
-                            <span class="timer float-end" data-time="{$buildInfo.tech['timeleft']}"></span></li>
-                                {else}
-                            <li class="list-group-item list-group-item-success"><a href="game.php?page=research">{$LNG.lm_research}: {$LNG.ov_free}</a></li>
-                        {/if}
-                        {if $buildInfo.fleet}
-                            <li class="list-group-item list-group-item-warning"><a href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}:</a> {$LNG.tech[$buildInfo.fleet['id']]} ({$buildInfo.fleet['level']})
-                                <span class="timer float-end" data-time="{$buildInfo.fleet['timeleft']}"></span></li>
-                                {else}
-                            <li class="list-group-item list-group-item-success"><a href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}: {$LNG.ov_free}</a></li>
-                        {/if}
-                            <li class="list-group-item {if $planet_coins > 0}list-group-item-danger{/if}">{$LNG.cuneros_coins}: {$planet_coins|number_format}{if $planet_coins > 0}<a class="btn btn-primary btn-sm float-end json-request" data-href="game.php?page=overview&amp;mode=claim_coins">{$LNG.cuneros_claim}</a>{/if}</li>
+                                    <span class="timer float-end" data-time="{$buildInfo.tech['timeleft']}"></span></li>
+                            {else}
+                                <li class="list-group-item list-group-item-success"><a
+                                            href="game.php?page=research">{$LNG.lm_research}: {$LNG.ov_free}</a></li>
+                            {/if}
+                            {if $buildInfo.fleet}
+                                <li class="list-group-item list-group-item-warning"><a
+                                            href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}
+                                        :</a> {$LNG.tech[$buildInfo.fleet['id']]} ({$buildInfo.fleet['level']})
+                                    <span class="timer float-end" data-time="{$buildInfo.fleet['timeleft']}"></span>
+                                </li>
+                            {else}
+                                <li class="list-group-item list-group-item-success"><a
+                                            href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}
+                                        : {$LNG.ov_free}</a></li>
+                            {/if}
+                            <li class="list-group-item {if $planet_coins > 0}list-group-item-danger{/if}">{$LNG.cuneros_coins}
+                                : {$planet_coins|number_format}{if $planet_coins > 0}<a
+                                        class="btn btn-primary btn-sm float-end json-request"
+                                        data-href="game.php?page=overview&amp;mode=claim_coins">{$LNG.cuneros_claim}</a>{/if}
+                            </li>
                         </ul>
                         <br>
                         {$LNG.ov_diameter}: {$planet_diameter} {$LNG.ov_distance_unit} (<a
@@ -114,9 +140,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        {if $Moon}
-            <div class="col">
+            {if $Moon}
                 <div class="card">
                     <div class="card-header">
                         <h2>{$LNG.fcm_moon}</h2>
@@ -130,11 +154,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        {/if}
+            {/if}
 
-        {if $AllPlanets}
-            <div class="col">
+            {if $AllPlanets}
                 <div class="card">
                     <div class="card-header">
                         <h2 class="card-title">{$LNG.lv_planet_other}</h2>
@@ -145,7 +167,7 @@
                             <div class="planetl">
                                 <a href="game.php?page=overview&amp;cp={$PlanetRow.id}" title="{$PlanetRow.name}">
                                     <img src="{$dpath}planeten/{$PlanetRow.image}.jpg" width="100" height="100"
-                                                                                   alt="{$PlanetRow.name}"><br />
+                                         alt="{$PlanetRow.name}"><br/>
                                     {$PlanetRow.name}
                                 </a>
                                 <br>{$PlanetRow.build}<br>
@@ -153,8 +175,8 @@
                         {/foreach}
                     </div>
                 </div>
-            </div>
-        {/if}
+            {/if}
+        </div>
     </div>
 {/block}
 {block name="script" append}
