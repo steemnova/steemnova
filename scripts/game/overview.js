@@ -5,21 +5,21 @@ function fleetCountDown() {
             $(this).text('-');
         } else {
             $(this).text(GetRestTimeFormat(s));
-            window.setTimeout(fleetCountDown, 1000);
         }
     })
+    window.setTimeout(fleetCountDown, 1000);
 }
 
 function timeCountDown() {
     $('.timer').each(function () {
         var s = $(this).data('time') - (serverTime.getTime() - startTime) / 1000;
-        if (s == 0) {
+        if (s <= 0) {
             window.location.href = "game.php?page=overview";
         } else {
             $(this).text(GetRestTimeFormat(s));
-            window.setTimeout(timeCountDown, 1000);
         }
     });
+    window.setTimeout(timeCountDown, 1000);
 }
 
 $(document).ready(function () {

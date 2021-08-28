@@ -171,5 +171,5 @@
     </div>
 {/block}
 {block name="script" append}
-    <script src="scripts/game/overview.js?2"></script>
+    <script src="scripts/game/overview.js?3"></script>
 {/block}
