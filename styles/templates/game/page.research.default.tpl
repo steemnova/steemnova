@@ -49,9 +49,8 @@
            data-bs-target=".mining">{$LNG.research_toggle_mining}</a>
     </div>
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-2 build-gutter">
-
         {foreach $ResearchList as $ID => $Element}
-            <div id="t{$ID}" class="col collapse show {if !$Element.buyable}non-buyable{else}buyable{/if}">
+            <div id="t{$ID}" class="col collapse show {if !$Element.buyable}non-buyable{else}buyable{/if} {if $ID|in_array:[106, 108, 113, 114, 123, 124, 199]}imperial{elseif $ID|in_array:[121, 129, 120]}military{elseif $ID|in_array:[115, 117, 118]}engine{else}mining{/if}">
                 <div class="card">
                     <div class="card-header">
                         <h6 class="card-title" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}
