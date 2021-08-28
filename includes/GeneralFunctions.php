@@ -289,6 +289,8 @@ function abbreviateTotalCount($value)
 
 function pretty_number($n, $dec = 0)
 {
+    if(!is_numeric($n))
+        return 'NaN';
     if ($n < 0) {
         return '-' . abbreviateTotalCount(-$n);
     } else if ($n == 0) {
