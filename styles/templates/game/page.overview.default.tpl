@@ -6,38 +6,22 @@
         <div class="col mb-2">
             <div class="card">
                 <div class="card-header">
-                    <h2 class="card-title">{$LNG.lm_overview}</h2>
+                    <h2>{$LNG.lm_overview}</h2>
                 </div>
                 <div class="card-body">
                     {$LNG.ov_server_time}:
                     <span class="servertime">{$servertime}</span>
                     <br/>
-                    {$LNG.ov_admins_online}
-                    :&nbsp;{foreach $AdminsOnline as $ID => $Name}{if !$Name@first}&nbsp;&bull;&nbsp;{/if}
-                    <a href="#" onclick="return Dialog.PM({$ID})">{$Name}</a>{foreachelse}{/foreach}
-                    <br/>
                     {$LNG.ov_online}
-                    {$usersOnline} {$LNG.ov_players}<br/>
-                    {$fleetsOnline} {$LNG.ov_moving_fleets}<br/>
-                    {$LNG.ov_points} {$rankInfo}<br/>
+                    {$usersOnline}: {$LNG.ov_players}<br/>
+                    {$LNG.ov_moving_fleets}: {$fleetsOnline}<br/>
+                    {$LNG.ov_points}: {$rankInfo}<br/>
                     {if $is_news}
                         <div class="collapse" id="news">
                             {$LNG.ov_news}:&nbsp;{$news}
                         </div>
                     {/if}
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-sm btn-info" data-bs-target="#news"
-                            data-bs-toggle="collapse">{$LNG.toggle_news}</button>
-                </div>
-            </div>
-        </div>
-        <div class="col mb-2">
-            <div class="card">
-                <div class="card-header">
-                    <h2>{$LNG.in_units}</h2>
-                </div>
-                <div class="card-body">
+<hr />
                     <h5 class="card-subtitle mb-2">{$LNG.ov_fleet_incoming}</h5>
                     <ul class="collapse show list-group" id="fleet-info">
                         {foreach $fleets as $index => $fleet}
@@ -68,6 +52,9 @@
                     </div>
                 </div>
                 <div class="card-footer">
+                    <button class="btn btn-sm btn-info" data-bs-target="#news"
+                            data-bs-toggle="collapse">{$LNG.toggle_news}</button>
+
                     <button class="btn btn-sm btn-info" data-bs-target="#fleet-info"
                             data-bs-toggle="collapse">{$LNG.toggle_fleets}</button>
 
@@ -150,7 +137,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">{$LNG.lv_planet}</h2>
+                        <h2 class="card-title">{$LNG.lv_planet_other}</h2>
                     </div>
                     <div class="card-body">
                         {foreach $AllPlanets as $PlanetRow}

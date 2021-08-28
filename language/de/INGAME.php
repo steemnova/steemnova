@@ -138,7 +138,7 @@ $LNG['ov_fields']						= 'Felder';
 $LNG['ov_developed_fields']					= 'bebaute Felder';
 $LNG['ov_max_developed_fields']					= 'max. bebaubare Felder';
 $LNG['ov_fleet']						= 'Flotten';
-$LNG['ov_admins_online']					= 'Admins(Online):';
+$LNG['ov_admins_online']					= 'Admins (Online)';
 $LNG['ov_no_admins_online']					= 'Zurzeit kein Admin online!';
 $LNG['ov_userbanner']						= 'Statistiken-Banner';
 $LNG['ov_userrank_info']					= '%s (%s <a href="game.php?page=statistics&amp;range=%d">%d</a> %s %s)';
@@ -1284,3 +1284,5 @@ $LNG['weakness'] = 'Schwächen';
 $LNG['strength'] = 'Stärken';
 
 $LNG['fl_colonize_alert_message'] = 'Beachte, dass du für jede Kolonie 2 zusätzliche Stufen ASTROPHYSIK erforschen musst!';
+
+$LNG['lv_planet_other'] = 'Weitere Planeten';
