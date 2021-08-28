@@ -275,12 +275,12 @@ class FlyingFleetsTable
 			if($fleetRow['fleet_resource_darkmatter'] > 0)
 				$textForBlind .= '; '.floatToString($fleetRow['fleet_resource_darkmatter']).' '.$LNG['tech'][921];
 
-			$FRessource   = '<table style=\'width:200px\'>';
-			$FRessource  .= '<tr><td style=\'width:50%;color:white\'>'.$LNG['tech'][901].'</td><td style=\'width:50%;color:white\'>'. pretty_number($fleetRow['fleet_resource_metal']).'</td></tr>';
-			$FRessource  .= '<tr><td style=\'width:50%;color:white\'>'.$LNG['tech'][902].'</td><td style=\'width:50%;color:white\'>'. pretty_number($fleetRow['fleet_resource_crystal']).'</td></tr>';
-			$FRessource  .= '<tr><td style=\'width:50%;color:white\'>'.$LNG['tech'][903].'</td><td style=\'width:50%;color:white\'>'. pretty_number($fleetRow['fleet_resource_deuterium']).'</td></tr>';
+			$FRessource   = '<table class=\'table table-striped\'>';
+			$FRessource  .= '<tr><td>'.$LNG['tech'][901].'</td><td>'. pretty_number($fleetRow['fleet_resource_metal']).'</td></tr>';
+			$FRessource  .= '<tr><td>'.$LNG['tech'][902].'</td><td>'. pretty_number($fleetRow['fleet_resource_crystal']).'</td></tr>';
+			$FRessource  .= '<tr><td>'.$LNG['tech'][903].'</td><td>'. pretty_number($fleetRow['fleet_resource_deuterium']).'</td></tr>';
 			if($fleetRow['fleet_resource_darkmatter'] > 0)
-				$FRessource  .= '<tr><td style=\'width:50%;color:white\'>'.$LNG['tech'][921].'</td><td style=\'width:50%;color:white\'>'. pretty_number($fleetRow['fleet_resource_darkmatter']).'</td></tr>';
+				$FRessource  .= '<tr><td>'.$LNG['tech'][921].'</td><td>'. pretty_number($fleetRow['fleet_resource_darkmatter']).'</td></tr>';
 			$FRessource  .= '</table>';
 
 			$MissionPopup  = '<a data-tooltip-content="'.$FRessource.'" class="tooltip '.$FleetType.'">'.$Texte.'</a><span class="textForBlind"> ('.$textForBlind.')</span>';
@@ -316,14 +316,14 @@ class FlyingFleetsTable
 				$Ship    = explode(',', $Group);
 				if($Owner)
                 {
-					$FleetPopup 	.= '<tr><td style=\'width:50%;color:white\'>'.$LNG['tech'][$Ship[0]].':</td><td style=\'width:50%;color:white\'>'.pretty_number($Ship[1]).'</td></tr>';
+					$FleetPopup 	.= '<tr><td>'.$LNG['tech'][$Ship[0]].':</td><td>'.pretty_number($Ship[1]).'</td></tr>';
                     $shipsData[]	= floatToString($Ship[1]).' '.$LNG['tech'][$Ship[0]];
 				}
                 else
                 {
 					if($SpyTech >= 8)
 					{
-						$FleetPopup 	.= '<tr><td style=\'width:50%;color:white\'>'.$LNG['tech'][$Ship[0]].':</td><td style=\'width:50%;color:white\'>'.pretty_number($Ship[1]).'</td></tr>';
+						$FleetPopup 	.= '<tr><td>'.$LNG['tech'][$Ship[0]].':</td><td>'.pretty_number($Ship[1]).'</td></tr>';
 						$shipsData[]	= floatToString($Ship[1]).' '.$LNG['tech'][$Ship[0]];
 					}
 					else
