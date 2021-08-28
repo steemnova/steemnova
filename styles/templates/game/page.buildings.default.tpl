@@ -22,7 +22,8 @@
                         </form>
                     {/if}
                     <form action="game.php?page=buildings" method="post" class="build_form">
-                        <input type="hidden" name="cmd" value="cancel">
+                        <input type="hidden" name="cmd" value="remove">
+                        <input type="hidden" name="listid" value="{$List@iteration}">
                         <button type="submit" class="build_submit onlist btn btn-danger">{$LNG.bd_cancel}</button>
                     </form>
                 </div>
