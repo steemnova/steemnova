@@ -1273,3 +1273,5 @@ $LNG['research_toggle_imperial'] = 'Toggle Imperial';
 $LNG['research_toggle_military'] = 'Toggle Military';
 $LNG['research_toggle_engine'] = 'Toggle Engine';
 $LNG['research_toggle_mining'] = 'Toggle Mining';
+
+$LNG['attack_own_ally'] = 'WARNING! The target is in your alliance!';
