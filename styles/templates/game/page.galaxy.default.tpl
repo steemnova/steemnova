@@ -1,6 +1,6 @@
 {block name="title" prepend}{$LNG.lm_galaxy}{/block}
 {block name="content"}
-    <div class="row row-cols-1 g-4">
+    <div class="row row-cols-1 row-cols-xl-2 g-4">
         <div class="col mb-2">
             <div class="card">
                 <form action="?page=galaxy" method="post" id="galaxy_form">
@@ -215,12 +215,12 @@
                     <form action="?page=fleetMissile" method="post">
                         <input type="hidden" name="galaxy" value="{$galaxy}">
                         <input type="hidden" name="system" value="{$system}">
-                        <input type="hidden" name="planet" value="{$planet}">
+                        <input type="hidden" name="planet" value="{$target_planet}">
                         <input type="hidden" name="type" value="{$type}">
 
                         <div class="card-header">
                             <h2 class="card-title">{$LNG.gl_missil_launch}</h2>
-                            <small class="card-subtitle">[{$galaxy}:{$system}:{$planet}]</small>
+                            <small class="card-subtitle">[{$galaxy}:{$system}:{$target_planet}]</small>
                         </div>
                         <div class="card-body">
                             <div class="mb-2">
