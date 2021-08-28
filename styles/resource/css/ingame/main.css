@@ -115,3 +115,7 @@ main {
 .galaxy-alliance-member {
     font-weight: bold;
 }
+
+#chat .content {
+    width: 100%;
+}

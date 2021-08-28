@@ -30,6 +30,28 @@
                         </div>
 
                         <h3>{$LNG.gl_solar_system} {$galaxy}:{$system}</h3>
+                        <div class="solar-system d-none">
+                        <div class="sun"><img src="{$dpath}/img/sun.gif" /></div>
+                        {for $planet=1 to $max_planets}
+                            <div class="planet-ring planet-ring-{$planet}"></div>
+
+                            {if !isset($GalaxyRows[$planet])}
+                                <div class="planet planet-{$planet}">
+                                <a href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=7">{$planet}</a>
+                                </div>
+                            {elseif $GalaxyRows[$planet] === false}
+                                {$LNG.gl_planet_destroyed}
+                                {else}
+                            {$currentPlanet = $GalaxyRows[$planet]}
+                                <a class="tooltip_sticky planet planet-{$planet}"
+                                   data-tooltip-content="{include "planet.actions.tpl"}">
+                                    <img src="{$dpath}planeten/{$currentPlanet.planet.image}.jpg"
+                                         height="30" width="30" alt="">
+                                </a>
+
+                                {/if}
+                        {/for}
+                        </div>
                         <table class="table table-striped">
                             <tr>
                                 <th>{$LNG.gl_pos}</th>
@@ -202,7 +224,7 @@
                         </div>
                         <div class="card-body">
                             <div class="mb-2">
-                                <label class="form-label" for="id_missle_count">{$missle_count}</label>
+                                <label class="form-label" for="id_missile_count">{$missile_count}</label>
                                 <input type="number" name="SendMI" size="2" maxlength="7" class="form-control">
                             </div>
                             <div class="mb-2">
