@@ -119,3 +119,7 @@ main {
 #chat #content {
     width: 100%;
 }
+
+#raport .table th {
+    word-wrap: anywhere;
+}
