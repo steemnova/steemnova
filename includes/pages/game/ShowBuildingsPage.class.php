@@ -85,6 +85,7 @@ class ShowBuildingsPage extends AbstractGamePage
     private function RemoveBuildingFromQueue($QueueID)
     {
         global $USER, $PLANET;
+
         if ($QueueID <= 1 || empty($PLANET['b_building_id'])) {
             return false;
         }
@@ -264,6 +265,7 @@ class ShowBuildingsPage extends AbstractGamePage
         if (!empty($TheCommand) && $_SERVER['REQUEST_METHOD'] === 'POST' && $USER['urlaubs_modus'] == 0) {
             $Element = HTTP::_GP('building', 0);
             $ListID = HTTP::_GP('listid', 0);
+
             switch ($TheCommand) {
                 case 'cancel':
                     $this->CancelBuildingFromQueue();
@@ -279,7 +281,7 @@ class ShowBuildingsPage extends AbstractGamePage
                     break;
             }
 
-            $this->redirectTo('game.php?page=buildings');
+            //$this->redirectTo('game.php?page=buildings');
         }
 
         $config = Config::get();

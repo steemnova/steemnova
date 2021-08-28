@@ -25,12 +25,14 @@
                                     <div class="alert alert-warning">{$LNG.fl_expedition_alert_message}</div>{/if}
                                 {if $MissionID == 11}
                                     <div class="alert alert-warning">{$LNG.fl_dm_alert_message}</div>{/if}
+                                {if $MissionID == 7}
+                                    <div class="alert alert-warning">{$LNG.fl_colonize_alert_message}</div>{/if}
                             </div>
                         {/foreach}
-<hr />
+                        <hr/>
                         {if $StaySelector}
                             <label for="id-stay" class="form-label">{$LNG.fl_hold_time}</label>
-                                    {html_options name=staytime options=$StaySelector id="id-stay"} {$LNG.fl_hours}
+                            {html_options name=staytime options=$StaySelector id="id-stay"} {$LNG.fl_hours}
                         {/if}
                     </div>
                     <div class="card-footer">

@@ -14,6 +14,9 @@ $battle_engine = 2;
 /*
 DON'T MODIFY ↓
 */
+
+require_once("OPBE.php");
+/*
 if($battle_engine == 2 && !empty($attackers[0]["unit"]) && !empty($defenders[0]["unit"])) {
 $ships = 0;
 foreach($attackers[0]["unit"] as $units) {
@@ -30,4 +33,4 @@ else {include("OPBE.php");}
 
 } else if($battle_engine == 1) {include("SteemNova.php");}
 else if($battle_engine == 999) {include("SteemNova_Array.php");}
-else {include("OPBE.php");}
+else {include("OPBE.php");}*/

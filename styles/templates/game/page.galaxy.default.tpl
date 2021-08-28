@@ -1,6 +1,6 @@
 {block name="title" prepend}{$LNG.lm_galaxy}{/block}
 {block name="content"}
-    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="row row-cols-1 g-4">
         <div class="col mb-2">
             <div class="card">
                 <form action="?page=galaxy" method="post" id="galaxy_form">
@@ -151,12 +151,12 @@
                                             href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$max_planets + 1}&amp;planettype=1&amp;target_mission=15">{$LNG.gl_out_space}</a>
                                 </td>
                             </tr>
-                            <tr>
+<!--                            <tr>
                                 <td>Trade</td>
                                 <td colspan="7"><a
                                             href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$max_planets + 2}&amp;planettype=1&amp;target_mission=16">{$LNG.gl_trade_space}</a>
                                 </td>
-                            </tr>
+                            </tr>-->
 
                             <tr>
                                 <td colspan="6">({$planetcount})</td>

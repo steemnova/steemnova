@@ -1282,3 +1282,5 @@ $LNG['ov_fleet_incoming'] = 'Ankommende Flotten';
 
 $LNG['weakness'] = 'Schwächen';
 $LNG['strength'] = 'Stärken';
+
+$LNG['fl_colonize_alert_message'] = 'Beachte, dass du für jede Kolonie 2 zusätzliche Stufen ASTROPHYSIK erforschen musst!';

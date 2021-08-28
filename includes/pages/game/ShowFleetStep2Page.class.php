@@ -56,9 +56,12 @@ class ShowFleetStep2Page extends AbstractGamePage
 		));
 
 		// check if planet has owner
+        if($targetPlanetData && $targetPlanetData['id_owner']) {
         $sql = 'SELECT a.username, a.ally_id, b.ally_name, b.ally_tag FROM %%USERS%% as a LEFT JOIN %%ALLIANCE%% as b ON a.ally_id=b.id WHERE a.id=:ownerId';
-        $ownerData = $db->selectSingle($sql, [':ownerId' => $targetPlanetData['id_owner']]);
-
+            $ownerData = $db->selectSingle($sql, [':ownerId' => $targetPlanetData['id_owner']]);
+        } else {
+            $ownerData = ["username" => "", "ally_id" => 0, "ally_name" => "", "ally_tag" => ""];
+        }
 		if($targetType == 2 && $targetPlanetData['der_metal'] == 0 && $targetPlanetData['der_crystal'] == 0)
 		{
 			$this->printMessage($LNG['fl_error_empty_derbis'], array(array(
