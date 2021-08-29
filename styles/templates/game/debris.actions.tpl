@@ -1,3 +1,4 @@
+<a class='float-end btn btn-secondary tooltip_hide'>X</a>
 <h3>{$LNG.gl_debris_field} [{$galaxy}:{$system}:{$planet}]</h3>
 <div>
     <img src='{$dpath}planeten/debris.jpg' height='75' width='75'>

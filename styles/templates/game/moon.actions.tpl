@@ -1,3 +1,4 @@
+<a class='float-end btn btn-secondary tooltip_hide'>X</a>
 <h3>{$LNG.gl_moon} {$currentPlanet.moon.name} [{$galaxy}:{$system}:{$planet}]</h3>
 <div>{$LNG.gl_diameter}: {$currentPlanet.moon.diameter} {$LNG.ov_distance_unit}</div>
 <div>{$LNG.gl_temperature}: {$currentPlanet.moon.temp_min} {$LNG.ov_temp_unit}</div>
