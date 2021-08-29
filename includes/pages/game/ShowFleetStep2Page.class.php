@@ -124,6 +124,11 @@ class ShowFleetStep2Page extends AbstractGamePage
 			'fleetroom'			=> floatToString($_SESSION['fleet'][$token]['fleetRoom']),
 			'consumption'		=> floatToString($consumption),
 		);
+        $sql	= 'SELECT COUNT(*) as state
+				FROM %%PLANETS%%
+				WHERE `id_owner`	= :userId
+				AND `planet_type`	= :type
+				AND `destruyed`		= :destroyed;';
         $currentPlanetCount	= $db->selectSingle($sql, array(
             ':userId'		=> $USER['id'],
             ':type'			=> 1,
