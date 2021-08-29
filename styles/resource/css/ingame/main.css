@@ -124,3 +124,7 @@ main .tooltip {
 #raport .table th {
     word-wrap: anywhere;
 }
+
+.textForBlind {
+    display: none;
+}

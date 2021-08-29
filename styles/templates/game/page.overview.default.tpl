@@ -23,9 +23,9 @@
                     <h5 class="card-subtitle mb-2">{$LNG.ov_fleet_incoming}</h5>
                     <ul class="collapse show list-group" id="fleet-info">
                         {foreach $fleets as $index => $fleet}
-                            <li class="list-group-item"><span id="fleettime_{$index}" class="fleets"
-                                                              data-fleet-end-time="{$fleet.returntime}"
-                                                              data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</span>
+                            <li class="list-group-item">
+                                <span id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}"
+                                      data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</span>
                                 <span id="fleettime_{$index}">{$fleet.text}</span>
                             </li>
                         {/foreach}
@@ -34,8 +34,8 @@
                     <h5 class="card-subtitle mb-2">{$LNG.ov_fleet_planet}</h5>
                     <div class="d-flex w-100">
                         <ul class="list-group flex-grow-1">
-                            <li class="list-group-item"><a class="nav-link"
-                                                           href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_fleet}</a>
+                            <li class="list-group-item">
+                                <a class="nav-link" href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_fleet}</a>
                             </li>
                             {foreach $offMissiles as $ID => $amount}
                                 {if $amount > 0}
