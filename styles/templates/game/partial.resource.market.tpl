@@ -1,22 +1,5 @@
 <table id="tradeList" class="tablesorter table table-striped">
     <thead>
-    <tr class="no-background no-border center">
-        <td>
-        </th>
-        <th></th>
-        <th><img src="./styles/theme/qog/images/metal.gif"/></th>
-        <th><img src="./styles/theme/qog/images/crystal.gif"/></th>
-        <th><img src="./styles/theme/qog/images/deuterium.gif"/></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th class="LC" style="display: none;"></th>
-        <th class="HC"></th>
-        <th></th>
-    </tr>
     <tr>
         <th>ID</th>
         <th>{$LNG['gl_player']}</th>
