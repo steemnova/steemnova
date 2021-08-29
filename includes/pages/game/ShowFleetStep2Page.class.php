@@ -142,6 +142,7 @@ class ShowFleetStep2Page extends AbstractGamePage
 			'mission'						=> $targetMission,
 			'colonize_notech'               => !PlayerUtil::allowPlanetPosition($targetPlanet, $USER),
 			'max_planet_exceeded'           => $currentPlanetCount >= PlayerUtil::maxPlanetCount($USER),
+			'min_astro_level'               => max(PlayerUtil::getPositionRequirement($targetPlanet, $USER), ($currentPlanetCount+1)*2),
 			'galaxy'			 			=> $PLANET['galaxy'],
 			'system'			 			=> $PLANET['system'],
 			'planet'			 			=> $PLANET['planet'],

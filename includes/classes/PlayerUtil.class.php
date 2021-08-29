@@ -578,30 +578,36 @@ class PlayerUtil
 		return (int) ceil($config->min_player_planets + min($planetPerTech, $USER[$resource[124]] * $config->planets_per_tech) + min($planetPerBonus, $USER['factor']['Planets']));
 	}
 
+	static public function getPositionRequirement($position, $USER): int
+    {
+        $config	= Config::get($USER['universe']);
+
+        switch($position) {
+            case 1:
+            case ($config->max_planets):
+                return 8;
+                break;
+            case 2:
+            case ($config->max_planets - 1):
+                return 6;
+                break;
+            case 3:
+            case ($config->max_planets - 2):
+                return 4;
+                break;
+            default:
+                return 1;
+                break;
+        }
+    }
+
 	static public function allowPlanetPosition($position, $USER)
 	{
 		// http://owiki.de/index.php/Astrophysik#.C3.9Cbersicht
 
 		global $resource;
-		$config	= Config::get($USER['universe']);
 
-		switch($position) {
-			case 1:
-			case ($config->max_planets):
-				return $USER[$resource[124]] >= 8;
-			break;
-			case 2:
-			case ($config->max_planets-1):
-				return $USER[$resource[124]] >= 6;
-			break;
-			case 3:
-			case ($config->max_planets-2):
-				return $USER[$resource[124]] >= 4;
-			break;
-			default:
-				return $USER[$resource[124]] >= 1;
-			break;
-		}
+		return $USER[$resource[124]] >= self::getPositionRequirement($position, $USER);
 	}
 
 	static public function sendMessage($userId, $senderId, $senderName, $messageType, $subject, $text, $time, $parentID = NULL, $unread = 1, $universe = NULL)

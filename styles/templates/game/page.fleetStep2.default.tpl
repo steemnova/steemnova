@@ -27,10 +27,10 @@
                                     <div class="alert alert-warning">{$LNG.fl_dm_alert_message}</div>{/if}
                                 {if $MissionID == 7}
                                     {if $max_planet_exceeded}
-                                    <div class="alert alert-warning">{$LNG.fl_colonize_alert_message}</div>
+                                    <div class="alert alert-warning">{sprintf($LNG.fl_colonize_alert_message, $min_astro_level)}</div>
                                     {/if}
                                     {if $colonize_notech}
-                                        <div class="alert alert-danger">{$LNG.fl_colonize_alert_message_tech}</div>
+                                        <div class="alert alert-danger">{sprintf($LNG.fl_colonize_alert_message_tech, $min_astro_level)}</div>
                                     {/if}
                                 {/if}
                             </div>
