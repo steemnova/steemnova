@@ -933,7 +933,7 @@ $LNG['op_spy_probes_number_descrip']				= 'Anzahl der Spionagesonden, die bei je
 $LNG['op_activate_vacation_mode_descrip']			= 'Der Urlaubsmodus soll während längerer Abwesenheitszeiten schützen. Man kann ihn nur aktivieren, wenn nichts gebaut und geforscht wird und auch keine eigenen Flotten unterwegs sind. Ist er aktiviert, schützt er euch vor neuen Angriffen, bereits begonnene Angriffe werden jedoch fortgesetzt. Während des Urlaubsmodus wird die Produktion auf Null gesetzt und muss nach Beenden des Urlaubsmodus manuell wieder auf 100% gesetzt werden. Der Urlaubsmodus dauert mindestens 2 Tage, erst danach könnt Ihr ihn wieder deaktivieren.';
 $LNG['op_activate_vacation_mode_short']			= 'Der Urlaubsmodus dauert mindestens 2 Tage, erst danach kannst du ihn wieder deaktivieren.';
 
-$LNG['op_dlte_account_descrip']					= 'Wenn du hier ein Hacken setzt, wird dein Account nach 7 Tagen automatisch komplett gelöscht.';
+$LNG['op_dlte_account_descrip']					= 'Wenn du hier einen Haken setzt, wird dein Account nach 7 Tagen automatisch komplett gelöscht.';
 $LNG['op_need_pass_mail']					= 'Um deine E-Mail-Adresse zu ändern, musst du dein Passwort eingeben!';
 $LNG['op_not_vaild_mail']					= 'Du hast keine gültige E-Mail Adresse angegeben!';
 $LNG['op_change_mail_exist']					= 'Die angegebene E-Mail-Adresse %s wird bereits verwendet!';
