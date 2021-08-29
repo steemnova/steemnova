@@ -40,8 +40,9 @@
             <div class="collapse " id="buy-collapse">
                 <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                     {if isModuleAvailable($smarty.const.MODULE_CUNEROS)}<li class="nav-item"><a class="nav-link link-dark rounded" href="game.php?page=cuneros">{$LNG.lm_cuneros}</a></li>{/if}
-                    {if isModuleAvailable($smarty.const.MODULE_OFFICIER) || isModuleAvailable($smarty.const.MODULE_DMEXTRAS)}<li class="nav-item"><a class="nav-link" href="game.php?page=officier">{$LNG.lm_officiers}</a></li>{/if}
+                    {if isModuleAvailable($smarty.const.MODULE_OFFICIER) || isModuleAvailable($smarty.const.MODULE_DMEXTRAS)}<li class="nav-item"><a class="nav-link link-dark rounded" href="game.php?page=officier">{$LNG.lm_officiers}</a></li>{/if}
                     {if isModuleAvailable($smarty.const.MODULE_TRADER)}<li class="nav-item"><a class="nav-link link-dark rounded" href="game.php?page=trader">{$LNG.lm_trader}</a></li>{/if}
+                    {if isModuleAvailable($smarty.const.MODULE_TRADER)}<li class="nav-item"><a class="nav-link link-dark rounded" href="game.php?page=marketPlace">{$LNG.lm_marketplace}</a></li>{/if}
                     {if isModuleAvailable($smarty.const.MODULE_FLEET_TRADER)}<li class="nav-item"><a class="nav-link link-dark rounded" href="game.php?page=fleetDealer">{$LNG.lm_fleettrader}</a></li>{/if}
 
                 </ul>
