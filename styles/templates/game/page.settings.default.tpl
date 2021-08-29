@@ -8,7 +8,7 @@
 			<h3 class="card-title">{$LNG.op_user_data}</h3>
 		</div>
 		<div class="card-body">
-			<table>
+			<table class="table table-striped">
 				<tbody>
 				<tr>
 					<td width="50%">{$LNG.op_username}</td>
@@ -110,8 +110,8 @@
 					<th colspan="2">{$LNG.op_vacation_delete_mode}</th>
 				</tr>
 				<tr>
-					<td><a title="{$LNG.op_activate_vacation_mode_descrip}">{$LNG.op_activate_vacation_mode}</a></td>
-					<td><input name="vacation" type="checkbox" value="1"></td>
+					<td><a title="{$LNG.op_activate_vacation_mode_descrip}">{$LNG.op_activate_vacation_mode}</a><div class="alert alert-warning">{$LNG.op_activate_vacation_mode_short}</div></td>
+					<td><input name="vacation" type="checkbox" value="1" class="form-check"></td>
 				</tr>
 				<tr>
 					<td><a title="{$LNG.op_dlte_account_descrip}">{$LNG.op_dlte_account}</a></td>

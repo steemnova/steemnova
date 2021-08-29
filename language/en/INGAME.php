@@ -906,7 +906,7 @@ $LNG['sh_loading']							= '(Loading ...)';
 //----------------------------------------------------------------------------//
 //OPTIONS
 $LNG['op_error']							= 'Error';
-$LNG['op_cant_activate_vacation_mode']		= 'You can not activate the vacation mode with fleet actiividades.';
+$LNG['op_cant_activate_vacation_mode']		= 'You can not activate the vacation mode with fleet active.';
 $LNG['op_password_changed']					= 'Password changed';
 $LNG['op_username_changed']					= 'Username changed';
 $LNG['op_options_changed']					= 'Options changed';
@@ -949,6 +949,7 @@ $LNG['op_email_adress_descrip']				= 'You can change this e-mail address at any 
 $LNG['op_deactivate_ipcheck_descrip']		= 'Verification of IP means that the security logout occurs automatically when the IP changes or two people are recorded in an account of different IPs. Disabling the check of IP can represent a security risk!';
 $LNG['op_spy_probes_number_descrip']		= 'Number of probes you can send directly from the view of Galaxia.';
 $LNG['op_activate_vacation_mode_descrip']	= 'Vacation mode protects your account for as long as you are out of the game. But you can only activate it if its not you have nothing in construction (buildings, fleet, or defense), and nothing to be searched, and none of your fleets is destroyed. Once activated, is protected against attacks. Attacks that had already been posted before will continue during the holidays, the production is put at 0% so desativares vacation mode will reset the production to 100%. So ativares the holidays are bound to remain so for a minimum time of 48 hours. Only then will be disabled.';
+$LNG['op_activate_vacation_mode_short']			= 'The vacation mode cannot be deactivated until 2 days passed.';
 $LNG['op_dlte_account_descrip']			    = 'If you choose this option your account will be deleted after 7 days.';
 $LNG['op_need_pass_mail']                   = 'To change your email address is need to enter the password in the box!';
 $LNG['op_not_vaild_mail']					= 'You dont inserted a valid E-Mail!';
