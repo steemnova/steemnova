@@ -1,6 +1,8 @@
 body {
 	padding-top: 5.5em;
 	background-image: url("../../images/login/background.jpg");
+	height: 100vh;
+
 }
 
 #language li{
@@ -53,3 +55,4 @@ body {
 footer{
 	margin-bottom:40px;
 }
+.nk-cookie-banner { position: fixed; bottom: 0px; left: 0px; width: 100%; z-index: 999; border-radius: 0px; display: none; }

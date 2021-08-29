@@ -17,4 +17,5 @@
  
 // If you have custom lang vars, you can include them here. The file ll be not overwrite by updatemanager
 // Also you can overwrite exists var, too. You use the same key.
- 
+$LNG['cookie_info'] = '	🍪 This website uses cookies to ensure you get the best experience on our website.';
+$LNG['learn_more'] = 'Learn more';
