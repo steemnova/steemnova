@@ -11,8 +11,7 @@
                     {$LNG.ov_server_time}:
                     <span class="servertime">{$servertime}</span>
                     <br/>
-                    {$LNG.ov_online}
-                    {$usersOnline}: {$LNG.ov_players}<br/>
+                    {$LNG.ov_players} {$LNG.ov_online}: {$usersOnline}<br/>
                     {$LNG.ov_moving_fleets}: {$fleetsOnline}<br/>
                     {$LNG.ov_points}: {$rankInfo}<br/>
                     {if $is_news}

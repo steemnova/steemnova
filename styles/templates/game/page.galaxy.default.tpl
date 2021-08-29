@@ -30,7 +30,7 @@
                         </div>
 
                         <h3>{$LNG.gl_solar_system} {$galaxy}:{$system}</h3>
-                        <div class="solar-system d-none">
+                        <div class="solar-system">
                         <div class="sun"><img src="{$dpath}/img/sun.gif" /></div>
                         {for $planet=1 to $max_planets}
                             <div class="planet-ring planet-ring-{$planet}"></div>
@@ -48,8 +48,21 @@
                                     <img src="{$dpath}planeten/{$currentPlanet.planet.image}.jpg"
                                          height="30" width="30" alt="">
                                 </a>
-
+                                {if $currentPlanet.moon}
+                                    <a class="tooltip_sticky planet planet-{$planet} moon"
+                                       data-tooltip-content="{include "moon.actions.tpl"}">
+                                        <img src="{$dpath}planeten/mond.jpg" height="22" width="22"
+                                             alt="{$currentPlanet.moon.name}">
+                                    </a>
                                 {/if}
+                                {if $currentPlanet.debris}
+                                    <a class="tooltip_sticky planet planet-{$planet} moon"
+                                       data-tooltip-content="{include "debris.actions.tpl"}">
+                                        <img src="{$dpath}planeten/debris.jpg" height="22" width="22"
+                                             alt="">
+                                    </a>
+                                {/if}
+                        {/if}
                         {/for}
                         </div>
                         <table class="table table-striped">
