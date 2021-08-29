@@ -59,4 +59,20 @@ $(document).ready(function () {
 		tip.removeClass('tooltip_sticky_div');
 		tip.hide();
 	});
+	$(".tooltip_clicky").live('click', function (e) {
+		var tip = $('#tooltip');
+		tip.html($(this).attr('data-tooltip-content'));
+		tip.addClass('tooltip_clicky_div');
+		tip.css({
+			top : e.pageY - tip.outerHeight() / 2,
+			left : e.pageX - tip.outerWidth() / 2
+		});
+		tip.show();
+	});
+	$(".tooltip_clicky_div").live('mouseleave', function () {
+		var tip = $('#tooltip');
+		tip.removeClass('tooltip_clicky_div');
+		tip.hide();
+	});
+
 });

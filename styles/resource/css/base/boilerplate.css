@@ -34,3 +34,7 @@ body {
 .img-header {
     height: 50px;
 }
+
+.tooltip_clicky {
+    cursor: pointer;
+}
