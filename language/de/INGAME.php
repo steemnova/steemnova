@@ -1073,11 +1073,11 @@ $LNG['market_p_msg_resources_error']  = 'Nicht genug Ressourcen vorhanden.';
 $LNG['market_p_msg_sent']  = 'Sende %s Kleine Transporter, %s Große Transporter';
 $LNG['market_p_ratio']							= 'Wechselkurs';
 $LNG['market_msg_trade_topic'] = "Handelsstatus";
-$LNG['market_msg_trade_from'] = "SteemNova Marktplatz";
+$LNG['market_msg_trade_from'] = "Marktplatz";
 $LNG['market_msg_trade_bought'] 					= 'Deine Flotte fliegt zu %s mit %s %s, %s %s, %s %s und es kostet %s %s';
 $LNG['market_msg_trade_sold'] 					= 'Deine Flotte fliegt zu %s mit %s %s, %s %s, %s %s.';
 $LNG['lm_marketplace']						= 'Marktplatz';
-$LNG['lm_trader']						= 'Markt';
+$LNG['lm_trader']						= 'Freier Händler';
 
 //----------------------------------------------------------------------------//
 // MissilesAjax.php
