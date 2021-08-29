@@ -8,7 +8,7 @@
 		return false;
 	}
 </script>
-<table width="450">
+<table class="table table-striped">
 <tr>
 	<th colspan="7">{$LNG.ap_nicht_aktivierte_user}</th>
 </tr>

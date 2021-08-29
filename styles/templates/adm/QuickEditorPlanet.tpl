@@ -11,7 +11,7 @@ function check(){
 }
 </script>
 <form method="post" id="userform" action="" onsubmit="return check();">
-<table width="100%" style="color:#FFFFFF"><tr>
+<table class="table table-striped"><tr>
         <th colspan="3">{$LNG.qe_info}</th>
 </tr>
 <tr style="height:26px;"><td width="50%">{$LNG.qe_id}:</td><td width="50%">{$id}</td></tr>
@@ -21,7 +21,7 @@ function check(){
 <tr><td width="50%">{$LNG.qe_fields}:</td><td width="50%">{$field_min} / <input name="field_max" type="text" size="3" value="{$field_max}"></td></tr>
 <tr style="height:26px;"><td width="50%">{$LNG.qe_temp}:</td><td width="50%">{$temp_min} / {$temp_max}</td></tr>
 </table>
-<table width="100%" style="color:#FFFFFF">
+<table class="table table-striped">
 <tr>
         <th colspan="3">{$LNG.qe_resources}</th>
 </tr>
@@ -32,7 +32,7 @@ function check(){
 <tr><td width="30%">{$LNG.tech.902}:</td><td width="30%">{$crystal_c}</td><td width="40%"><input name="crystal" type="text" value="{$crystal}"></td></tr>
 <tr><td width="30%">{$LNG.tech.903}:</td><td width="30%">{$deuterium_c}</td><td width="40%"><input name="deuterium" type="text" value="{$deuterium}"></td></tr>
 </table>
-<table width="100%" style="color:#FFFFFF">
+<table class="table table-striped">
 <tr>
         <th colspan="3">{$LNG.qe_build}</th>
 </tr>
@@ -43,7 +43,7 @@ function check(){
 <tr><td width="30%">{$Element.name}:</td><td width="30%">{$Element.count}</td><td width="40%"><input name="{$Element.type}" type="text" value="{$Element.input}"></td>
 {/foreach}
 </table>
-<table width="100%" style="color:#FFFFFF">
+<table class="table table-striped">
 <tr>
         <th colspan="3">{$LNG.qe_fleet}</th>
 </tr>
@@ -54,7 +54,7 @@ function check(){
 <tr><td width="30%">{$Element.name}:</td><td width="30%">{$Element.count}</td><td width="40%"><input name="{$Element.type}" type="text" value="{$Element.input}"></td>
 {/foreach}
 </table>
-<table width="100%" style="color:#FFFFFF">
+<table class="table table-striped">
 <tr>
         <th colspan="3">{$LNG.qe_defensive}</th>
 </tr>

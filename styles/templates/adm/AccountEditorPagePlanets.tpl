@@ -1,6 +1,6 @@
 {include file="overall_header.tpl"}
 <form action="" method="post">
-<table width="45%">
+<table class="table table-striped">
 <tr>
 <td colspan="3" align="left"><a href="?page=accounteditor">
 <img src="./styles/resource/images/admin/arrowright.png" width="16" height="10"> {$LNG.ad_back_to_menu}</a></td>

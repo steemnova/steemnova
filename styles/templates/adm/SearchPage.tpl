@@ -1,6 +1,6 @@
 {include file="overall_header.tpl"}
 <form action="" method="POST">
-<table width="90%">
+<table class="table table-striped">
 <tr>
 <td class="transparent left">
 <input type="checkbox" {$minimize} name="minimize"><input type="submit" value="{$se_contrac}" class="button">
@@ -81,12 +81,12 @@
 </table>
 </div>
 <br>
-<table width="90%" border="0px">
+<table class="table table-striped">
 {$PAGES}
 </table>
 {$LIST}
 <br>
-<table width="90%" border="0px">
+<table class="table table-striped">
 {$PAGES}
 </table>
 </form>

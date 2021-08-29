@@ -308,9 +308,9 @@ $LNG['ma_modes'] = array('INGAME Nachricht', 'EMail Nachricht', 'INGAME &amp; EM
 //###########################################################//
 
 //---------------	PÁGINA DE INICIO - OVERVIEW	------------------------//
-$LNG['ow_title'] = 'Willkommen zu 2Moons';
+$LNG['ow_title'] = 'Willkommen zu Quest of Galaxy (2Moons fork)';
 $LNG['ow_donate'] = 'Spende';
-$LNG['ow_welcome_text'] = 'Herzlich Willkommen zum allseits beliebten 2Moons. (:';
+$LNG['ow_welcome_text'] = 'Herzlich Willkommen zum allseits beliebten QoG. (:';
 $LNG['ow_overview'] = 'Kontrollzentrum';
 $LNG['ow_support'] = 'Support';
 $LNG['ow_credits'] = 'Credits';

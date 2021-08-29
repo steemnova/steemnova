@@ -67,7 +67,7 @@
                                             {/if}
                                         {/if}
                                     </td>
-                                    <td><span class="d-none d-md-inline-block">{$Message.date} </span>{$Message.time}</td>
+                                    <td><span class="d-none d-md-inline-block">{$Message.date}</span> {$Message.time}</td>
                                     <td>{$Message.from}</td>
                                     <td>{$Message.subject}</td>
                                 </tr>
