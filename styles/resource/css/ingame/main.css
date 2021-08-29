@@ -92,6 +92,8 @@ main .tooltip {
     position: initial !important;
     opacity: 1;
     display: inline-block;
+    font-size: 1rem;
+    text-decoration: underline;
 }
 
 .ui-widget-content {
