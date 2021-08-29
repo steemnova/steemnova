@@ -1294,3 +1294,6 @@ $LNG['toggle_view'] = "Ansicht wechseln";
 $LNG['al_diplo_request'] = 'Diplomatie-Anfragen';
 
 $LNG['sun_hot'] = 'Die Sonne - sehr heiß! Nicht anfassen!';
+
+$LNG['market_fleet'] = 'Flottenmarkt';
+$LNG['market_resource'] = 'Resourcenmarkt';
