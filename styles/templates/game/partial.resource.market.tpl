@@ -1,4 +1,4 @@
-<table id="tradeList" style="width:80%;white-space: nowrap;" class="tablesorter">
+<table id="tradeList" class="tablesorter table table-striped">
     <thead>
     <tr class="no-background no-border center">
         <td>
@@ -84,7 +84,7 @@
 </table>
 <hr>
 
-<table id="resourceHistoryList" style="width:80%;white-space: nowrap;" class="tablesorter">
+<table id="resourceHistoryList" class="tablesorter table table-striped">
     <thead>
     <tr>
         <th>ID</th>

@@ -1,4 +1,4 @@
-<table id="tradeFleetList" style="width:80%;white-space: nowrap;" class="tablesorter">
+<table id="tradeFleetList" class="tablesorter table table-striped">
     <thead>
     <tr>
         <th>ID</th>
@@ -59,7 +59,7 @@
 </table>
 <hr/>
 
-<table id="fleetHistoryList" style="width:80%;white-space: nowrap;" class="tablesorter">
+<table id="fleetHistoryList" class=" table table-striped tablesorter">
     <thead>
     <tr>
         <th>ID</th>
