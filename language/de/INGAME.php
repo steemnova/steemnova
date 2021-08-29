@@ -1290,3 +1290,5 @@ $LNG['lv_planet_other'] = 'Weitere Planeten';
 $LNG['toggle_view'] = "Ansicht wechseln";
 
 $LNG['al_diplo_request'] = 'Diplomatie-Anfragen';
+
+$LNG['sun_hot'] = 'Die Sonne - sehr heiß! Nicht anfassen!';

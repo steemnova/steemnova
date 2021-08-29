@@ -14,7 +14,7 @@
  */
 
 $(document).ready(function () {
-	$(".tooltip").live({
+	$("main .tooltip").live({
 		mouseenter : function (e) {
 			var tip = $('#tooltip');
 			tip.html($(this).attr('data-tooltip-content'));
@@ -44,7 +44,7 @@ $(document).ready(function () {
 			});
 		}
 	});
-	$(".tooltip_sticky").live('mouseenter', function (e) {
+	$("main .tooltip_sticky").live('mouseenter', function (e) {
 		var tip = $('#tooltip');
 		tip.html($(this).attr('data-tooltip-content'));
 		tip.addClass('tooltip_sticky_div');
@@ -54,7 +54,7 @@ $(document).ready(function () {
 		});
 		tip.show();
 	});
-	$(".tooltip_sticky_div").live('mouseleave', function () {
+	$("main .tooltip_sticky_div").live('mouseleave', function () {
 		var tip = $('#tooltip');
 		tip.removeClass('tooltip_sticky_div');
 		tip.hide();
@@ -69,12 +69,12 @@ $(document).ready(function () {
 		});
 		tip.show();
 	});
-	$(".tooltip_clicky_div").live('mouseleave', function () {
+	$("main .tooltip_clicky_div").live('mouseleave', function () {
 		var tip = $('#tooltip');
 		tip.removeClass('tooltip_clicky_div');
 		tip.hide();
 	});
-	$(".tooltip_hide").live('click', function () {
+	$("main .tooltip_hide").live('click', function () {
 		var tip = $('#tooltip');
 		tip.removeClass('tooltip_clicky_div');
 		tip.hide();

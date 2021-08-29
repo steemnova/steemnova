@@ -75,8 +75,10 @@
             <div class="card">
                 <div class="card-header">
                     <div class="float-end">
-                        <a class="btn btn-primary" onclick="return Dialog.PlanetAction();"
-                           title="{$LNG.ov_planetmenu}">Edit</a>
+                        <a class="btn btn-secondary" href="game.php?page=galaxy"
+                           title="{$LNG.lm_galaxy}"><i class="fas fa-sun"></i></a>
+                        <a class="btn btn-secondary" onclick="return Dialog.PlanetAction();"
+                           title="{$LNG.ov_planetmenu}"><i class="fas fa-edit"></i></a>
                     </div>
                     <h2>{$LNG["type_planet_{$planet_type}"]} {$planetname}</h2>
                 </div>
@@ -145,11 +147,11 @@
                         <h2>{$LNG.fcm_moon}</h2>
                     </div>
                     <div class="card-body">
-                        <div class="moon">
+                        <div class="moon-overview">
                             <a href="game.php?page=overview&amp;cp={$Moon.id}&amp;re=0" title="{$Moon.name}">
                                 <img src="{$dpath}planeten/mond.jpg" height="100" width="100 "
-                                     alt="{$Moon.name} ({$LNG.fcm_moon})"></a><br/>
-                            {$Moon.name} ({$LNG.fcm_moon})
+                                     alt="{$Moon.name} ({$LNG.fcm_moon})"><br />
+                                {$Moon.name} ({$LNG.fcm_moon})</a>
                         </div>
                     </div>
                 </div>

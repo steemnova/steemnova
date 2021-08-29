@@ -88,7 +88,7 @@ main {
     display: none;
 }
 
-.tooltip {
+main .tooltip {
     position: initial !important;
     opacity: 1;
 }

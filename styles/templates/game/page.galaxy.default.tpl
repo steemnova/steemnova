@@ -35,7 +35,7 @@
 
                         <h3>{$LNG.gl_solar_system} {$galaxy}:{$system}</h3>
                         <div class="solar-system" id="solar-system-view">
-                            <div class="sun"><img src="{$dpath}/img/sun.gif"/></div>
+                            <div class="sun" data-bs-toggle="tooltip" data-bs-placement="top" title="{$LNG.sun_hot}"><img src="{$dpath}/img/sun.gif"/></div>
                             {for $planet=1 to $max_planets}
                                 <div class="planet-ring planet-ring-{$planet}"></div>
                                 {if !isset($GalaxyRows[$planet])}
@@ -47,7 +47,7 @@
                                 {else}
                                     {$currentPlanet = $GalaxyRows[$planet]}
                                     <a class="tooltip_clicky planet planet-{$planet} {if $currentPlanet.ownPlanet}own-planet{elseif $currentPlanet.allyPlanet}ally-planet{else}other-planet{/if}"
-                                       data-tooltip-content="{include "planet.actions.tpl"}">
+                                       data-tooltip-content="{include "planet.actions.tpl"}" data-bs-toggle="tooltip" data-bs-placement="top" title="{$currentPlanet.planet.name} ({$currentPlanet.user.username}{if $currentPlanet.alliance} / {$currentPlanet.alliance.name}{/if})">
                                         <img src="{$dpath}planeten/{$currentPlanet.planet.image}.jpg"
                                              height="30" width="30" alt="">
                                     </a>
@@ -281,7 +281,6 @@
             }
             loadLayout();
         }
-
         loadLayout();
     </script>
 {/block}

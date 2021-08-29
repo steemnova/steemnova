@@ -22,6 +22,11 @@
 		item.classList.add("active");
 		item.parentElement.parentElement.parentElement.classList.add("show");
 	});
+	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+		return new bootstrap.Tooltip(tooltipTriggerEl)
+	})
+
 
 </script>
 {if $debug == 1}
