@@ -1286,3 +1286,5 @@ $LNG['strength'] = 'Stärken';
 $LNG['fl_colonize_alert_message'] = 'Beachte, dass du für jede Kolonie 2 zusätzliche Stufen ASTROPHYSIK erforschen musst!';
 
 $LNG['lv_planet_other'] = 'Weitere Planeten';
+
+$LNG['toggle_view'] = "Ansicht wechseln";
