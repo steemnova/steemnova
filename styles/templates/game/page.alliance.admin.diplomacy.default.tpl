@@ -53,7 +53,7 @@
                                             <a href="game.php?page=alliance&amp;mode=admin&amp;action=diplomacyDelete&amp;id={$diploID}"
                                                onclick="return confirm('{$LNG.al_diplo_accept_no_confirm}');"
                                                class="btn btn-danger">
-                                                <i class="fas fa-trash-alt">
+                                                <i class="fas fa-trash-alt"></i></a>
                                         </li>
                                     {/foreach}
                                 </ul>
@@ -75,7 +75,7 @@
                                             <a href="game.php?page=alliance&amp;mode=admin&amp;action=diplomacyDelete&amp;id={$diploID}"
                                                onclick="return confirm('{$LNG.al_diplo_accept_no_confirm}');"
                                                class="btn btn-danger">
-                                                <i class="fas fa-trash-alt">
+                                                <i class="fas fa-trash-alt"></i></a>
                                         </li>
                                     {/foreach}
                                 </ul>

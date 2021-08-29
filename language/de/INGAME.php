@@ -1288,3 +1288,5 @@ $LNG['fl_colonize_alert_message'] = 'Beachte, dass du für jede Kolonie 2 zusät
 $LNG['lv_planet_other'] = 'Weitere Planeten';
 
 $LNG['toggle_view'] = "Ansicht wechseln";
+
+$LNG['al_diplo_request'] = 'Diplomatie-Anfragen';
