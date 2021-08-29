@@ -6,6 +6,8 @@
 {/if}
 <hr/>
 <h3>{$LNG.gl_planet} {$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}]</h3>
+<div>{$LNG.gl_diameter}: {$currentPlanet.planet.diameter} {$LNG.ov_distance_unit}</div>
+<div>{$LNG.gl_temperature}: {$currentPlanet.planet.temp_min} {$LNG.ov_temp_unit}</div>
 <div>
     <img src='{$dpath}planeten/{$currentPlanet.planet.image}.jpg' height='75'
          width='75'>

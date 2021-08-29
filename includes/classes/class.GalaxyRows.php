@@ -268,6 +268,8 @@ class GalaxyRows
 			'id'			=> $this->galaxyRow['id'],
 			'name'			=> htmlspecialchars($this->galaxyRow['name'], ENT_QUOTES, "UTF-8"),
 			'image'			=> $this->galaxyRow['image'],
+            'temp_min'	=> $this->galaxyRow['temp_min'],
+            'diameter'	=> $this->galaxyRow['diameter'],
 			'phalanx'		=> isModuleAvailable(MODULE_PHALANX) && ShowPhalanxPage::allowPhalanx($this->galaxyRow['galaxy'], $this->galaxyRow['system']),
 		);
 	}
