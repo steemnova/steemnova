@@ -39,9 +39,9 @@ $LNG['sys_ship_weapon'] 					= 'Bewaff.';
 $LNG['sys_ship_shield'] 					= 'Schilde';
 $LNG['sys_ship_armour'] 					= 'Hülle';
 $LNG['sys_destroyed'] 						= 'Zerstört';
-$LNG['fleet_attack_1'] 						= 'Die Angreifenden Flotte schiesst mit einer Leistung von';
+$LNG['fleet_attack_1'] 						= 'Die Angreifenden Flotte schießt mit einer Leistung von';
 $LNG['fleet_attack_2']						= 'auf den Verteidiger. Die Schilde des Verteidigers absorbieren';
-$LNG['fleet_defs_1'] 						= 'Die Verteidigende Flotte schiesst mit einer Leistung von';
+$LNG['fleet_defs_1'] 						= 'Die Verteidigende Flotte schießt mit einer Leistung von';
 $LNG['fleet_defs_2']						= 'auf den Angreifer. Die Schilde des Angreifers absorbieren';
 $LNG['damage']								= 'Schadenspunkte.';
 $LNG['sys_attacker_won'] 					= 'Der Angreifer hat die Schlacht gewonnen!';
@@ -239,3 +239,5 @@ $LNG['type_planet_3']  					= 'Mond';
 
 $LNG['sys_transfer_mess_owner'] = $LNG['sys_tran_mess_owner'];
 $LNG['sys_transfer_mess_user'] = $LNG['sys_tran_mess_user'];
+
+$LNG['tkb_units'] = "Einheiten";
