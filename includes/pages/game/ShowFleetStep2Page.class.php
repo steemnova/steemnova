@@ -130,6 +130,7 @@ class ShowFleetStep2Page extends AbstractGamePage
 			'fleetdata'						=> $fleetData,
 			'consumption'					=> floatToString($consumption),
 			'mission'						=> $targetMission,
+			'colonize_notech'               => !PlayerUtil::allowPlanetPosition($targetPlanet, $USER),
 			'galaxy'			 			=> $PLANET['galaxy'],
 			'system'			 			=> $PLANET['system'],
 			'planet'			 			=> $PLANET['planet'],

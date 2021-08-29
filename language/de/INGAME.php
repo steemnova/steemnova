@@ -1286,7 +1286,7 @@ $LNG['weakness'] = 'Schwächen';
 $LNG['strength'] = 'Stärken';
 
 $LNG['fl_colonize_alert_message'] = 'Beachte, dass du für jede Kolonie 2 zusätzliche Stufen ASTROPHYSIK erforschen musst!';
-
+$LNG['fl_colonize_alert_message_tech'] = 'Beachte, dass du derzeit nicht die notwendige ASTROPHYSIK Forschung für diesen Planetenstandort hast!';
 $LNG['lv_planet_other'] = 'Weitere Planeten';
 
 $LNG['toggle_view'] = "Ansicht wechseln";

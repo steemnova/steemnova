@@ -26,7 +26,11 @@
                                 {if $MissionID == 11}
                                     <div class="alert alert-warning">{$LNG.fl_dm_alert_message}</div>{/if}
                                 {if $MissionID == 7}
-                                    <div class="alert alert-warning">{$LNG.fl_colonize_alert_message}</div>{/if}
+                                    <div class="alert alert-warning">{$LNG.fl_colonize_alert_message}</div>
+                                    {if $colonize_notech}
+                                        <div class="alert alert-danger">{$LNG.fl_colonize_alert_message_tech}</div>
+                                    {/if}
+                                {/if}
                             </div>
                         {/foreach}
                         <hr/>
