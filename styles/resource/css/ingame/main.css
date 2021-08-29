@@ -91,6 +91,7 @@ main {
 main .tooltip {
     position: initial !important;
     opacity: 1;
+    display: inline-block;
 }
 
 .ui-widget-content {

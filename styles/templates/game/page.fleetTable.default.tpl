@@ -30,17 +30,15 @@
                     <tr>
                         <td>{$smarty.foreach.FlyingFleets.iteration}</td>
                         <td>
+                            {if $FlyingFleetRow.state == 0}
+                                <i class="fas fa-arrow-right" title="{$LNG.fl_onway}"></i>
+                                {else}
+                                <i class="fas fa-arrow-left" title="{$LNG.fl_returning}"></i>
+                            {/if}
                             <a data-tooltip-content="{include "fleet.resources.tpl"}"
                                class="tooltip">
                                 {$LNG["type_mission_{$FlyingFleetRow.mission}"]}
                             </a>
-                            {if $FlyingFleetRow.state == 1}
-                                <br>
-                                <a title="{$LNG.fl_returning}">{$LNG.fl_r}</a>
-                            {else}
-                                <br>
-                                <a title="{$LNG.fl_onway}">{$LNG.fl_a}</a>
-                            {/if}
                         </td>
                         <td><a class="tooltip_sticky"
                                data-tooltip-content="{include "fleet.info.tpl"}">{$FlyingFleetRow.amount}</a>
