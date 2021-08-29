@@ -6,8 +6,11 @@
         <li class='list-group-item'>{$LNG.tech.901}: {$currentPlanet.debris.metal|number}</li>
         <li class='list-group-item'>{$LNG.tech.902}: {$currentPlanet.debris.crystal|number}</li>
     </ul>
+
     {if $currentPlanet.missions.8 and $recyclers|number > 0}
-        <a class='btn btn-primary' href='javascript:doit(8, {$currentPlanet.planet.id});'
-           title='{$LNG['type_mission_8']}'><i class='fas fa-recycle'></i></a>
+    <div class='list-group'>
+        <a class='list-group-item' href='javascript:doit(8, {$currentPlanet.planet.id});'
+           title='{$LNG['type_mission_8']}'><i class='fas fa-recycle'></i> {$LNG['type_mission_8']}</a>
+    </div>
     {/if}
 </div>
