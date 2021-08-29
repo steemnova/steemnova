@@ -43,7 +43,7 @@
                                 {$LNG.gl_planet_destroyed}
                                 {else}
                             {$currentPlanet = $GalaxyRows[$planet]}
-                                <a class="tooltip_clicky planet planet-{$planet}"
+                                <a class="tooltip_clicky planet planet-{$planet} {if $currentPlanet.ownPlanet}own-planet{elseif $currentPlanet.allyPlanet}ally-planet{else}other-planet{/if}"
                                    data-tooltip-content="{include "planet.actions.tpl"}">
                                     <img src="{$dpath}planeten/{$currentPlanet.planet.image}.jpg"
                                          height="30" width="30" alt="">

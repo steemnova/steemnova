@@ -89,6 +89,7 @@ class GalaxyRows
 			$this->galaxyData[$this->galaxyRow['planet']]	= array();
 			
 			$this->isOwnPlanet();
+			$this->isAllyPlanet();
 			$this->setLastActivity();
 			
 			$this->getAllowedMissions();
@@ -118,8 +119,15 @@ class GalaxyRows
 			$this->galaxyData[$this->galaxyRow['planet']]['lastActivity']	= '';
 		}
 	}
-	
-	protected function isOwnPlanet()
+
+    protected function isAllyPlanet()
+    {
+        global $USER;
+
+        $this->galaxyData[$this->galaxyRow['planet']]['allyPlanet']	= $this->galaxyRow['allyid'] == $USER['ally_id'];
+    }
+
+    protected function isOwnPlanet()
 	{
 		global $USER;
 		

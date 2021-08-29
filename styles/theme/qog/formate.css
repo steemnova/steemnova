@@ -223,3 +223,15 @@
     width: 32px;
     height: 32px;
 }
+
+.own-planet {
+    border: 2px solid blue;
+}
+
+.ally-planet {
+    border: 2px solid green;
+}
+
+.other-planet {
+    border: 2px solid grey;
+}
