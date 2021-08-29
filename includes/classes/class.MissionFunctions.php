@@ -84,6 +84,22 @@ class MissionFunctions
 
 		$updateQuery	= array();
 
+        $sql = 'SELECT metal, metal_max, crystal, crystal_max, deuterium, deuterium_max FROM %%PLANETS%% WHERE id = :planetId';
+        $ressData = Database::get()->selectSingle($sql, [':planetId' => ($onStart == true ? $this->_fleet['fleet_start_id'] : $this->_fleet['fleet_end_id'])]);
+
+        $ress = ['metal', 'crystal', 'deuterium'];
+
+        $diff = [];
+        foreach($ress as $ressType) {
+            if ($ressData[$ressType] + $this->_fleet['fleet_resource_' . $ressType] > $ressData[$ressType . '_max']) {
+                $diff[$ressType] = $ressData[$ressType] + $this->_fleet['fleet_resource_' . $ressType] - $ressData[$ressType . '_max'];
+                $this->_fleet['fleet_resource_' . $ressType] -= $diff[$ressType];
+            }
+            else {
+                $diff[$ressType] = 0;
+            }
+        }
+
 		$param	= array(
 			':metal'		=> $this->_fleet['fleet_resource_metal'],
 			':crystal'		=> $this->_fleet['fleet_resource_crystal'],
@@ -113,12 +129,29 @@ class MissionFunctions
 	
 	function StoreGoodsToPlanet($onStart = false)
 	{
+        $sql = 'SELECT metal, metal_max, crystal, crystal_max, deuterium, deuterium_max FROM %%PLANETS%% WHERE id = :planetId';
+        $ressData = Database::get()->selectSingle($sql, [':planetId' => ($onStart == true ? $this->_fleet['fleet_start_id'] : $this->_fleet['fleet_end_id'])]);
+
+        $ress = ['metal', 'crystal', 'deuterium'];
+
+        $diff = [];
+        foreach($ress as $ressType) {
+            if ($ressData[$ressType] + $this->_fleet['fleet_resource_' . $ressType] > $ressData[$ressType . '_max']) {
+                $diff[$ressType] = $ressData[$ressType] + $this->_fleet['fleet_resource_' . $ressType] - $ressData[$ressType . '_max'];
+                $this->_fleet['fleet_resource_' . $ressType] -= $diff[$ressType];
+            }
+            else {
+                $diff[$ressType] = 0;
+            }
+        }
+
 		$sql  = 'UPDATE %%PLANETS%% as p, %%USERS%% as u SET
 		`metal`			= `metal` + :metal,
 		`crystal`		= `crystal` + :crystal,
 		`deuterium` 	= `deuterium` + :deuterium,
 		`darkmatter`	= `darkmatter` + :darkmatter
 		WHERE p.`id` = :planetId AND u.id = p.id_owner;';
+
 
 		Database::get()->update($sql, array(
 			':metal'		=> $this->_fleet['fleet_resource_metal'],
@@ -128,9 +161,9 @@ class MissionFunctions
 		 	':planetId'		=> ($onStart == true ? $this->_fleet['fleet_start_id'] : $this->_fleet['fleet_end_id'])
 		));
 
-		$this->UpdateFleet('fleet_resource_metal', '0');
-		$this->UpdateFleet('fleet_resource_crystal', '0');
-		$this->UpdateFleet('fleet_resource_deuterium', '0');
+		$this->UpdateFleet('fleet_resource_metal', $diff['metal']);
+		$this->UpdateFleet('fleet_resource_crystal', $diff['crystal']);
+		$this->UpdateFleet('fleet_resource_deuterium', $diff['deuterium']);
 	}
 	
 	function KillFleet()
