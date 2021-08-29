@@ -1097,7 +1097,7 @@ $LNG['ma_buster_canyon']					= 'Plasmawerfer';
 $LNG['ma_small_protection_shield']				= 'Kleine Schildkuppel';
 $LNG['ma_big_protection_shield']				= 'Große Schildkuppel';
 $LNG['ma_all']							= 'Alle';
-$LNG['ma_missiles_sended']					= ' Interplanetarraketen gesendet. Zerstörte Objekte: ';
+$LNG['ma_missiles_sended']					= ' Interplanetarraketen gesendet. Zielanlagen: ';
 
 //----------------------------------------------------------------------------//
 // topkb.php
