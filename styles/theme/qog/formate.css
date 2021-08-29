@@ -236,3 +236,21 @@
 .other-planet {
     border: 2px solid grey;
 }
+
+.target {
+    position: absolute;
+    bottom: 1em;
+    border: 1px solid gray;
+    padding: 0.5em;
+    border-radius: 100em;
+}
+
+.target-expedition {
+    right: 7em
+}
+
+
+.target-market {
+    right: 5em;
+    bottom: 5em;
+}

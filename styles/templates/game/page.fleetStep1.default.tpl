@@ -62,7 +62,7 @@
 						<td id="storage">-</td>
 					</tr>
 				</table>
-
+<!--
 				<table class="table519" style="table-layout: fixed;">
 					<tr style="height:20px;">
 						<th colspan="2">{$LNG.fl_system_places}</th>
@@ -135,7 +135,7 @@
 							</td>
 						</tr>
 					</table>
-				{/if}
+				{/if} -->
 				<table class="table519" style="table-layout: fixed;">
 					<tr style="height:20px;">
 						<th colspan="{$themeSettings.COLONY_ROWS_ON_FLEET1}">{$LNG.fl_my_planets}</th>

@@ -8,6 +8,9 @@
                     <input type="hidden" name="system" value="{$system}">
                     <input type="hidden" name="galaxy" value="{$galaxy}">
                     <div class="card-header">
+                        <div class="btn-group btn-group-sm ms-4 float-end">
+                            <div class="btn btn-primary" onclick="switchLayout();">{$LNG.toggle_view}</div>
+                        </div>
                         <h2 class="card-title">{$LNG.gl_galaxy}</h2>
                     </div>
                     <div class="card-body">
@@ -27,10 +30,6 @@
                             <div class="btn btn-secondary btn-sm">{$system}</div>
                             <a class="btn btn-secondary btn-sm" onclick="galaxy_submit('systemRight')"><i
                                         class="fas fa-arrow-right"></i></a>
-                        </div>
-
-                        <div class="btn-group btn-group-sm ms-4">
-                            <div class="btn btn-primary" onclick="switchLayout();">{$LNG.toggle_view}</div>
                         </div>
 
                         <h3>{$LNG.gl_solar_system} {$galaxy}:{$system}</h3>
@@ -67,6 +66,15 @@
                                     {/if}
                                 {/if}
                             {/for}
+                            {if $activeExpedition < $maxExpedition}
+                            <div class="target target-expedition">
+                                <a href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$max_planets+1}&amp;planettype=1&amp;target_mission=15">{$LNG.type_mission_15}</a>
+                            </div>
+                            {/if}
+                            <div class="target target-market">
+                                <a href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$max_planets+2}&amp;planettype=1&amp;target_mission=16">{$LNG.fl_exchange}</a>
+                            </div>
+
                         </div>
                         <table class="table table-striped d-none" id="table-view">
                             <tr>

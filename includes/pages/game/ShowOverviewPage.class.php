@@ -288,6 +288,7 @@ class ShowOverviewPage extends AbstractGamePage
         {
             $offMissiles[$elementID]	= $PLANET[$resource[$elementID]];
         }
+
         $this->assign(array(
             'rankInfo' => $rankInfo,
             'is_news' => $config->OverviewNewsFrame,
@@ -323,6 +324,7 @@ class ShowOverviewPage extends AbstractGamePage
             'servertime' => _date("M D d H:i:s", TIMESTAMP, $USER['timezone']),
             'path' => HTTP_PATH,
             'planet_coins' => $PLANET['coins'],
+
         ));
 
         $this->display('page.overview.default.tpl');

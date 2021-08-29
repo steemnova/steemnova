@@ -91,9 +91,23 @@ class ShowGalaxyPage extends AbstractGamePage
 		{
 			$Result = [];
 		}
+        $techExpedition      = $USER[$resource[124]];
+
+        if ($techExpedition >= 1)
+        {
+            $activeExpedition   = FleetFunctions::GetCurrentFleets($USER['id'], 15, true);
+            $maxExpedition 		= floor(sqrt($techExpedition)) + $USER['factor']['Expedition'];
+        }
+        else
+        {
+            $activeExpedition 	= 0;
+            $maxExpedition 		= 0;
+        }
 
         $this->tplObj->loadscript('galaxy.js');
         $this->assign(array(
+            'activeExpedition'		=> $activeExpedition,
+            'maxExpedition'			=> $maxExpedition,
 			'GalaxyRows'				=> $Result,
 			'planetcount'				=> sprintf($LNG['gl_populed_planets'], count($Result)),
 			'action'					=> $action,
