@@ -10,20 +10,23 @@
     <div class="card-body">
 
     {if isset($Info)}
-        <table>
-            <tr>
-                <td 
-                    style="width:40%;font-size:22px;font-weight:bold;padding:10px 0 30px;color:{if $Raport.result == "a"}lime{elseif $Raport.result == "r"}red{else}white{/if}">{$Info.0}</td>
-                <td  style="font-size:22px;font-weight:bold;padding:10px 0 30px;">VS</td>
-                <td 
-                    style="width:40%;font-size:22px;font-weight:bold;padding:10px 0 30px;color:{if $Raport.result == "r"}lime{elseif $Raport.result == "a"}red{else}white{/if}">{$Info.1}</td>
-            </tr>
-        </table>
+       <h4> {if $Raport.result == "a"}
+            <span class="winner">{$Info.0}</span>
+            VS
+            <span class="loser">{$Info.1}</span>
+        {elseif $Raport.result == "r"}
+            <span class="loser">{$Info.0}</span>
+            VS
+            <span class="winner">{$Info.1}</span>
+        {else}
+            {$Info.0} VS {$Info.1}
+        {/if}
+       </h4>
     {/if}
     {foreach $Raport.rounds as $Round => $RoundInfo}
         {foreach $RoundInfo.attacker as $Player}
             {$PlayerInfo = $Raport.players[$Player.userID]}
-            <h4>{$LNG.sys_attack_attacker_pos} {$PlayerInfo.name} {if isset($Info)}([XX:XX:XX]){else}([{$PlayerInfo.koords[0]}:{$PlayerInfo.koords[1]}:{$PlayerInfo.koords[2]}]{if isset($PlayerInfo.koords[3])} ({$LNG["type_planet_short_{$PlayerInfo.koords[3]}"]}){/if}){/if}</h4>
+            <h4>{$LNG.sys_attack_attacker_pos} {$PlayerInfo.name} {if isset($Info)}([XX:XX:XX]){else}([{$PlayerInfo.koords[0]}:{$PlayerInfo.koords[1]}:{$PlayerInfo.koords[2]}]{if isset($PlayerInfo.koords[3])} <small>({$LNG["type_planet_{$PlayerInfo.koords[3]}"]})</small>{/if}){/if}</h4>
             <br>
             {$LNG.sys_ship_weapon} {$PlayerInfo.tech[0]}% - {$LNG.sys_ship_shield} {$PlayerInfo.tech[1]}% - {$LNG.sys_ship_armour} {$PlayerInfo.tech[2]}%
             {include "shared.shiptable.part.tpl"}
@@ -31,7 +34,7 @@
 
         {foreach $RoundInfo.defender as $Player}
             {$PlayerInfo = $Raport.players[$Player.userID]}
-            <h4>{$LNG.sys_attack_defender_pos} {$PlayerInfo.name} {if isset($Info)}([XX:XX:XX]){else}([{$PlayerInfo.koords[0]}:{$PlayerInfo.koords[1]}:{$PlayerInfo.koords[2]}]{if isset($PlayerInfo.koords[3])} ({$LNG.type_planet_short[$PlayerInfo.koords[3]]}){/if}){/if}</h4>
+            <h4>{$LNG.sys_attack_defender_pos} {$PlayerInfo.name} {if isset($Info)}([XX:XX:XX]){else}([{$PlayerInfo.koords[0]}:{$PlayerInfo.koords[1]}:{$PlayerInfo.koords[2]}]{if isset($PlayerInfo.koords[3])} <small>({$LNG["type_planet_{$PlayerInfo.koords[3]}"]})</small>{/if}){/if}</h4>
             <br>
             {$LNG.sys_ship_weapon} {$PlayerInfo.tech[0]}%
             - {$LNG.sys_ship_shield} {$PlayerInfo.tech[1]}%

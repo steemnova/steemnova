@@ -20,16 +20,15 @@
                     {foreach $TopKBList as $row}
                         <tr>
                             <td>{$row@iteration}</td>
-                            <td><a href="game.php?page=raport&amp;mode=battlehall&amp;raport={$row.rid}"
-                                   target="_blank">
+                            <td><a href="game.php?page=raport&amp;mode=battlehall&amp;raport={$row.rid}">
                                     {if $row.result == "a"}
-                                        <span style="color:#00FF00">{$row.attacker}</span>
+                                        <span class="winner">{$row.attacker}</span>
                                         VS
-                                        <span style="color:#FF0000">{$row.defender}</span>
+                                        <span class="loser">{$row.defender}</span>
                                     {elseif $row.result == "r"}
-                                        <span style="color:#FF0000">{$row.attacker}</span>
+                                        <span class="loser">{$row.attacker}</span>
                                         VS
-                                        <span style="color:#00FF00">{$row.defender}</span>
+                                        <span class="winner">{$row.defender}</span>
                                     {else}
                                         {$row.attacker} VS {$row.defender}
                                     {/if}
@@ -39,8 +38,8 @@
                         </tr>
                     {/foreach}
                     <tr>
-                        <td colspan="4">{$LNG.tkb_legende}<span style="color:darkgreen">{$LNG.tkb_gewinner}</span><span
-                                    style="color:darkred">{$LNG.tkb_verlierer}</span></td>
+                        <td colspan="4">{$LNG.tkb_legende}<span  class="winner">{$LNG.tkb_gewinner}</span><span
+                                    class="loser">{$LNG.tkb_verlierer}</span></td>
                     </tr>
                     </tbody>
                 </table>

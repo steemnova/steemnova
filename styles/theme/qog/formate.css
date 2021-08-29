@@ -254,3 +254,12 @@
     right: 5em;
     bottom: 5em;
 }
+
+.winner {
+    color: darkgreen;
+    font-weight: bold;
+}
+
+.loser {
+    color: darkred;
+}
