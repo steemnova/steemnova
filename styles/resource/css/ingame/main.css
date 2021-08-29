@@ -130,3 +130,8 @@ main .tooltip {
 .textForBlind {
     display: none;
 }
+
+.menu-align-right {
+    left: initial;
+    right: 0
+}

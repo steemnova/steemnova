@@ -523,7 +523,8 @@ class ShowMessagesPage extends AbstractGamePage
 
             $MessageList[]	= array(
                 'id'		=> $MessageRow['message_id'],
-                'time'		=> _date($LNG['php_tdformat'], $MessageRow['message_time'], $USER['timezone']),
+                'time'		=> _date($LNG['php_timeformat'], $MessageRow['message_time'], $USER['timezone']),
+                'date'		=> _date($LNG['php_dateformat'], $MessageRow['message_time'], $USER['timezone']),
                 'from'		=> $MessageRow['message_from'],
                 'subject'	=> $MessageRow['message_subject'],
                 'sender'	=> $MessageRow['message_sender'],
