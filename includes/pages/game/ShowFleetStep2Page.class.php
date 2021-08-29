@@ -124,6 +124,11 @@ class ShowFleetStep2Page extends AbstractGamePage
 			'fleetroom'			=> floatToString($_SESSION['fleet'][$token]['fleetRoom']),
 			'consumption'		=> floatToString($consumption),
 		);
+        $currentPlanetCount	= $db->selectSingle($sql, array(
+            ':userId'		=> $USER['id'],
+            ':type'			=> 1,
+            ':destroyed'	=> 0
+        ), 'state');
 
 		$this->tplObj->execscript('calculateTransportCapacity();');
 		$this->assign(array(
@@ -131,6 +136,7 @@ class ShowFleetStep2Page extends AbstractGamePage
 			'consumption'					=> floatToString($consumption),
 			'mission'						=> $targetMission,
 			'colonize_notech'               => !PlayerUtil::allowPlanetPosition($targetPlanet, $USER),
+			'max_planet_exceeded'           => $currentPlanetCount >= PlayerUtil::maxPlanetCount($USER),
 			'galaxy'			 			=> $PLANET['galaxy'],
 			'system'			 			=> $PLANET['system'],
 			'planet'			 			=> $PLANET['planet'],
