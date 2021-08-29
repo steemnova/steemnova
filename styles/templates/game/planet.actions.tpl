@@ -1,3 +1,4 @@
+<a class='float-end btn btn-secondary tooltip_hide'>X</a>
 {include 'user.actions.tpl'}
 {if $currentPlanet.alliance}
     <hr/>
@@ -46,4 +47,6 @@
                title='{$LNG['type_mission_10']}'><i class='fas fa-rocket'></i> {$LNG['type_mission_10']}</a>
         {/if}
     </div>
+<hr />
+
 </div>

@@ -74,5 +74,10 @@ $(document).ready(function () {
 		tip.removeClass('tooltip_clicky_div');
 		tip.hide();
 	});
+	$(".tooltip_hide").live('click', function () {
+		var tip = $('#tooltip');
+		tip.removeClass('tooltip_clicky_div');
+		tip.hide();
+	});
 
 });
