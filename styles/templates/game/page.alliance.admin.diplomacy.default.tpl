@@ -18,7 +18,7 @@
                                 <li class="list-group-item">{$diploName} <a
                                             href="game.php?page=alliance&amp;mode=admin&amp;action=diplomacyDelete&amp;id={$diploID}"
                                             onclick="return confirm('{$LNG.al_diplo_confirm_delete}');"><i
-                                                class="fas fa-trash-alt"></a>
+                                                class="fas fa-trash-alt"></i></a>
                                 </li>
                                 {foreachelse}
                                 <li class="list-group-item">{$LNG.al_diplo_no_entry}</li>
