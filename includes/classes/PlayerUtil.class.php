@@ -241,7 +241,7 @@ class PlayerUtil
 			$maxFields				= (int) floor($planetData[$dataIndex]['fields'] * $config->planet_factor);
 		}
 
-		$diameter			= (int) floor(1000 * sqrt($maxFields));
+		$diameter			= (int) floor(1000 * sqrt($maxFields)) + mt_rand(0,1000);
 
 		$imageNames			= array_keys($planetData[$dataIndex]['image']);
 		$imageNameType		= $imageNames[array_rand($imageNames)];
