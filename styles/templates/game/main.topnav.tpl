@@ -23,7 +23,7 @@
                                 {if $resourceID == 911} <!-- energy -->
                                     {$resourceData.currentt = $resourceData.max + $resourceData.used}
                                     <span title="{$resourceData.currentt|number}">
-                                        <span{if $resourceData.currentt < 0} style="color:red"{/if}>{if $resourceData.currentt > 0}+{$resourceData.currentt|number}{else}-{-$resourceData.currentt|number}{/if}</span>
+                                        <span{if $resourceData.currentt < 0} style="color:red"{/if}>{if $resourceData.currentt > 0}+{$resourceData.currentt|number}{else}-{abs($resourceData.currentt)|number}{/if}</span>
                                     </span>
                                 {else}
                                     <span class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">
