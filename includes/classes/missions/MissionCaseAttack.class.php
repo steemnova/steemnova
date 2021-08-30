@@ -402,7 +402,8 @@ HTML;
         ));
 
         $i = 0;
-
+        $attackers = implode(", ", $userAttack);
+        $defenders = implode(", ", $userDefend);
         foreach (array($userAttack, $userDefend) as $data) {
             foreach ($data as $userID => $userName) {
                 $LNG = $this->getLanguage(NULL, $userID);
@@ -417,7 +418,7 @@ HTML;
                         $this->_fleet['fleet_end_system'],
                         $this->_fleet['fleet_end_planet']
                     ),
-                    $LNG['type_planet_short_' . $this->_fleet['fleet_end_type']],
+                    $LNG['type_planet_' . $this->_fleet['fleet_end_type']],
                     $LNG['sys_lost'],
                     $class[0],
                     $LNG['sys_attack_attacker_pos'],
@@ -440,9 +441,14 @@ HTML;
                     $LNG['tech'][902],
                     pretty_number($debris[902])
                 );
+                if($i == 0) { // attacker
+                    $subject = sprintf($LNG['sys_mess_attack_report'], $defenders);
+                } else { // defender
+                    $subject = sprintf($LNG['sys_mess_attack_report_defender'], $attackers);
+                }
 
-                PlayerUtil::sendMessage($userID, 0, $LNG['sys_mess_tower'], 3, $LNG['sys_mess_attack_report'],
-                    $message, $this->_fleet['fleet_start_time'], NULL, 1, $this->_fleet['fleet_universe']);
+                PlayerUtil::sendMessage($userID, 0, $LNG['sys_mess_tower'], 3,
+                    $subject, $message, $this->_fleet['fleet_start_time'], NULL, 1, $this->_fleet['fleet_universe']);
 
                 $sql = "INSERT INTO %%TOPKB_USERS%% SET
 				rid			= :reportId,
