@@ -1298,3 +1298,7 @@ $LNG['sun_hot'] = 'Die Sonne - sehr heiß! Nicht anfassen!';
 
 $LNG['market_fleet'] = 'Flottenmarkt';
 $LNG['market_resource'] = 'Resourcenmarkt';
+
+$LNG['tr_sell_ressources'] = 'Wähle die Ressourcen aus, die du VERKAUFEN möchtest.';
+
+$LNG['pay_finish'] = 'Für %d Dunkle Materie sofort fertigstellen';

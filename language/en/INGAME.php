@@ -1288,3 +1288,7 @@ $LNG['fl_colonize_alert_message'] = 'Note that you need to research %d levels of
 $LNG['fl_colonize_alert_message_tech'] = 'Note that you currently to not have the necessary ASTROPHYSICS research (level %d) to colonize this position!';
 
 $LNG['toggle_view'] = "Switch view";
+
+$LNG['tr_sell_ressources'] = 'Choose the resources to SELL.';
+
+$LNG['pay_finish'] = 'Instant build for %d dark matter';
