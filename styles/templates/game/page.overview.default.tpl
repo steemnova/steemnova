@@ -162,10 +162,10 @@
                     <div class="card-header">
                         <h2 class="card-title">{$LNG.lv_planet_other}</h2>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body row">
                         {foreach $AllPlanets as $PlanetRow}
                             {if ($PlanetRow@iteration % $themeSettings.PLANET_ROWS_ON_OVERVIEW) === 1}{/if}
-                            <div class="planetl">
+                            <div class="col">
                                 <a href="game.php?page=overview&amp;cp={$PlanetRow.id}" title="{$PlanetRow.name}">
                                     <img src="{$dpath}planeten/{$PlanetRow.image}.jpg" width="100" height="100"
                                          alt="{$PlanetRow.name}"><br/>
