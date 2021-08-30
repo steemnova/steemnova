@@ -33,12 +33,18 @@ class ShowCunerosPage extends AbstractGamePage
 
     public function payin() {
         global $PLANET, $USER, $resource, $cuneros, $LNG;
+        $pot_factor = 0.8;
         if($_POST['amount'] < 0) exit;
         $api = new \Access($_POST['password'], $_POST['username'], $cuneros['api_key'], $cuneros['project_id']);
         $api->get($_POST['amount'], $cuneros['payin_subject']);
         if($api->get_status()) {
             $USER[$resource[921]]	+= intval($_POST['amount'])*$cuneros['factor'];
             $this->_message = $LNG['cuneros_payin_successful'];
+
+            $sql = 'UPDATE %%COINPOT%% SET amount = amount + :addAmount WHERE next_payout < :time AND is_active=1 LIMIT 1';
+            Database::get()->update($sql, [':addAmount' => intval($_POST['amount']*$pot_factor), ':time' => time()]);
+
+
         } else {
             $this->_message = sprintf($LNG['cuneros_payin_unsuccessful'], $api->get_error_message());
         }
