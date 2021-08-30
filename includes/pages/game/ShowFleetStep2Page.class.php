@@ -134,6 +134,7 @@ class ShowFleetStep2Page extends AbstractGamePage
             ':type'			=> 1,
             ':destroyed'	=> 0
         ), 'state');
+        $config	= Config::get($USER['universe']);
 
 		$this->tplObj->execscript('calculateTransportCapacity();');
 		$this->assign(array(
@@ -142,7 +143,7 @@ class ShowFleetStep2Page extends AbstractGamePage
 			'mission'						=> $targetMission,
 			'colonize_notech'               => !PlayerUtil::allowPlanetPosition($targetPlanet, $USER),
 			'max_planet_exceeded'           => $currentPlanetCount >= PlayerUtil::maxPlanetCount($USER),
-			'min_astro_level'               => max(PlayerUtil::getPositionRequirement($targetPlanet, $USER), ($currentPlanetCount+1)*2),
+			'min_astro_level'               => max(PlayerUtil::getPositionRequirement($targetPlanet, $USER), ($currentPlanetCount)/$config->planets_tech),
 			'galaxy'			 			=> $PLANET['galaxy'],
 			'system'			 			=> $PLANET['system'],
 			'planet'			 			=> $PLANET['planet'],
