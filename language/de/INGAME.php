@@ -1301,6 +1301,9 @@ $LNG['market_resource'] = 'Resourcenmarkt';
 
 $LNG['tr_sell_ressources'] = 'Wähle die Ressourcen aus, die du VERKAUFEN möchtest.';
 
+
+$LNG['pay_finish'] = 'Sofortbau für %d Dunkle Materie';
+
 $LNG['bd_buildplaces'] = 'Bauplätze';
 $LNG['bd_buildplaces_middle'] = '<strong>%d</strong> bebaut, der Planet hat <strong>%d</strong> Bauplätze. Sind alle Bauplätze belegt, können keine Gebäude mehr ausgebaut oder neu gebaut werden.';
 
