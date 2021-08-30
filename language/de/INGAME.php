@@ -1303,3 +1303,6 @@ $LNG['tr_sell_ressources'] = 'Wähle die Ressourcen aus, die du VERKAUFEN möcht
 
 $LNG['bd_buildplaces'] = 'Bauplätze';
 $LNG['bd_buildplaces_middle'] = '<strong>%d</strong> bebaut, der Planet hat <strong>%d</strong> Bauplätze. Sind alle Bauplätze belegt, können keine Gebäude mehr ausgebaut oder neu gebaut werden.';
+
+$LNG['hdr_production'] = '%s/h, voll am %s Uhr';
+$LNG['hdr_production_full'] = 'Speicher ist voll!';

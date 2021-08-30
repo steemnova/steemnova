@@ -113,6 +113,11 @@ abstract class AbstractGamePage
 			{
 				$resourceTable[$resourceID]['production']	= $PLANET[$resource[$resourceID].'_perhour'] + $config->{$resource[$resourceID].'_basic_income'} * $resourceSpeed;
 			}
+			if($resourceTable[$resourceID]['production'] > 0) {
+                $resourceTable[$resourceID]['full_date'] = TIMESTAMP + round(($PLANET[$resource[$resourceID] . '_max'] - $PLANET[$resource[$resourceID]])*3600 / $resourceTable[$resourceID]['production']);
+            } else {
+                $resourceTable[$resourceID]['full_date'] = TIMESTAMP;
+            }
 		}
 
 		foreach($reslist['resstype'][2] as $resourceID)

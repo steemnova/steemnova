@@ -17,7 +17,16 @@
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     {foreach $resourceTable as $resourceID => $resourceData}
                         <li class="nav-item res-item">
-                            <a {if (!$resourceID|in_array:[921,911])}title="{$resourceData.production|number}/h"{/if} class="nav-link {if (!$resourceID|in_array:[921,911] and $resourceData.max <= $resourceData.current) or ($resourceID==911 and $resourceData.max+$resourceData.used<0)}text-danger{/if}" href="#" onclick="return Dialog.info({$resourceID});">
+                            <a {if (!$resourceID|in_array:[921,911])}
+                                {if $resourceData.current < $resourceData.max}
+                                title="{sprintf($LNG.hdr_production, $resourceData.production|number, date($LNG.php_tdformat, $resourceData.full_date))}"
+                                    {else}
+                                    title="{$LNG.hdr_production_full}"
+                                {/if}
+                                {else}
+                                onclick="return Dialog.info({$resourceID});"
+                            {/if} class="nav-link {if (!$resourceID|in_array:[921,911] and $resourceData.max <= $resourceData.current) or ($resourceID==911 and $resourceData.max+$resourceData.used<0)}text-danger{/if}" href="#"
+                            data-bs-toggle="tooltip" data-bs-placement="bottom">
                                 <img src="{$dpath}images/{$resourceData.name}.gif">
                                 <span class="d-lg-block d-none">{$LNG.tech.$resourceID}</span>
                                 {if $resourceID == 911} <!-- energy -->
@@ -37,7 +46,7 @@
                         </li>
                     {/foreach}
                     <li class="nav-item res-item">
-                        <a class="nav-link"  onclick="return Dialog.info(925);">
+                        <a class="nav-link" onclick="return Dialog.info(925);">
                         <img src="{$dpath}images/cuneros.png">
                         <span class="d-lg-block d-none">Cuneros</span>
                         <span class="res_current">{$coins|number}</span></li>
