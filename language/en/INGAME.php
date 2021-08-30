@@ -1292,3 +1292,6 @@ $LNG['toggle_view'] = "Switch view";
 $LNG['tr_sell_ressources'] = 'Choose the resources to SELL.';
 
 $LNG['pay_finish'] = 'Instant build for %d dark matter';
+
+$LNG['bd_buildplaces'] = 'Building slots';
+$LNG['bd_buildplaces_middle'] = '<strong>%d</strong> occupied, this planet features <strong>%d</strong> building slots. If all slots are occupied, no buildings can be built or levelled up.';

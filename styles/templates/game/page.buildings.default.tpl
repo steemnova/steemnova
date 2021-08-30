@@ -55,8 +55,15 @@
            data-bs-target=".non-buyable">{$LNG.build_toggle_non_buyable}</a>
         |
         <a class="btn btn-outline-danger btn-sm float-end me-2" data-bs-toggle="collapse" data-bs-target=".dismantle">{$LNG.bd_dismantle}</a>
+<hr />
+        <strong>{$LNG.bd_buildplaces}</strong>: {sprintf($LNG.bd_buildplaces_middle,$fields_current,$fields_max)}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped {if $fields_percentage >90}bg-danger{else if $fields_percentage > 70}bg-warning{else}bg-success{/if}" role="progressbar" style="width: {$fields_percentage}%" aria-valuenow="{$fields_percentage}" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
     </div>
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-2 build-gutter">
+        <!-- field information -->
+
         {foreach $BuildInfoList as $ID => $Element}
             <!-- mines? -->
             <div class="col collapse show {if $ID|in_array:[1,2,3,4,12,22,23,24]}mining{else}non-mining{/if} building {if !$Element.buyable}non-buyable{else}buyable{/if}">
