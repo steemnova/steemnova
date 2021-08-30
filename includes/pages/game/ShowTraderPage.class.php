@@ -41,6 +41,7 @@ class ShowTraderPage extends AbstractGamePage
 			'tr_cost_dm_trader'		=> sprintf($LNG['tr_cost_dm_trader'], pretty_number($darkmatter_cost_trader), $LNG['tech'][921]),
 			'charge'				=> self::$Charge,
 			'resource'				=> $resource,
+			'darkmatter_cost_trader' => $darkmatter_cost_trader,
 			'requiredDarkMatter'	=> $USER['darkmatter'] < $darkmatter_cost_trader ? sprintf($LNG['tr_not_enought'], $LNG['tech'][921]) : false,
 		));
 		

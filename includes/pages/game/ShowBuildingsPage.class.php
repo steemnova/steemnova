@@ -246,6 +246,7 @@ class ShowBuildingsPage extends AbstractGamePage
                 'level' => $BuildArray[1],
                 'time' => $BuildArray[2],
                 'resttime' => ($BuildArray[3] - TIMESTAMP),
+                'darkmattercost' => $this->getFinishCost($BuildArray),
                 'destroy' => ($BuildArray[4] == 'destroy'),
                 'endtime' => _date('U', $BuildArray[3], $USER['timezone']),
                 'display' => _date($LNG['php_tdformat'], $BuildArray[3], $USER['timezone']),
@@ -253,6 +254,37 @@ class ShowBuildingsPage extends AbstractGamePage
         }
 
         return array('queue' => $scriptData, 'quickinfo' => $quickinfo);
+    }
+
+    protected function getFinishCost($item)
+    {
+        return ceil(max(($item[3] - TIMESTAMP) / 60, 1));
+    }
+
+    protected function FinishBuilding()
+    {
+
+        global $PLANET, $USER, $resource, $reslist, $pricelist;
+        $CurrentQueue = unserialize($PLANET['b_building_id']);
+        if (empty($CurrentQueue)) {
+            $PLANET['b_building_id'] = '';
+            $PLANET['b_building'] = 0;
+            return false;
+        }
+        $cost = $this->getFinishCost($CurrentQueue[0]);
+        if ($USER[$resource[921]] >= $cost) {
+            $USER[$resource[921]] -= $cost;
+        } else {
+            return false;
+        }
+
+        $CurrentQueue[0][3] = TIMESTAMP;
+
+        $PLANET['b_building'] = TIMESTAMP;
+        $PLANET['b_building_id'] = serialize($CurrentQueue);
+        $this->ecoObj->setData($USER, $PLANET);
+        list($USER, $PLANET) = $this->ecoObj->getData();
+        return true;
     }
 
     public function show()
@@ -278,6 +310,9 @@ class ShowBuildingsPage extends AbstractGamePage
                     break;
                 case 'destroy':
                     $this->AddBuildingToQueue($Element, false);
+                    break;
+                case 'pay':
+                    $this->FinishBuilding();
                     break;
             }
 

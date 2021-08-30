@@ -21,6 +21,13 @@
                             <button type="submit" class="build_submit onlist btn btn-success">{$LNG.tech.{$ID}} {$List.level+1}{if $List.destroy} {$LNG.bd_dismantle}{else} {$LNG.bd_build}{/if}</button>
                         </form>
                     {/if}
+                    {if $List@iteration == 1}
+                    <form action="game.php?page=buildings" method="post" class="build_form">
+                        <input type="hidden" name="cmd" value="pay">
+                        <input type="hidden" name="listid" value="{$List@iteration}">
+                        <button type="submit" class="build_submit onlist btn btn-primary">{sprintf($LNG['pay_finish'],$List.darkmattercost)}</button>
+                    </form>
+                    {/if}
                     <form action="game.php?page=buildings" method="post" class="build_form">
                         <input type="hidden" name="cmd" value="{if $List@iteration == 1}cancel{else}remove{/if}">
                         <input type="hidden" name="listid" value="{$List@iteration}">
@@ -31,7 +38,7 @@
         </div>
     {/if}
     <!-- /building queue-->
-    <div class="planeto bg-light rounded mb-2">
+    <div class="bg-light rounded mb-2 p-2">
         <a class="btn btn-toggle btn-primary" data-bs-toggle="collapse"
            data-bs-target=".mining">{$LNG.build_toggle_mining}</a>
         |
@@ -46,6 +53,8 @@
         |
         <a class="btn btn-toggle btn-primary" data-bs-toggle="collapse"
            data-bs-target=".non-buyable">{$LNG.build_toggle_non_buyable}</a>
+        |
+        <a class="btn btn-outline-danger btn-sm float-end me-2" data-bs-toggle="collapse" data-bs-target=".dismantle">{$LNG.bd_dismantle}</a>
     </div>
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-2 build-gutter">
         {foreach $BuildInfoList as $ID => $Element}
@@ -117,7 +126,9 @@
                         {if $Element.level > 0}
                             {if $ID == 43}<a href="#"
                                              onclick="return Dialog.info({$ID})">{$LNG.bd_jump_gate_action}</a>{/if}
-                        {else}
+                            {if ($ID == 44 && !$HaveMissiles) ||  $ID != 44}
+                                <a class="collapse dismantle tooltip_sticky btn btn-danger" data-tooltip-content="{include "action.building.dismantle.tpl"}">{$LNG.bd_dismantle}</a>
+                            {/if}
 
                         {/if}
                     </div>
