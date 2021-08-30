@@ -11,11 +11,11 @@
             </div>
         {/if}
         {if $closed}
-            <div class="infobox">{$LNG.ov_closed}</div>
+            <div class="alert alert-warning">{$LNG.ov_closed}</div>
         {elseif $delete}
-            <div class="infobox">{$delete}</div>
+            <div class="alert alert-danger">{$delete}</div>
         {elseif $vacation}
-            <div class="infobox">{$LNG.tn_vacation_mode} {$vacation}</div>
+            <div class="alert alert-warning">{$LNG.tn_vacation_mode} {$vacation}</div>
         {/if}
 
 
