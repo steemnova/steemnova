@@ -62,6 +62,9 @@ $LNG['sys_mess_spy_lostproba'] 				= "The spy probes discovery chance was:  %d %
 $LNG['sys_mess_spy_control'] 				= "Room monitoring";
 $LNG['sys_mess_spy_activity'] 				= "Spying activity";
 $LNG['sys_mess_spy_ennemyfleet'] 			= "A hostile fleet of the planet";
+$LNG['sys_mess_spy_fleet'] 			= 'A hostile fleet from the planet %s was detected near your planet %s';
+$LNG['sys_mess_spy_fleet_moon'] 			= 'A hostile fleet from the planet %s was detected near your moon %s';
+
 $LNG['sys_mess_spy_seen_at'] 				= "was sighted near your planet";
 $LNG['sys_mess_spy_destroyed'] 				= '<font color="red">Your spy probes were destroyed! </font>';
 $LNG['sys_adress_planet'] 					= '[%s:%s:%s]';

@@ -165,17 +165,32 @@ class MissionCaseSpy extends MissionFunctions implements Mission
 			$spyReport, $this->_fleet['fleet_start_time'], NULL, 1, $this->_fleet['fleet_universe']);
 		
 		$LNG			= $this->getLanguage($targetUser['lang']);
-		$targetMessage  = $LNG['sys_mess_spy_ennemyfleet'] ." ". $senderPlanetName;
+		$targetMessage  = $LNG['sys_mess_spy_enemy_fleet'];
 
 		if($this->_fleet['fleet_start_type'] == 3)
 		{
-			$targetMessage .= $LNG['sys_mess_spy_report_moon'].' ';
+			$targetMessage = $LNG['sys_mess_spy_fleet_moon'];
 		}
 
-		$text	= '<a href="game.php?page=galaxy&amp;galaxy=%1$s&amp;system=%2$s">[%1$s:%2$s:%3$s]</a> %7$s
-		%8$s <a href="game.php?page=galaxy&amp;galaxy=%4$s&amp;system=%5$s">[%4$s:%5$s:%6$s]</a>';
 
-		$targetMessage .= sprintf($text,
+
+		$text1	= sprintf('%1$s<a href="game.php?page=galaxy&amp;galaxy=%2$s&amp;system=%3$s">[%2$s:%3$s:%4$s]</a>',
+            $senderPlanetName,
+            $this->_fleet['fleet_start_galaxy'],
+			$this->_fleet['fleet_start_system'],
+			$this->_fleet['fleet_start_planet']);
+
+		$text2 = sprintf('%1$s <a href="game.php?page=galaxy&amp;galaxy=%2$s&amp;system=%3$s">[%2$s:%3$s:%4$s]</a>',
+            $targetPlanet['name'],
+            $this->_fleet['fleet_end_galaxy'],
+            $this->_fleet['fleet_end_system'],
+            $this->_fleet['fleet_end_planet'],
+        );
+
+
+		$targetMessage = sprintf($targetMessage, $text1, $text2);
+
+		/*$tm = sprintf($text,
 			$this->_fleet['fleet_start_galaxy'],
 			$this->_fleet['fleet_start_system'],
 			$this->_fleet['fleet_start_planet'],
@@ -184,7 +199,7 @@ class MissionCaseSpy extends MissionFunctions implements Mission
 			$this->_fleet['fleet_end_planet'],
 			$LNG['sys_mess_spy_seen_at'],
 			$targetPlanet['name']
-		);
+		);*/
 
 
 		PlayerUtil::sendMessage($this->_fleet['fleet_target_owner'], 0, $LNG['sys_mess_spy_control'], 0,

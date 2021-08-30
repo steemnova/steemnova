@@ -62,6 +62,9 @@ $LNG['sys_mess_spy_lostproba'] 				= 'Die Wahrscheinlichkeit der Zerstörung der
 $LNG['sys_mess_spy_control'] 				= 'Raumüberwachung';
 $LNG['sys_mess_spy_activity'] 				= 'Spionage-Aktivität';
 $LNG['sys_mess_spy_ennemyfleet'] 			= 'Eine feindliche Flotte vom Planeten';
+$LNG['sys_mess_spy_fleet'] 			= 'Eine feindliche Flotte vom Planeten %s wurde in der Nähe deines Planeten %s detektiert';
+$LNG['sys_mess_spy_fleet_moon'] 			= 'Eine feindliche Flotte vom Planeten %s wurde in der Nähe deines Mondes %s detektiert';
+
 $LNG['sys_mess_spy_seen_at'] 				= 'wurde in der Nähe deines Planeten';
 $LNG['sys_mess_spy_destroyed'] 				= '<font color="red">Deine Spionagesonden wurden zerstört!</font>';
 $LNG['sys_adress_planet'] 					= '[%s:%s:%s]';
