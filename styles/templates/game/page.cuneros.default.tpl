@@ -63,7 +63,7 @@
                                 <label for="id-amount">{$LNG.cuneros_amount}</label>
                             </div>
                             <div class="col">
-                                <input type="number" min="100" name="amount" id="id-amount" value="100"
+                                <input type="number" min="1000" name="amount" id="id-amount" value="1000"
                                        class="form-control"/>
                             </div>
                         </div>

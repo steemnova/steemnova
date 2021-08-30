@@ -58,7 +58,7 @@
                                         </a>
                                     {/if}
                                     {if $currentPlanet.debris}
-                                        <a class="tooltip_clicky planet planet-{$planet} moon"
+                                        <a class="tooltip_clicky planet planet-{$planet} debris"
                                            data-tooltip-content="{include "debris.actions.tpl"}">
                                             <img src="{$dpath}planeten/debris.jpg" height="22" width="22"
                                                  alt="">

@@ -224,7 +224,12 @@
     width: 32px;
     height: 32px;
 }
+.debris {
+    transform: translate(-150%,+20%);
+    width: 32px;
+    height: 32px;
 
+}
 .own-planet {
     border: 2px solid blue;
 }
