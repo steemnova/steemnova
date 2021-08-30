@@ -19,9 +19,9 @@
                         <li class="nav-item res-item">
                             <a {if (!$resourceID|in_array:[921,911])}
                                 {if $resourceData.current < $resourceData.max}
-                                title="{sprintf($LNG.hdr_production, $resourceData.production|number, date($LNG.php_tdformat, $resourceData.full_date))}"
+                                title="{$LNG.tech.$resourceID}: {sprintf($LNG.hdr_production, $resourceData.production|number, date($LNG.php_tdformat, $resourceData.full_date))}"
                                     {else}
-                                    title="{$LNG.hdr_production_full}"
+                                    title="{$LNG.tech.$resourceID}: {$LNG.hdr_production_full}"
                                 {/if}
                                 {else}
                                 onclick="return Dialog.info({$resourceID});"
