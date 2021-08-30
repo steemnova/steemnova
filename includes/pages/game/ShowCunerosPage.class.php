@@ -41,8 +41,8 @@ class ShowCunerosPage extends AbstractGamePage
             $USER[$resource[921]]	+= intval($_POST['amount'])*$cuneros['factor'];
             $this->_message = $LNG['cuneros_payin_successful'];
 
-            $sql = 'UPDATE %%COINPOT%% SET amount = amount + :addAmount WHERE is_active=1 LIMIT 1';
-            Database::get()->update($sql, [':addAmount' => intval($_POST['amount']*$pot_factor),]);
+            $sql = 'UPDATE %%COINPOT%% SET amount = amount + :addAmount WHERE next_payout > :time AND is_active=1 LIMIT 1';
+            Database::get()->update($sql, [':addAmount' => intval($_POST['amount']*$pot_factor), ':time' => time()]);
 
 
         } else {
