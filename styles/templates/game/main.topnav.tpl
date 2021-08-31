@@ -60,7 +60,7 @@
                     {if isModuleAvailable($smarty.const.MODULE_RESEARCH)}<li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=research" title="{$LNG.lm_research}"><i class="fs-2 fas fa-flask"></i></a></li>{/if}
                     <li class="nav-item ps-4 fs-1" title=""></li>
 
-                    <li class="nav-item pe-2 pt-2 d-none d-md-inline-block ">
+                    <li class="nav-item pe-2 pt-2 planet-selector-li">
                         <select id="planetSelector" class="form-control">
                             {html_options options=$PlanetSelect selected=$current_pid}
                         </select>
