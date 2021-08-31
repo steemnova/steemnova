@@ -33,7 +33,8 @@ class ShowCunerosPage extends AbstractGamePage
 
     public function payin() {
         global $PLANET, $USER, $resource, $cuneros, $LNG;
-        $pot_factor = 0.8;
+        $config = Config::get();
+        $pot_factor = $config->coinpot_increase / 100;
         if($_POST['amount'] < 0) exit;
         $api = new \Access($_POST['password'], $_POST['username'], $cuneros['api_key'], $cuneros['project_id']);
         $api->get($_POST['amount'], $cuneros['payin_subject']);
