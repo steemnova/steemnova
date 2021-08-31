@@ -519,8 +519,7 @@ HTML;
 		kbmetal		= kbmetal + :debrisMetal,
 		kbcrystal	= kbcrystal + :debrisCrystal,
 		lostunits	= lostunits + :lostUnits,
-		desunits	= desunits + :destroyedUnits,
-           
+		desunits	= desunits + :destroyedUnits           
 		WHERE id IN (' . implode(',', array_keys($userAttack)) . ');';
 
         $db->update($sql, array(
