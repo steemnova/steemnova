@@ -30,6 +30,7 @@ class Cuneros
 
         if($targetId === NULL) {
             $sol_id = $USER['ref_id'];
+            $targetId = $USER['id'];
         } else {
             $sql = 'SELECT ref_id FROM %%USERS%% WHERE id = :userId';
             $sol_id = Database::get()->selectSingle($sql, ['userId' => $targetId], 'ref_id');
