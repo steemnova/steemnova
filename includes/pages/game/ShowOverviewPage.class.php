@@ -64,13 +64,12 @@ class ShowOverviewPage extends AbstractGamePage
 
     function claim_coins()
     {
-        global $USER, $PLANET, $LNG;
-        $USER['coins'] += $PLANET['coins'];
-        if($USER['ref_id'] !=0) { // user has werber
+        global $PLANET, $LNG;
 
-        }
         $coins = $PLANET['coins'];
+        Cuneros::claimCuneros($coins, null, true);
         $PLANET['coins'] = 0;
+
         $this->sendJSON(array('message' => $LNG['coins_claim_success'], 'error' => false));
     }
 

@@ -29,6 +29,7 @@
                     {if isModuleAvailable($smarty.const.MODULE_IMPERIUM)}<li class="nav-item"><a class="nav-link link-dark rounded" href="game.php?page=imperium">{$LNG.lm_empire}</a></li>{/if}
                     {if isModuleAvailable($smarty.const.MODULE_TECHTREE)}<li class="nav-item"><a class="nav-link link-dark rounded" href="game.php?page=techtree">{$LNG.lm_technology}</a></li>{/if}
                     {if isModuleAvailable($smarty.const.MODULE_RESSOURCE_LIST)}<li class="nav-item"><a class="nav-link link-dark rounded" href="game.php?page=resources">{$LNG.lm_resources}</a></li>{/if}
+                    {if isModuleAvailable($smarty.const.MODULE_CUNEROS)}<li class="nav-item"><a class="nav-link link-dark rounded" href="game.php?page=referral">{$LNG.lm_referral}</a></li>{/if}
 
                 </ul>
             </div>

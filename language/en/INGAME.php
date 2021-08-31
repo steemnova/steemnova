@@ -1299,3 +1299,17 @@ $LNG['bd_buildplaces_middle'] = '<strong>%d</strong> occupied, this planet featu
 
 $LNG['hdr_production'] = '%s/h, full on %s';
 $LNG['hdr_production_full'] = 'Storage is full!';
+
+
+$LNG['ref_header'] = 'Your Referrals';
+$LNG['ref_table_name'] = 'Username';
+$LNG['ref_table_onlinedate'] = 'Last online';
+$LNG['ref_table_regdate'] = 'Registered on';
+$LNG['ref_table_amount'] = 'Total ref earning';
+
+$LNG['ref_link'] = 'Your referral-link: ';
+$LNG['ref_module_inactive'] = 'The referral module is deactivated.';
+
+$LNG['ref_earning_info'] = 'You will earn %d%% of the earned cuneros into your safe (excluding farming).';
+
+$LNG['lm_referral'] = 'Referral Overview';

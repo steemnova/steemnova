@@ -22,7 +22,7 @@ class CoinCronJob implements CronjobTask
 	function run()
 	{
 	    $config = Config::get();
-        $defaultAmount = $config->coinpot_start;
+        $defaultAmount = $config->coinpot_start * (1-$config->referral_earn);
 	    // check if coinpot is valid
         $sql = 'SELECT * from %%COINPOT%% WHERE next_payout < :time AND is_active=1 LIMIT 1';
         $data = Database::get()->selectSingle($sql, [':time' => time()]);

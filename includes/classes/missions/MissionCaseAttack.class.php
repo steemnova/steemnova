@@ -38,16 +38,16 @@ class MissionCaseAttack extends MissionFunctions implements Mission
         $incomingFleets = array();
 
         $stealResource = array(
-            901 => 0,
-            902 => 0,
-            903 => 0,
-            925 => 0,
+            RESS_METAL => 0,
+            RESS_CRYSTAL => 0,
+            RESS_DEUTERIUM => 0,
+            RESS_COINS => 0,
         );
 
         $debris = array();
         $planetDebris = array();
 
-        $debrisResource = array(901, 902);
+        $debrisResource = array(RESS_METAL, RESS_CRYSTAL);
 
         $messageHTML = <<<HTML
 <div class="raportMessage">
@@ -427,19 +427,19 @@ HTML;
                     $LNG['sys_attack_defender_pos'],
                     pretty_number($combatResult['unitLost']['defender']),
                     $LNG['sys_gain'],
-                    $LNG['tech'][901],
-                    pretty_number($stealResource[901]),
-                    $LNG['tech'][902],
-                    pretty_number($stealResource[902]),
-                    $LNG['tech'][903],
-                    pretty_number($stealResource[903]),
-                    $LNG['tech'][925],
-                    pretty_number($stealResource[925]),
+                    $LNG['tech'][RESS_METAL],
+                    pretty_number($stealResource[RESS_METAL]),
+                    $LNG['tech'][RESS_CRYSTAL],
+                    pretty_number($stealResource[RESS_CRYSTAL]),
+                    $LNG['tech'][RESS_DEUTERIUM],
+                    pretty_number($stealResource[RESS_DEUTERIUM]),
+                    $LNG['tech'][RESS_COINS],
+                    pretty_number($stealResource[RESS_COINS]),
                     $LNG['sys_debris'],
-                    $LNG['tech'][901],
-                    pretty_number($debris[901]),
-                    $LNG['tech'][902],
-                    pretty_number($debris[902])
+                    $LNG['tech'][RESS_METAL],
+                    pretty_number($debris[RESS_METAL]),
+                    $LNG['tech'][RESS_CRYSTAL],
+                    pretty_number($debris[RESS_CRYSTAL])
                 );
                 if($i == 0) { // attacker
                     $subject = sprintf($LNG['sys_mess_attack_report'], $defenders);
@@ -479,8 +479,8 @@ HTML;
 		WHERE ' . $debrisType . ' = :planetId;';
 
         $db->update($sql, array(
-            ':metal' => $planetDebris[901],
-            ':crystal' => $planetDebris[902],
+            ':metal' => $planetDebris[RESS_METAL],
+            ':crystal' => $planetDebris[RESS_CRYSTAL],
             ':planetId' => $this->_fleet['fleet_end_id']
         ));
 
@@ -492,10 +492,10 @@ HTML;
 		WHERE id = :planetId;';
 
         $db->update($sql, array(
-            ':metal' => $stealResource[901],
-            ':crystal' => $stealResource[902],
-            ':deuterium' => $stealResource[903],
-            ':coins' => $stealResource[925],
+            ':metal' => $stealResource[RESS_METAL],
+            ':crystal' => $stealResource[RESS_CRYSTAL],
+            ':deuterium' => $stealResource[RESS_DEUTERIUM],
+            ':coins' => $stealResource[RESS_COINS],
             ':planetId' => $this->_fleet['fleet_end_id']
         ));
 
@@ -520,16 +520,20 @@ HTML;
 		kbcrystal	= kbcrystal + :debrisCrystal,
 		lostunits	= lostunits + :lostUnits,
 		desunits	= desunits + :destroyedUnits,
-		coins       = coins + :stolenCoins            
+           
 		WHERE id IN (' . implode(',', array_keys($userAttack)) . ');';
 
         $db->update($sql, array(
-            ':debrisMetal' => $debris[901],
-            ':debrisCrystal' => $debris[902],
+            ':debrisMetal' => $debris[RESS_METAL],
+            ':debrisCrystal' => $debris[RESS_CRYSTAL],
             ':lostUnits' => $combatResult['unitLost']['attacker'],
-            ':stolenCoins' => $stealResource[925] / count($userAttack),
             ':destroyedUnits' => $combatResult['unitLost']['defender']
         ));
+        $coins = $stealResource[RESS_COINS] / count($userAttack);
+        foreach(array_keys($userAttack) as $u_id) {
+            Cuneros::claimCuneros($coins, $u_id, false);
+        }
+
 
         $sql = 'UPDATE %%USERS%% SET
 		`' . $defendStatus . '` = `' . $defendStatus . '` + 1,
@@ -540,8 +544,8 @@ HTML;
 		WHERE id IN (' . implode(',', array_keys($userDefend)) . ');';
 
         $db->update($sql, array(
-            ':debrisMetal' => $debris[901],
-            ':debrisCrystal' => $debris[902],
+            ':debrisMetal' => $debris[RESS_METAL],
+            ':debrisCrystal' => $debris[RESS_CRYSTAL],
             ':lostUnits' => $combatResult['unitLost']['defender'],
             ':destroyedUnits' => $combatResult['unitLost']['attacker']
         ));
@@ -570,11 +574,11 @@ HTML;
             $planetName,
             GetTargetAddressLink($this->_fleet, ''),
             pretty_number($this->_fleet['fleet_resource_metal']),
-            $LNG['tech'][901],
+            $LNG['tech'][RESS_METAL],
             pretty_number($this->_fleet['fleet_resource_crystal']),
-            $LNG['tech'][902],
+            $LNG['tech'][RESS_CRYSTAL],
             pretty_number($this->_fleet['fleet_resource_deuterium']),
-            $LNG['tech'][903]
+            $LNG['tech'][RESS_DEUTERIUM]
         );
 
         PlayerUtil::sendMessage($this->_fleet['fleet_owner'], 0, $LNG['sys_mess_tower'], 4, $LNG['sys_mess_fleetback'],

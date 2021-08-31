@@ -1309,3 +1309,16 @@ $LNG['bd_buildplaces_middle'] = '<strong>%d</strong> bebaut, der Planet hat <str
 
 $LNG['hdr_production'] = '%s/h, voll am %s Uhr';
 $LNG['hdr_production_full'] = 'Speicher ist voll!';
+
+
+$LNG['ref_header'] = 'Deine Referrals';
+$LNG['ref_table_name'] = 'Nutzername';
+$LNG['ref_table_onlinedate'] = 'Zuletzt online';
+$LNG['ref_table_regdate'] = 'Registriert am';
+$LNG['ref_table_amount'] = 'Ref-Verdienst gesamt';
+$LNG['ref_link'] = 'Dein Referral-Link';
+$LNG['ref_module_inactive'] = 'Das Referral-Modul ist nicht aktiv.';
+
+$LNG['ref_earning_info'] = 'Du bekommst von allen gesammelten (nicht gefarmten) Cuneros %d%% in deinen Tresor.';
+
+$LNG['lm_referral'] = 'Referral Übersicht';
