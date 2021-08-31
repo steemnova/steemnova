@@ -411,7 +411,7 @@ HTML;
                 $message = sprintf($messageHTML,
                     $reportID,
                     $class[$i],
-                    $LNG['sys_mess_attack_report'],
+                    $LNG['sys_mess_attack_report_headline'],
                     sprintf(
                         $LNG['sys_adress_planet'],
                         $this->_fleet['fleet_end_galaxy'],
