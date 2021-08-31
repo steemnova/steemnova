@@ -26,7 +26,7 @@
                             <td>{$data.username}</td>
                             <td>{date($LNG.php_tdformat,$data.onlinetime)}</td>
                             <td>{date($LNG.php_tdformat,$data.register_time)}</td>
-                            <td>{$data.ref_coins}</td>
+                            <td>{floor($data.ref_coins)|number}</td>
                         </tr>
                     {/foreach}
                     </tbody>
