@@ -812,7 +812,9 @@ CREATE TABLE `%PREFIX%users` (
   `ref_bonus` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `inactive_mail` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `coins` float default 0.0 null,
-  PRIMARY KEY (`id`),
+  `ref_coins` float default 0.0 null;
+
+PRIMARY KEY (`id`),
   KEY `authlevel` (`authlevel`),
   KEY `ref_bonus` (`ref_bonus`),
   KEY `universe` (`universe`,`username`,`password`,`onlinetime`,`authlevel`),

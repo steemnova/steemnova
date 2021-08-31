@@ -32,3 +32,6 @@ alter table %PREFIX%config
 alter table %PREFIX%config
     add coinpot_random_minutes int default 60 null;
 
+alter table %PREFIX%users
+    add ref_coins float default 0.0 null;
+
