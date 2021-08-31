@@ -1317,6 +1317,12 @@ $LNG['du_choose_tables'] = 'Tabellen auswählen';
 $LNG['du_success'] = 'Backup erfolgreich erstellt! Datei: %s';
 $LNG['du_not_tables_selected'] = 'Du hast keine Tabellen zum sichern ausgewählt!';
 
-
+/** coins  */
 $LNG['se_coin_amount'] = 'Aktueller CoinPot';
 $LNG['se_coin_update'] = 'Nächste Coin Verteilung';
+
+$LNG['se_coinpot_start'] = 'Startwert Coinpot';
+$LNG['se_coinpot_increase'] = '% Erhöhung bei DM Kauf';
+$LNG['se_referral_earn'] = 'Ref-Faktor bei Coin claim';
+$LNG['se_coinpot_wait_minutes'] = 'Mindestwartezeit bis Coin-Verteilung';
+$LNG['se_coinpot_random_minutes'] = 'Zufallswert Zeit Coin-Verteilung';

@@ -17,3 +17,18 @@ create table `%PREFIX%coinpot`
         primary key (id)
 );
 
+alter table %PREFIX%config
+    add coinpot_start int default 1000 null;
+
+alter table %PREFIX%config
+    add coinpot_increase int default 80 null;
+
+alter table %PREFIX%config
+    add referral_earn float default 0.05 null;
+
+alter table %PREFIX%config
+    add coinpot_wait_minutes int default 240 null;
+
+alter table %PREFIX%config
+    add coinpot_random_minutes int default 60 null;
+

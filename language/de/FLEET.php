@@ -50,6 +50,7 @@ $LNG['sys_both_won'] 						= 'Der Kampf endet mit einem Unentschieden!';
 $LNG['sys_stealed_ressources'] 				= 'Er erbeutet';
 $LNG['sys_and']								= 'und';
 $LNG['sys_mess_tower'] 						= 'Flottenkommando';
+$LNG['sys_mess_attack_report_headline'] 	= 'Angriff auf ';
 $LNG['sys_mess_attack_report'] 				= 'Angriff auf %s';
 $LNG['sys_mess_attack_report_defender'] 	= 'Angriff von %s';
 $LNG['sys_spy_fleet'] 						= 'Flotte';

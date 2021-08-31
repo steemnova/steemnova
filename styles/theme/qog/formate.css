@@ -253,13 +253,15 @@
 }
 
 .target-expedition {
-    right: 7em
+    right: 7em;
+    z-index: 3;
 }
 
 
 .target-market {
     right: 5em;
     bottom: 5em;
+    z-index: 3;
 }
 
 .winner {

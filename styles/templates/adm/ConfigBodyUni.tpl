@@ -1,8 +1,7 @@
 {include file="overall_header.tpl"}
-<center>
 <form action="" method="post">
 <input type="hidden" name="opt_save" value="1">
-<table width="70%" cellpadding="2" cellspacing="2">
+<table class="table table-striped">
 <tr>
 	<th colspan="2">{$se_server_parameters}</th>
 	<th colspan="1" width="5%">(?)</th>
@@ -287,10 +286,34 @@
 		<td>{$CoinUpdateVal|date_format:"%d.%m.%Y %H:%M:%S"}</td>
 		<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_coin_update_val}"></td>
 	</tr>
-<tr>
-	<td colspan="3"><input value="{$se_save_parameters}" type="submit"></td>
+	<tr>
+		<td>{$se_coinpot_start}</td>
+		<td><input type="number" value="{$coinpot_start}" name="coinpot_start"/></td>
+		<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_coinpot_start}"></td>
+	</tr>
+	<tr>
+		<td>{$se_coinpot_increase}</td>
+		<td><input type="number" value="{$coinpot_increase}" name="coinpot_increase"/> %</td>
+		<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_coinpot_increase}"></td>
+	</tr>
+	<tr>
+		<td>{$se_coinpot_wait_minutes}</td>
+		<td><input type="number" value="{$coinpot_wait_minutes}" name="coin_wait_minutes"/> min</td>
+		<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_coinpot_wait_minutes}"></td>
+	</tr>
+	<tr>
+		<td>{$se_coinpot_random_minutes}</td>
+		<td><input type="number" value="{$coinpot_random_minutes}" name="coin_random_minutes"/> min</td>
+		<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_coinpot_random_minutes}"></td>
+	</tr>
+	<tr>
+		<td>{$se_referral_earn}</td>
+		<td><input type="number" value="{$referral_earn}" name="referral_earn"/> (factor)</td>
+		<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_referral_earn}"></td>
+	</tr>
+	<tr>
+	<td colspan="3"><input value="{$se_save_parameters}" type="submit" class="btn btn-primary"></td>
 </tr>
 </table>
 </form>
-</center>
 {include file="overall_footer.tpl"}

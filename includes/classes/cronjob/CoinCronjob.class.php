@@ -21,7 +21,8 @@ class CoinCronJob implements CronjobTask
 {
 	function run()
 	{
-        $defaultAmount = 1000;
+	    $config = Config::get();
+        $defaultAmount = $config->coinpot_start;
 	    // check if coinpot is valid
         $sql = 'SELECT * from %%COINPOT%% WHERE next_payout < :time AND is_active=1 LIMIT 1';
         $data = Database::get()->selectSingle($sql, [':time' => time()]);
@@ -33,7 +34,7 @@ class CoinCronJob implements CronjobTask
         Database::get()->update($sql, [':nowTime' => time(), ':id' => $data['id'] ]);
 
         $sql = 'INSERT INTO %%COINPOT%% (next_payout, amount, is_active, universe_id) VALUES(:nextTime, :amount, 1, :universeId)';
-        Database::get()->insert($sql, [':nextTime' => time()+(180+mt_rand(0,240))*60, ':amount' => $defaultAmount, ':universeId' => $data['universe_id']]);
+        Database::get()->insert($sql, [':nextTime' => time()+($config->coinpot_wait_minutes+mt_rand(0,$config->coinpot_random_minutes))*60, ':amount' => $defaultAmount, ':universeId' => $data['universe_id']]);
 		// get active user planets
 		$sql	= 'SELECT COUNT(p.id) as counter FROM %%PLANETS%% AS p LEFT JOIN %%USERS%% as u on p.id_owner = u.id WHERE p.universe = :universeId AND u.onlinetime > :validTime';
         $planets = Database::get()->selectSingle($sql, array(
