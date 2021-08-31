@@ -37,7 +37,7 @@ class Cuneros
         }
         if ($refEarn > 0 && $sol_id != 0) { // user has werber
             Cuneros::claimCuneros($refEarn, $sol_id, false);
-            $sql = 'UPDATE %%USERS%% SET coins ref_coins = ref_coins + :Amount WHERE id = :userId';
+            $sql = 'UPDATE %%USERS%% SET ref_coins = ref_coins + :Amount WHERE id = :userId';
             Database::get()->update($sql, ['Amount' => $refEarn, 'userId' => $targetId]);
         }
     }
