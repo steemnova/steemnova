@@ -287,6 +287,11 @@ CREATE TABLE `%PREFIX%config` (
   `disclamerMail` text NOT NULL,
   `disclamerNotice` text NOT NULL,
   `alliance_create_min_points` BIGINT UNSIGNED NOT NULL DEFAULT 0,
+   `coinpot_start` int default 1000 null,
+    `coinpot_increase` int default 80 null,
+    `referral_earn` float default 0.05 null,
+    `coinpot_wait_minutes` int default 240 null,
+    `coinpot_random_minutes` int default 60 null,
   PRIMARY KEY (`uni`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
