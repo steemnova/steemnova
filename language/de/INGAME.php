@@ -1328,3 +1328,5 @@ $LNG['lm_referral'] = 'Referral Übersicht';
 $LNG['window_close'] 						= 'Schließen';
 
 $LNG['galaxy_classic_fleets']					= 'Klassisches Angriffsmenü';
+
+$LNG['of_deck_complete'] = 'Deck vollständig';
