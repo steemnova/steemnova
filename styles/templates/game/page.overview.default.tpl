@@ -122,8 +122,8 @@
                                         : {$LNG.ov_free}</a></li>
                             {/if}
                             <li class="list-group-item {if $planet_coins > 0}list-group-item-danger{/if}">{$LNG.cuneros_coins}
-                                : {$planet_coins|number_format}{if $planet_coins > 0}<a
-                                        class="btn btn-primary btn-sm float-end json-request"
+                                : <span class="info-coins">{$planet_coins|number_format}</span>{if $planet_coins > 0}<a
+                                        class="btn btn-primary btn-sm float-end json-request" data-value="0" data-target=".info-coins"
                                         data-href="game.php?page=overview&amp;mode=claim_coins">{$LNG.cuneros_claim}</a>{/if}
                             </li>
                         </ul>

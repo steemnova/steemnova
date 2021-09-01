@@ -365,8 +365,11 @@ function handleReturn(xhr, successFunction, failFunction, isJson = true) {
 const http = new HttpHandler(null);
 window.http = http;
 addEvent('.json-request', 'click', (target) => {
-
 	window.http.get(target.dataset.href, {}, (data) => {
-		alert(data.message);
+		NotifyBox(data.message);
+		if("value" in target.dataset) {
+			document.querySelector(target.dataset.target).innerText = target.dataset.value;
+			target.classList.add("d-none");
+		}
 	})
 });
