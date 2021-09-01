@@ -456,14 +456,14 @@ class FleetFunctions
 				if(isModuleAvailable(MODULE_MISSION_TRANSPORT)) {
 					$availableMissions[]	= MISSION_CARGO;
 				}
+                if(isModuleAvailable(MODULE_MISSION_TRANSFER)) {
+                    $availableMissions[]	= MISSION_TRANSFER;
+                }
 
 				if (!$YourPlanet && self::OnlyShipByID($MissionInfo['Ship'], 210) && isModuleAvailable(MODULE_MISSION_SPY))
 					$availableMissions[]	= MISSION_SPY;
 
 				if (!$YourPlanet) {
-					if(isModuleAvailable(MODULE_MISSION_TRANSFER)) {
-						$availableMissions[]	= MISSION_TRANSFER;
-					}
 
 					if(isModuleAvailable(MODULE_MISSION_ATTACK))
 						$availableMissions[]	= MISSION_ATTACK;
