@@ -88,7 +88,7 @@
                                                          href="game.php?page=messages&category={$MessID}&side=1">&laquo;</a>
                                 </li>
                                 {for $site=1 to $maxPage}
-                                    {if $site >= $page-5 || $site <= $page+5}
+                                    {if $site >= $page-5 && $site <= $page+5}
                                     <li class="page-item {if $page == $site} active{/if}">
                                         <a class="page-link"
                                            href="game.php?page=messages&category={$MessID}&side={$site}">{$site}</a>
