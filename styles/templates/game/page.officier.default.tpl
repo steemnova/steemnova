@@ -83,8 +83,7 @@
                             <div class="col">
                                 <div class="card">
                                     <div class="card-header">
-                                        <small class="float-end">({$LNG.of_lvl} {$Element.level}/{$Element.maxLevel}
-                                            )</small>
+                                        <small class="float-end">({$LNG.of_lvl} {$Element.level}/{$Element.maxLevel})</small>
                                         <h5 onclick="return Dialog.info({$ID});">{$LNG.tech.{$ID}}</h5>
                                     </div>
                                     <a href="#" onclick="return Dialog.info({$ID})">
@@ -113,7 +112,7 @@
                                                 <button type="submit"
                                                         class="build_submit btn btn-primary">{$LNG.of_recruit}</button>
                                             </form>
-                                        {elseif $Element.level >= $Element.maxLevel}
+                                        {elseif $Element.level == $Element.maxLevel}
                                             <span class="buy-full">{$LNG.of_deck_complete}</span>
                                         {else}
                                             <button type="submit"
