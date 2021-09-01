@@ -10,7 +10,7 @@
 
     {if $currentPlanet.missions.8 and $recyclers|number > 0}
     <div class='list-group'>
-        <a class='list-group-item' href='javascript:doit(8, {$currentPlanet.planet.id});'
+        <a class='list-group-item' href='javascript:send_fleet(8, {$currentPlanet.planet.id});'
            title='{$LNG['type_mission_8']}'><i class='fas fa-recycle'></i> {$LNG['type_mission_8']}</a>
     </div>
     {/if}

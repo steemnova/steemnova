@@ -104,8 +104,24 @@ class ShowGalaxyPage extends AbstractGamePage
             $maxExpedition 		= 0;
         }
 
+        $FleetsOnPlanet	= array();
+
+        foreach($reslist['fleet'] as $FleetID)
+        {
+            if ($PLANET[$resource[$FleetID]] == 0)
+                continue;
+
+            $FleetsOnPlanet[]	= array(
+                'id'	=> $FleetID,
+                'speed'	=> FleetFunctions::GetFleetMaxSpeed($FleetID, $USER),
+                'count'	=> $PLANET[$resource[$FleetID]],
+            );
+        }
+
         $this->tplObj->loadscript('galaxy.js');
+        $this->tplObj->loadscript('flotten.js');
         $this->assign(array(
+            'FleetsOnPlanet'		=> $FleetsOnPlanet,
             'activeExpedition'		=> $activeExpedition,
             'maxExpedition'			=> $maxExpedition,
 			'GalaxyRows'				=> $Result,

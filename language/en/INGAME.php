@@ -1313,3 +1313,9 @@ $LNG['ref_module_inactive'] = 'The referral module is deactivated.';
 $LNG['ref_earning_info'] = 'You will earn %d%% of the earned cuneros into your safe (excluding farming).';
 
 $LNG['lm_referral'] = 'Referral Overview';
+
+$LNG['window_close'] 						= 'Close';
+
+$LNG['fl_colonize_available'] = 'Colonizable planet';
+
+$LNG['galaxy_classic_fleets']					= 'Classic attack menu';

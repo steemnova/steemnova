@@ -6,7 +6,7 @@
     <img src='{$dpath}planeten/mond.jpg' height='75' width='75'>
 <div class='list-group'>
     {if $currentPlanet.missions.6}
-        <a class='list-group-item' href='javascript:doit(6,{$currentPlanet.planet.id});'
+        <a class='list-group-item' href='javascript:send_fleet(6,{$currentPlanet.planet.id});'
            title='{$LNG['type_mission_6']}'><i class='fas fa-user-secret'></i> {$LNG['type_mission_6']}</a>
     {/if}
     {if $currentPlanet.missions.1}

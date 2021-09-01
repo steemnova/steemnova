@@ -53,7 +53,7 @@
                     </a>
                 </ul>
                 <ul class="navbar-nav ms-auto flex-nowrap">
-
+                    {if isModuleAvailable($smarty.const.MODULE_BUILDING)}<li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=galaxy"><i class="fas fa-sun fs-2"></i></a></li>{/if}
                     {if isModuleAvailable($smarty.const.MODULE_BUILDING)}<li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=buildings" title="{$LNG.lm_buildings}"><i class="fs-2 fas fa-hammer"></i></a></li>{/if}
                     {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_FLEET)}<li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=shipyard&amp;mode=fleet" title="{$LNG.lm_shipshard}"><i class="fs-2 fas fa-space-shuttle"></i></a></li>{/if}
                     {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_DEFENSIVE)}<li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=shipyard&amp;mode=defense" title="{$LNG.lm_defenses}"><i class="fs-2 fas fa-shield-alt"></i></a></li>{/if}

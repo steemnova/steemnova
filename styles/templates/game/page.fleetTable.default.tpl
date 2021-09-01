@@ -11,16 +11,16 @@
             </h2>
         </div>
         <div class="card-body">
-            <table class="table table-striped">
+            <table class="table table-striped table-responsive">
                 <thead>
                 <tr>
                     <th>{$LNG.fl_number}</th>
                     <th>{$LNG.fl_mission}</th>
-                    <th>{$LNG.fl_ammount}</th>
+                    <th class="d-none d-md-table-cell">{$LNG.fl_ammount}</th>
                     <th>{$LNG.fl_beginning}</th>
-                    <th>{$LNG.fl_departure}</th>
+                    <th class="d-none d-md-table-cell">{$LNG.fl_departure}</th>
                     <th>{$LNG.fl_destiny}</th>
-                    <th>{$LNG.fl_arrival}</th>
+                    <th class="d-none d-md-table-cell">{$LNG.fl_arrival}</th>
                     <th>{$LNG.fl_objective}</th>
                     <th>{$LNG.fl_order}</th>
                 </tr>
@@ -40,20 +40,20 @@
                                 {$LNG["type_mission_{$FlyingFleetRow.mission}"]}
                             </a>
                         </td>
-                        <td><a class="tooltip_sticky"
+                        <td class="d-none d-md-table-cell"><a class="tooltip_sticky"
                                data-tooltip-content="{include "fleet.info.tpl"}">{$FlyingFleetRow.amount}</a>
                         </td>
                         <td>
                             <a href="game.php?page=galaxy&amp;galaxy={$FlyingFleetRow.startGalaxy}&amp;system={$FlyingFleetRow.startSystem}">[{$FlyingFleetRow.startGalaxy}
                                 :{$FlyingFleetRow.startSystem}:{$FlyingFleetRow.startPlanet}]</a></td>
-                        <td{if $FlyingFleetRow.state == 0} style="color:darkgreen"{/if}>{$FlyingFleetRow.startTime}</td>
+                        <td class="d-none d-md-table-cell">{$FlyingFleetRow.startTime}</td>
                         <td>
                             <a href="game.php?page=galaxy&amp;galaxy={$FlyingFleetRow.endGalaxy}&amp;system={$FlyingFleetRow.endSystem}">[{$FlyingFleetRow.endGalaxy}
                                 :{$FlyingFleetRow.endSystem}:{$FlyingFleetRow.endPlanet}]</a></td>
                         {if $FlyingFleetRow.mission == 4 && $FlyingFleetRow.state == 0}
-                            <td>-</td>
+                            <td class="d-none d-md-table-cell">-</td>
                         {else}
-                            <td{if $FlyingFleetRow.state != 0} style="color:darkgreen"{/if}>{$FlyingFleetRow.endTime}</td>
+                            <td class="d-none d-md-table-cell">{$FlyingFleetRow.endTime}</td>
                         {/if}
                         <td id="fleettime_{$smarty.foreach.FlyingFleets.iteration}" class="fleets"
                             data-fleet-end-time="{$FlyingFleetRow.returntime}"
@@ -102,7 +102,7 @@
     </div>
 </div>
 
-<div class="row row-cols-1 row-cols-md-2 g-4">
+<div class="row row-cols-1 row-cols-lg-2 g-4">
 
     <div class="col">
         <div class="card">
@@ -124,33 +124,37 @@
                         <tr>
                             <th>{$LNG.fl_ship_type}</th>
                             <th>{$LNG.fl_ship_available}</th>
-                            <th>-</th>
-                            <th>-</th>
+                            <th>{$LNG.fl_ammount}</th>
                         </tr>
                         </thead>
                         <tbody>
                         {foreach $FleetsOnPlanet as $FleetRow}
                             <tr>
-                                <td>{if $FleetRow.speed != 0} <a class='tooltip'
-                                                                 data-tooltip-content='<table><tr><td>{$LNG.fl_speed_title}</td><td>{$FleetRow.speed}</td></tr></table>'>{$LNG.tech.{$FleetRow.id}}</a>{else}{$LNG.tech.{$FleetRow.id}}{/if}
+                                <td>{if $FleetRow.speed != 0}
+                                        <a class='tooltip' data-tooltip-content='<table><tr><td>{$LNG.fl_speed_title}</td><td>{$FleetRow.speed}</td></tr></table>'>{$LNG.tech.{$FleetRow.id}}</a>{else}{$LNG.tech.{$FleetRow.id}}{/if}
                                 </td>
                                 <td id="ship{$FleetRow.id}_value">{$FleetRow.count|number}</td>
                                 {if $FleetRow.speed != 0}
-                                    <td><a href="javascript:maxShip('ship{$FleetRow.id}');">{$LNG.fl_max}</a></td>
-                                    <td><input name="ship{$FleetRow.id}" id="ship{$FleetRow.id}_input" size="10"
-                                               value="0"></td>
+                                    <td class="">
+                                        <div class="input-group">
+                                        <a href="javascript:noShip('ship{$FleetRow.id}');" class="btn btn-sm btn-secondary me-2">{$LNG.fl_none}</a>
+                                        <input name="ship{$FleetRow.id}" id="ship{$FleetRow.id}_input" class="form-control w-75"
+                                               value="0"  type="number"/>
+                                        <a href="javascript:maxShip('ship{$FleetRow.id}');" class="btn btn-sm btn-primary ms-2">{$LNG.fl_max}</a>
+                                        </div>
+                                    </td>
                                 {else}
-                                    <td>&nbsp;</td>
                                     <td>&nbsp;</td>
                                 {/if}
                             </tr>
                         {/foreach}
                         <tr>
                             {if count($FleetsOnPlanet) == 0}
-                                <td colspan="4">{$LNG.fl_no_ships}</td>
+                                <td colspan="3">{$LNG.fl_no_ships}</td>
                             {else}
-                                <td colspan="2"><a href="javascript:noShips();">{$LNG.fl_remove_all_ships}</a></td>
-                                <td colspan="2"><a href="javascript:maxShips();">{$LNG.fl_select_all_ships}</a></td>
+                                <td><a href="javascript:noShips();">{$LNG.fl_remove_all_ships}</a></td>
+                                <td></td>
+                                <td><a href="javascript:maxShips();">{$LNG.fl_select_all_ships}</a></td>
                             {/if}
                         </tr>
                         </tbody>
@@ -170,11 +174,11 @@
                 <h2 class="card-title">{$LNG.fl_bonus}</h2>
             </div>
             <div class="card-body">
-                <table class="table table-striped text-center">
+                <table class="table table-striped text-center table-wrap">
                     <tr>
-                        <th style="width:33%">{$LNG.fl_bonus_attack}</th>
-                        <th style="width:33%">{$LNG.fl_bonus_defensive}</th>
-                        <th style="width:33%">{$LNG.fl_bonus_shield}</th>
+                        <th>{$LNG.fl_bonus_attack}</th>
+                        <th>{$LNG.fl_bonus_defensive}</th>
+                        <th>{$LNG.fl_bonus_shield}</th>
                     </tr>
                     <tr>
                         <td>+{$bonusAttack} %</td>
@@ -182,9 +186,9 @@
                         <td>+{$bonusShield} %</td>
                     </tr>
                     <tr>
-                        <th style="width:33%">{$LNG.tech.115}</th>
-                        <th style="width:33%">{$LNG.tech.117}</th>
-                        <th style="width:33%">{$LNG.tech.118}</th>
+                        <th>{$LNG.tech.115}</th>
+                        <th>{$LNG.tech.117}</th>
+                        <th>{$LNG.tech.118}</th>
                     </tr>
                     <tr>
                         <td>+{$bonusCombustion} %</td>

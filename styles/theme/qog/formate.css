@@ -219,6 +219,10 @@
     left: 24em;
 }
 
+.planet-empty {
+    padding-top: 0.25em;
+}
+
 .moon {
     transform: translate(0%, -150%);
     width: 32px;

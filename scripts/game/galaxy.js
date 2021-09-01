@@ -1,5 +1,6 @@
-function doit(missionID, planetID) {
-	$.getJSON("game.php?page=fleetAjax&ajax=1&mission="+missionID+"&planetID="+planetID, function(data)
+function send_fleet(missionID, planetID, galaxy=null, system=null, planet=null) {
+	let targetUrl = planetID !== null ? `game.php?page=fleetAjax&ajax=1&mission=${missionID}&planetID=${planetID}` : `game.php?page=fleetAjax&ajax=1&mission=${missionID}&galaxy=${galaxy}&system=${system}&planet=${planet}`
+	$.getJSON(targetUrl, function(data)
 	{
 		$('#slots').text(data.slots);
 		if(typeof data.ships !== "undefined")
@@ -8,15 +9,22 @@ function doit(missionID, planetID) {
 				$('#elementID'+elementID).text(number_format(value));
 			});
 		}
-		
-		var statustable	= $('#fleetstatusrow');
-		var messages	= statustable.find("~tr");
-		if(messages.length == MaxFleetSetting) {
-			messages.filter(':last').remove();
-		}
-		var element		= $('<td />').attr('colspan', 8).attr('class', data.code == 600 ? "success" : "error").text(data.mess).wrap('<tr />').parent();
-		statustable.removeAttr('style').after(element);
+
+		NotifyBox(data.message, data.code === 600 ? "success" : "danger");
 	});
+}
+
+function send_attack_fleet() {
+	let missionID = 1;
+	let planetID = document.getElementById("planetId").value;
+	let fleetData = [];
+	document.querySelectorAll(".fleet-data").forEach(function(item) {
+		fleetData["fleet_" + item.dataset.type] = item.value;
+	});
+
+	window.http.post(`game.php?page=fleetAjax&ajax=1&mission=${missionID}&planetID=${planetID}`, fleetData, function(data) {
+		NotifyBox(data.message, data.code === 600 ? "success" : "danger");
+	}, null, false);
 }
 
 function galaxy_submit(value) {

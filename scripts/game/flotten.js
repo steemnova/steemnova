@@ -63,11 +63,11 @@ function refreshFormData() {
 	$("#distance").text(NumberGetHumanReadable(dataFlyDistance));
 	$("#maxspeed").text(NumberGetHumanReadable(data.maxspeed));
 	if (dataFlyCargoSpace >= 0) {
-		$("#consumption").html("<font color=\"lime\">" + NumberGetHumanReadable(dataFlyConsumption) + "</font>");
-		$("#storage").html("<font color=\"lime\">" + NumberGetHumanReadable(dataFlyCargoSpace) + "</font>");
+		$("#consumption").html(NumberGetHumanReadable(dataFlyConsumption));
+		$("#storage").html(NumberGetHumanReadable(dataFlyCargoSpace));
 	} else {
-		$("#consumption").html("<font color=\"red\">" + NumberGetHumanReadable(dataFlyConsumption) + "</font>");
-		$("#storage").html("<font color=\"red\">" + NumberGetHumanReadable(dataFlyCargoSpace) + "</font>");
+		$("#consumption").html(NumberGetHumanReadable(dataFlyConsumption));
+		$("#storage").html(NumberGetHumanReadable(dataFlyCargoSpace));
 	}
 }
 
@@ -143,9 +143,9 @@ function calculateTransportCapacity() {
 	var deuterium = Math.abs(document.getElementsByName("deuterium")[0].value);
 	transportCapacity = data.fleetroom - data.consumption - metal - crystal - deuterium;
 	if (transportCapacity < 0) {
-		document.getElementById("remainingresources").innerHTML = "<font color=red>" + NumberGetHumanReadable(transportCapacity) + "</font>";
+		document.getElementById("remainingresources").innerHTML = NumberGetHumanReadable(transportCapacity);
 	} else {
-		document.getElementById("remainingresources").innerHTML = "<font color=lime>" + NumberGetHumanReadable(transportCapacity) + "</font>";
+		document.getElementById("remainingresources").innerHTML = NumberGetHumanReadable(transportCapacity);
 	}
 	return transportCapacity;
 }
@@ -187,7 +187,7 @@ function setNumber(name, number) {
 
 function CheckTarget()
 {
-	kolo	= (typeof data.ships[208] == "object") ? 1 : 0;
+	let kolo	= (typeof data.ships[208] == "object") ? 1 : 0;
 		
 	$.getJSON('game.php?page=fleetStep1&mode=checkTarget&galaxy='+document.getElementsByName("galaxy")[0].value+'&system='+document.getElementsByName("system")[0].value+'&planet='+document.getElementsByName("planet")[0].value+'&planet_type='+document.getElementsByName("type")[0].value+'&lang='+Lang+'&kolo='+kolo, function(data) {
 		if(data == "OK") {
@@ -306,3 +306,24 @@ $(function() {
 		SaveShortcuts(true);
 	});
 });
+
+
+function SubmitFleetPage1() {
+	let kolo	= (typeof data.ships[208] == "object") ? 1 : 0;
+	let http = new HttpHandler();
+	$.getJSON('game.php?page=newFleet&mode=checkTarget&galaxy='+document.getElementsByName("galaxy")[0].value+'&system='+document.getElementsByName("system")[0].value+'&planet='+document.getElementsByName("planet")[0].value+'&planet_type='+document.getElementsByName("type")[0].value+'&lang='+Lang+'&kolo='+kolo, function(data) {
+		if(data === "OK") {
+			const fd = new FormData(document.getElementById("form-step1"));
+			http.post('game.php?page=newFleet&mode=step2',  fd, function (data) {
+				BuildFleetStep2(data);
+
+			}, function (data) {
+
+			}, true)
+			// formsubmit
+		} else {
+			NotifyBox(data);
+		}
+	});
+	return false;
+}

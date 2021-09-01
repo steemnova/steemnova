@@ -271,15 +271,15 @@ $LNG['fl_number']						= 'ID';
 $LNG['fl_mission']						= 'Auftrag';
 $LNG['fl_ammount']						= 'Anzahl';
 $LNG['fl_beginning']						= 'Start';
-$LNG['fl_departure']						= 'Ankunft (Ziel)';
+$LNG['fl_departure']						= 'Ankunft';
 $LNG['fl_destiny']						= 'Ziel';
 $LNG['fl_objective']						= 'Zurück in';
-$LNG['fl_arrival']						= 'Ankunft (Zurück)';
+$LNG['fl_arrival']						= 'Zurück';
 $LNG['fl_info_detail']						= 'Flotten-Details';
 $LNG['fl_order']						= 'Befehl';
 $LNG['fl_new_mission_title']					= 'Neuer Auftrag: Flotte wählen';
 $LNG['fl_ship_type']						= 'Schiffstyp';
-$LNG['fl_ship_available']					= 'Verfügbar';
+$LNG['fl_ship_available']					= 'Anz.';
 $LNG['fl_planet_shortcut']					= '(P)';
 $LNG['fl_debris_shortcut']					= '(T)';
 $LNG['fl_moon_shortcut']					= '(M)';
@@ -308,6 +308,7 @@ $LNG['fl_acs_title']						= 'Verbandsangriffe';
 $LNG['fl_hold_time']						= 'Haltezeit';
 $LNG['fl_resources']						= 'Rohstoffe';
 $LNG['fl_max']							= 'max';
+$LNG['fl_none']							= '0';
 $LNG['fl_hours']						= 'Stunde(n)';
 $LNG['fl_resources_left']					= 'Verbleiben';
 $LNG['fl_all_resources']					= 'Max Rohstoffe Laden';
@@ -1301,6 +1302,7 @@ $LNG['market_resource'] = 'Resourcenmarkt';
 
 $LNG['tr_sell_ressources'] = 'Wähle die Ressourcen aus, die du VERKAUFEN möchtest.';
 
+$LNG['fl_colonize_available'] = 'Kolonisierbarer Planet';
 
 $LNG['pay_finish'] = 'Sofortbau für %d Dunkle Materie';
 
@@ -1322,3 +1324,7 @@ $LNG['ref_module_inactive'] = 'Das Referral-Modul ist nicht aktiv.';
 $LNG['ref_earning_info'] = 'Du bekommst von allen gesammelten (nicht gefarmten) Cuneros %d%% in deinen Tresor.';
 
 $LNG['lm_referral'] = 'Referral Übersicht';
+
+$LNG['window_close'] 						= 'Schließen';
+
+$LNG['galaxy_classic_fleets']					= 'Klassisches Angriffsmenü';

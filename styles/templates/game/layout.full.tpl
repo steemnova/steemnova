@@ -21,11 +21,18 @@
 
         {block name="content"}{/block}
     </div>
-
+<div class="toast-container position-absolute top-3 end-0 p-3" id="toastContainer">
+    <div role="alert" aria-live="assertive" aria-atomic="true" class="d-none toast" data-bs-autohide="true" id="toastNotify">
+        <div class="toast-header d-none">
+            <strong class="me-auto toast-title"></strong>
+        </div>
+        <div class="toast-body">
+        </div>
+    </div>
+</div>
     <footer>
         {include file="main.footer.tpl" nocache}
     </footer>
-</div>
 
 </body>
 </html>

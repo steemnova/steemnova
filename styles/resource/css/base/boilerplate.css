@@ -38,3 +38,11 @@ body {
 .tooltip_clicky {
     cursor: pointer;
 }
+
+.table-wrap {
+    word-wrap: anywhere;
+}
+
+.cursor-pointer {
+    cursor:pointer;
+}
