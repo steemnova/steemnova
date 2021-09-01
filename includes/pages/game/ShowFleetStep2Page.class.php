@@ -24,7 +24,7 @@ class ShowFleetStep2Page extends AbstractGamePage
 		parent::__construct();
 	}
 
-	public function step2()
+	public function show()
 	{
 		global $USER, $PLANET, $LNG;
 
