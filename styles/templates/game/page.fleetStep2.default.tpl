@@ -93,6 +93,7 @@
                             </select>
                             <input name="exchange" size="10" type="number">
                             <hr/>
+                            <span id="remainingresources"></span>
                             <label for="id-visibility" class="form-label">{$LNG.fl_visibility}</label>
                             <select name="visibility" id="id-visibility">
                                 <option value="2" selected>{$LNG.fl_visibility_no_enemies}</option>
