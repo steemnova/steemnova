@@ -231,6 +231,7 @@ $LNG['type_mission_8']  					= 'Abbauen';
 $LNG['type_mission_9']  					= 'Zerstören';
 $LNG['type_mission_11']  					= 'DM Untersuchung';
 $LNG['type_mission_15'] 					= 'Expedition';
+$LNG['type_mission_17'] 					= 'Transfer';
 
 
 

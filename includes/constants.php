@@ -159,7 +159,7 @@ define('AUTH_MOD', 1);
 define('AUTH_USR', 0);
 
 // Modules
-define('MODULE_AMOUNT', 43);
+define('MODULE_AMOUNT', 47);
 define('MODULE_ALLIANCE', 0);
 define('MODULE_BANLIST', 21);
 define('MODULE_BANNER', 37);
@@ -205,7 +205,7 @@ define('MODULE_STATISTICS', 25);
 define('MODULE_SUPPORT', 27);
 define('MODULE_TECHTREE', 28);
 define('MODULE_TRADER', 13);
-define('MODULE_CUNEROS', 100);
+define('MODULE_CUNEROS', 46);
 
 // FLEET STATE
 define('FLEET_OUTWARD', 0);
@@ -245,9 +245,18 @@ define('RESS_COINS', 925);
 
 
 define('MISSION_ATTACK', 1);
+define('MISSION_TOGETHER', 2);
+define('MISSION_CARGO', 3);
+define('MISSION_STATION', 4);
+define('MISSION_HOLD', 5);
 define('MISSION_SPY', 6);
 define('MISSION_COLONIZE', 7);
 define('MISSION_RECYCLE', 8);
+define('MISSION_DESTROY', 9);
+
+define('MISSION_DARKMATTER', 11);
+define('MISSION_EXPEDITION', 15);
+define('MISSION_TRANSFER', 17);
 
 
 define('SHIP_LIGHT_CARGO', 202);
