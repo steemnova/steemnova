@@ -106,14 +106,14 @@
                                         </ul>
                                     </div>
                                     <div class="card-footer">
-                                        {if $Element.buyable}
+                                        {if $Element.level >= $Element.maxLevel}
+                                        <span class="buy-full">{$LNG.of_deck_complete}</span>
+                                        {elseif $Element.buyable}
                                             <form action="game.php?page=officier" method="post" class="build_form">
                                                 <input type="hidden" name="id" value="{$ID}">
                                                 <button type="submit"
                                                         class="build_submit btn btn-primary">{$LNG.of_recruit}</button>
                                             </form>
-                                        {elseif $Element.level == $Element.maxLevel}
-                                            <span class="buy-full">{$LNG.of_deck_complete}</span>
                                         {else}
                                             <button type="submit"
                                                     class="disabled build_submit btn btn-primary">{$LNG.of_recruit}</button>
