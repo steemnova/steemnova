@@ -442,46 +442,47 @@ class FleetFunctions
 		$availableMissions		= array();
 
 		if ($MissionInfo['planet'] == (Config::get($USER['universe'])->max_planets + 1) && isModuleAvailable(MODULE_MISSION_EXPEDITION))
-			$availableMissions[]	= 15;
+			$availableMissions[]	= MISSION_EXPEDITION;
 		elseif ($MissionInfo['planet'] == (Config::get($USER['universe'])->max_planets + 2) && isModuleAvailable(MODULE_MISSION_TRADE))
-			$availableMissions[]	= 16;
+			$availableMissions[]	= MISSION_TRADE;
 		elseif ($MissionInfo['planettype'] == 2) {
 			if ((isset($MissionInfo['Ship'][209]) || isset($MissionInfo['Ship'][219])) && isModuleAvailable(MODULE_MISSION_RECYCLE) && !($GetInfoPlanet['der_metal'] == 0 && $GetInfoPlanet['der_crystal'] == 0))
-				$availableMissions[]	= 8;
+				$availableMissions[]	= MISSION_RECYCLE;
 		} else {
 			if (!$UsedPlanet) {
 				if (isset($MissionInfo['Ship'][208]) && $MissionInfo['planettype'] == 1 && isModuleAvailable(MODULE_MISSION_COLONY))
-					$availableMissions[]	= 7;
+					$availableMissions[]	= MISSION_COLONIZE;
 			} else {
 				if(isModuleAvailable(MODULE_MISSION_TRANSPORT)) {
-					$MissionInfo['planet'];
-					$availableMissions[]	= 3;
+					$availableMissions[]	= MISSION_CARGO;
 				}
 
 				if (!$YourPlanet && self::OnlyShipByID($MissionInfo['Ship'], 210) && isModuleAvailable(MODULE_MISSION_SPY))
-					$availableMissions[]	= 6;
+					$availableMissions[]	= MISSION_SPY;
 
 				if (!$YourPlanet) {
 					if(isModuleAvailable(MODULE_MISSION_TRANSFER)) {
-						$availableMissions[]	= 17;
+						$availableMissions[]	= MISSION_TRANSFER;
 					}
 
 					if(isModuleAvailable(MODULE_MISSION_ATTACK))
-						$availableMissions[]	= 1;
+						$availableMissions[]	= MISSION_ATTACK;
 					if(isModuleAvailable(MODULE_MISSION_HOLD))
-						$availableMissions[]	= 5;}
+						$availableMissions[]	= MISSION_HOLD;
+				}
 
 				elseif(isModuleAvailable(MODULE_MISSION_STATION)) {
-					$availableMissions[]	= 4;}
+					$availableMissions[]	= MISSION_STATION;
+				}
 
 				if (!empty($MissionInfo['IsAKS']) && !$YourPlanet && isModuleAvailable(MODULE_MISSION_ATTACK) && isModuleAvailable(MODULE_MISSION_ACS))
-					$availableMissions[]	= 2;
+					$availableMissions[]	= MISSION_TOGETHER;
 
 				if (!$YourPlanet && $MissionInfo['planettype'] == 3 && isset($MissionInfo['Ship'][214]) && isModuleAvailable(MODULE_MISSION_DESTROY))
-					$availableMissions[]	= 9;
+					$availableMissions[]	= MISSION_DESTROY;
 
 				if ($YourPlanet && $MissionInfo['planettype'] == 3 && self::OnlyShipByID($MissionInfo['Ship'], 220) && isModuleAvailable(MODULE_MISSION_DARKMATTER))
-					$availableMissions[]	= 11;
+					$availableMissions[]	= MISSION_DARKMATTER;
 			}
 		}
 

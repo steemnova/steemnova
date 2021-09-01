@@ -256,6 +256,7 @@ define('MISSION_DESTROY', 9);
 
 define('MISSION_DARKMATTER', 11);
 define('MISSION_EXPEDITION', 15);
+define('MISSION_TRADE', 16);
 define('MISSION_TRANSFER', 17);
 
 
