@@ -5,7 +5,7 @@
             {include file="main.navigation.tpl"}
 
     <div class="container">
-        <div class="bg-light rounded w-100 mb-2 p-2 nav d-md-none">
+        <div class="bg-light rounded w-100 mb-2 p-2 nav d-md-none shadow">
             <li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=overview"><i class="fas fa-home fs-2"></i></a></li>
             {if isModuleAvailable($smarty.const.MODULE_BUILDING)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=galaxy"><i class="fas fa-sun fs-2"></i></a></li>{/if}
                 {if isModuleAvailable($smarty.const.MODULE_BUILDING)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=buildings" title="{$LNG.lm_buildings}"><i class="fs-2 fas fa-hammer"></i></a></li>{/if}
