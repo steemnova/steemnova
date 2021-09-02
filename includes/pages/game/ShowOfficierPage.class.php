@@ -36,24 +36,35 @@ class ShowOfficierPage extends AbstractGamePage
 		}
 			
 		$USER[$resource[$Element]]	= max($USER[$resource[$Element]], TIMESTAMP) + $pricelist[$Element]['time'];
-			
-		if(isset($costResources[901])) { $PLANET[$resource[901]]	-= $costResources[901]; }
-		if(isset($costResources[902])) { $PLANET[$resource[902]]	-= $costResources[902]; }
-		if(isset($costResources[903])) { $PLANET[$resource[903]]	-= $costResources[903]; }
-		if(isset($costResources[921])) { $USER[$resource[921]]		-= $costResources[921]; }
 
-		$sql	= 'UPDATE %%USERS%% SET
+        $this->deductCost($costResources);
+        $this->storeUpdate($Element);
+	}
+
+	protected function storeUpdate($Element) {
+	    global $USER, $resource;
+        $sql	= 'UPDATE %%USERS%% SET
 				'.$resource[$Element].' = :newTime
 				WHERE
 				id = :userId;';
 
-		Database::get()->update($sql, array(
-			':newTime'	=> $USER[$resource[$Element]],
-			':userId'	=> $USER['id']
-		));
-	}
+        Database::get()->update($sql, array(
+            ':newTime'	=> $USER[$resource[$Element]],
+            ':userId'	=> $USER['id']
+        ));
 
-	public function UpdateOfficier($Element)
+    }
+
+	protected function deductCost($costResources) {
+	    global $PLANET, $USER, $resource;
+        if(isset($costResources[RESS_METAL])) { $PLANET[$resource[RESS_METAL]]	-= $costResources[RESS_METAL]; }
+        if(isset($costResources[RESS_CRYSTAL])) { $PLANET[$resource[RESS_CRYSTAL]]	-= $costResources[RESS_CRYSTAL]; }
+        if(isset($costResources[RESS_DEUTERIUM])) { $PLANET[$resource[RESS_DEUTERIUM]]	-= $costResources[RESS_DEUTERIUM]; }
+        if(isset($costResources[RESS_DARKMATTER])) { $USER[$resource[RESS_DARKMATTER]]		-= $costResources[RESS_DARKMATTER]; }
+
+    }
+
+	public function UpdateOfficer($Element)
 	{
 		global $USER, $PLANET, $resource, $pricelist;
 		
@@ -66,22 +77,10 @@ class ShowOfficierPage extends AbstractGamePage
 		}
 		
 		$USER[$resource[$Element]]	+= 1;
-		
-		if(isset($costResources[901])) { $PLANET[$resource[901]]	-= $costResources[901]; }
-		if(isset($costResources[902])) { $PLANET[$resource[902]]	-= $costResources[902]; }
-		if(isset($costResources[903])) { $PLANET[$resource[903]]	-= $costResources[903]; }
-		if(isset($costResources[921])) { $USER[$resource[921]]		-= $costResources[921]; }
+        $this->deductCost($costResources);
 
-		$sql	= 'UPDATE %%USERS%% SET
-		'.$resource[$Element].' = :newTime
-		WHERE
-		id = :userId;';
-
-		Database::get()->update($sql, array(
-			':newTime'	=> $USER[$resource[$Element]],
-			':userId'	=> $USER['id']
-		));
-	}
+        $this->storeUpdate($Element);
+    }
 	
 	public function show()
 	{
@@ -92,7 +91,7 @@ class ShowOfficierPage extends AbstractGamePage
 		if (!empty($updateID) && $_SERVER['REQUEST_METHOD'] === 'POST' && $USER['urlaubs_modus'] == 0)
 		{
 			if(isModuleAvailable(MODULE_OFFICIER) && in_array($updateID, $reslist['officier'])) {
-				$this->UpdateOfficier($updateID);
+				$this->UpdateOfficer($updateID);
 			} elseif(isModuleAvailable(MODULE_DMEXTRAS) && in_array($updateID, $reslist['dmfunc'])) {
 				$this->UpdateExtra($updateID);
 			}
@@ -133,7 +132,7 @@ class ShowOfficierPage extends AbstractGamePage
 					continue;
 					
 				$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element);
-				$buyable			= BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
+				$buyable			= $USER[$resource[$Element]] < $pricelist[$Element]['max'] && BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
 				$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costResources);
 				$elementBonus		= BuildFunctions::getAvalibleBonus($Element);
 				

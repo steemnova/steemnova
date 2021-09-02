@@ -59,11 +59,11 @@ class VarsBuildCache implements BuildCache
 			
 			$pricelist[$varsRow['elementID']]	= array(
 				'cost'		=> array(
-					901	=> $varsRow['cost901'],
-					902	=> $varsRow['cost902'],
-					903	=> $varsRow['cost903'],
-					911	=> $varsRow['cost911'],
-					921	=> $varsRow['cost921'],
+					RESS_METAL	=> $varsRow['cost901'],
+					RESS_CRYSTAL	=> $varsRow['cost902'],
+					RESS_DEUTERIUM	=> $varsRow['cost903'],
+					RESS_ENGERGY	=> $varsRow['cost911'],
+					RESS_DARKMATTER	=> $varsRow['cost921'],
 				),
 				'factor'		=> $varsRow['factor'],
 				'max'			=> $varsRow['maxLevel'],

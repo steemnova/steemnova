@@ -227,22 +227,22 @@ class ResourceUpdate
         }
 
         $temp = array(
-            901 => array(
+            RESS_METAL => array(
                 'max' => 0,
                 'plus' => 0,
                 'minus' => 0,
             ),
-            902 => array(
+            RESS_CRYSTAL => array(
                 'max' => 0,
                 'plus' => 0,
                 'minus' => 0,
             ),
-            903 => array(
+            RESS_DEUTERIUM => array(
                 'max' => 0,
                 'plus' => 0,
                 'minus' => 0,
             ),
-            911 => array(
+            RESS_ENGERGY => array(
                 'plus' => 0,
                 'minus' => 0,
             )
@@ -285,11 +285,11 @@ class ResourceUpdate
             }
         }
 
-        $this->PLANET['metal_max'] = $temp[901]['max'] * $this->config->storage_multiplier * (1 + $this->USER['factor']['ResourceStorage']);
-        $this->PLANET['crystal_max'] = $temp[902]['max'] * $this->config->storage_multiplier * (1 + $this->USER['factor']['ResourceStorage']);
-        $this->PLANET['deuterium_max'] = $temp[903]['max'] * $this->config->storage_multiplier * (1 + $this->USER['factor']['ResourceStorage']);
+        $this->PLANET['metal_max'] = $temp[RESS_METAL]['max'] * $this->config->storage_multiplier * (1 + $this->USER['factor']['ResourceStorage']);
+        $this->PLANET['crystal_max'] = $temp[RESS_CRYSTAL]['max'] * $this->config->storage_multiplier * (1 + $this->USER['factor']['ResourceStorage']);
+        $this->PLANET['deuterium_max'] = $temp[RESS_DEUTERIUM]['max'] * $this->config->storage_multiplier * (1 + $this->USER['factor']['ResourceStorage']);
 
-        $this->PLANET['energy'] = round($temp[911]['plus'] * $this->config->energySpeed * (1 + $this->USER['factor']['Energy']));
+        $this->PLANET['energy'] = round($temp[RESS_ENGERGY]['plus'] * $this->config->energySpeed * (1 + $this->USER['factor']['Energy']));
         $this->PLANET['energy_used'] = $temp[911]['minus'] * $this->config->energySpeed;
         if ($this->PLANET['energy_used'] == 0) {
             $this->PLANET['metal_perhour'] = 0;
@@ -298,9 +298,9 @@ class ResourceUpdate
         } else {
             $prodLevel = min(1, $this->PLANET['energy'] / abs($this->PLANET['energy_used']));
 
-            $this->PLANET['metal_perhour'] = ($temp[901]['plus'] * (1 + $this->USER['factor']['Resource'] + 0.02 * $this->USER[$resource[131]]) * $prodLevel + $temp[901]['minus']) * $this->config->resource_multiplier;
-            $this->PLANET['crystal_perhour'] = ($temp[902]['plus'] * (1 + $this->USER['factor']['Resource'] + 0.02 * $this->USER[$resource[132]]) * $prodLevel + $temp[902]['minus']) * $this->config->resource_multiplier;
-            $this->PLANET['deuterium_perhour'] = ($temp[903]['plus'] * (1 + $this->USER['factor']['Resource'] + 0.02 * $this->USER[$resource[133]]) * $prodLevel + $temp[903]['minus']) * $this->config->resource_multiplier;
+            $this->PLANET['metal_perhour'] = ($temp[RESS_METAL]['plus'] * (1 + $this->USER['factor']['Resource'] + 0.02 * $this->USER[$resource[131]]) * $prodLevel + $temp[RESS_METAL]['minus']) * $this->config->resource_multiplier;
+            $this->PLANET['crystal_perhour'] = ($temp[RESS_CRYSTAL]['plus'] * (1 + $this->USER['factor']['Resource'] + 0.02 * $this->USER[$resource[132]]) * $prodLevel + $temp[RESS_CRYSTAL]['minus']) * $this->config->resource_multiplier;
+            $this->PLANET['deuterium_perhour'] = ($temp[RESS_DEUTERIUM]['plus'] * (1 + $this->USER['factor']['Resource'] + 0.02 * $this->USER[$resource[133]]) * $prodLevel + $temp[RESS_DEUTERIUM]['minus']) * $this->config->resource_multiplier;
         }
     }
 
@@ -451,17 +451,17 @@ class ResourceUpdate
             }
 
             if ($HaveResources === true) {
-                if (isset($costResources[901])) {
-                    $this->PLANET[$resource[901]] -= $costResources[901];
+                if (isset($costResources[RESS_METAL])) {
+                    $this->PLANET[$resource[RESS_METAL]] -= $costResources[RESS_METAL];
                 }
-                if (isset($costResources[902])) {
-                    $this->PLANET[$resource[902]] -= $costResources[902];
+                if (isset($costResources[RESS_CRYSTAL])) {
+                    $this->PLANET[$resource[RESS_CRYSTAL]] -= $costResources[RESS_CRYSTAL];
                 }
-                if (isset($costResources[903])) {
-                    $this->PLANET[$resource[903]] -= $costResources[903];
+                if (isset($costResources[RESS_DEUTERIUM])) {
+                    $this->PLANET[$resource[RESS_DEUTERIUM]] -= $costResources[RESS_DEUTERIUM];
                 }
-                if (isset($costResources[921])) {
-                    $this->USER[$resource[921]] -= $costResources[921];
+                if (isset($costResources[RESS_DARKMATTER])) {
+                    $this->USER[$resource[RESS_DARKMATTER]] -= $costResources[RESS_DARKMATTER];
                 }
                 $NewQueue = serialize($CurrentQueue);
                 $Loop = false;
@@ -470,14 +470,14 @@ class ResourceUpdate
                     if ($HaveNoMoreLevel) {
                         $Message = sprintf($LNG['sys_nomore_level'], $LNG['tech'][$Element]);
                     } else {
-                        if (!isset($costResources[901])) {
-                            $costResources[901] = 0;
+                        if (!isset($costResources[RESS_METAL])) {
+                            $costResources[RESS_METAL] = 0;
                         }
-                        if (!isset($costResources[902])) {
-                            $costResources[902] = 0;
+                        if (!isset($costResources[RESS_CRYSTAL])) {
+                            $costResources[RESS_CRYSTAL] = 0;
                         }
-                        if (!isset($costResources[903])) {
-                            $costResources[903] = 0;
+                        if (!isset($costResources[RESS_DEUTERIUM])) {
+                            $costResources[RESS_DEUTERIUM] = 0;
                         }
 
                         global $LNG;

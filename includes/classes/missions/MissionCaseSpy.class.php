@@ -165,7 +165,7 @@ class MissionCaseSpy extends MissionFunctions implements Mission
 			$spyReport, $this->_fleet['fleet_start_time'], NULL, 1, $this->_fleet['fleet_universe']);
 		
 		$LNG			= $this->getLanguage($targetUser['lang']);
-		$targetMessage  = $LNG['sys_mess_spy_enemy_fleet'];
+		$targetMessage  = $LNG['sys_mess_spy_fleet'];
 
 		if($this->_fleet['fleet_start_type'] == 3)
 		{

@@ -258,7 +258,7 @@ class ShowBuildingsPage extends AbstractGamePage
 
     protected function getFinishCost($item)
     {
-        return ceil(max(($item[3] - TIMESTAMP) / 60, 1));
+        return ceil(max(($item[3] - TIMESTAMP) / 60, 1))*10;
     }
 
     protected function FinishBuilding()
