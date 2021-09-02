@@ -1,6 +1,6 @@
 {block name="title" prepend}{$LNG.lm_galaxy}{/block}
 {block name="content"}
-{include "fleet.modal.tpl"}
+    {include "fleet.modal.tpl"}
     <div class="row row-cols-1 row-cols-xl-2 g-4">
         <div class="col mb-2">
             <div class="card">
@@ -68,6 +68,7 @@
                         <div class="card-footer">
                             <input class="btn btn-danger" type="submit" value="{$LNG.gl_missil_launch_action}">
                         </div>
+                    </form>
                 </div>
             </div>
         {/if}

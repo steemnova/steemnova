@@ -5,6 +5,14 @@
             {include file="main.navigation.tpl"}
 
     <div class="container">
+        <div class="bg-light rounded w-100 mb-2 p-2 nav d-md-none">
+            <li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=overview"><i class="fas fa-home fs-2"></i></a></li>
+            {if isModuleAvailable($smarty.const.MODULE_BUILDING)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=galaxy"><i class="fas fa-sun fs-2"></i></a></li>{/if}
+                {if isModuleAvailable($smarty.const.MODULE_BUILDING)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=buildings" title="{$LNG.lm_buildings}"><i class="fs-2 fas fa-hammer"></i></a></li>{/if}
+                {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_FLEET)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=shipyard&amp;mode=fleet" title="{$LNG.lm_shipshard}"><i class="fs-2 fas fa-space-shuttle"></i></a></li>{/if}
+                {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_DEFENSIVE)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=shipyard&amp;mode=defense" title="{$LNG.lm_defenses}"><i class="fs-2 fas fa-shield-alt"></i></a></li>{/if}
+                {if isModuleAvailable($smarty.const.MODULE_RESEARCH)}<li class="nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=research" title="{$LNG.lm_research}"><i class="fs-2 fas fa-flask"></i></a></li>{/if}
+        </div>
         {if $hasAdminAccess}
             <div class="globalWarning alert alert-danger">
                 {$LNG.admin_access_1} <a id="drop-admin">{$LNG.admin_access_link}</a>{$LNG.admin_access_2}

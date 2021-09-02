@@ -1,4 +1,5 @@
-<h3>{$currentPlanet.user.playerrank}</h3>
+<h3>{$currentPlanet.user.username}</h3>
+<h6>{$currentPlanet.user.playerrank}</h6>
 <div class='list-group'>
 {if !$currentPlanet.ownPlanet}
     {if !$currentPlanet.user.isBuddy}

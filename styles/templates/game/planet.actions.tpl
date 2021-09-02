@@ -5,7 +5,8 @@
     {include 'alliance.actions.tpl'}
 {/if}
 <hr/>
-<h3>{$LNG.gl_planet} {$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}]</h3>
+<h3>{$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}]</h3>
+<h6>{$LNG.gl_planet}</h6>
 <div>{$LNG.gl_diameter}: {$currentPlanet.planet.diameter} {$LNG.ov_distance_unit}</div>
 <div>{$LNG.gl_temperature}: {$currentPlanet.planet.temp_min} {$LNG.ov_temp_unit}</div>
 <div>
@@ -26,6 +27,10 @@
                data-href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=1'
                title='{$LNG['type_mission_1']}'><i class='fas fa-horse'></i> {$LNG['type_mission_1']}</a>
         {/if}
+        {if $currentPlanet.missions.10}
+            <a class='list-group-item-danger list-group-item'
+               href='?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}'><i class='fas fa-rocket'></i> {$LNG['type_mission_10']}</a>
+        {/if}
         {if $currentPlanet.missions.5}
             <a class='list-group-item'
                href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=5'
@@ -44,10 +49,5 @@
         <a class='list-group-item'
            href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=17'
            title='{$LNG['type_mission_17']}'><i class='fas fa-share'></i> {$LNG['type_mission_17']}</a>
-        {if $currentPlanet.missions.10}
-            <a class='list-group-item-danger list-group-item'
-               href='?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}'
-               title='{$LNG['type_mission_10']}'><i class='fas fa-rocket'></i> {$LNG['type_mission_10']}</a>
-        {/if}
     </div>
 </div>

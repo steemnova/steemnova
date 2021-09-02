@@ -16,14 +16,14 @@
             <ul class="list-group flex-grow-1">
             <li class="list-group-item list-group-item-success">{$LNG.strength}</li>
             {foreach $FleetInfo.rapidfire.to as $rapidfireID => $shoots}
-                <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">{$LNG.in_rf_again} {$LNG.tech.$rapidfireID}: <span class="badge rounded bg-primary">{$shoots|number}</span></li>
+                <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">{$LNG.in_rf_again} {$LNG.tech.$rapidfireID}: <span class="badge rounded bg-primary">{$shoots|number}%</span></li>
             {/foreach}
             </ul>{/if}
         {if !empty($FleetInfo.rapidfire.from)}
             <ul class="list-group flex-grow-1">
             <li class="list-group-item list-group-item-danger">{$LNG.weakness}</li>
             {foreach $FleetInfo.rapidfire.from as $rapidfireID => $shoots}
-                <li class="list-group-item list-group-item-danger d-flex justify-content-between align-items-center">{$LNG.in_rf_from} {$LNG.tech.$rapidfireID}: <span class="badge rounded bg-danger">{$shoots|number}</span></li>
+                <li class="list-group-item list-group-item-danger d-flex justify-content-between align-items-center">{$LNG.in_rf_from} {$LNG.tech.$rapidfireID}: <span class="badge rounded bg-danger">{$shoots|number}%</span></li>
             {/foreach}
             </ul>{/if}
         </div>

@@ -215,7 +215,7 @@ $LNG['gl_diameter']						= 'Durchmesser';
 $LNG['gl_temperature']						= 'Temperatur';
 $LNG['gl_phalanx']						= 'Phalanx';
 $LNG['gl_planet_destroyed']					= 'Zerstörter Planet';
-$LNG['gl_playercard']						= 'Playercard';
+$LNG['gl_playercard']						= 'Spielerprofil';
 $LNG['gl_in_the_rank']						= 'Spieler %s auf Platz %d';
 $LNG['gl_activity']						= '(*)';
 $LNG['gl_activity_inactive']					= '(%d min)';
@@ -1330,3 +1330,5 @@ $LNG['window_close'] 						= 'Schließen';
 $LNG['galaxy_classic_fleets']					= 'Klassisches Angriffsmenü';
 
 $LNG['of_deck_complete'] = 'Deck vollständig';
+
+$LNG['btn_abort'] = 'Abbrechen';
