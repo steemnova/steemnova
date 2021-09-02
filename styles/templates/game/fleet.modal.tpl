@@ -28,7 +28,7 @@
                                         <a href="javascript:noShip('ship{$FleetRow.id}');"
                                            class="btn btn-sm btn-secondary me-2">{$LNG.fl_none}</a>
                                         <input name="ship{$FleetRow.id}" id="ship{$FleetRow.id}_input"
-                                               class="form-control w-75 fleet-data" data-type="{$FleetRow.id}"
+                                               class="form-control fleet-data" data-type="{$FleetRow.id}"
                                                value="0" type="number"/>
                                         <a href="javascript:maxShip('ship{$FleetRow.id}');"
                                            class="btn btn-sm btn-primary ms-2">{$LNG.fl_max}</a>
