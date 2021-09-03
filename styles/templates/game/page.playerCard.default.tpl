@@ -1,11 +1,8 @@
 {block name="title" prepend}{$LNG.lm_playercard}{/block}
 {block name="content"}
-<table style="width:95%">
-	<tr>
-		<th colspan="3">{$LNG.pl_overview}</th>
-		</tr>
-	<tr>
-		<td style="width:40%">{$LNG.pl_name}</td>
+<h3>{$LNG.pl_overview}</h3>
+	<table class="table table-striped">
+		<td>{$LNG.pl_name}</td>
 		<td colspan="2">{$name}</td>
 	</tr>
 	<tr>
