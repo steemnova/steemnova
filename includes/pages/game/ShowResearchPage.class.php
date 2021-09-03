@@ -341,7 +341,6 @@ class ShowResearchPage extends AbstractGamePage
 		$elementId     	= HTTP::_GP('tech', 0);
 		$ListID     	= HTTP::_GP('listid', 0);
 
-		$Messages		= $USER['messages'];
 
 		$PLANET[$resource[31].'_inter']	= ResourceUpdate::getNetworkLevel($USER, $PLANET);
 
@@ -409,7 +408,6 @@ class ShowResearchPage extends AbstractGamePage
 			'IsLabinBuild'	=> !$bContinue,
 			'IsFullQueue'	=> Config::get()->max_elements_tech == 0 || Config::get()->max_elements_tech == count($TechQueue),
 			'Queue'			=> $TechQueue,
-			'messages'		=> ($Messages > 0) ? (($Messages == 1) ? $LNG['ov_have_new_message'] : sprintf($LNG['ov_have_new_messages'], pretty_number($Messages))): false,
 		));
 
 		$this->display('page.research.default.tpl');

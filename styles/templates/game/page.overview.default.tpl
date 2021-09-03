@@ -1,6 +1,5 @@
 {block name="title" prepend}{$LNG.lm_overview}{/block}
 {block name="content"}
-    {include "messages.partial.tpl"}
     <div class="row row-cols-1 row-cols-lg-2 g-4">
         <div class="col mb-2">
             <div class="card">

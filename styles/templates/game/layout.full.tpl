@@ -25,6 +25,7 @@
         {elseif $vacation}
             <div class="alert alert-warning">{$LNG.tn_vacation_mode} {$vacation}</div>
         {/if}
+        {include "messages.partial.tpl"}
 
 
         {block name="content"}{/block}

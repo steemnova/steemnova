@@ -65,7 +65,7 @@
                             {html_options options=$PlanetSelect selected=$current_pid}
                         </select>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item p-1 rounded {if $messages}bg-primary{/if}">
                         <div class="dropdown">
                             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="{$avatar}" alt="" width="50" height="50" class="rounded-circle me-2 d-none d-md-inline-block ">

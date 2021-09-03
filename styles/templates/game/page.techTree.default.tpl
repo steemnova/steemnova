@@ -3,9 +3,6 @@
 
 {block name="content"}
 
-{include "messages.partial.tpl"}
-
-
 <div class="card">
     <ul class="nav nav-tabs px-3" id="myTab" role="tablist">
         {foreach from=$TechTreeList key=$elementID item=$requireList name=techniques}

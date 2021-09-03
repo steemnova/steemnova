@@ -1,6 +1,5 @@
 {block name="title" prepend}{$LNG.lm_buildings}{/block}
 {block name="content"}
-    {include "messages.partial.tpl"}
     <!-- building queue-->
     {if !empty($Queue)}
         <div id="buildlist" class="infos1">

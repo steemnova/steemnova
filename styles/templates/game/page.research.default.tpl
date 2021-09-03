@@ -1,6 +1,5 @@
 {block name="title" prepend}{$LNG.lm_research}{/block}
 {block name="content"}
-    {include "messages.partial.tpl"}
 
     <!-- building queue-->
     {if !empty($Queue)}

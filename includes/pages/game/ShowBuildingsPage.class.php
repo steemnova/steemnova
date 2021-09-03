@@ -343,7 +343,6 @@ class ShowBuildingsPage extends AbstractGamePage
         $BuildTemp = $PLANET['temp_max'];
 
         $BuildInfoList = array();
-        $Messages = $USER['messages'];
         $Elements = $reslist['allow'][$PLANET['planet_type']];
 
         foreach ($Elements as $Element) {
@@ -414,7 +413,6 @@ class ShowBuildingsPage extends AbstractGamePage
             'Queue' => $Queue,
             'isBusy' => array('shipyard' => !empty($PLANET['b_hangar_id']), 'research' => $USER['b_tech_planet'] != 0),
             'HaveMissiles' => (bool)$PLANET[$resource[503]] + $PLANET[$resource[502]],
-            'messages' => ($Messages > 0) ? (($Messages == 1) ? $LNG['ov_have_new_message'] : sprintf($LNG['ov_have_new_messages'], pretty_number($Messages))) : false,
         ));
 
         $this->display('page.buildings.default.tpl');
