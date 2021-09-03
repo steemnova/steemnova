@@ -74,4 +74,4 @@
         </div>
     </div>
 </div>
-<script src="scripts/game/fleet.modal.js"></script>
+<script src="scripts/game/fleet.modal.js?2"></script>
