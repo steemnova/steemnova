@@ -135,3 +135,13 @@ main .tooltip {
     left: initial;
     right: 0
 }
+
+.time-progress {
+    transition: width 1s linear;
+}
+
+.progress.time {
+    height:24px;
+    margin-top: 0.5em;
+    border: 1px solid black;
+}

@@ -6,10 +6,7 @@
         <div id="buildlist" class="infos1">
             {foreach $Queue as $List}
                 {$ID = $List.element}
-                {if $List@first}
-                    <div id="progressbar" data-time="{$List.resttime}"></div>
-                {/if}
-                <div class="d-flex justify-content-between alert {if $List@first}alert-info{else}alert-secondary{/if}">
+                <div class="d-flex flex-wrap justify-content-between alert {if $List@first}alert-info{else}alert-secondary{/if}">
                     <span>{$List@iteration}.: {$LNG.tech.{$ID}} {$List.level}{if $List.destroy} {$LNG.bd_dismantle}{else} {$LNG.bd_build}{/if}</span>
                     <div id="time" data-time="{$List.time}"><br></div>
                     <span data-time="{$List.endtime}" class="timer d-none d-md-inline-block">{$List.display}</span>
@@ -33,6 +30,13 @@
                         <input type="hidden" name="listid" value="{$List@iteration}">
                         <button type="submit" class="build_submit onlist btn btn-danger">{$LNG.bd_cancel}</button>
                     </form>
+                    {if $List@first}
+                        <div class="progress w-100 time shadow">
+                            <div data-resttime="{$List.resttime}" data-totaltime="{$List.time}" class="border-1 time-progress progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;"></div>
+                        </div>
+
+                    {/if}
+
                 </div>
             {/foreach}
         </div>
@@ -54,7 +58,7 @@
         <a class="btn btn-toggle btn-primary" data-bs-toggle="collapse"
            data-bs-target=".non-buyable">{$LNG.build_toggle_non_buyable}</a>
         |
-        <a class="btn btn-outline-danger btn-sm float-end me-2" data-bs-toggle="collapse" data-bs-target=".dismantle">{$LNG.bd_dismantle}</a>
+        <a class="btn btn-outline-danger btn-sm float-end me-2" data-bs-toggle="collapse" data-bs-target=".dismantle">{$LNG.bd_dismantle_mode}</a>
 <hr />
         <strong>{$LNG.bd_buildplaces}</strong>: {sprintf($LNG.bd_buildplaces_middle,$fields_current,$fields_max)}
         <div class="progress">
