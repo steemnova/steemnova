@@ -10,11 +10,12 @@
  */
 
 
-@import url('positions.css');
+@import url('positions_old.css');
 @import url('borders.css');
 @import url('fonts.css');
 @import url('misc.css');
 @import url('print.css');
+@import url('../../styles/resource/css/base/boilerplate.css');
 
 
 /*
@@ -63,8 +64,6 @@
 		background: #0D1014;
 		background: rgba(13, 16, 20, 0.95);
 		color:#CCC;
-		font-family:Verdana;
-		font-size:10px;
 	}
 	#content #chatList, #content #onlineListContainer, #content #helpContainer, #content #settingsContainer, #content #bbCodeContainer, #content #colorCodesContainer, #content #emoticonsContainer {
 		background: #0D1014;
