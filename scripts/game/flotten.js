@@ -150,12 +150,6 @@ function calculateTransportCapacity() {
 	return transportCapacity;
 }
 
-function maxShip(id) {
-	if (document.getElementsByName(id)[0]) {
-		var amount = document.getElementById(id + "_value").innerHTML;
-		document.getElementsByName(id)[0].value = amount.replace(/\./g, "");
-	}
-}
 
 function maxShips() {
 	var id;
@@ -163,14 +157,6 @@ function maxShips() {
 		maxShip($(this).attr('name'));
 	})
 }
-
-
-function noShip(id) {
-	if (document.getElementsByName(id)[0]) {
-		document.getElementsByName(id)[0].value = 0;
-	}
-}
-
 
 function noShips() {
 	var id;

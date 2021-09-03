@@ -28,7 +28,7 @@ class ShowGalaxyPage extends AbstractGamePage
 	
 	public function show()
 	{
-		global $USER, $PLANET, $resource, $LNG, $reslist;
+		global $USER, $PLANET, $resource, $LNG, $reslist, $CombatCaps;
 
 		$config			= Config::get();
 
@@ -115,6 +115,9 @@ class ShowGalaxyPage extends AbstractGamePage
                 'id'	=> $FleetID,
                 'speed'	=> FleetFunctions::GetFleetMaxSpeed($FleetID, $USER),
                 'count'	=> $PLANET[$resource[$FleetID]],
+                'attack' => $CombatCaps[$FleetID]['attack'],
+                'shield' => $CombatCaps[$FleetID]['shield'],
+
             );
         }
 

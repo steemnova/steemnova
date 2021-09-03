@@ -29,6 +29,10 @@
                                            class="btn btn-sm btn-secondary me-2">{$LNG.fl_none}</a>
                                         <input name="ship{$FleetRow.id}" id="ship{$FleetRow.id}_input"
                                                class="form-control fleet-data" data-type="{$FleetRow.id}"
+                                               data-attack="{$FleetRow.attack}"
+                                               data-shields="{$FleetRow.shield}"
+                                               onchange="computeFleetPower();"
+                                               autocomplete="off"
                                                value="0" type="number"/>
                                         <a href="javascript:maxShip('ship{$FleetRow.id}');"
                                            class="btn btn-sm btn-primary ms-2">{$LNG.fl_max}</a>
@@ -47,6 +51,16 @@
                             <td></td>
                             <td><a href="javascript:maxShips();">{$LNG.fl_select_all_ships}</a></td>
                         {/if}
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>{$LNG.cr_weapons}</td>
+                        <td><span id="totalAttack">0</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>{$LNG.cr_shields}</td>
+                        <td><span id="totalShields">0</span></td>
                     </tr>
                     </tbody>
                 </table>
