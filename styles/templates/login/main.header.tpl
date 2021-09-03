@@ -12,15 +12,23 @@
 	<link rel="stylesheet" type="text/css" href="styles/resource/css/base/jquery.fancybox.css?v={$REV}">
 	<link rel="stylesheet" type="text/css" href="styles/resource/css/login/icon-font/style.css?v={$REV}">
 	<link rel="stylesheet" type="text/css" href="styles/theme/qog/formate.css?v={$REV}">
-	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+	<link rel="manifest" href="./favicons/site.webmanifest">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="shortcut icon" href="./favicons/favicon.ico" type="image/x-icon">
+
 	<title>{block name="title"} - {$gameName}{/block}</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="Massively Multiplayer Online Strategy Game (MMOSG). Space Browsergame with competition between Alliances. Free-to-play, win-to-pay style.">
 	<!-- open graph protocol -->
-	<meta property="og:title" content="SteemNova">
+	<meta property="og:title" content="Quest of Galaxy">
 	<meta property="og:type" content="website">
-	<meta property="og:description" content="Massively Multiplayer Online Strategy Game (MMOSG) for Steemians. Space Browsergame with competition between Alliances for Steem cryptocurrency. Free-to-play, win-to-pay style.">
-	<meta property="og:image" content="styles/resource/images/meta.png">
+	<meta property="og:description" content="Massively Multiplayer Online Strategy Game (MMOSG). Space Browsergame with competition between Alliances. Free-to-play, win-to-pay style.">
+	<meta property="og:image" content="styles/resource/images/logo.png">
 	<script src="./styles/resource/bootstrap/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 	<!--[if lt IE 9]>

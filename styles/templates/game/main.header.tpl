@@ -22,8 +22,13 @@
     <link rel="stylesheet" type="text/css" href="./styles/resource/css/base/jquery.fancybox.css?v={$REV}">
     <link rel="stylesheet" type="text/css" href="./styles/resource/css/base/validationEngine.jquery.css?v={$REV}">
     <link rel="stylesheet" type="text/css" href="{$dpath}formate.css?v={$REV}">
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-    <script type="text/javascript">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+    <link rel="manifest" href="./favicons/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="shortcut icon" href="./favicons/favicon.ico" type="image/x-icon">    <script type="text/javascript">
         var ServerTimezoneOffset = {$Offset};
         var serverTime = new Date({$date.0}, {$date.1 - 1}, {$date.2}, {$date.3}, {$date.4}, {$date.5});
         var startTime = serverTime.getTime();
