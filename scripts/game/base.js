@@ -181,7 +181,9 @@ var Dialog	= {
 	AllianceChat: function() {
 	    return OpenPopup('game.php?page=chat&action=alliance', "alliance_chat", 960, 900);
 	},
-	
+	GeneralChat: function() {
+		return OpenPopup('game.php?page=chat', "general_chat", 960, 900);
+	},
 	open: function(url, width, height) {
 		$.fancybox({
 			width: width,

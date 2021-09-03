@@ -199,6 +199,7 @@ abstract class AbstractGamePage
 			'vmode'				=> $USER['urlaubs_modus'],
 			'authlevel'			=> $USER['authlevel'],
 			'userID'			=> $USER['id'],
+			'hasAlly'           => $USER['ally_id'] != 0,
 			'bodyclass'			=> $this->getWindow(),
 			'game_name'			=> $config->game_name,
 			'uni_name'			=> $config->uni_name,

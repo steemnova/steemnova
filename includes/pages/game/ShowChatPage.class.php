@@ -27,11 +27,15 @@ class ShowChatPage extends AbstractGamePage
 	function show() 
 	{
 		$action	= HTTP::_GP('action', '');
+        $this->setWindow('popup');
+        $this->initTemplate();
 		if($action == 'alliance') {
-			$this->setWindow('popup');
-			$this->initTemplate();
-		}
+            $this->display('page.chat.alliance.tpl');
+		} else {
+            $this->display('page.chat.default.tpl');
+
+        }
 		
-		$this->display('page.chat.default.tpl');
+
 	}
 }

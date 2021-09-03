@@ -15,6 +15,8 @@
                     {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_FLEET)}<li class="nav-item"><a class="nav-link link-dark rounded" href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}</a></li>{/if}
                     {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_DEFENSIVE)}<li class="nav-item"><a class="nav-link link-dark rounded" href="game.php?page=shipyard&amp;mode=defense">{$LNG.lm_defenses}</a></li>{/if}
                     {if isModuleAvailable($smarty.const.MODULE_RESEARCH)}<li class="nav-item"><a class="nav-link link-dark rounded" href="game.php?page=research">{$LNG.lm_research}</a></li>{/if}
+                    <li class="nav-item"><a href="#" class="nav-link link-dark rounded" onclick="return Dialog.GeneralChat();">{$LNG.lm_chat}</a>
+
                 </ul>
             </div>
         </li>
@@ -68,7 +70,23 @@
             </div>
         </li>
 
-        {if isModuleAvailable($smarty.const.MODULE_ALLIANCE)}<li class="nav-item"><a class="btn btn-toggle align-items-center rounded" href="game.php?page=alliance">{$LNG.lm_alliance}</a></li>{/if}
+        {if isModuleAvailable($smarty.const.MODULE_ALLIANCE)}
+            {if !$hasAlly}<li class="nav-item"><a class="btn btn-toggle align-items-center rounded" href="game.php?page=alliance">{$LNG.lm_alliance}</a></li>
+            {else}
+        <li class="mb-1">
+            <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#ally-collapse" aria-expanded="false">
+                {$LNG.lm_alliance}
+            </button>
+            <div class="collapse " id="ally-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li class="nav-item"><a class="nav-link link-dark rounded" href="game.php?page=alliance">{$LNG.lm_overview}</a></li>
+                    <li class="nav-item"><a class="nav-link link-dark rounded" href="#" onclick="return Dialog.AllianceChat();">{$LNG.al_goto_chat}</a></li>
+                    <li class="nav-item"><a class="nav-link link-dark rounded" href="?page=alliance&amp;mode=memberList">{$LNG.al_user_list}</a></li>
+                </ul>
+            </div>
+        </li>
+                {/if}
+        {/if}
 
         {if $authlevel > 0}<li class="nav-item"><a class="btn btn-danger" href="./admin.php">{$LNG.lm_administration} ({$VERSION})</a></li>{/if}
 </div>
