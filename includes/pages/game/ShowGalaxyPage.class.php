@@ -146,6 +146,8 @@ class ShowGalaxyPage extends AbstractGamePage
 			'current_planet'			=> $PLANET['planet'],
 			'planet_type' 				=> $PLANET['planet_type'],
             'max_planets'               => $config->max_planets,
+			'max_systems'               => $config->max_system,
+			'max_galaxies'              => $config->max_galaxy,
 			'missileSelector'			=> $missileSelector,
 			'ShortStatus'				=> array(
 				'vacation'					=> $LNG['gl_short_vacation'],

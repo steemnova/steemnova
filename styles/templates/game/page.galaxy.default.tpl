@@ -6,8 +6,6 @@
             <div class="card">
                 <form action="?page=galaxy" method="post" id="galaxy_form">
                     <input type="hidden" id="auto" value="dr">
-                    <input type="hidden" name="system" value="{$system}">
-                    <input type="hidden" name="galaxy" value="{$galaxy}">
                     <div class="card-header">
                         <div class="btn-group btn-group-sm ms-4 float-end">
                             <div class="btn btn-primary" onclick="switchLayout();">{$LNG.toggle_view}</div>
@@ -21,7 +19,12 @@
                             <div class="btn btn-primary">{$LNG.gl_galaxy}</div>
                             <a class="btn btn-primary btn-sm" onclick="galaxy_submit('galaxyLeft')"><i
                                         class="fas fa-arrow-left"></i></a>
-                            <div class="btn btn-primary btn-sm">{$galaxy}</div>
+                            <select name="galaxy" class="form-control form-control-sm btn btn-primary" onchange="$('#galaxy_form').submit();">
+                                {for $sysCount=1 to $max_galaxies}
+                                    <option value="{$sysCount}" {if $sysCount == $galaxy}selected{/if}>{$sysCount}</option>
+                                {/for}
+                            </select>
+
                             <a class="btn btn-primary btn-sm" onclick="galaxy_submit('galaxyRight')"><i
                                         class="fas fa-arrow-right"></i></a>
                         </div>
@@ -30,7 +33,13 @@
                             <div class="btn btn-secondary">{$LNG.gl_solar_system}</div>
                             <a class="btn btn-secondary btn-sm" onclick="galaxy_submit('systemLeft')"><i
                                         class="fas fa-arrow-left"></i></a>
-                            <div class="btn btn-secondary btn-sm">{$system}</div>
+                            <input type="hidden" name="system" value="{$system}">
+
+                            <select name="system" class="form-control form-control-sm btn btn-secondary" onchange="$('#galaxy_form').submit();">
+                            {for $sysCount=1 to $max_systems}
+                                <option value="{$sysCount}" {if $sysCount == $system}selected{/if}>{$sysCount}</option>
+                            {/for}
+                            </select>
                             <a class="btn btn-secondary btn-sm" onclick="galaxy_submit('systemRight')"><i
                                         class="fas fa-arrow-right"></i></a>
                         </div>
