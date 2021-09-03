@@ -9,32 +9,16 @@
                         <h3>{$LNG.fl_mission}: {$galaxy}:{$system}:{$planet} - {$LNG["type_planet_{$type}"]}</h3>
                     </div>
                     <div class="card-body">
-                        {if $own_ally}
-                            <div class="alert alert-warning">{$LNG.attack_own_ally}</div>
-                        {/if}
-                        {foreach $MissionSelector as $MissionID}
-                            <div class="form-check">
-                                <input type="radio" value="{$MissionID}" class="form-check-input" name="mission"
-                                       id="radio_{$MissionID}" autocomplete="off"
+                        <div class="btn-group-vertical w-75">
+                            {foreach $MissionSelector as $MissionID}
+                                <input type="radio" value="{$MissionID}" class="btn-check" name="mission"
+                                       id="radio_{$MissionID}" autocomplete="off" onclick="toggleInfo({$MissionID});"
                                        {if $mission == $MissionID || $MissionID@total == 1}checked="checked"{/if}>
-                                <label class="form-check-label"
+                                <label class="btn btn-outline-dark"
                                        for="radio_{$MissionID}">{$LNG["type_mission_{$MissionID}"]}</label>
-                                {if $MissionID == 17}
-                                    <div class="p-1 alert alert-warning">{$LNG.fl_transfer_alert_message}</div>{/if}
-                                {if $MissionID == 15}
-                                    <div class="alert alert-warning">{$LNG.fl_expedition_alert_message}</div>{/if}
-                                {if $MissionID == 11}
-                                    <div class="alert alert-warning">{$LNG.fl_dm_alert_message}</div>{/if}
-                                {if $MissionID == 7}
-                                    {if $max_planet_exceeded}
-                                    <div class="alert alert-warning">{sprintf($LNG.fl_colonize_alert_message, $min_astro_level)}</div>
-                                    {/if}
-                                    {if $colonize_notech}
-                                        <div class="alert alert-danger">{sprintf($LNG.fl_colonize_alert_message_tech, $min_astro_level)}</div>
-                                    {/if}
-                                {/if}
-                            </div>
-                        {/foreach}
+                            {/foreach}
+                        </div>
+
                         <hr/>
                         {if $StaySelector}
                             <label for="id-stay" class="form-label">{$LNG.fl_hold_time}</label>
@@ -42,7 +26,20 @@
                         {/if}
                     </div>
                     <div class="card-footer">
-                        <input value="{$LNG.fl_continue}" type="submit" class="btn btn-primary"/>
+                        {if $own_ally}
+                            <div class="d-none info-warn mission-1 p-1 alert alert-warning">{$LNG.attack_own_ally}</div>
+                        {/if}
+                        <div class="d-none info-warn mission-17 p-1 alert alert-warning">{$LNG.fl_transfer_alert_message}</div>
+                        <div class="d-none info-warn mission-15 p-1 alert alert-warning">{$LNG.fl_expedition_alert_message}</div>
+                        <div class="d-none info-warn mission-11 p-1 alert alert-warning">{$LNG.fl_dm_alert_message}</div>
+                        {if $max_planet_exceeded}
+                            <div class="d-none info-warn mission-7 p-1 alert alert-warning">{sprintf($LNG.fl_colonize_alert_message, $min_astro_level)}</div>
+                        {/if}
+                        {if $colonize_notech}
+                            <div class="d-none info-warn mission-7 p-1 alert alert-danger">{sprintf($LNG.fl_colonize_alert_message_tech, $min_astro_level)}</div>
+                        {/if}
+
+                        <input value="{$LNG.fl_continue}" type="submit" class="btn btn-primary float-end"/>
                     </div>
                 </div>
             </div>
@@ -113,5 +110,17 @@
     </form>
     <script type="text/javascript">
         data = {$fleetdata|json};
+    </script>
+    <script>
+        {literal}
+        function toggleInfo(missionID) {
+            document.querySelectorAll(".info-warn").forEach(function (item) {
+                item.classList.add("d-none");
+            });
+            document.querySelectorAll(`.info-warn.mission-${missionID}`).forEach(function (item) {
+                item.classList.remove("d-none");
+            });
+        }
+        {/literal}
     </script>
 {/block}
