@@ -202,4 +202,5 @@
     {/block}
     {block name="script" append}
         <script src="scripts/game/fleetTable.js"></script>
+        <script src="scripts/game/fleet.modal.js"></script>
     {/block}
