@@ -10,6 +10,7 @@
     </div>
 {/block}
 {block name="script" append}
+    {literal}
     <script type="text/javascript">
         var second = 5;
 
@@ -26,4 +27,5 @@
         window.setTimeout(function () {window.location.href='./index.php'; }, 5000);
         window.setTimeout(Countdown, 1000);
     </script>
+    {/literal}
 {/block}
