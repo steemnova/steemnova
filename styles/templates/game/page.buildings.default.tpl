@@ -31,11 +31,10 @@
                     </form>
                     {if $List@first}
                         <div class="progress w-100 time shadow">
-                            <div data-resttime="{$List.resttime}" data-totaltime="{$List.time}" class="border-1 time-progress progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%;"></div>
+                            {$pct = 100-$List.resttime*100/$List.time}
+                            <div data-resttime="{$List.resttime}" data-totaltime="{$List.time}" class="border-1 time-progress progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: {$pct}%;"></div>
                         </div>
-
                     {/if}
-
                 </div>
             {/foreach}
         </div>
