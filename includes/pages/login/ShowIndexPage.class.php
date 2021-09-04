@@ -54,6 +54,15 @@ class ShowIndexPage extends AbstractLoginPage
 		$verkey = $db->selectSingle($sql);
         $externalAuth	= HTTP::_GP('externalAuth', array());
         $referralID 	= HTTP::_GP('referralID', 0);
+        if(!isset($externalAuth['account'], $externalAuth['method']))
+        {
+            $externalAuth['account']	= 0;
+            $externalAuth['method']		= '';
+        }
+        else
+        {
+            $externalAuth['method']		= strtolower(str_replace(array('_', '\\', '/', '.', "\0"), '', $externalAuth['method']));
+        }
         if($config->ref_active == 1 && !empty($referralID))
         {
             $db = Database::get();
