@@ -115,7 +115,7 @@ class ShowFleetMissilePage extends AbstractGamePage
 
 		$DefenseLabel 	= ($primaryTarget == 0) ? $LNG['ma_all'] : $LNG['tech'][$primaryTarget];
 
-		$fleetArray		= array(FLEET_INTERPLANETARY_MISSILE => $anz);
+		$fleetArray		= array(FLEET_INTERPLANETARY_MISSILE => $sendMissileCount);
 		
 		$fleetStartTime	= TIMESTAMP + $Duration;
 		$fleetStayTime	= $fleetStartTime;
@@ -131,6 +131,6 @@ class ShowFleetMissilePage extends AbstractGamePage
 			$PLANET['planet'], $PLANET['planet_type'], $target['id_owner'], $target['id'], $targetGalaxy, $targetSystem,
 			$targetPlanet, $targetType, $fleetResource, $fleetStartTime, $fleetStayTime, $fleetEndTime, 0, $primaryTarget);
 
-		$this->printMessage("<b>".$anz."</b>". $LNG['ma_missiles_sended'].$DefenseLabel);
+		$this->printMessage("<b>".$sendMissileCount."</b>". $LNG['ma_missiles_sended'].$DefenseLabel);
 	}
 }
