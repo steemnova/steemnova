@@ -1,5 +1,20 @@
 {block name="title" prepend}{$LNG.siteTitleIndex}{/block}
 {block name="content"}
+
+    <!-- Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">{$LNG.siteTitleRegister}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {include "forms.register.tpl"}
+                </div>
+            </div>
+        </div>
+    </div>
     <main class="container">
         <div class="row">
             <div class="card col-xl-6 col-12 p-5">
@@ -57,8 +72,7 @@
                             <a href="#" data-href="index.php?page=externalAuth&method=facebook" class="fb_login"><img
                                         src="styles/resource/images/facebook/fb-connect-large.png" alt=""></a>
                         {/if}
-
-                        <a class="btn btn-primary" href="index.php?page=register">{$LNG.buttonRegister}</a>
+                        <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">{$LNG.buttonRegister}</a>
                     </div>
                 </div>
             </div>
