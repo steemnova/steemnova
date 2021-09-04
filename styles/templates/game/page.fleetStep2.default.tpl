@@ -13,7 +13,7 @@
                             {foreach $MissionSelector as $MissionID}
                                 <input type="radio" value="{$MissionID}" class="btn-check" name="mission"
                                        id="radio_{$MissionID}" autocomplete="off" onclick="toggleInfo({$MissionID});"
-                                       {if $mission == $MissionID || $MissionID@total == 1}checked="checked"{/if}>
+                                       {if $mission == $MissionID || (!isset($mission) && $MissionID@iteration == 1)}checked="checked"{/if}>
                                 <label class="btn btn-outline-dark"
                                        for="radio_{$MissionID}">{$LNG["type_mission_{$MissionID}"]}</label>
                             {/foreach}
