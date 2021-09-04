@@ -42,20 +42,17 @@ Full source code is placed at [https://github.com/bastiedotorg/quest-of-galaxy](
 
 ## Local installation
 
-- Clone the repo: `git clone https://github.com/steemnova/steemnova`
+- Clone the repo: `git clone https://github.com/bastiedotorg/quest-of-galaxy`
 - Install components: `apt install apache2 php7.3 php7.3-gd php7.3-fpm php7.3-mysql php7.3-curl php-ds libapache2-mod mysql-server`
 - Setup mysql: `create user USER identified by PASSWORD; create database DB; grant all privileges on DB.* to USER;`
 - Set write privileges to dirs: `cache/`, `includes/`
 - Run wizard: `127.0.0.1/install/install.php`
 
-### If you run SteemNova on NGINX - Read nginx.md file!
+### If you run Quest of Galaxy on NGINX - Read nginx.md file!
 
 ## Screenshots
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/56807194/69483643-10b60100-0e2a-11ea-826f-d657bcceb40a.png">
-  <i>In game screen</i>
-</p>
+TBD
 
 ## Copyright and license
 
