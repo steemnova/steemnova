@@ -253,6 +253,7 @@ define('MISSION_SPY', 6);
 define('MISSION_COLONIZE', 7);
 define('MISSION_RECYCLE', 8);
 define('MISSION_DESTROY', 9);
+define('MISSION_MISSILE', 10);
 
 define('MISSION_DARKMATTER', 11);
 define('MISSION_EXPEDITION', 15);
@@ -282,3 +283,5 @@ define('SHIP_DARK_MATTER_COLLECTOR', 220);
 
 
 define('TYPE_PLANET', 1);
+
+define('FLEET_INTERPLANETARY_MISSILE', 503);

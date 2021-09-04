@@ -553,8 +553,8 @@ class FleetFunctions
 		}
 
 		if($consumption > 0){
-			$planetQuery[] = $resource[903]." = ".$resource[903]." - :".$resource[903];
-			$params[':'.$resource[903]]	= $consumption;
+			$planetQuery[] = $resource[RESS_DEUTERIUM]." = ".$resource[RESS_DEUTERIUM]." - :".$resource[RESS_DEUTERIUM];
+			$params[':'.$resource[RESS_DEUTERIUM]]	= $consumption;
 		}
 
 
@@ -585,7 +585,7 @@ class FleetFunctions
 		fleet_resource_metal		= :fleetResource901,
 		fleet_resource_crystal		= :fleetResource902,
 		fleet_resource_deuterium	= :fleetResource903,
-		fleet_no_m_return = :fleetNoMReturn,
+		fleet_no_m_return           = :fleetNoMReturn,
 		fleet_group					= :fleetGroup,
 		fleet_target_obj			= :missileTarget,
 		start_time					= :timestamp;';
@@ -676,10 +676,10 @@ class FleetFunctions
 			':fleetTargetPlanetSystem'	=> $fleetTargetPlanetSystem,
 			':fleetTargetPlanetPlanet'	=> $fleetTargetPlanetPlanet,
 			':fleetTargetPlanetType'	=> $fleetTargetPlanetType,
-			':fleetResource901'			=> $fleetResource[901],
-			':fleetResource902'			=> $fleetResource[902],
-			':fleetResource903'			=> $fleetResource[903],
-			':fleetNoMReturn' => $fleetNoMReturn,
+			':fleetResource901'			=> $fleetResource[RESS_METAL],
+			':fleetResource902'			=> $fleetResource[RESS_CRYSTAL],
+			':fleetResource903'			=> $fleetResource[RESS_DEUTERIUM],
+			':fleetNoMReturn'           => $fleetNoMReturn,
 			':fleetGroup'				=> $fleetGroup,
 			':missileTarget'			=> $missileTarget,
 			':timestamp'				=> TIMESTAMP,

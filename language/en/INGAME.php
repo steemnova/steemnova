@@ -1105,6 +1105,7 @@ $LNG['ma_not_send_other_galaxy']			= 'You cannot send rockets into another galax
 $LNG['ma_planet_doesnt_exists']				= 'Planet does not exist. ';
 $LNG['ma_wrong_target']						= 'Wrong Target';
 $LNG['ma_no_missiles']						= 'No Missles';
+$LNG['ma_not_enough_missiles']				= 'You do not have that many missiles';
 $LNG['ma_add_missile_number']				= 'Add missile amount! ';
 $LNG['ma_misil_launcher']					= 'Rocket Launcher';
 $LNG['ma_small_laser']						= 'Light Laser Gun';

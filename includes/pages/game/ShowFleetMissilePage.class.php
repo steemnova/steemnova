@@ -33,7 +33,7 @@ class ShowFleetMissilePage extends AbstractGamePage
 		$targetSystem 		= HTTP::_GP('system', 0);
 		$targetPlanet 		= HTTP::_GP('planet', 0);
 		$targetType 		= HTTP::_GP('type', 0);
-		$anz 				= min(HTTP::_GP('SendMI',0), $missileCount);
+		$sendMissileCount 	= intval(HTTP::_GP('SendMI',0));
 		$primaryTarget 		= HTTP::_GP('Target', 0);
 
         $db					= Database::get();
@@ -70,8 +70,8 @@ class ShowFleetMissilePage extends AbstractGamePage
 			$error = $LNG['ma_wrong_target'];
 		elseif ($missileCount == 0)
 			$error = $LNG['ma_no_missiles'];
-		elseif ($anz <= 0)
-			$error = $LNG['ma_add_missile_number'];
+		elseif ($sendMissileCount <= $missileCount)
+			$error = $LNG['ma_not_enough_missiles'];
 
 		if(empty($target)) {
 			$target['id_owner'] = 0;
@@ -115,19 +115,19 @@ class ShowFleetMissilePage extends AbstractGamePage
 
 		$DefenseLabel 	= ($primaryTarget == 0) ? $LNG['ma_all'] : $LNG['tech'][$primaryTarget];
 
-		$fleetArray		= array(503 => $anz);
+		$fleetArray		= array(FLEET_INTERPLANETARY_MISSILE => $anz);
 		
 		$fleetStartTime	= TIMESTAMP + $Duration;
 		$fleetStayTime	= $fleetStartTime;
 		$fleetEndTime	= $fleetStartTime;
 		
 		$fleetResource	= array(
-			901	=> 0,
-			902	=> 0,
-			903	=> 0,
+			RESS_METAL	=> 0,
+			RESS_CRYSTAL	=> 0,
+			RESS_DEUTERIUM	=> 0,
 		);
 		
-		FleetFunctions::sendFleet($fleetArray, 10, $USER['id'], $PLANET['id'], $PLANET['galaxy'], $PLANET['system'],
+		FleetFunctions::sendFleet($fleetArray, MISSION_MISSILE, $USER['id'], $PLANET['id'], $PLANET['galaxy'], $PLANET['system'],
 			$PLANET['planet'], $PLANET['planet_type'], $target['id_owner'], $target['id'], $targetGalaxy, $targetSystem,
 			$targetPlanet, $targetType, $fleetResource, $fleetStartTime, $fleetStayTime, $fleetEndTime, 0, $primaryTarget);
 

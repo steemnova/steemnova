@@ -1089,6 +1089,7 @@ $LNG['ma_not_send_other_galaxy']				= 'Du kannst keine Raketen in eine andere Ga
 $LNG['ma_planet_doesnt_exists']					= 'Planet existiert nicht.';
 $LNG['ma_wrong_target']						= 'Kein Ziel';
 $LNG['ma_no_missiles']						= 'Du hast keine Interplanetarraketen';
+$LNG['ma_not_enough_missiles']						= 'Du nicht so viele Interplanetarraketen';
 $LNG['ma_add_missile_number']					= 'Sie müssen eine Zahl eingeben!';
 $LNG['ma_misil_launcher']					= 'Raketenwerfer';
 $LNG['ma_small_laser']						= 'Leichtes Lasergeschütz';
