@@ -32,7 +32,7 @@ function updateProgress() {
 		let percentage = Math.max(1, 100 - 100*(item.dataset.resttime-(new Date().getTime() / 1000 - item.dataset.starttime)) / item.dataset.totaltime);
 		item.style.width = `${percentage}%`;
 	});
-	window.setTimeout(updateProgress, 5000);
+	window.setTimeout(updateProgress, 1000);
 }
 
 $(document).ready(function() {
