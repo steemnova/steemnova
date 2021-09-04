@@ -9,6 +9,7 @@
 	<link href="./styles/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
 	<link rel="stylesheet" type="text/css" href="styles/resource/css/login/main.css?v={$REV}">
+	<link rel="stylesheet" type="text/css" href="styles/resource/css/base/boilerplate.css?v={$REV}">
 	<link rel="stylesheet" type="text/css" href="styles/resource/css/base/jquery.fancybox.css?v={$REV}">
 	<link rel="stylesheet" type="text/css" href="styles/resource/css/login/icon-font/style.css?v={$REV}">
 	<link rel="stylesheet" type="text/css" href="styles/theme/qog/formate.css?v={$REV}">
