@@ -51,8 +51,28 @@ class ShowIndexPage extends AbstractLoginPage
 		$db = Database::get();
 		$sql = "SELECT capaktiv, cappublic, capprivate FROM uni1_config";
 		$verkey = $db->selectSingle($sql);
+        $externalAuth	= HTTP::_GP('externalAuth', array());
+        $referralID 	= HTTP::_GP('referralID', 0);
+        if($config->ref_active == 1 && !empty($referralID))
+        {
+            $db = Database::get();
 
-		$config				= Config::get();
+            $sql = "SELECT username FROM %%USERS%% WHERE id = :referralID AND universe = :universe;";
+            $referralAccountName = $db->selectSingle($sql, array(
+                ':referralID'	=> $referralID,
+                ':universe'		=> Universe::current()
+            ), 'username');
+
+            if(!empty($referralAccountName))
+            {
+                $referralData	= array('id' => $referralID, 'name' => $referralAccountName);
+            }
+        }
+        $accountName	= "";
+
+
+        $config				= Config::get();
+
 		$this->assign(array(
 			'universeSelect'		=> $universeSelect,
 			'code'					=> $loginCode,
@@ -60,8 +80,14 @@ class ShowIndexPage extends AbstractLoginPage
 			'descHeader'			=> sprintf($LNG['loginWelcome'], $config->game_name),
 			'descText'				=> sprintf($LNG['loginServerDesc'], $config->game_name),
             'gameInformations'      => explode("\n", $LNG['gameInformations']),
-			'loginInfo'				=> sprintf($LNG['loginInfo'], '<a href="index.php?page=rules">'.$LNG['menu_rules'].'</a>')
-		));
+			'loginInfo'				=> sprintf($LNG['loginInfo'], '<a href="index.php?page=rules">'.$LNG['menu_rules'].'</a>'),
+            'referralData'		=> $referralData,
+            'accountName'		=> $accountName,
+            'externalAuth'		=> $externalAuth,
+            'registerPasswordDesc'	=> sprintf($LNG['registerPasswordDesc'], 6),
+            'registerRulesDesc'	=> sprintf($LNG['registerRulesDesc'], '<a href="index.php?page=rules">'.$LNG['menu_rules'].'</a>')
+
+        ));
 
 
 		
