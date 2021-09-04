@@ -558,51 +558,14 @@ function exceptionHandler($exception)
 <head>
 	<title>' . $gameName . ' - Error</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link href="' . $DIR . '/styles/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="' . $DIR . '/styles/resource/css/base/boilerplate.css?v=' . $VERSION . '">
 	<link rel="stylesheet" type="text/css" href="' . $DIR . '/styles/resource/css/ingame/main.css?v=' . $VERSION . '">
-	<link rel="stylesheet" type="text/css" href="' . $DIR . '/styles/resource/css/base/jquery.css?v=' . $VERSION . '">
-	<link rel="stylesheet" type="text/css" href="' . $DIR . '/styles/theme/gow/formate.css?v=' . $VERSION . '">
-	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-	<script type="text/javascript">
-	var ServerTimezoneOffset = -3600;
-	var serverTime 	= new Date(2012, 2, 12, 14, 43, 36);
-	var startTime	= serverTime.getTime();
-	var localTime 	= serverTime;
-	var localTS 	= startTime;
-	var Gamename	= document.title;
-	var Ready		= "Fertig";
-	var Skin		= "' . $DIR . '/styles/theme/gow/";
-	var Lang		= "de";
-	var head_info	= "Information";
-	var auth		= 3;
-	var days 		= ["So","Mo","Di","Mi","Do","Fr","Sa"] 
-	var months 		= ["Jan","Feb","Mar","Apr","Mai","Jun","Jul","Aug","Sep","Okt","Nov","Dez"] ;
-	var tdformat	= "[M] [D] [d] [H]:[i]:[s]";
-	var queryString	= "";
-    var relativeTime = Math.floor(Date.now() / 1000);
-
-    setInterval(function() {
-	if(relativeTime < Math.floor(Date.now() / 1000)) {
-	    serverTime.setSeconds(serverTime.getSeconds()+1);
-	    relativeTime++;
-	}
-    }, 1);
-	</script>
-	<script type="text/javascript" src="' . $DIR . '/scripts/base/jquery.js?v=2123"></script>
-	<script type="text/javascript" src="' . $DIR . '/scripts/base/jquery.ui.js?v=2123"></script>
-	<script type="text/javascript" src="' . $DIR . '/scripts/base/jquery.cookie.js?v=2123"></script>
-	<script type="text/javascript" src="' . $DIR . '/scripts/base/jquery.fancybox.js?v=2123"></script>
-	<script type="text/javascript" src="' . $DIR . '/scripts/base/jquery.validationEngine.js?v=2123"></script>
-	<script type="text/javascript" src="' . $DIR . '/scripts/base/tooltip.js?v=2123"></script>
-	<script type="text/javascript" src="' . $DIR . '/scripts/game/base.js?v=2123"></script>
 </head>
 <body id="overview" class="full">
-<table width="960">
-	<tr>
-		<th>Unknown error</th>
-	</tr>
-	<tr>
-		<td class="left">
+<div class="alert alert-danger">
+<strong>Unknown error</strong><br />
+<p>
 			<b>Message: </b>' . $exception->getMessage() . '<br>
 			<b>File: </b>' . $exception->getFile() . '<br>
 			<b>Line: </b>' . $exception->getLine() . '<br>
@@ -611,9 +574,9 @@ function exceptionHandler($exception)
 			<b>PHP-API: </b>' . php_sapi_name() . '<br>
 			<b>2Moons Version: </b>' . $VERSION . '<br>
 			<b>Debug Backtrace:</b><br>' . makebr(htmlspecialchars($exception->getTraceAsString())) . '
-		</td>
-	</tr>
-</table>
+
+</p>
+</div>
 </body>
 </html>';
 
