@@ -28,7 +28,7 @@ $LNG['siteTitleLostPassword']		= 'Passwort vergessen?';
 
 // Menu
 $LNG['forum']						= 'Forum';
-$LNG['menu_index']					= 'IndeX';
+$LNG['menu_index']					= 'Start';
 $LNG['menu_news']					= 'News';
 $LNG['menu_rules']					= 'Regeln';
 $LNG['menu_banlist']				= 'Pranger';
