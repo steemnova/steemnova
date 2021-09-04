@@ -70,7 +70,7 @@ class ShowFleetMissilePage extends AbstractGamePage
 			$error = $LNG['ma_wrong_target'];
 		elseif ($missileCount == 0)
 			$error = $LNG['ma_no_missiles'];
-		elseif ($sendMissileCount <= $missileCount)
+		elseif ($sendMissileCount > $missileCount)
 			$error = $LNG['ma_not_enough_missiles'];
 
 		if(empty($target)) {
