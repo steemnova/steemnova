@@ -35,3 +35,6 @@ alter table %PREFIX%config
 alter table %PREFIX%users
     add ref_coins float default 0.0 null;
 
+alter table %PREFIX%users
+    add type_npc int default 0 null;
+

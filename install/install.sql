@@ -813,6 +813,7 @@ CREATE TABLE `%PREFIX%users` (
   `inactive_mail` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `coins` float default 0.0 null,
   `ref_coins` float default 0.0 null,
+  type_npc int default 0 null,
 
 PRIMARY KEY (`id`),
   KEY `authlevel` (`authlevel`),
