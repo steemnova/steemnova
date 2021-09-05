@@ -22,6 +22,7 @@ function ShowSearchPage()
 	global $LNG, $USER;
 	
 	if(!isset($_GET['delete'])) { $_GET['delete']=''; }
+    if(!isset($_GET['delete'])) { $_GET['delete']=''; }
 	if ($_GET['delete'] == 'user') {
         PlayerUtil::deletePlayer((int) $_GET['user']);
         message($LNG['se_delete_succes_p'], '?page=search&search=users&minimize=on', 2);
@@ -319,7 +320,7 @@ function MyCrazyLittleSearch($SpecifyItems, $WhereItem, $SpecifyWhere, $SpecialS
 	$QueryCSearch	.= $WhereItem." ";
 	$QueryCSearch	.= $SpecifyWhere." ".$SpecialSpecify." ";
 	$CountQuery		= $GLOBALS['DATABASE']->getFirstRow($QueryCSearch);
-	
+    $Search         =["PAGES" => '', 'LIST' => ''];
 	if ($CountQuery['total'] > 0)
 	{
 		$NumberOfPages = ceil($CountQuery['total'] / $Limit);
