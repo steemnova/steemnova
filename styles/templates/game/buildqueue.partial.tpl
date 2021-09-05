@@ -4,7 +4,7 @@
     <div id="buildlist" class="infos1">
         {foreach $Queue as $List}
             {$ID = $List.element}
-            <div class="d-flex justify-content-between alert {if $List@first}alert-info{else}alert-secondary{/if}" id="buildqueue-{$List@iteration}" data-name="{$LNG.tech.{$ID}}">
+            <div class="d-flex flex-wrap justify-content-between alert {if $List@first}alert-info{else}alert-secondary{/if}" id="buildqueue-{$List@iteration}" data-name="{$LNG.tech.{$ID}}">
                 <span>{$List@iteration}.: {$LNG.tech.{$ID}} {$LNG.bd_tech_next_level} {$List.level}</span>
                 <div id="time" data-time="{$List.time}"><br></div>
                 <span data-time="{$List.endtime}" class="timer d-none d-md-inline-block">{$List.display}</span>
