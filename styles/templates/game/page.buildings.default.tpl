@@ -38,7 +38,7 @@
                     </div>
 
                     <a href="#" onclick="return Dialog.info({$ID})">
-                        <img class="card-img-top" src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}">
+                        <img class="card-img-top mt-2 rounded shadow" src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}">
                     </a>
                     <div class="card-body">
                         <!-- missing ress -->
