@@ -7,11 +7,10 @@ var buildname	= "";
 function Buildlist() {
 	var rest	= resttime - (serverTime.getTime() - startTime) / 1000;
 	if (rest <= 0) {
-		$('#time').text(Ready);
-		$('#command').remove();
+		document.querySelector('#time').innerText = GetRestTimeFormat(Ready);
 		document.title	= Ready + ' - ' + Gamename;
 		window.setTimeout(function() {
-			window.location.href = 'game.php?page=buildings';
+			window.location.href = buildUrl;
 		}, 1000);
 		return;
 	} else {
@@ -19,7 +18,7 @@ function Buildlist() {
 	}
 	document.title = GetRestTimeFormat(rest) + ' - ' + buildname + ' - ' + Gamename;
 	
-	$('#time').text(GetRestTimeFormat(rest));
+	document.querySelector('#time').innerText = GetRestTimeFormat(rest);
 }
 function initProgress() {
 	document.querySelectorAll(".time-progress").forEach(function(item) {
@@ -35,14 +34,14 @@ function updateProgress() {
 	window.setTimeout(updateProgress, 1000);
 }
 
-$(document).ready(function() {
-	time		= $('#time').data('time');
-	resttime	= $('.time-progress').data('resttime');
-	endtime		= $('.timer:first').data('time');
-	buildname	= $('.buildlist > table > tbody > tr > td:first').text().replace(/[0-9]+\.:/, '').trim();
+window.onload = function() {
+	time		= document.querySelector('#time').dataset.time;
+	resttime	= document.querySelector('.time-progress').dataset.resttime;
+	endtime	= document.querySelector('.time-progress').dataset.totaltime
+	buildname	= document.querySelector('#buildqueue-1').dataset.name;
     window.setTimeout(Buildlist, 1000);
 
 	initProgress();
 	updateProgress();
 	Buildlist();
-});
+};
