@@ -4,22 +4,22 @@
 {block name="content"}
 
 <div class="card">
-    <ul class="nav nav-tabs px-3" id="myTab" role="tablist">
-        {foreach from=$TechTreeMap key=$elementID item=$requireList name=techniques}
-            <li class="nav-item" role="presentation">
+    <ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+        {foreach from=$TechTreeMap key=$elementID item=$requireList}
+            <li class="nav-item">
                 <button class="nav-link p-3 {if $requireList@iteration == 1}active{/if}"
-                        id="tab-{$elementID}" data-bs-toggle="tab"
-                        data-bs-target="#content-{$elementID}" type="button" role="tab"
-                        aria-controls="content-{$elementID}"
-                        aria-selected="true">{$LNG.tech.$elementID}</button>
+                   id="tab-{$elementID}" data-bs-toggle="tab"
+                   data-bs-target="#content-{$elementID}" role="tab"
+                   aria-controls="content-{$elementID}"
+                   aria-selected="true">{$LNG.tech.$elementID}</button>
             </li>
         {/foreach}
-        <li class="nav-item" role="presentation">
+        <li class="nav-item">
             <button class="nav-link p-3"
-                    id="tab-ships" data-bs-toggle="tab"
-                    data-bs-target="#content-ships" type="button" role="tab"
-                    aria-controls="content-ships"
-                    aria-selected="true">{$LNG.techtree_ship_data}</button>
+               id="tab-ships" data-bs-toggle="tab"
+               data-bs-target="#content-ships"
+               aria-controls="content-ships"
+               aria-selected="true">{$LNG.techtree_ship_data}</button>
 
     </ul>
     <div class="tab-content" id="myTabContent">
@@ -63,7 +63,16 @@
              id="content-ships" role="tabpanel" aria-labelledby="tab-ships">
             <table class="table table-hover">
                 <thead>
-                <tr><th>{$LNG.bs_names}</th><th>{$LNG.in_attack_pt}</th><th>{$LNG.in_shield_pt}</th><th>{$LNG.tech.901}</th><th>{$LNG.tech.902}</th><th>{$LNG.tech.903}</th><th>{$LNG.in_base_speed}</th><th>{$LNG.in_capacity}</th></tr>
+                <tr>
+                    <th>{$LNG.bs_names}</th>
+                    <th>{$LNG.in_attack_pt}</th>
+                    <th>{$LNG.in_shield_pt}</th>
+                    <th>{$LNG.tech.901}</th>
+                    <th>{$LNG.tech.902}</th>
+                    <th>{$LNG.tech.903}</th>
+                    <th>{$LNG.in_base_speed}</th>
+                    <th>{$LNG.in_capacity}</th>
+                </tr>
                 </thead>
                 <tbody>
                 {foreach $ships as $ship}
@@ -82,4 +91,4 @@
             </table>
         </div>
 
-    {/block}
+        {/block}
