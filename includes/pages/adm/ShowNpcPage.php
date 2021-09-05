@@ -41,7 +41,7 @@ class ShowNpcPage extends AbstractGamePage
                 try {
                     $planetId = PlayerUtil::createPlanet($targetGalaxy, $targetSystem, mt_rand(1, $config->max_planets), $universeId, $pirateId, NULL, false, 0);
                     $go_on = false;
-                } catch (Exception) {
+                } catch (Exception $e) {
                     $tries++;
                     $go_on = true;
                     if ($tries > 5) {
