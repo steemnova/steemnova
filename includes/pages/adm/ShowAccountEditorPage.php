@@ -545,7 +545,7 @@ function ShowAccountEditorPage()
                     Database::get()->update("UPDATE %%PLANETS%% SET `field_max` = '" . $fields . "' WHERE `id` = '" . $id . "' AND `universe` = '" . Universe::getEmulated() . "';");
 
                 if ($change_pos == 'on' && $galaxy > 0 && $system > 0 && $planet > 0 && $galaxy <= Config::get(Universe::getEmulated())->max_galaxy && $system <= Config::get(Universe::getEmulated())->max_system && $planet <= Config::get(Universe::getEmulated())->max_planets) {
-                    $P = $GLOBALS['DATABASE']->getFirstRow("SELECT galaxy,system,planet,planet_type FROM %%PLANETS%% WHERE `id` = '" . $id . "' AND `universe` = '" . Universe::getEmulated() . "';");
+                    $P = Database::get()->selectSingle("SELECT galaxy,system,planet,planet_type FROM %%PLANETS%% WHERE `id` = '" . $id . "' AND `universe` = '" . Universe::getEmulated() . "';");
                     if ($P['planet_type'] == '1') {
                         if (PlayerUtil::checkPosition(Universe::getEmulated(), $galaxy, $system, $planet, $P['planet_type'])) {
                             $template->message($LNG['ad_pla_error_planets3'], '?page=accounteditor&edit=planets');

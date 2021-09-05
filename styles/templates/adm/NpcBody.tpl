@@ -1,34 +1,17 @@
 {include file="overall_header.tpl"}
-
-<table width="60%">
-    <tr>
-		<td>{$info_information}</td>
-    </tr>
-    <tr>
-		<td>
-<pre class="left">```-- Server Info --
-Server Infos: {$info}
-PHP-Version: {$vPHP} ({$vAPI})
-JSON Verfügbar: {$json}
-BCMath Verfügbar: {$bcmath}
-cURL Verfügbar: {$curl}
-SafeMode: {$safemode}
-MemoryLimit: {$memory}
-MySQL-Client-Version: {$vMySQLc}
-MySQL-Server-Version: {$vMySQLs}
-ErrorLog: {$errorlog} ({$errorloglines}, {$log_errors})
-Timezone(PHP/CONF/USER): {$php_tz} / {$conf_tz} / {$user_tz}
-Suhosin: {$suhosin}
-DB Version: {$dbVersion}
-
--- Game --
-Game Version: 2Moons {$vGame}
-Game Addresse: http://{$root}/
-Game Pfad: http://{$gameroot}/index.php
-
-Browser: {$browser}
-```</pre>
-		</td>
-    </tr>
-</table>
+<form method="post">
+<div>
+    Create <input class="form-control" name="numPlanets" type="number" value="10" /> Planets with <input type="number" name="numCuneros" value="100" /> Cuneros and the following deff:
+    <ul>
+    {foreach $deffList as $deff}
+        <li><input type="number" name="deff_{$deff}" value="0" /> {$LNG.tech.$deff}</li>
+    {/foreach}
+    </ul>
+    <br />
+    Pirate user id: <input type="number" name="pirateId" value="2"/><br />
+    Universe id: <input type="number" name="universeId" value="1" /><br />
+    Mines are: <select name="typeMines" class="form-control"><option value="0">small</option><option value="1">medium (Level 10)</option><option value="2">high (level 20)</option></select>
+    <button class="btn btn-primary" type="submit">Create!</button>
+</div>
+</form>
 {include file="overall_footer.tpl"}
