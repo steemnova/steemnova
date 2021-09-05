@@ -96,7 +96,7 @@
                         {if $Element.level > 0}
                             {if $ID == 43}<a href="#"
                                              onclick="return Dialog.info({$ID})">{$LNG.bd_jump_gate_action}</a>{/if}
-                            {if ($ID == 44 && !$HaveMissiles) ||  $ID != 44}
+                            {if ($ID == 44 && !$HaveMissiles) ||  ($ID != 44 && $ID !=33)}
                                 <a class="collapse dismantle tooltip_sticky btn btn-danger" data-tooltip-content="{include "action.building.dismantle.tpl"}">{$LNG.bd_dismantle}</a>
                             {/if}
 

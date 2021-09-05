@@ -135,6 +135,8 @@ class ShowBuildingsPage extends AbstractGamePage
             || ($Element == 31 && $USER["b_tech_planet"] != 0)
             || (($Element == 15 || $Element == 21) && !empty($PLANET['b_hangar_id']))
             || (!$AddMode && $PLANET[$resource[$Element]] == 0)
+            || (!$AddMode && $Element == 33)
+            || (!$AddMode && $Element == 44 && $PLANET[$resource[503]] + $PLANET[$resource[502]] > 0)
         )
             return;
 
