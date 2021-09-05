@@ -110,12 +110,6 @@
                                         <span class="buy-full">{$LNG.of_deck_complete}</span>
                                         {elseif $Element.buyable}
                                             <a onclick="buyOfficer({$ID}, {$Element.costResources[921]});" class="build_submit btn btn-primary">{$LNG.of_recruit}</a>
-
-                                            <form action="game.php?page=officier" method="post" class="build_form">
-                                                <input type="hidden" name="id" value="{$ID}">
-                                                <button type="submit"
-                                                        class="build_submit btn btn-primary">{$LNG.of_recruit}</button>
-                                            </form>
                                         {else}
                                             <button type="submit"
                                                     class="disabled build_submit btn btn-primary">{$LNG.of_recruit}</button>
