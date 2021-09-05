@@ -295,3 +295,22 @@
     right: 0;
     left: initial !important;
 }
+
+.planet-npc-1 {
+    border: 1px solid orange;
+    animation-name: grow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+@keyframes grow {
+    from {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.333);
+    }
+    to {
+        transform: scale(1);
+    }
+}

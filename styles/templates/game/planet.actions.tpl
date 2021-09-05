@@ -1,8 +1,14 @@
 <a class='float-end btn btn-secondary tooltip_hide'>X</a>
+{if $currentPlanet.npcType == 0}
 {include 'user.actions.tpl'}
 {if $currentPlanet.alliance}
     <hr/>
     {include 'alliance.actions.tpl'}
+{/if}
+    {else}
+    <h3>{$currentPlanet.user.username}</h3>
+    <h5>{$LNG.npc_owned.{$currentPlanet.npcType}}</h5>
+    <h6>{$LNG.cuneros_treasure}: {$currentPlanet.coins|number}</h6>
 {/if}
 <hr/>
 <h3>{$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}]</h3>

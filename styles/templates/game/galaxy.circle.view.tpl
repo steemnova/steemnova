@@ -12,7 +12,7 @@
             {$LNG.gl_planet_destroyed}
         {else}
             {$currentPlanet = $GalaxyRows[$planet]}
-            <a class="tooltip_clicky planet planet-{$planet} {if $currentPlanet.ownPlanet}own-planet{elseif $currentPlanet.allyPlanet}ally-planet{else}other-planet{/if}"
+            <a class="tooltip_clicky planet planet-{$planet} {if $currentPlanet.ownPlanet}own-planet{elseif $currentPlanet.allyPlanet}ally-planet{elseif $currentPlanet.npcType > 0}planet-npc-{$currentPlanet.npcType}{else}other-planet{/if}"
                data-tooltip-content="{include "planet.actions.tpl"}" data-bs-toggle="tooltip"
                data-bs-placement="top"
                title="{$currentPlanet.planet.name} ({$currentPlanet.user.username}{if $currentPlanet.alliance} / {$currentPlanet.alliance.name}{/if})">
