@@ -27,7 +27,7 @@ class ShowTechtreePage extends AbstractGamePage
 
     function show()
     {
-        global $resource, $requeriments, $reslist, $USER, $PLANET, $LNG;
+        global $resource, $requeriments, $reslist, $USER, $PLANET, $LNG, $CombatCaps, $pricelist;
 
         $elementIDs		= array_merge(
             array(0),
@@ -45,10 +45,14 @@ class ShowTechtreePage extends AbstractGamePage
         );
 
         $techTreeList = array();
+        $techTreeMap = array();
+        $lastCategory = 0;
         foreach($elementIDs as $elementId)
         {
             if(!isset($resource[$elementId]))
             {
+                $techTreeMap[$elementId] = [];
+                $lastCategory = $elementId;
                 $techTreeList[$elementId]	= $elementId;
             }
             else
@@ -64,13 +68,17 @@ class ShowTechtreePage extends AbstractGamePage
                         );
                     }
                 }
-
+                $techTreeMap[$lastCategory][$elementId] = $requirementsList;
                 $techTreeList[$elementId]	= $requirementsList;
             }
         }
-
         $this->assign(array(
             'TechTreeList'		=> $techTreeList,
+            'TechTreeMap'		=> $techTreeMap,
+            'ships'             => $reslist['fleet'],
+            'CombatCaps'        => $CombatCaps,
+            'priceList'         => $pricelist,
+
         ));
 
         $this->display('page.techTree.default.tpl');

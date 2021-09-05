@@ -1322,3 +1322,5 @@ $LNG['fl_colonize_available'] = 'Colonizable planet';
 $LNG['galaxy_classic_fleets']					= 'Classic attack menu';
 
 $LNG['of_deck_complete'] = 'Deck completed';
+
+$LNG['techtree_ship_data'] = 'Ship data';

@@ -1335,3 +1335,5 @@ $LNG['of_deck_complete'] = 'Deck vollständig';
 $LNG['btn_abort'] = 'Abbrechen';
 
 $LNG['bd_dismantle_mode'] = 'Abrissmodus';
+
+$LNG['techtree_ship_data'] = 'Schiffeigenschaften';
