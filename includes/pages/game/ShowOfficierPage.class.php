@@ -19,6 +19,7 @@
 class ShowOfficierPage extends AbstractGamePage
 {
 	public static $requireModule = 0;
+    protected ?string $error = null;
 
 	function __construct() 
 	{
@@ -66,13 +67,14 @@ class ShowOfficierPage extends AbstractGamePage
 
 	public function UpdateOfficer($Element)
 	{
-		global $USER, $PLANET, $resource, $pricelist;
+		global $USER, $PLANET, $resource, $pricelist, $LNG;
 		
 		$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element);
 			
 		if (!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element) 
 			|| !BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources) 
 			|| $pricelist[$Element]['max'] <= $USER[$resource[$Element]]) {
+            $this->error = $LNG['officer_not_bought'];
 			return;
 		}
 		
@@ -80,6 +82,7 @@ class ShowOfficierPage extends AbstractGamePage
         $this->deductCost($costResources);
 
         $this->storeUpdate($Element);
+        $this->error = null;
     }
 	
 	public function show()
@@ -87,7 +90,7 @@ class ShowOfficierPage extends AbstractGamePage
 		global $USER, $PLANET, $resource, $reslist, $LNG, $pricelist;
 		
 		$updateID	  = HTTP::_GP('id', 0);
-				
+
 		if (!empty($updateID) && $_SERVER['REQUEST_METHOD'] === 'POST' && $USER['urlaubs_modus'] == 0)
 		{
 			if(isModuleAvailable(MODULE_OFFICIER) && in_array($updateID, $reslist['officier'])) {
@@ -95,6 +98,14 @@ class ShowOfficierPage extends AbstractGamePage
 			} elseif(isModuleAvailable(MODULE_DMEXTRAS) && in_array($updateID, $reslist['dmfunc'])) {
 				$this->UpdateExtra($updateID);
 			}
+
+            if(HTTP::_GP("ajax", 0) == 1) {
+                if($this->error) {
+                    $this->sendJSON(["error" => true, "message" => $this->error]);
+                } else {
+                    $this->sendJSON(["error" => false, "message" => $LNG['officer_bought']]);
+                }
+            }
 		}
 		
 		$darkmatterList	= array();

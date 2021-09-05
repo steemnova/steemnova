@@ -31,7 +31,7 @@
                                         <h5 onclick="return Dialog.info({$ID});">{$LNG.tech.{$ID}}</h5>
                                     </div>
                                     <a href="#" onclick="return Dialog.info({$ID})">
-                                        <img class="card-img-top" src="{$dpath}gebaeude/{$ID}.gif"
+                                        <img class="card-img-top mt-2 rounded shadow" src="{$dpath}gebaeude/{$ID}.gif"
                                              alt="{$LNG.tech.{$ID}}">
                                     </a>
                                     <div class="card-body">
@@ -83,11 +83,11 @@
                             <div class="col">
                                 <div class="card">
                                     <div class="card-header">
-                                        <small class="float-end">({$LNG.of_lvl} {$Element.level}/{$Element.maxLevel})</small>
+                                        <small class="float-end">({$LNG.of_lvl} <span id="currentLevel{$ID}">{$Element.level}</span>/{$Element.maxLevel})</small>
                                         <h5 onclick="return Dialog.info({$ID});">{$LNG.tech.{$ID}}</h5>
                                     </div>
                                     <a href="#" onclick="return Dialog.info({$ID})">
-                                        <img class="card-img-top" src="{$dpath}gebaeude/{$ID}.jpg"
+                                        <img class="card-img-top mt-2 rounded shadow" src="{$dpath}gebaeude/{$ID}.jpg"
                                              alt="{$LNG.tech.{$ID}}">
                                     </a>
                                     <div class="card-body">
@@ -109,6 +109,8 @@
                                         {if $Element.level >= $Element.maxLevel}
                                         <span class="buy-full">{$LNG.of_deck_complete}</span>
                                         {elseif $Element.buyable}
+                                            <a onclick="buyOfficer({$ID}, {$Element.costResources[921]});" class="build_submit btn btn-primary">{$LNG.of_recruit}</a>
+
                                             <form action="game.php?page=officier" method="post" class="build_form">
                                                 <input type="hidden" name="id" value="{$ID}">
                                                 <button type="submit"

@@ -1337,3 +1337,12 @@ $LNG['btn_abort'] = 'Abbrechen';
 $LNG['bd_dismantle_mode'] = 'Abrissmodus';
 
 $LNG['techtree_ship_data'] = 'Schiffeigenschaften';
+
+$LNG['npc_owned'] = [
+    1 => 'Piraten-Planet',
+];
+
+$LNG['cuneros_treasure']  = 'Cuneros Schatz';
+
+$LNG['officer_not_bought'] = 'Ein Fehler ist aufgetreten, konnte Offizier nicht kaufen!';
+$LNG['officer_bought'] = 'Offizier gekauft!';

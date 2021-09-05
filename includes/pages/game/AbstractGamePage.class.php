@@ -32,15 +32,15 @@ abstract class AbstractGamePage
 	protected $disableEcoSystem = false;
 
 	protected function __construct() {
+        if(!$this->disableEcoSystem)
+        {
+            $this->ecoObj	= new ResourceUpdate();
+            $this->ecoObj->CalcResource();
+        }
 
 		if(!AJAX_REQUEST)
 		{
 			$this->setWindow('full');
-			if(!$this->disableEcoSystem)
-			{
-				$this->ecoObj	= new ResourceUpdate();
-				$this->ecoObj->CalcResource();
-			}
 			$this->initTemplate();
 		} else {
 			$this->setWindow('ajax');
