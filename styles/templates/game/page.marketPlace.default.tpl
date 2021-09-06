@@ -77,10 +77,10 @@
         else
             fleetB.attr("style","display: none");
     }
-
+*/
     $(function() {
     // Set the default
-    reloadMarketBox();
+    /*reloadMarketBox();
     //
     $("#resourceMBtn, #fleetMBtn").on("click", function(){
         $(".marketOption").removeClass("selected");
