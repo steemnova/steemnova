@@ -289,6 +289,10 @@
         right: 0;
     }
 
+    #mainNav .img-logo {
+        display: none;
+    }
+
 }
 
 .menu-align-right {
@@ -303,6 +307,7 @@
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 }
+
 @keyframes grow {
     from {
         transform: scale(1);
@@ -313,4 +318,9 @@
     to {
         transform: scale(1);
     }
+}
+
+.navbar-dark {
+
+    background-color: rgba(var(--bs-dark-rgb), 0.8) !important;
 }

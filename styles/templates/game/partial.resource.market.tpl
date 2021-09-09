@@ -1,3 +1,5 @@
+<h4>{$LNG.market_current}</h4>
+
 <table id="tradeList" class="tablesorter table table-striped">
     <thead>
     <tr>
@@ -67,6 +69,7 @@
 </table>
 <hr>
 
+<h4>{$LNG.market_history}</h4>
 <table id="resourceHistoryList" class="tablesorter table table-striped">
     <thead>
     <tr>

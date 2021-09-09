@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand navbar-dark fixed-top bg-dark shadow">
     <div class="container-fluid">
         <button id="navToggler" class="d-inline-block d-md-none btn-sm btn btn-outline-secondary" type="button">
             <span class="navbar-toggler-icon"></span>

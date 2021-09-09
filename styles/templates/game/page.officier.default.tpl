@@ -109,7 +109,7 @@
                                         {if $Element.level >= $Element.maxLevel}
                                         <span class="buy-full">{$LNG.of_deck_complete}</span>
                                         {elseif $Element.buyable}
-                                            <a onclick="buyOfficer({$ID}, {$Element.costResources[921]});" class="build_submit btn btn-primary">{$LNG.of_recruit}</a>
+                                            <a id="buyOfficer{$ID}" onclick="buyOfficer({$ID}, {$Element.costResources[921]});" class="build_submit btn btn-primary">{$LNG.of_recruit}</a>
                                         {else}
                                             <button type="submit"
                                                     class="disabled build_submit btn btn-primary">{$LNG.of_recruit}</button>

@@ -14,6 +14,7 @@ function openPayment() {
 
 function buyOfficer(targetId, cost) {
 	const http = new HttpHandler();
+	document.querySelector("#buyOfficer"+targetId).classList.add("disabled");
 	http.post('game.php?page=officier&ajax=1', {"id": targetId}, function(data) {
 		NotifyBox(data.message, data.error? "danger":"success");
 		if(!data.error) {
@@ -23,5 +24,8 @@ function buyOfficer(targetId, cost) {
 			document.querySelector('#current_darkmatter').dataset.real = dm - Number(cost);
 			document.querySelector('#current_darkmatter').innerHTML = shortly_number(document.querySelector('#current_darkmatter').dataset.real);
 		}
+		window.setTimeout(function() {
+			document.querySelector("#buyOfficer"+targetId).classList.remove("disabled");
+		}, 1000);
 	})
 }

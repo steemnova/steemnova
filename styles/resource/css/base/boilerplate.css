@@ -10,18 +10,6 @@ body {
     padding-right: 0.25em;
 }
 
-@media (max-width: 575.98px) {
-    #mainNav {
-        position: absolute;
-        left: -280px;
-        z-index: 9999;
-        transition: left 0.5s ease;
-        background-color: rgba(255,255,255,1) !important;
-    }
-    .show_menu #mainNav {
-        left: 10px;
-    }
-}
 @media (min-width: 576px) {
     .container {
         margin-left: 280px;
@@ -45,4 +33,10 @@ body {
 
 .cursor-pointer {
     cursor:pointer;
+}
+
+.toast-container {
+    top: 8em;
+    right: 5em;
+    left:initial;
 }

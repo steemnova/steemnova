@@ -1051,6 +1051,10 @@ $LNG['market_confirm_are_you_sure'] = 'Are you sure?';
 $LNG['market_info_header'] = "Marketplace";
 $LNG['market_info_description'] = "Left side - sale offers | Right side - buy amount<br><br>&bull; Bought offers cannot be canceled &bull;<br>&bull; Players are allowed to trade for any exchange rate (ratio) &bull;";
 $LNG['market_fleet']  = 'Fleet';
+$LNG['market_history']  = 'History';
+$LNG['market_current']  = 'Current Offers';
+$LNG['market_send_fleet']  = 'Send trade fleet';
+
 
 $LNG['market_p_msg_not_found']  = 'Offer not found.';
 $LNG['market_p_msg_more_ships_is_needed']  = 'More ships required.';
@@ -1324,3 +1328,8 @@ $LNG['galaxy_classic_fleets']					= 'Classic attack menu';
 $LNG['of_deck_complete'] = 'Deck completed';
 
 $LNG['techtree_ship_data'] = 'Ship data';
+
+$LNG['fl_exchange_with'] = 'Exchange with:';
+$LNG['market_buy_resources'] = 'Buy resources:';
+$LNG['fl_mt_fleet_info'] = 'You will sell your fleet for the following resources.';
+$LNG['fl_mt_resources_info'] = 'You will sell the resources on your cargo ships for these resources.';

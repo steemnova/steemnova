@@ -573,7 +573,7 @@ $LNG['mg_answer_to']						= 'Antwort an:';
 $LNG['mg_write_mail_to_ops']					= 'Schreibe eine E-Mail an';
 $LNG['mg_page']							= 'Seite';
 $LNG['mg_receiver_block_pm']					= 'Der Empfänger blockiert Private Nachrichten.';
-$LNG['mg_deleted']						= 'The message has been deleted.';
+$LNG['mg_deleted']						= 'Die Nachricht wurde gelöscht.';
 
 //----------------------------------------------------------------------------//
 //ALLIANCE
@@ -1080,6 +1080,9 @@ $LNG['market_msg_trade_bought'] 					= 'Deine Flotte fliegt zu %s mit %s %s, %s 
 $LNG['market_msg_trade_sold'] 					= 'Deine Flotte fliegt zu %s mit %s %s, %s %s, %s %s.';
 $LNG['lm_marketplace']						= 'Marktplatz';
 $LNG['lm_trader']						= 'Freier Händler';
+$LNG['market_history']  = 'Verlauf';
+$LNG['market_current']  = 'Aktueller Markt';
+$LNG['market_send_fleet']  = 'Handelsflotte senden';
 
 //----------------------------------------------------------------------------//
 // MissilesAjax.php
@@ -1346,3 +1349,12 @@ $LNG['cuneros_treasure']  = 'Cuneros Schatz';
 
 $LNG['officer_not_bought'] = 'Ein Fehler ist aufgetreten, konnte Offizier nicht kaufen!';
 $LNG['officer_bought'] = 'Offizier gekauft!';
+
+$LNG['fl_exchange_with'] = 'Tausche mit:';
+$LNG['market_buy_resources'] = 'Kaufe Resourcen:';
+
+$LNG['fl_market_type'] = 'Marktplatz:';
+$LNG['fl_mt_resources'] = 'Ressourcenmarkt';
+$LNG['fl_mt_fleet'] = 'Flottenmarkt';
+$LNG['fl_mt_fleet_info'] = 'Du verkaufst deine Flotte für diese Ressourcen.';
+$LNG['fl_mt_resources_info'] = 'Du verkaufst deine Ressourcen auf den Schiffen für diese Ressourcen.';

@@ -59,9 +59,11 @@ main {
 }
 
 #mainNav {
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(255,255,255,0.95);
     position:fixed;
     width: 280px;
+    overflow-y: auto;
+    max-height: 90%;
 }
 
 .card {
@@ -85,6 +87,7 @@ main {
     padding: 1em;
     border-radius: 5px;
     max-width: 450px;
+    min-width: 350px;
     display: none;
 }
 
@@ -144,4 +147,16 @@ main .tooltip {
     height:24px;
     margin-top: 0.5em;
     border: 1px solid black;
+}
+
+@media (max-width: 575.98px) {
+    #mainNav {
+        position: absolute;
+        left: -280px;
+        z-index: 9999;
+        transition: left 0.5s ease;
+    }
+    .show_menu #mainNav {
+        left: 10px;
+    }
 }

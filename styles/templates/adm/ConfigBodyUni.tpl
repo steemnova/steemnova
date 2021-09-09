@@ -179,15 +179,7 @@
 	<td>{$se_max_planets}</td>
 	<td><input name="max_planets" maxlength="3" size="3" value="{$max_planets}" type="text"></td>
 	<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_max_planets_info}"></td>
-</tr><!--<tr>
-	<td>{$se_min_player_planets}</td>
-	<td><input name="min_player_planets" maxlength="3" size="3" value="{$min_player_planets}" type="text"></td>
-	<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_max_player_planets_info}"></td>
 </tr><tr>
-	<td>{$se_max_player_planets}</td>
-	<td><input name="max_player_planets" maxlength="3" size="3" value="{$max_player_planets}" type="text"></td>
-	<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_min_player_planets_info}"></td>
-</tr>--><tr>
 	<td>{$se_planet_factor}</td>
 	<td><input name="planet_factor" maxlength="3" size="3" value="{$planet_factor}" type="text"></td>
 	<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_planet_factor_info}"></td>

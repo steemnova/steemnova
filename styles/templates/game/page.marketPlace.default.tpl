@@ -2,6 +2,7 @@
 {block name="content"}
     <div class="card">
         <div class="card-header">
+            <a class="btn btn-primary float-end" href="?page=fleetTable&galaxy={$thisPlanet.galaxy}&system={$thisPlanet.system}&planet=17&planettype=1&target_mission=16">{$LNG.market_send_fleet}</a>
             <h2 class="card-title">{$LNG.market_info_header}</h2>
         </div>
         <div class="card-body">
@@ -15,7 +16,7 @@
 
 
             <ul class="nav nav-tabs px-3" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
+                <li class="nav-item " role="presentation">
                     <a class="nav-link p-3 active" id="tab-resource" data-bs-toggle="tab"
                        data-bs-target="#content-resource" role="tab" href="#"
                        aria-controls="content-resource"

@@ -1,7 +1,7 @@
 
 
-<div class=" p-3 " style="width: 280px;" id="mainNav">
-    <img src="styles/resource/images/logo.png" class="img-fluid"/>
+<div class="p-3 shadow" id="mainNav">
+    <img src="styles/resource/images/logo.png" class="img-logo img-fluid"/>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item"><a class="btn btn-toggle align-items-center rounded" href="game.php?page=overview">{$LNG.lm_overview}</a></li>
 

@@ -77,34 +77,7 @@
             </div>
 
             {if $Exchange}
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>{$LNG.fl_exchange}</h3>
-                        </div>
-                        <div class="card-body">
-                            <select name="resEx">
-                                <option value="1">{$LNG.tech.901}</option>
-                                <option value="2">{$LNG.tech.902}</option>
-                                <option value="3">{$LNG.tech.903}</option>
-                            </select>
-                            <input name="exchange" size="10" type="number">
-                            <hr/>
-                            <span id="remainingresources"></span>
-                            <label for="id-visibility" class="form-label">{$LNG.fl_visibility}</label>
-                            <select name="visibility" id="id-visibility">
-                                <option value="2" selected>{$LNG.fl_visibility_no_enemies}</option>
-                                <option value="1">{$LNG.fl_visibility_alliance}</option>
-                                <option value="0">{$LNG.fl_visibility_all}</option>
-                            </select>
-                            <label class="form-label" for="id-markettype">{$LNG.fl_market_type}</label>
-                            <select name="markettype" id="id-markettype">
-                                <option value="0" selected>{$LNG.fl_mt_resources}</option>
-                                <option value="1">{$LNG.fl_mt_fleet}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+                {include "partial.exchange.fleet.tpl"}
             {/if}
         </div>
     </form>

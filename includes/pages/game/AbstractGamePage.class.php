@@ -30,6 +30,7 @@ abstract class AbstractGamePage
 	protected $ecoObj;
 	protected $window;
 	protected $disableEcoSystem = false;
+    protected $resourceTable;
 
 	protected function __construct() {
         if(!$this->disableEcoSystem)
@@ -150,7 +151,7 @@ abstract class AbstractGamePage
 				$avatar = json_decode(Session::load()->data->account->json_metadata)->profile->profile_image;
 			}catch(Exception $e){}
 		}
-
+        $this->resourceTable = $resourceTable;
 		$this->assign(array(
 			'PlanetSelect'		=> $PlanetSelect,
 			'new_message' 		=> $USER['messages'],
@@ -172,6 +173,7 @@ abstract class AbstractGamePage
 			'hasAdminAccess'	=> !empty(Session::load()->adminAccess),
 			'hasGate'			=> $PLANET[$resource[43]] > 0,
 			'discordUrl'		=> DISCORD_URL,
+            'thisPlanet'            => $PLANET,
 		));
 	}
 

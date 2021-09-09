@@ -1,7 +1,7 @@
 <?php
 
 /**
- *  2Moons 
+ *  2Moons
  *   by Jan-Otto Kröpke 2009-2016
  *
  * For the full copyright and license information, please view the LICENSE
@@ -17,211 +17,201 @@
 
 class ShowResourcesPage extends AbstractGamePage
 {
-	public static $requireModule = MODULE_RESSOURCE_LIST;
+    public static $requireModule = MODULE_RESSOURCE_LIST;
 
-	function __construct() 
-	{
-		parent::__construct();
-	}
-	
-	function send()
-	{
-		global $resource, $USER, $PLANET;
-		if ($USER['urlaubs_modus'] == 0)
-		{
-			$updateSQL	= array();
-			if(!isset($_POST['prod']))
-				$_POST['prod'] = array();
+    function __construct()
+    {
+        parent::__construct();
+    }
+
+    function send()
+    {
+        global $resource, $USER, $PLANET;
+        if ($USER['urlaubs_modus'] == 0) {
+            $updateSQL = array();
+            if (!isset($_POST['prod']))
+                $_POST['prod'] = array();
 
 
-			$param	= array(':planetId' => $PLANET['id']);
-			
-			foreach($_POST['prod'] as $resourceId => $Value)
-			{
-				$FieldName = $resource[$resourceId].'_porcent';
-				if (!isset($PLANET[$FieldName]) || !in_array($Value, range(0, 10)))
-					continue;
-				
-				$updateSQL[]	= $FieldName." = :".$FieldName;
-				$param[':'.$FieldName]		= (int) $Value;
-				$PLANET[$FieldName]			= $Value;
-			}
+            $param = array(':planetId' => $PLANET['id']);
 
-			if(!empty($updateSQL))
-			{
-				$sql	= 'UPDATE %%PLANETS%% SET '.implode(', ', $updateSQL).' WHERE id = :planetId;';
+            foreach ($_POST['prod'] as $resourceId => $Value) {
+                $FieldName = $resource[$resourceId] . '_porcent';
+                if (!isset($PLANET[$FieldName]) || !in_array($Value, range(0, 10)))
+                    continue;
 
-				Database::get()->update($sql, $param);
+                $updateSQL[] = $FieldName . " = :" . $FieldName;
+                $param[':' . $FieldName] = (int)$Value;
+                $PLANET[$FieldName] = $Value;
+            }
 
-				$this->ecoObj->setData($USER, $PLANET);
-				$this->ecoObj->ReBuildCache();
-				list($USER, $PLANET)	= $this->ecoObj->getData();
-				$PLANET['eco_hash'] = $this->ecoObj->CreateHash();
-			}
-		}
+            if (!empty($updateSQL)) {
+                $sql = 'UPDATE %%PLANETS%% SET ' . implode(', ', $updateSQL) . ' WHERE id = :planetId;';
 
-		$this->save();
-		$this->redirectTo('game.php?page=resources');
-	}
-	function show()
-	{
-		global $LNG, $ProdGrid, $resource, $reslist, $USER, $PLANET;
+                Database::get()->update($sql, $param);
 
-		$config	= Config::get();
+                $this->ecoObj->setData($USER, $PLANET);
+                $this->ecoObj->ReBuildCache();
+                list($USER, $PLANET) = $this->ecoObj->getData();
+                $PLANET['eco_hash'] = $this->ecoObj->CreateHash();
+            }
+        }
 
-		if($USER['urlaubs_modus'] == 1 || $PLANET['planet_type'] != 1)
-		{
-			$basicIncome[901]	= 0;
-			$basicIncome[902]	= 0;
-			$basicIncome[903]	= 0;
-			$basicIncome[911]	= 0;
-		}
-		else
-		{		
-			$basicIncome[901]	= $config->{$resource[901].'_basic_income'};
-			$basicIncome[902]	= $config->{$resource[902].'_basic_income'};
-			$basicIncome[903]	= $config->{$resource[903].'_basic_income'};
-			$basicIncome[911]	= $config->{$resource[911].'_basic_income'};
-		}
-		
-		$temp	= array(
-			901	=> array(
-				'plus'	=> 0,
-				'minus'	=> 0,
-			),
-			902	=> array(
-				'plus'	=> 0,
-				'minus'	=> 0,
-			),
-			903	=> array(
-				'plus'	=> 0,
-				'minus'	=> 0,
-			),
-			911	=> array(
-				'plus'	=> 0,
-				'minus'	=> 0,
-			)
-		);
-		
-		$ressIDs		= array_merge(array(), $reslist['resstype'][1], $reslist['resstype'][2]);
+        $this->save();
+        $this->redirectTo('game.php?page=resources');
+    }
 
-		$productionList	= array();
+    function show()
+    {
+        global $LNG, $ProdGrid, $resource, $reslist, $USER, $PLANET;
 
-		if($PLANET['energy_used'] != 0) {
-			$prodLevel	= min(1, $PLANET['energy'] / abs($PLANET['energy_used']));
-		} else {
-			$prodLevel	= 0;
-		}
+        $config = Config::get();
 
-		/* Data for eval */
-		$BuildEnergy		= $USER[$resource[113]];
-		$BuildTemp          = $PLANET['temp_max'];
+        if ($USER['urlaubs_modus'] == 1 || $PLANET['planet_type'] != 1) {
+            $basicIncome[RESS_METAL] = 0;
+            $basicIncome[RESS_CRYSTAL] = 0;
+            $basicIncome[RESS_DEUTERIUM] = 0;
+            $basicIncome[RESS_ENGERGY] = 0;
+        } else {
+            $basicIncome[RESS_METAL] = $config->{$resource[RESS_METAL] . '_basic_income'};
+            $basicIncome[RESS_CRYSTAL] = $config->{$resource[RESS_CRYSTAL] . '_basic_income'};
+            $basicIncome[RESS_DEUTERIUM] = $config->{$resource[RESS_DEUTERIUM] . '_basic_income'};
+            $basicIncome[RESS_ENGERGY] = $config->{$resource[RESS_ENGERGY] . '_basic_income'};
+        }
 
-		foreach($reslist['prod'] as $ProdID)
-		{
-			if(isset($PLANET[$resource[$ProdID]]) && $PLANET[$resource[$ProdID]] == 0)
-				continue;
+        $temp = array(
+            RESS_METAL => array(
+                'plus' => 0,
+                'minus' => 0,
+            ),
+            RESS_CRYSTAL => array(
+                'plus' => 0,
+                'minus' => 0,
+            ),
+            RESS_DEUTERIUM => array(
+                'plus' => 0,
+                'minus' => 0,
+            ),
+            RESS_ENGERGY => array(
+                'plus' => 0,
+                'minus' => 0,
+            )
+        );
 
-			if(isset($USER[$resource[$ProdID]]) && $USER[$resource[$ProdID]] == 0)
-				continue;
+        $ressIDs = array_merge(array(), $reslist['resstype'][1], $reslist['resstype'][2]);
 
-			$productionList[$ProdID]	= array(
-				'production'	=> array(901 => 0, 902 => 0, 903 => 0, 911 => 0),
-				'elementLevel'	=> $PLANET[$resource[$ProdID]],
-				'prodLevel'		=> $PLANET[$resource[$ProdID].'_porcent'],
-			);
+        $productionList = array();
 
-			/* Data for eval */
-			$BuildLevel			= $PLANET[$resource[$ProdID]];
-			$BuildLevelFactor	= $PLANET[$resource[$ProdID].'_porcent'];
+        if ($PLANET['energy_used'] != 0) {
+            $prodLevel = min(1, $PLANET['energy'] / abs($PLANET['energy_used']));
+        } else {
+            $prodLevel = 0;
+        }
 
-			foreach($ressIDs as $ID) 
-			{
-				if(!isset($ProdGrid[$ProdID]['production'][$ID]))
-					continue;
+        /* Data for eval */
+        $BuildEnergy = $USER[$resource[113]];
+        $BuildTemp = $PLANET['temp_max'];
 
-				$Production	= eval(ResourceUpdate::getProd($ProdGrid[$ProdID]['production'][$ID], $ProdID));
+        foreach ($reslist['prod'] as $ProdID) {
+            if (isset($PLANET[$resource[$ProdID]]) && $PLANET[$resource[$ProdID]] == 0)
+                continue;
 
-				if(in_array($ID, $reslist['resstype'][2]))
-				{
-					$Production	*= $config->energySpeed;
-				}
-				else
-				{
-					$Production	*= $prodLevel * $config->resource_multiplier;
-				}
-				
-				$productionList[$ProdID]['production'][$ID]	= $Production;
-				
-				if($Production > 0) {
-					if($PLANET[$resource[$ID]] == 0) continue;
-					
-					$temp[$ID]['plus']	+= $Production;
-				} else {
-					$temp[$ID]['minus']	+= $Production;
-				}
-			}
-		}
-				
-		$storage	= array(
-			901 => shortly_number($PLANET[$resource[901].'_max']),
-			902 => shortly_number($PLANET[$resource[902].'_max']),
-			903 => shortly_number($PLANET[$resource[903].'_max']),
-		);
-		
-		$basicProduction	= array(
-			901 => $basicIncome[901] * $config->resource_multiplier,
-			902 => $basicIncome[902] * $config->resource_multiplier,
-			903	=> $basicIncome[903] * $config->resource_multiplier,
-			911	=> $basicIncome[911] * $config->energySpeed,
-		);
-		
-		$totalProduction	= array(
-			901 => $PLANET[$resource[901].'_perhour'] + $basicProduction[901],
-			902 => $PLANET[$resource[902].'_perhour'] + $basicProduction[902],
-			903	=> $PLANET[$resource[903].'_perhour'] + $basicProduction[903],
-			911	=> $PLANET[$resource[911]] + $basicProduction[911] + $PLANET[$resource[911].'_used'],
-		);
-		
-		$bonusProduction	= array(
-			901 => $temp[901]['plus'] * ($USER['factor']['Resource'] + 0.02 * $USER[$resource[131]]),
-			902 => $temp[902]['plus'] * ($USER['factor']['Resource'] + 0.02 * $USER[$resource[132]]),
-			903	=> $temp[903]['plus'] * ($USER['factor']['Resource'] + 0.02 * $USER[$resource[133]]),
-			911	=> $temp[911]['plus'] * $USER['factor']['Energy'],
-		);
-		
-		$dailyProduction	= array(
-			901 => $totalProduction[901] * 24,
-			902 => $totalProduction[902] * 24,
-			903	=> $totalProduction[903] * 24,
-			911	=> $totalProduction[911],
-		);
-		
-		$weeklyProduction	= array(
-			901 => $totalProduction[901] * 168,
-			902 => $totalProduction[902] * 168,
-			903	=> $totalProduction[903] * 168,
-			911	=> $totalProduction[911],
-		);
-			
-		$prodSelector	= array();
-		
-		foreach(range(10, 0) as $percent) {
-			$prodSelector[$percent]	= ($percent * 10).'%';
-		}
-		
-		$this->assign(array(
-			'header'			=> sprintf($LNG['rs_production_on_planet'], $PLANET['name']),
-			'prodSelector'		=> $prodSelector,
-			'productionList'	=> $productionList,
-			'basicProduction'	=> $basicProduction,
-			'totalProduction'	=> $totalProduction,
-			'bonusProduction'	=> $bonusProduction,
-			'dailyProduction'	=> $dailyProduction,
-			'weeklyProduction'	=> $weeklyProduction,
-			'storage'			=> $storage,
-		));
-		
-		$this->display('page.resources.default.tpl');
-	}
+            if (isset($USER[$resource[$ProdID]]) && $USER[$resource[$ProdID]] == 0)
+                continue;
+
+            $productionList[$ProdID] = array(
+                'production' => array(RESS_METAL => 0, RESS_CRYSTAL => 0, RESS_DEUTERIUM => 0, RESS_ENGERGY => 0),
+                'elementLevel' => $PLANET[$resource[$ProdID]],
+                'prodLevel' => $PLANET[$resource[$ProdID] . '_porcent'],
+            );
+
+            /* Data for eval */
+            $BuildLevel = $PLANET[$resource[$ProdID]];
+            $BuildLevelFactor = $PLANET[$resource[$ProdID] . '_porcent'];
+
+            foreach ($ressIDs as $ID) {
+                if (!isset($ProdGrid[$ProdID]['production'][$ID]))
+                    continue;
+
+                $Production = eval(ResourceUpdate::getProd($ProdGrid[$ProdID]['production'][$ID], $ProdID));
+
+                if (in_array($ID, $reslist['resstype'][2])) {
+                    $Production *= $config->energySpeed;
+                } else {
+                    $Production *= $prodLevel * $config->resource_multiplier;
+                }
+
+                $productionList[$ProdID]['production'][$ID] = $Production;
+
+                if ($Production > 0) {
+                    if ($PLANET[$resource[$ID]] == 0) continue;
+
+                    $temp[$ID]['plus'] += $Production;
+                } else {
+                    $temp[$ID]['minus'] += $Production;
+                }
+            }
+        }
+
+        $storage = array(
+            RESS_METAL => shortly_number($PLANET[$resource[RESS_METAL] . '_max']),
+            RESS_CRYSTAL => shortly_number($PLANET[$resource[RESS_CRYSTAL] . '_max']),
+            RESS_DEUTERIUM => shortly_number($PLANET[$resource[RESS_DEUTERIUM] . '_max']),
+        );
+
+        $basicProduction = array(
+            RESS_METAL => $basicIncome[RESS_METAL] * $config->resource_multiplier,
+            RESS_CRYSTAL => $basicIncome[RESS_CRYSTAL] * $config->resource_multiplier,
+            RESS_DEUTERIUM => $basicIncome[RESS_DEUTERIUM] * $config->resource_multiplier,
+            RESS_ENGERGY => $basicIncome[RESS_ENGERGY] * $config->energySpeed,
+        );
+
+        $totalProduction = array(
+            RESS_METAL => $PLANET[$resource[RESS_METAL] . '_perhour'] + $basicProduction[RESS_METAL],
+            RESS_CRYSTAL => $PLANET[$resource[RESS_CRYSTAL] . '_perhour'] + $basicProduction[RESS_CRYSTAL],
+            RESS_DEUTERIUM => $PLANET[$resource[RESS_DEUTERIUM] . '_perhour'] + $basicProduction[RESS_DEUTERIUM],
+            RESS_ENGERGY => $PLANET[$resource[RESS_ENGERGY]] + $basicProduction[RESS_ENGERGY] + $PLANET[$resource[RESS_ENGERGY] . '_used'],
+        );
+
+        $bonusProduction = array(
+            RESS_METAL => $temp[RESS_METAL]['plus'] * ($USER['factor']['Resource'] + 0.02 * $USER[$resource[131]]),
+            RESS_CRYSTAL => $temp[RESS_CRYSTAL]['plus'] * ($USER['factor']['Resource'] + 0.02 * $USER[$resource[132]]),
+            RESS_DEUTERIUM => $temp[RESS_DEUTERIUM]['plus'] * ($USER['factor']['Resource'] + 0.02 * $USER[$resource[133]]),
+            RESS_ENGERGY => $temp[RESS_ENGERGY]['plus'] * $USER['factor']['Energy'],
+        );
+
+        $dailyProduction = array(
+            RESS_METAL => $totalProduction[RESS_METAL] * 24,
+            RESS_CRYSTAL => $totalProduction[RESS_CRYSTAL] * 24,
+            RESS_DEUTERIUM => $totalProduction[RESS_DEUTERIUM] * 24,
+            RESS_ENGERGY => $totalProduction[RESS_ENGERGY],
+        );
+
+        $weeklyProduction = array(
+            RESS_METAL => $totalProduction[RESS_METAL] * 168,
+            RESS_CRYSTAL => $totalProduction[RESS_CRYSTAL] * 168,
+            RESS_DEUTERIUM => $totalProduction[RESS_DEUTERIUM] * 168,
+            RESS_ENGERGY => $totalProduction[RESS_ENGERGY],
+        );
+
+        $prodSelector = array();
+
+        foreach (range(10, 0) as $percent) {
+            $prodSelector[$percent] = ($percent * 10) . '%';
+        }
+
+        $this->assign(array(
+            'header' => sprintf($LNG['rs_production_on_planet'], $PLANET['name']),
+            'prodSelector' => $prodSelector,
+            'productionList' => $productionList,
+            'basicProduction' => $basicProduction,
+            'totalProduction' => $totalProduction,
+            'bonusProduction' => $bonusProduction,
+            'dailyProduction' => $dailyProduction,
+            'weeklyProduction' => $weeklyProduction,
+            'storage' => $storage,
+        ));
+
+        $this->display('page.resources.default.tpl');
+    }
 }
