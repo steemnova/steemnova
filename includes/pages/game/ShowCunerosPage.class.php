@@ -93,17 +93,17 @@ class ShowCunerosPage extends AbstractGamePage
     public function validate()
     {
         global $cuneros, $USER, $LNG, $resource;
-        $api = new \Access($_POST['password'], $_POST['username'], $cuneros['api_key'], $cuneros['project_id']);
+        $coinsUser = $_POST['username'];
+        $api = new \Access($_POST['password'], $coinsUser, $cuneros['api_key'], $cuneros['project_id']);
         $data = $api->info();
         if ($api->get_status()) {
-            $sql = "UPDATE %%USERS%% SET `coins_username` = ':coinsUsername', `avatar_url` = ':avatarUrl' WHERE id=:userId";
-            print_r([":coinsUsername" => $_POST['username'], ":avatarUrl" => $data->transaction_data->avatar, ":userId" => $USER['id']]);
-            Database::get()->update($sql, [":coinsUsername" => $_POST['username'], ":avatarUrl" => $data->transaction_data->avatar, ":userId" => $USER['id']]);
+            $sql = "UPDATE %%USERS%% SET `coins_username` = ':coinsUsername', `avatar_url` = ':avatarUrl' WHERE id=:userId LIMIT 1";
+            Database::get()->update($sql, [":coinsUsername" => $coinsUser, ":avatarUrl" => $data->transaction_data->avatar, ":userId" => $USER['id']]);
             $this->_message = $LNG['cuneros_validation_successful'];
-            if(empty($USER['coins_username'])) {
+            if (empty($USER['coins_username'])) {
                 $USER[$resource[RESS_DARKMATTER]] += 1000;
             }
-            $USER['coins_username'] = $_POST['username'];
+            $USER['coins_username'] = $coinsUser;
         } else {
             $this->_message = sprintf($LNG['cuneros_validation_unsuccessful'], $api->get_error_message());
         }
