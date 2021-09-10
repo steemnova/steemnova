@@ -38,3 +38,11 @@ alter table %PREFIX%users
 alter table %PREFIX%users
     add type_npc int default 0 null;
 
+alter table %PREFIX%users
+    add coins_username varchar(100) null;
+
+alter table %PREFIX%users
+    add avatar_url varchar(255) null;
+
+
+

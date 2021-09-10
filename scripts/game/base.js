@@ -286,6 +286,16 @@ $(function() {
 
 		return false;
 	});
+	// generally, disable all submit buttons on click, reactivate after 1s
+	document.querySelectorAll("input[type=submit]").forEach(function (item) {
+		item.onclick = function () {
+			item.classList.add("disabled");
+
+			window.setTimeout(function () {
+				item.classList.remove("disabled");
+			}, 1000);
+		}
+	});
 });
 let base = null;
 function addEvent(elementClass, evtName, eventFunc) {
@@ -375,3 +385,4 @@ addEvent('.json-request', 'click', (target) => {
 		}
 	})
 });
+

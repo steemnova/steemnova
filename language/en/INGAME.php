@@ -1333,3 +1333,6 @@ $LNG['fl_exchange_with'] = 'Exchange with:';
 $LNG['market_buy_resources'] = 'Buy resources:';
 $LNG['fl_mt_fleet_info'] = 'You will sell your fleet for the following resources.';
 $LNG['fl_mt_resources_info'] = 'You will sell the resources on your cargo ships for these resources.';
+
+$LNG['cuneros_validation_successful'] = 'Account successfully connected!';
+$LNG['cuneros_validation_unsuccessful'] = 'Account could not be connected!';

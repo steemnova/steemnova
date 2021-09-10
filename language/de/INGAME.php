@@ -1248,7 +1248,7 @@ $LNG['al_add_rank']					        = 'Rang hinzuf&uuml;gen';
 $LNG['al_cancel_application']					        = 'Bewerbung zur&uuml;ckziehen';
 $LNG['lm_cuneros'] = 'Cuneros';
 $LNG['cun_info'] = 'Hier kannst du Dunkle Materie gegen Cuneros aufladen. <br />Für 1 Cuneros bekommst du %d Dunkle Materie.';
-$LNG['cuneros_description'] = 'Cuneros werden auf <a href="https://www.cuneros.de/">Cuneros.de</a> für Aktivität verschenkt. Zusätzlich bekommst du sie auch auf anderen externen Seiten.';
+$LNG['cuneros_description'] = 'Cuneros werden auf <a href="https://cuneros.de/ref/Moe2001">Cuneros.de</a> für Aktivität verschenkt. Zusätzlich bekommst du sie auch auf anderen externen Seiten.';
 $LNG['cuneros_amount'] = 'Cuneros-Anzahl';
 $LNG['cuneros_username'] = 'Cuneros.de Nutzername';
 $LNG['cuneros_otp'] = 'Einmalpasswort (OTP)';
@@ -1358,3 +1358,11 @@ $LNG['fl_mt_resources'] = 'Ressourcenmarkt';
 $LNG['fl_mt_fleet'] = 'Flottenmarkt';
 $LNG['fl_mt_fleet_info'] = 'Du verkaufst deine Flotte für diese Ressourcen.';
 $LNG['fl_mt_resources_info'] = 'Du verkaufst deine Ressourcen auf den Schiffen für diese Ressourcen.';
+
+$LNG['cuneros_validation_successful'] = 'Konto erfolgreich verbunden!';
+$LNG['cuneros_validation_unsuccessful'] = 'Konto konnte nicht verbunden werden!';
+$LNG['cuneros_validate_info'] = 'Verknüpfe deinen <a href="https://cuneros.de/ref/Moe2001">Cuneros.de</a> Account und erhalte: <ul class="list-group"><li class="list-group-item">persönliches Avatar</li>
+<li class="list-group-item">1000 Dunkle Materie</li>
+<li class="list-group-item">die Möglichkeit, verdiente Cuneros auszuzahlen</li></ul>';
+
+$LNG['cuneros_validate'] = 'Konto verknüpfen';
