@@ -97,6 +97,7 @@ class ShowCunerosPage extends AbstractGamePage
         $data = $api->info();
         if ($api->get_status()) {
             $sql = "UPDATE %%USERS%% SET `coins_username` = ':coinsUsername', `avatar_url` = ':avatarUrl' WHERE id=:userId";
+            print_r([":coinsUsername" => $_POST['username'], ":avatarUrl" => $data->transaction_data->avatar, ":userId" => $USER['id']]);
             Database::get()->update($sql, [":coinsUsername" => $_POST['username'], ":avatarUrl" => $data->transaction_data->avatar, ":userId" => $USER['id']]);
             $this->_message = $LNG['cuneros_validation_successful'];
             if(empty($USER['coins_username'])) {
