@@ -99,6 +99,7 @@ abstract class AbstractGamePage
 
     protected function getUserPlanets()
     {
+        global $LNG;
         $PlanetSelect = array();
         if (!isset($this->user['PLANETS'])) {
             $this->user['PLANETS'] = getPlanets($this->user);
