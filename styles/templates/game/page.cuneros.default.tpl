@@ -10,7 +10,7 @@
         <div class="alert alert-info">{$return_message}</div>
     {/if}
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-2 g-2 build-gutter">
-        {if $USER.coins_username}
+        {if $USER.coins_username || $user_name}
             <div class="col">
                 <div class="card">
                     <form class="" method="post">
