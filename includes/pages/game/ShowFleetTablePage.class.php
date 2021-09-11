@@ -257,22 +257,9 @@ class ShowFleetTablePage extends AbstractGamePage
 			);
 		}
 
-		$FleetsOnPlanet	= array();
-
-		foreach($reslist['fleet'] as $FleetID)
-		{
-			if ($PLANET[$resource[$FleetID]] == 0)
-				continue;
-
-			$FleetsOnPlanet[]	= array(
-				'id'	=> $FleetID,
-				'speed'	=> FleetFunctions::GetFleetMaxSpeed($FleetID, $USER),
-				'count'	=> $PLANET[$resource[$FleetID]],
-			);
-		}
 
 		$this->assign(array(
-			'FleetsOnPlanet'		=> $FleetsOnPlanet,
+			'FleetsOnPlanet'		=> FleetFunctions::getFleetOnPlanet($PLANET, $USER),
 			'FlyingFleetList'		=> $FlyingFleetList,
 			'activeExpedition'		=> $activeExpedition,
 			'maxExpedition'			=> $maxExpedition,
