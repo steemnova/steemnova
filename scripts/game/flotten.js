@@ -153,14 +153,12 @@ function calculateTransportCapacity() {
 
 
 function maxShips() {
-    var id;
     $('input[name^="ship"]').each(function () {
         maxShip($(this).attr('name'));
     })
 }
 
 function noShips() {
-    var id;
     $('input[name^="ship"]').each(function () {
         noShip($(this).attr('name'));
     });

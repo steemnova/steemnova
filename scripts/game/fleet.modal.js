@@ -1,14 +1,14 @@
 let fleetModal = document.getElementById("fleetTable");
-fleetModal.addEventListener('show.bs.modal',function(event) {
-    fleetModal.querySelector("input#planetId").value=event.relatedTarget.dataset.planet;
-    fleetModal.querySelector("#fleetTableView").href=event.relatedTarget.dataset.href;
+fleetModal.addEventListener('show.bs.modal', function (event) {
+    fleetModal.querySelector("input#planetId").value = event.relatedTarget.dataset.planet;
+    fleetModal.querySelector("#fleetTableView").href = event.relatedTarget.dataset.href;
 })
 
 function computeFleetPower() {
     let totalAttack = 0;
     let totalShields = 0;
-    document.querySelectorAll(".fleet-data").forEach(function(item) {
-        if(item.value) {
+    document.querySelectorAll(".fleet-data").forEach(function (item) {
+        if (item.value) {
             totalAttack += item.value * item.dataset.attack;
             totalShields += item.value * item.dataset.shields;
         }
@@ -18,16 +18,18 @@ function computeFleetPower() {
 }
 
 function maxShip(id) {
-    if (document.getElementsByName(id)[0]) {
-        var amount = document.getElementById(id + "_value").innerHTML;
-        document.getElementsByName(id)[0].value = amount.replace(/\./g, "");
+    let target = document.querySelector("#" + id + "_input");
+    if (target) {
+        target.value = Number(target.dataset.count);
     }
     computeFleetPower();
 }
 
 function noShip(id) {
-    if (document.getElementsByName(id)[0]) {
-        document.getElementsByName(id)[0].value = 0;
+    let target = document.querySelector("#" + id + "_input");
+
+    if (target) {
+        target.value = 0;
     }
     computeFleetPower();
 }

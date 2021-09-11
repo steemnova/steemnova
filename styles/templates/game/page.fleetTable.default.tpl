@@ -119,46 +119,7 @@
                     </h2>
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>{$LNG.fl_ship_type}</th>
-                            <th>{$LNG.fl_ship_available}</th>
-                            <th>{$LNG.fl_ammount}</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {foreach $FleetsOnPlanet as $FleetRow}
-                            <tr>
-                                <td>{if $FleetRow.speed != 0}
-                                        <a class='tooltip' data-tooltip-content='<table><tr><td>{$LNG.fl_speed_title}</td><td>{$FleetRow.speed}</td></tr></table>'>{$LNG.tech.{$FleetRow.id}}</a>{else}{$LNG.tech.{$FleetRow.id}}{/if}
-                                </td>
-                                <td id="ship{$FleetRow.id}_value">{$FleetRow.count|number}</td>
-                                {if $FleetRow.speed != 0}
-                                    <td class="">
-                                        <div class="input-group">
-                                        <a href="javascript:noShip('ship{$FleetRow.id}');" class="btn btn-sm btn-secondary me-2">{$LNG.fl_none}</a>
-                                        <input name="ship{$FleetRow.id}" id="ship{$FleetRow.id}_input" class="form-control w-75"
-                                               value="0"  type="number"/>
-                                        <a href="javascript:maxShip('ship{$FleetRow.id}');" class="btn btn-sm btn-primary ms-2">{$LNG.fl_max}</a>
-                                        </div>
-                                    </td>
-                                {else}
-                                    <td>&nbsp;</td>
-                                {/if}
-                            </tr>
-                        {/foreach}
-                        <tr>
-                            {if count($FleetsOnPlanet) == 0}
-                                <td colspan="3">{$LNG.fl_no_ships}</td>
-                            {else}
-                                <td><a href="javascript:noShips();">{$LNG.fl_remove_all_ships}</a></td>
-                                <td></td>
-                                <td><a href="javascript:maxShips();">{$LNG.fl_select_all_ships}</a></td>
-                            {/if}
-                        </tr>
-                        </tbody>
-                    </table>
+                    {include "fleet.table.tpl"}
                 </div>
                 {if $maxFleetSlots != $activeFleetSlots && count($FleetsOnPlanet) > 0}
                     <div class="card-footer">
