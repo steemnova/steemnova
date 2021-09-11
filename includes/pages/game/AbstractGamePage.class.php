@@ -32,12 +32,14 @@ abstract class AbstractGamePage
     protected $disableEcoSystem = false;
     protected $resourceTable;
 
+    protected $user;
+    protected $planet;
     protected function __construct()
     {
         global $PLANET, $USER;
 
-        $this->user = $USER;
-        $this->planet = $PLANET;
+        $this->user = &$USER;
+        $this->planet = &$PLANET;
         $this->checkBan();
         if (!$this->disableEcoSystem) {
             $this->ecoObj = new ResourceUpdate();
