@@ -1366,3 +1366,5 @@ $LNG['cuneros_validate_info'] = 'Verknüpfe deinen <a href="https://cuneros.de/r
 <li class="list-group-item">die Möglichkeit, verdiente Cuneros auszuzahlen</li></ul>';
 
 $LNG['cuneros_validate'] = 'Konto verknüpfen';
+
+$LNG['rocket_full'] = 'Raketensilo voll';

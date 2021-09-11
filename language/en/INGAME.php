@@ -1336,3 +1336,6 @@ $LNG['fl_mt_resources_info'] = 'You will sell the resources on your cargo ships 
 
 $LNG['cuneros_validation_successful'] = 'Account successfully connected!';
 $LNG['cuneros_validation_unsuccessful'] = 'Account could not be connected!';
+
+
+$LNG['rocket_full'] = 'Missile silo full';

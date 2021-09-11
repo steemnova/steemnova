@@ -85,9 +85,9 @@
                         </div>
                         <div class="card-footer">
                             {if $Element.AlreadyBuild}
-                                <span class="alert-info alert">{$LNG.bd_protection_shield_only_one}</span>
+                                <span class="text-warning">{$LNG.bd_protection_shield_only_one}</span>
                             {elseif $Element.maxAffordable > 0 && $Element.maxBuildable == 0 && in_array($ID, [502, 503])}
-                                <span class="alert alert-info">{$LNG.rocket_full}</span>
+                                <span class="text-warning">{$LNG.rocket_full}</span>
                             {elseif $NotBuilding && $Element.buyable && $Element.maxBuildable > 0}
                                 <input type="number" class="form-control" name="fmenge[{$ID}]" id="input_{$ID}" size="3"
                                        maxlength="{$maxlength}" value="0"
