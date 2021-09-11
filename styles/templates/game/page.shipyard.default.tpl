@@ -58,7 +58,7 @@
                                         {if $ResCount > 0}
                                             <li class="list-group-item" onclick="return Dialog.info({$ResType});"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
-                                                title="{$LNG.tech.{$ResType}}: {$LNG.shortDescription.$ResType}">{$LNG.tech.{$ResType}}</a>
+                                                title="{$LNG.tech.{$ResType}}: {$LNG.shortDescription.$ResType}">{$LNG.tech.{$ResType}}
                                                 : <span style="font-weight:700">{$ResCount|number}</span></li>
                                         {/if}
                                     {/foreach}
@@ -70,7 +70,7 @@
                                 {foreach $Element.costResources as $RessID => $RessAmount}
                                     <li class="list-group-item" onclick="return Dialog.info({$RessID});"
                                         data-bs-toggle="tooltip"
-                                        title="{$LNG.tech.{$RessID}}: {$LNG.shortDescription.$RessID}">{$LNG.tech.{$RessID}}</a>
+                                        title="{$LNG.tech.{$RessID}}: {$LNG.shortDescription.$RessID}">{$LNG.tech.{$RessID}}
                                         <strong><span
                                                     style="color:{if $Element.costOverflow[$RessID] == 0}darkgreen{else}darkred{/if}">{$RessAmount|number}</span></strong>
                                     </li>
@@ -84,8 +84,11 @@
                                     +{$SolarEnergy} {$LNG.tech.911}</li>{/if}
                         </div>
                         <div class="card-footer">
-                            {if $Element.AlreadyBuild}<span
-                                    style="color:red">{$LNG.bd_protection_shield_only_one}</span>{elseif $NotBuilding && $Element.buyable}
+                            {if $Element.AlreadyBuild}
+                                <span class="alert-info alert">{$LNG.bd_protection_shield_only_one}</span>
+                            {elseif $Element.maxAffordable > 0 && $Element.maxBuildable == 0 && in_array($ID, [502, 503])}
+                                <span class="alert alert-info">{$LNG.rocket_full}</span>
+                            {elseif $NotBuilding && $Element.buyable && $Element.maxBuildable > 0}
                                 <input type="number" class="form-control" name="fmenge[{$ID}]" id="input_{$ID}" size="3"
                                        maxlength="{$maxlength}" value="0"
                                        tabindex="{$smarty.foreach.FleetList.iteration}">

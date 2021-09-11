@@ -238,7 +238,7 @@ class ShowShipyardPage extends AbstractGamePage
 			$buyable			= BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
 			$maxBuildable		= BuildFunctions::getMaxConstructibleElements($USER, $PLANET, $Element, $costResources);
 			$SolarEnergy		= round((($PLANET['temp_max']+160)/6)*Config::get()->energySpeed, 1);
-
+            $maxAffordable      = $maxBuildable;
 			if(isset($MaxMissiles[$Element])) {
 				$maxBuildable	= min($maxBuildable, $MaxMissiles[$Element]);
 			}
@@ -252,7 +252,8 @@ class ShowShipyardPage extends AbstractGamePage
 				'costOverflow'		=> $costOverflow,
 				'elementTime'    	=> $elementTime,
 				'buyable'			=> $buyable,
-				'maxBuildable'		=> floatToString($maxBuildable),
+				'maxBuildable'		=> $maxBuildable,
+                'maxAffordable'     => $maxAffordable,
 				'AlreadyBuild'		=> $AlreadyBuild,
 			);
 		}
