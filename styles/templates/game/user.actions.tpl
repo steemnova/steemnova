@@ -1,4 +1,4 @@
-<h3>{$currentPlanet.user.username}</h3>
+<h4>{if $targetPlayer.avatar_url}<img class="img-avatar-layer" src="{$targetPlayer.avatar_url}">{/if} {$currentPlanet.user.username}</h4>
 <h6>{$currentPlanet.user.playerrank}</h6>
 <div class='list-group'>
 {if !$currentPlanet.ownPlanet}

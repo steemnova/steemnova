@@ -160,3 +160,12 @@ main .tooltip {
         left: 10px;
     }
 }
+.img-avatar-layer {
+    height: 2em;
+    border-radius: 99em;
+    margin-right: 1em;
+}
+
+.planet-image {
+    border-radius: 99em;
+}

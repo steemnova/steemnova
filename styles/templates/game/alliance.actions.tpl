@@ -1,4 +1,5 @@
-<h3>{$LNG.gl_alliance} {$currentPlanet.alliance.name} {$currentPlanet.alliance.member}</h3>
+<h5 class="float-end">{$currentPlanet.alliance.member}</h5>
+<h4>{$currentPlanet.alliance.name}</h4>
 <div class='list-group'>
 <a class='list-group-item' href='?page=alliance&amp;mode=info&amp;id={$currentPlanet.alliance.id}'>{$LNG.gl_alliance_page}</a>
     <a class='list-group-item' href='?page=statistics&amp;start={$currentPlanet.alliance.rank}&amp;who=2'>{$LNG.gl_see_on_stats}</a>
