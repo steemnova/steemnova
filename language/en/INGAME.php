@@ -1339,3 +1339,5 @@ $LNG['cuneros_validation_unsuccessful'] = 'Account could not be connected!';
 
 
 $LNG['rocket_full'] = 'Missile silo full';
+
+$LNG['player_top'] = 'Top-player in this universe';

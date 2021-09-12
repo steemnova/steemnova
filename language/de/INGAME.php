@@ -1368,3 +1368,5 @@ $LNG['cuneros_validate_info'] = 'Verknüpfe deinen <a href="https://cuneros.de/r
 $LNG['cuneros_validate'] = 'Konto verknüpfen';
 
 $LNG['rocket_full'] = 'Raketensilo voll';
+
+$LNG['player_top'] = 'Top-Spieler im Universum';

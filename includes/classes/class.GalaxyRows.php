@@ -49,7 +49,7 @@ class GalaxyRows
 
         $sql = 'SELECT SQL_BIG_RESULT DISTINCT
 		p.galaxy, p.system, p.planet, p.id, p.id_owner, p.name, p.image, p.last_update, p.diameter, p.temp_min, p.destruyed, p.der_metal, p.der_crystal, p.id_luna, p.coins,
-		u.id as userid, u.ally_id, u.username, u.onlinetime, u.urlaubs_modus, u.banaday, u.type_npc as type_npc,
+		u.id as userid, u.ally_id, u.username, u.onlinetime, u.urlaubs_modus, u.banaday, u.type_npc, u.avatar_url,
 		m.id as m_id, m.diameter as m_diameter, m.name as m_name, m.temp_min as m_temp_min, m.last_update as m_last_update,
 		s.total_points, s.total_rank, 
 		a.id as allyid, a.ally_tag, a.ally_web, a.ally_members, a.ally_name, 
@@ -203,9 +203,10 @@ class GalaxyRows
             'username' => htmlspecialchars($this->galaxyRow['username'], ENT_QUOTES, "UTF-8"),
             'rank' => $this->galaxyRow['total_rank'],
             'points' => pretty_number($this->galaxyRow['total_points']),
-            'playerrank' => isModuleAvailable(25) ? sprintf($LNG['gl_in_the_rank'], htmlspecialchars($this->galaxyRow['username'], ENT_QUOTES, "UTF-8"), $this->galaxyRow['total_rank']) : htmlspecialchars($this->galaxyRow['username'], ENT_QUOTES, "UTF-8"),
+            'playerrank' => isModuleAvailable(MODULE_STATISTICS) ? $this->galaxyRow['total_rank'] : 0,
             'class' => $Class,
             'isBuddy' => $this->galaxyRow['buddy'] == 0,
+            'avatar_url' => $this->galaxyRow['avatar_url'],
         );
     }
 

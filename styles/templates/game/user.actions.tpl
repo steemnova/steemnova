@@ -1,5 +1,9 @@
-<h4>{if $targetPlayer.avatar_url}<img class="img-avatar-layer" src="{$targetPlayer.avatar_url}">{/if} {$currentPlanet.user.username}</h4>
-<h6>{$currentPlanet.user.playerrank}</h6>
+<h4>{if $currentPlanet.user.avatar_url}<img class="img-avatar-layer" src="{$currentPlanet.user.avatar_url}">{/if} {$currentPlanet.user.username}</h4>
+{if $currentPlanet.user.playerrank == 1}
+        <h6>{$LNG.player_top}</h6>
+{elseif $currentPlanet.user.playerrank > 0}
+        <h6>{$LNG.tkb_platz}: {$currentPlanet.user.playerrank}</h6>
+{/if}
 <div class='list-group'>
 {if !$currentPlanet.ownPlanet}
     {if !$currentPlanet.user.isBuddy}
