@@ -137,16 +137,30 @@ function maxResources() {
 }
 
 function calculateTransportCapacity() {
-    var metal = Math.abs(document.getElementsByName("metal")[0].value);
-    var crystal = Math.abs(document.getElementsByName("crystal")[0].value);
-    var deuterium = Math.abs(document.getElementsByName("deuterium")[0].value);
-    transportCapacity = data.fleetroom - data.consumption - metal - crystal - deuterium;
-    document.getElementById("remainingresources").innerHTML = NumberGetHumanReadable(transportCapacity);
+    const metal = Math.abs(document.getElementsByName("metal")[0].value);
+    const crystal = Math.abs(document.getElementsByName("crystal")[0].value);
+    const deuterium = Math.abs(document.getElementsByName("deuterium")[0].value);
+    let transportCapacity = Number(data.fleetroom) - Number(data.consumption) - metal - crystal - deuterium;
+    let transportPercent = Math.round((Number(data.consumption) + metal + crystal + deuterium)*100/Number(data.fleetroom));
 
-    if (transportCapacity < 0) {
-        document.getElementById("remainingresources").classList.add("text-danger");
-    } else {
-        document.getElementById("remainingresources").classList.remove("text-danger");
+    document.querySelectorAll(".progress-resources").forEach(function(item) {
+        item.style.width = `${transportPercent}%`;
+        item.innerHTML = NumberGetHumanReadable(transportCapacity);
+
+        if (transportCapacity < 0) {
+            item.classList.add("bg-danger");
+        } else {
+            item.classList.remove("bg-danger");
+        }
+        })
+    if(document.getElementById("remainingresources")) {
+        document.getElementById("remainingresources").innerHTML = NumberGetHumanReadable(transportCapacity);
+
+        if (transportCapacity < 0) {
+            document.getElementById("remainingresources").classList.add("text-danger");
+        } else {
+            document.getElementById("remainingresources").classList.remove("text-danger");
+        }
     }
     return transportCapacity;
 }

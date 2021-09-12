@@ -70,6 +70,11 @@
                                 </div>
                             </div>
                         {/for}
+                        <hr />
+                        <strong>{$LNG.fl_cargo_capacity}</strong>
+                        <div class="progress" title="{$LNG.fl_capacity_title}" style="height: 3em;" >
+                            <div class="progress-bar progress-resources" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
                     </div>
 
 

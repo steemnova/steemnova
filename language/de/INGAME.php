@@ -294,14 +294,14 @@ $LNG['fl_shortcut_saved']					= 'Gespeichert!';
 $LNG['fl_no_colony']						= 'Keine Kolonien vorhanden';
 $LNG['fl_send_fleet']						= 'Flotte verschicken';
 $LNG['fl_fleet_speed']						= 'Geschwindigkeit';
-$LNG['fl_distance']						= 'Entfernung';
+$LNG['fl_distance']					    	= 'Entfernung';
 $LNG['fl_flying_time']						= 'Dauer (einer Strecke)';
 $LNG['fl_flying_arrival']					= 'Ankunft';
 $LNG['fl_flying_return']					= 'Rückkehr';
 $LNG['fl_fuel_consumption']					= 'Treibstoffverbrauch';
 $LNG['fl_max_speed']						= 'Maximale Geschwindigkeit';
-$LNG['fl_cargo_capacity']					= 'Laderaumkapazität';
-$LNG['fl_shortcut']						= 'Shortcut';
+$LNG['fl_cargo_capacity']					= 'Laderaum';
+$LNG['fl_shortcut']					    	= 'Shortcut';
 $LNG['fl_shortcut_name']					= 'Name';
 $LNG['fl_my_planets']						= 'Meine Planeten';
 $LNG['fl_acs_title']						= 'Verbandsangriffe';
@@ -1371,3 +1371,5 @@ $LNG['rocket_full'] = 'Raketensilo voll';
 
 $LNG['player_top'] = 'Top-Spieler im Universum';
 $LNG['fl_ship_selection'] = 'Ausgewählte Schiffe';
+
+$LNG['fl_capacity_title'] = 'Treibstoff und transportierte Rohstoffe';
