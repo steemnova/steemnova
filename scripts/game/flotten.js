@@ -141,11 +141,17 @@ function calculateTransportCapacity() {
     const crystal = Math.abs(document.getElementsByName("crystal")[0].value);
     const deuterium = Math.abs(document.getElementsByName("deuterium")[0].value);
     let transportCapacity = Number(data.fleetroom) - Number(data.consumption) - metal - crystal - deuterium;
-    let transportPercent = Math.round((Number(data.consumption) + metal + crystal + deuterium)*100/Number(data.fleetroom));
+    let transportPercent = Math.round((metal + crystal + deuterium)*100/Number(data.fleetroom));
+    let transportRessources =metal + crystal + deuterium;
 
+    let fuelPercent = Math.round(Number(data.consumption)*100/Number(data.fleetroom));
+    document.querySelectorAll(".progress-fuel").forEach(function(item) {
+        item.innerHTML = NumberGetHumanReadable(data.consumption);
+        item.style.width = `${fuelPercent}%`;
+    })
     document.querySelectorAll(".progress-resources").forEach(function(item) {
         item.style.width = `${transportPercent}%`;
-        item.innerHTML = NumberGetHumanReadable(transportCapacity);
+        item.innerHTML = NumberGetHumanReadable(transportRessources);
 
         if (transportCapacity < 0) {
             item.classList.add("bg-danger");

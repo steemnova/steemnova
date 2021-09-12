@@ -1344,3 +1344,4 @@ $LNG['player_top'] = 'Top-player in this universe';
 $LNG['fl_ship_selection'] = 'Selected ships';
 
 $LNG['fl_capacity_title'] = 'Fuel and transported ressources';
+$LNG['fl_capacity_fuel'] = 'Fuel';

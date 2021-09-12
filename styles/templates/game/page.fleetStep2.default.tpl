@@ -71,13 +71,12 @@
                             </div>
                         {/for}
                         <hr />
-                        <strong>{$LNG.fl_cargo_capacity}</strong>
-                        <div class="progress" title="{$LNG.fl_capacity_title}" style="height: 3em;" >
-                            <div class="progress-bar progress-resources" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        <strong title="{$LNG.fl_capacity_title}">{$LNG.fl_cargo_capacity}</strong>
+                        <div class="progress" style="height: 3em;" >
+                            <div class="progress-bar bg-info progress-fuel" role="progressbar" title="{$LNG.fl_capacity_fuel}" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar progress-resources" role="progressbar" title="{$LNG.lm_resources}" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
 
