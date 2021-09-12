@@ -1,4 +1,4 @@
-<h5 class="float-end">{$currentPlanet.alliance.member}</h5>
+<h5 class='float-end'>{$currentPlanet.alliance.member}</h5>
 <h4>{$currentPlanet.alliance.name}</h4>
 <div class='list-group'>
 <a class='list-group-item' href='?page=alliance&amp;mode=info&amp;id={$currentPlanet.alliance.id}'>{$LNG.gl_alliance_page}</a>
