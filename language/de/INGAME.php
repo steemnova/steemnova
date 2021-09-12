@@ -1370,3 +1370,4 @@ $LNG['cuneros_validate'] = 'Konto verknüpfen';
 $LNG['rocket_full'] = 'Raketensilo voll';
 
 $LNG['player_top'] = 'Top-Spieler im Universum';
+$LNG['fl_ship_selection'] = 'Ausgewählte Schiffe';

@@ -1,23 +1,20 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>{$LNG.fl_ship_type}</th>
-        <th>{$LNG.fl_ship_available}</th>
-        <th>{$LNG.fl_ammount}</th>
+        <th style="width: 50%;">{$LNG.fl_ship_type}</th>
+        <th style="width: 17%;">{$LNG.fl_ship_available}</th>
+        <th style="width: 33%;">{$LNG.fl_ship_selection}</th>
     </tr>
     </thead>
     <tbody>
     {foreach $FleetsOnPlanet as $FleetRow}
-        <tr>
-            <td>{if $FleetRow.speed != 0}
+        {if $FleetRow.speed != 0}
+            <tr>
+                <td>
                     <a class='tooltip'
-                       data-tooltip-content='<table><tr><td>{$LNG.fl_speed_title}</td><td>{$FleetRow.speed}</td></tr></table>'>{$LNG.tech.{$FleetRow.id}}</a>
-                {else}
-                    {$LNG.tech.{$FleetRow.id}}
-                {/if}
-            </td>
-            <td id="ship{$FleetRow.id}_value">{$FleetRow.count|number}</td>
-            {if $FleetRow.speed != 0}
+                       data-tooltip-content="{include 'ship.information.tpl'}">{$LNG.tech.{$FleetRow.id}}</a>
+                </td>
+                <td id="ship{$FleetRow.id}_value">{$FleetRow.count|number}</td>
                 <td>
                     <div class="input-group">
                         <a href="javascript:noShip('ship{$FleetRow.id}');"
@@ -34,10 +31,9 @@
                            class="btn btn-sm btn-primary ms-2">{$LNG.fl_max}</a>
                     </div>
                 </td>
-            {else}
-                <td>&nbsp;</td>
-            {/if}
-        </tr>
+            </tr>
+        {/if}
+
     {/foreach}
     <tr>
         {if count($FleetsOnPlanet) == 0}
