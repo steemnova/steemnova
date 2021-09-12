@@ -17,15 +17,16 @@
     </div>
     <main class="container">
         <div class="row">
-            <div class="card col-xl-6 col-12 p-5">
-                <div class="c-body">
-                    <img class="img-fluid" src="styles/resource/images/header.png"/>
-                    <p class="lead">{$descText}</p>
-                    <ul id="desc_list">{foreach $gameInformations as $info}
-                            <li>{$info}</li>{/foreach}</ul>
+            <div class="col-xl-6 col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <img class="img-fluid" src="styles/resource/images/header.png"/>
+                        <p class="lead">{$descText}</p>
+                        <ul id="desc_list">{foreach $gameInformations as $info}
+                                <li>{$info}</li>{/foreach}</ul>
+                    </div>
                 </div>
             </div>
-
             <div class="col-xl-6 col-12">
                 <div class="card">
                     <div class="card-header">
@@ -72,7 +73,8 @@
                             <a href="#" data-href="index.php?page=externalAuth&method=facebook" class="fb_login"><img
                                         src="styles/resource/images/facebook/fb-connect-large.png" alt=""></a>
                         {/if}
-                        <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">{$LNG.buttonRegister}</a>
+                        <a class="btn btn-primary" href="#" data-bs-toggle="modal"
+                           data-bs-target="#registerModal">{$LNG.buttonRegister}</a>
                     </div>
                 </div>
             </div>
