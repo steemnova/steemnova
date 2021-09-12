@@ -1,10 +1,13 @@
 {block name="title" prepend}{$LNG.lm_playercard}{/block}
 {block name="content"}
 <h3>{$LNG.pl_overview}</h3>
-	<table class="table table-striped">
-		<td>{$LNG.pl_name}</td>
-		<td colspan="2">{$name}</td>
-	</tr>
+	<h4>{$targetPlayer.username}</h4>
+	<table class="table table-striped w-100">
+		{if $targetPlayer.avatar_url}
+			<tr>
+				<td><img src="{$targetPlayer.avatar_url}" /></td>
+			</tr>
+		{/if}
 	<tr>
 		<td>{$LNG.pl_homeplanet}</td>
 		<td colspan="2">{$homeplanet} <a href="#" onclick="parent.location = 'game.php?page=galaxy&amp;galaxy={$galaxy}&amp;system={$system}';return false;">[{$galaxy}:{$system}:{$planet}]</a></td>

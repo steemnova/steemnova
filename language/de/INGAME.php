@@ -1121,7 +1121,7 @@ $LNG['tkb_missing']              		  		= '<br>Missing in Action: Der Useraccount
 
 //----------------------------------------------------------------------------//
 // playercard.php
-$LNG['pl_overview']  						= 'Playercard';
+$LNG['pl_overview']  						= 'Spielerinformation';
 $LNG['pl_name'] 						= 'Username';
 $LNG['pl_homeplanet'] 						= 'Heimatplanet';
 $LNG['pl_ally']     						= 'Allianz';

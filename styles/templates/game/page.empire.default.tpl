@@ -4,7 +4,7 @@
         <div class="card-header">
             <h2>{$LNG.lv_imperium_title}</h2>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-striped">
                 <thead>
                 <tr>
