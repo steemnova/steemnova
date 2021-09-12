@@ -1,9 +1,9 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <th style="width: 50%;">{$LNG.fl_ship_type}</th>
-        <th style="width: 17%;">{$LNG.fl_ship_available}</th>
-        <th style="width: 33%;">{$LNG.fl_ship_selection}</th>
+        <th style="width: 40%;">{$LNG.fl_ship_type}</th>
+        <th style="width: 15%;">{$LNG.fl_ship_available}</th>
+        <th style="width: 45%;">{$LNG.fl_ship_selection}</th>
     </tr>
     </thead>
     <tbody>
