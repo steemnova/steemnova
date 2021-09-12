@@ -1,4 +1,4 @@
-<h4>{if $currentPlanet.user.avatar_url}<img class="img-avatar-layer" src="{$currentPlanet.user.avatar_url}">{/if} {$currentPlanet.user.username}</h4>
+<h4>{if $currentPlanet.user.avatar_url}<img class='img-avatar-layer' src='{$currentPlanet.user.avatar_url}'>{/if} {$currentPlanet.user.username}</h4>
 {if $currentPlanet.user.playerrank == 1}
         <h6>{$LNG.player_top}</h6>
 {elseif $currentPlanet.user.playerrank > 0}
