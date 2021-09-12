@@ -4,14 +4,15 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <script>
-            document.getElementById("navToggler").onclick = function(item) {
+            document.getElementById("navToggler").onclick = function (item) {
                 document.querySelector("body").classList.toggle("show_menu");
             }
         </script>
         <a href="game.php?page=overview" class="navbar-brand d-none d-md-inline-block">
             <img src="{$dpath}planeten/{$image}.jpg" width="50" height="50"
                  alt="{$LNG.lm_overview}"></a>
-        <a class="navbar-brand d-none d-md-inline-block" href="game.php?page=overview"><img class="img-fluid img-header" src="{$dpath}/img/qog_logo.png"></a>
+        <a class="navbar-brand d-none d-md-inline-block" href="game.php?page=overview"><img class="img-fluid img-header"
+                                                                                            src="{$dpath}/img/qog_logo.png"></a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="d-flex flex-grow-1">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
@@ -19,15 +20,16 @@
                         <li class="nav-item res-item">
                             <a {if (!$resourceID|in_array:[921,911])}
                                 {if $resourceData.current < $resourceData.max}
-                                title="{$LNG.tech.$resourceID}: {sprintf($LNG.hdr_production, $resourceData.production|number, date($LNG.php_tdformat, $resourceData.full_date))}"
-                                    {else}
+                                    title="{$LNG.tech.$resourceID}: {sprintf($LNG.hdr_production, $resourceData.production|number, date($LNG.php_tdformat, $resourceData.full_date))}"
+                                {else}
                                     title="{$LNG.tech.$resourceID}: {$LNG.hdr_production_full}"
                                 {/if}
-                                {else}
+                            {else}
                                 onclick="return Dialog.info({$resourceID});"
-                            {/if} class="nav-link {if (!$resourceID|in_array:[921,911] and $resourceData.max <= $resourceData.current) or ($resourceID==911 and $resourceData.max+$resourceData.used<0)}text-danger{/if}" href="#"
-                            data-bs-toggle="tooltip" data-bs-placement="bottom">
-                                <img src="{$dpath}images/{$resourceData.name}.gif">
+                            {/if} class="nav-link {if (!$resourceID|in_array:[921,911] and $resourceData.max <= $resourceData.current) or ($resourceID==911 and $resourceData.max+$resourceData.used<0)}text-danger{/if}"
+                                  href="#"
+                                  data-bs-toggle="tooltip" data-bs-placement="bottom">
+                                <img src="{$dpath}images/{$resourceData.name}.gif" class="ressource-img">
                                 <span class="d-lg-block d-none">{$LNG.tech.$resourceID}</span>
                                 {if $resourceID == 911} <!-- energy -->
                                     {$resourceData.currentt = $resourceData.max + $resourceData.used}
@@ -35,29 +37,53 @@
                                         <span{if $resourceData.currentt < 0} style="color:red"{/if}>{if $resourceData.currentt > 0}+{$resourceData.currentt|number}{else}-{abs($resourceData.currentt)|number}{/if}</span>
                                     </span>
                                 {else}
-                                    <span class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">
+                                    <span class="res_current" id="current_{$resourceData.name}"
+                                          data-real="{$resourceData.current}">
                                         {$resourceData.current|number}
                                     </span>
-                                {if $resourceID != 921} <!-- not dark matter --> / <span class="res_max" id="max_{$resourceData.name}"
-                                          data-real="{$resourceData.current}">{$resourceData.max|number}</span>
-                                {/if}
+                                    {if $resourceID != 921} <!-- not dark matter -->
+                                        <span class="d-none d-lg-inline-block"> / </span>
+                                        <span class="res_max" id="max_{$resourceData.name}"
+                                              data-real="{$resourceData.current}">{$resourceData.max|number}</span>
+                                    {/if}
                                 {/if}
                             </a>
                         </li>
                     {/foreach}
                     <li class="nav-item res-item">
                         <a class="nav-link" onclick="return Dialog.info(925);">
-                        <img src="{$dpath}images/cuneros.png">
-                        <span class="d-lg-block d-none">Cuneros</span>
-                        <span class="res_current">{$coins|number}</span></li>
-                    </a>
+                            <img src="{$dpath}images/cuneros.png" class="ressource-img">
+                            <span class="d-lg-block d-none">Cuneros</span>
+                            <span class="res_current">{$coins|number}</span>
+                        </a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto flex-nowrap">
-                    {if isModuleAvailable($smarty.const.MODULE_BUILDING)}<li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=galaxy"><i class="fas fa-sun fs-2"></i></a></li>{/if}
-                    {if isModuleAvailable($smarty.const.MODULE_BUILDING)}<li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=buildings" title="{$LNG.lm_buildings}"><i class="fs-2 fas fa-hammer"></i></a></li>{/if}
-                    {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_FLEET)}<li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=shipyard&amp;mode=fleet" title="{$LNG.lm_shipshard}"><i class="fs-2 fas fa-space-shuttle"></i></a></li>{/if}
-                    {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_DEFENSIVE)}<li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=shipyard&amp;mode=defense" title="{$LNG.lm_defenses}"><i class="fs-2 fas fa-shield-alt"></i></a></li>{/if}
-                    {if isModuleAvailable($smarty.const.MODULE_RESEARCH)}<li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded" href="game.php?page=research" title="{$LNG.lm_research}"><i class="fs-2 fas fa-flask"></i></a></li>{/if}
+                    {if isModuleAvailable($smarty.const.MODULE_BUILDING)}
+                        <li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded"
+                                                                         href="game.php?page=galaxy"><i
+                                        class="fas fa-sun fs-2"></i></a></li>
+                    {/if}
+                    {if isModuleAvailable($smarty.const.MODULE_BUILDING)}
+                        <li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded"
+                                                                         href="game.php?page=buildings"
+                                                                         title="{$LNG.lm_buildings}"><i
+                                    class="fs-2 fas fa-hammer"></i></a></li>{/if}
+                    {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_FLEET)}
+                        <li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded"
+                                                                         href="game.php?page=shipyard&amp;mode=fleet"
+                                                                         title="{$LNG.lm_shipshard}"><i
+                                    class="fs-2 fas fa-space-shuttle"></i></a></li>{/if}
+                    {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_DEFENSIVE)}
+                        <li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded"
+                                                                         href="game.php?page=shipyard&amp;mode=defense"
+                                                                         title="{$LNG.lm_defenses}"><i
+                                    class="fs-2 fas fa-shield-alt"></i></a></li>{/if}
+                    {if isModuleAvailable($smarty.const.MODULE_RESEARCH)}
+                        <li class="d-none d-md-inline-block nav-item"><a class="mt-2 nav-link link-dark rounded"
+                                                                         href="game.php?page=research"
+                                                                         title="{$LNG.lm_research}"><i
+                                    class="fs-2 fas fa-flask"></i></a></li>{/if}
                     <li class="nav-item ps-4 fs-1" title=""></li>
 
                     <li class="nav-item pe-2 pt-2 planet-selector-li">
@@ -67,15 +93,27 @@
                     </li>
                     <li class="nav-item p-1 rounded {if $messages}bg-primary{/if}">
                         <div class="dropdown">
-                            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{$avatar}" alt="" width="50" height="50" class="rounded-circle me-2 d-none d-md-inline-block ">
+                            <a href="#"
+                               class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                               id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{$avatar}" alt="" width="50" height="50"
+                                     class="rounded-circle me-2 d-none d-md-inline-block ">
                                 <strong>{$username}</strong>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow menu-align-right" aria-labelledby="dropdownUser1">
-                                {if isModuleAvailable($smarty.const.MODULE_MESSAGES)}<li class="nav-item"><a class="nav-link" href="game.php?page=messages&amp;category=100">{$LNG.lm_messages}{nocache}{if $new_message > 0}<span id="newmes"> (<span id="newmesnum">{$new_message}</span>)</span>{/if}{/nocache}</a></li>{/if}
-                                <li class="nav-item"><a class="nav-link" href="game.php?page=settings">{$LNG.lm_options}</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="nav-item"><a class="nav-link" href="game.php?page=logout">{$LNG.lm_logout}</a></li>
+                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow menu-align-right"
+                                aria-labelledby="dropdownUser1">
+                                {if isModuleAvailable($smarty.const.MODULE_MESSAGES)}
+                                    <li class="nav-item"><a class="nav-link"
+                                                            href="game.php?page=messages&amp;category=100">{$LNG.lm_messages}{nocache}{if $new_message > 0}
+                                            <span id="newmes"> (<span id="newmesnum">{$new_message}</span>)
+                                            </span>{/if}{/nocache}</a></li>{/if}
+                                <li class="nav-item"><a class="nav-link"
+                                                        href="game.php?page=settings">{$LNG.lm_options}</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li class="nav-item"><a class="nav-link"
+                                                        href="game.php?page=logout">{$LNG.lm_logout}</a></li>
                             </ul>
                         </div>
                     </li>

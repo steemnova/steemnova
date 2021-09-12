@@ -324,3 +324,6 @@
 
     background-color: rgba(var(--bs-dark-rgb), 0.8) !important;
 }
+.ressource-img {
+    width: 2.5em;
+}
