@@ -27,7 +27,7 @@ class ShowTechtreePage extends AbstractGamePage
 
     function show()
     {
-        global $resource, $requeriments, $reslist, $USER, $PLANET, $LNG, $CombatCaps, $pricelist;
+        global $resource, $requirements, $reslist, $USER, $PLANET, $LNG, $CombatCaps, $pricelist;
 
         $elementIDs		= array_merge(
             array(0),
@@ -58,9 +58,9 @@ class ShowTechtreePage extends AbstractGamePage
             else
             {
                 $requirementsList	= array();
-                if(isset($requeriments[$elementId]))
+                if(isset($requirements[$elementId]))
                 {
-                    foreach($requeriments[$elementId] as $requireID => $RedCount)
+                    foreach($requirements[$elementId] as $requireID => $RedCount)
                     {
                         $requirementsList[$requireID]	= array(
                             'count' => $RedCount,

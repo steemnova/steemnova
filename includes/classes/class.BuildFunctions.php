@@ -109,12 +109,12 @@ class BuildFunctions
 
     public static function isTechnologieAccessible($USER, $PLANET, $Element)
     {
-        global $requeriments, $resource;
+        global $requirements, $resource;
 
-        if (!isset($requeriments[$Element]))
+        if (!isset($requirements[$Element]))
             return true;
 
-        foreach ($requeriments[$Element] as $ReqElement => $EleLevel) {
+        foreach ($requirements[$Element] as $ReqElement => $EleLevel) {
             if (
                 (isset($USER[$resource[$ReqElement]]) && $USER[$resource[$ReqElement]] < $EleLevel) ||
                 (isset($PLANET[$resource[$ReqElement]]) && $PLANET[$resource[$ReqElement]] < $EleLevel)
@@ -127,7 +127,7 @@ class BuildFunctions
 
     public static function getBuildingTime($USER, $PLANET, $Element, $elementPrice = NULL, $forDestroy = false, $forLevel = NULL)
     {
-        global $resource, $reslist, $requeriments;
+        global $resource, $reslist, $requirements;
 
         $config = Config::get($USER['universe']);
 
@@ -139,12 +139,12 @@ class BuildFunctions
 
         $elementCost = 0;
 
-        if (isset($elementPrice[901])) {
-            $elementCost += $elementPrice[901];
+        if (isset($elementPrice[RESS_METAL])) {
+            $elementCost += $elementPrice[RESS_METAL];
         }
 
-        if (isset($elementPrice[902])) {
-            $elementCost += $elementPrice[902];
+        if (isset($elementPrice[RESS_CRYSTAL])) {
+            $elementCost += $elementPrice[RESS_CRYSTAL];
         }
 
         if (in_array($Element, $reslist['build'])) {
@@ -161,7 +161,7 @@ class BuildFunctions
             } else {
                 $Level = 0;
                 foreach ($PLANET[$resource[31] . '_inter'] as $Levels) {
-                    if (!isset($requeriments[$Element][31]) || $Levels >= $requeriments[$Element][31])
+                    if (!isset($requirements[$Element][31]) || $Levels >= $requirements[$Element][31])
                         $Level += $Levels;
                 }
             }
