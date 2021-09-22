@@ -1068,7 +1068,11 @@ $LNG['market_confirm_are_you_sure'] = 'Bist du sicher?';
 $LNG['market_info_header'] = "Marktplatz";
 $LNG['market_buyable_only_trade_partners'] 				= 'Nur Partner';
 $LNG['market_buyable_no_enemies'] 					= 'Keine Feinde';
-$LNG['market_info_description'] = "Linke Seite - Martplatzangebot | Rechte Seite - Kaufbetrag<br><br>&bull; Angenommene Marktplatzangebote können nicht storniert werden. &bull;<br>&bull; Die Spieler können zu jedem Wechselkurs (Verhältnis) handeln. &bull;";
+$LNG['market_info_description'] = "Auf dem Marktplatz kannst du mit Handelsflotten handeln. Du kannst auch selbst eine Handelsflotte los schicken (oben 'Handelsflotte senden')<br />
+<ul>
+<li>Angenommene Marktplatzangebote können nicht storniert werden. </li>
+<li>Die Spieler können zu jedem Wechselkurs (Verhältnis) handeln. </li>
+</ul>";
 $LNG['market_p_msg_not_found']  = 'Angebot nicht gefunden.';
 $LNG['market_p_msg_more_ships_is_needed']  = 'Es werden weitere Schiffe benötigt.';
 $LNG['market_p_msg_resources_error']  = 'Nicht genug Ressourcen vorhanden.';
@@ -1374,3 +1378,5 @@ $LNG['fl_ship_selection'] = 'Ausgewählte Schiffe';
 
 $LNG['fl_capacity_title'] = 'Treibstoff und transportierte Rohstoffe';
 $LNG['fl_capacity_fuel'] = 'Treibstoff';
+
+$LNG['fleetDealer_info'] = 'Hier kannst du deine alten Schiffe beim Schrotthändler gegen Rohstoffe tauschen.';

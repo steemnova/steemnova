@@ -1366,6 +1366,16 @@ constraint %PREFIX%coinpot_pk
     primary key (id)
     );
 
+create table `%PREFIX%statistics`
+(
+    id int auto_increment,
+    stat_key varchar(55) null,
+    stat_value float null,
+    constraint statistics_pk
+        primary key (id)
+);
+
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

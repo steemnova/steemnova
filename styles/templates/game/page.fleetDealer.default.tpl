@@ -13,6 +13,7 @@
             </div>
             <input type="hidden" name="mode" value="send">
             <div class="card-body">
+                <p class="alert alert-info">{$LNG.fleetDealer_info}</p>
                 <img id="img" class="float-end" alt="" data-src="{$dpath}gebaeude/"><br/>
                 <p>{$LNG.ft_count}: <input type="text" id="count" name="count" onkeyup="Total();">
                     <button class="btn btn-sm btn-primary" onclick="MaxShips();return false;">{$LNG.ft_max}</button>

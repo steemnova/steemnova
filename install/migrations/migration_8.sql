@@ -46,3 +46,12 @@ alter table %PREFIX%users
 
 
 
+create table %PREFIX%statistics
+(
+    id int auto_increment,
+    stat_key varchar(55) null,
+    stat_value float null,
+    constraint statistics_pk
+        primary key (id)
+);
+

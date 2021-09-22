@@ -6,7 +6,7 @@
 <!-- Cookie Banner -->
 <div class="nk-cookie-banner alert alert-dark text-center mb-0" role="alert">
 	{$LNG.cookie_info}
-	<a href="?page=disclaimer">{$LNG.learn_more}</a>
+	<a href="?page=disclamer">{$LNG.learn_more}</a>
 	<button type="button" class="btn btn-primary btn-sm ms-3" onclick="window.nk_hideCookieBanner()">
 		I Got It
 	</button>
