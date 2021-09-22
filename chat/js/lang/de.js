@@ -45,7 +45,7 @@ var ajaxChatLang = {
 	userMenuList: 'Verfügbare Räume auflisten',
 	userMenuAction: 'Aktion beschreiben',
 	userMenuRoll: 'Würfeln',
-	userMenuNick: 'Benutzernamen ändern',
+	userMenuNick: '',
 	userMenuEnterPrivateRoom: 'Privaten Raum betreten',
 	userMenuSendPrivateMessage: 'Private Nachricht schicken',
 	userMenuDescribe: 'Private Aktion schicken',
