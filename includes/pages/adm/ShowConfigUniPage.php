@@ -33,6 +33,12 @@ function ShowConfigUniPage()
         $coinData = Database::get()->selectSingle($sql, [":universeId" => Universe::getEmulated()]);
 	}
 
+    $stats = [];
+    $sql ='SELECT * FROM %%STATS%%';
+    foreach(Database::get()->select($sql) as $item) {
+        $stats[$item['stat_key']] = $item['stat_value'];
+    }
+
 	$CoinAmountVal = $coinData['amount'];
 	$CoinUpdateVal = $coinData['next_payout'];
 	if (!empty($_POST))
@@ -422,6 +428,7 @@ function ShowConfigUniPage()
 		'referral_earn'                 => $config->referral_earn,
 		'coinpot_wait_minutes'          => $config->coinpot_wait_minutes,
 		'coinpot_random_minutes'        => $config->coinpot_random_minutes,
+        'stats'                         => $stats,
 		'game_name'						=> $config->game_name,
 		'uni_name'						=> $config->uni_name,
 		'game_speed'					=> ($config->game_speed / 2500),

@@ -46,7 +46,8 @@ class ShowCunerosPage extends AbstractGamePage
 
             $sql = 'UPDATE %%COINPOT%% SET amount = amount + :addAmount WHERE is_active=1 LIMIT 1';
             Database::get()->update($sql, [':addAmount' => intval($_POST['amount'] * $pot_factor)]);
-
+            $sql = 'UPDATE %%STATS%% SET stat_value = stat_value + :addAmount WHERE stat_key = "coins_in" LIMIT 1';
+            Database::get()->update($sql, [':addAmount' => intval($_POST['amount'])]);
 
         } else {
             $this->_message = sprintf($LNG['cuneros_payin_unsuccessful'], $api->get_error_message());

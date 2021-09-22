@@ -303,6 +303,12 @@
 		<td><input type="number" value="{$referral_earn}" name="referral_earn"/> (factor)</td>
 		<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_referral_earn}"></td>
 	</tr>
+
+	<tr>
+		<td>{$LNG.se_stats_in}</td>
+		<td><span class="btn btn-success">+{$stats.coin_in}</span> <span class="btn btn-danger">-{$stats.coin_out}</span> = <span class="btn btn-primary">{$stats.coin_in-$stats.coin_out}</span></td>
+		<td></td>
+	</tr>
 	<tr>
 	<td colspan="3"><input value="{$se_save_parameters}" type="submit" class="btn btn-primary"></td>
 </tr>

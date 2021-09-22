@@ -29,9 +29,10 @@ class CoinCronJob implements CronjobTask
         if (!$data)
             return;
         $coinPot = $data['amount'];
-        print_r($data);
         $sql = 'UPDATE %%COINPOT%% SET `time_paid`=:nowTime, is_active=0 WHERE `id` = :id LIMIT 1';
         Database::get()->update($sql, [':nowTime' => time(), ':id' => $data['id'] ]);
+        $sql = 'UPDATE %%STATS%% SET stat_value = stat_value + :addAmount WHERE stat_key = "coins_out" LIMIT 1';
+        Database::get()->update($sql, [':addAmount' => $coinPot]);
 
         $sql = 'INSERT INTO %%COINPOT%% (next_payout, amount, is_active, universe_id) VALUES(:nextTime, :amount, 1, :universeId)';
         Database::get()->insert($sql, [':nextTime' => time()+($config->coinpot_wait_minutes+mt_rand(0,$config->coinpot_random_minutes))*60, ':amount' => $defaultAmount, ':universeId' => $data['universe_id']]);
