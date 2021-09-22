@@ -5,15 +5,17 @@
 
             <div class="card-header">
                 <h2 class="card-title">{$LNG.ft_head}</h2>
+            </div>
+            <input type="hidden" name="mode" value="send">
+            <div class="card-body">
+
+                <p class="alert alert-info">{$LNG.fleetDealer_info}</p>
                 <select name="shipID" id="shipID" class="float-end form-control" onchange="updateVars()">
                     {foreach $shipIDs as $shipID}
                         <option value="{$shipID}">{$LNG.tech.$shipID}</option>
                     {/foreach}
                 </select>
-            </div>
-            <input type="hidden" name="mode" value="send">
-            <div class="card-body">
-                <p class="alert alert-info">{$LNG.fleetDealer_info}</p>
+
                 <img id="img" class="float-end" alt="" data-src="{$dpath}gebaeude/"><br/>
                 <p>{$LNG.ft_count}: <input type="text" id="count" name="count" onkeyup="Total();">
                     <button class="btn btn-sm btn-primary" onclick="MaxShips();return false;">{$LNG.ft_max}</button>
