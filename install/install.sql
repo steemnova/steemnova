@@ -659,7 +659,7 @@ CREATE TABLE `%PREFIX%statpoints` (
   `total_old_rank` int(11) unsigned NOT NULL DEFAULT '0',
   `total_points` double(50,0) unsigned NOT NULL DEFAULT '0',
   `total_count` bigint(20) unsigned NOT NULL DEFAULT '0',
-  KEY `id_owner` (`id_owner`),
+  PRIMARY KEY `id_owner` (`id_owner`),
   KEY `universe` (`universe`),
   KEY `stat_type` (`stat_type`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
