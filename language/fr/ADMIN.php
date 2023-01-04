@@ -581,7 +581,7 @@ $LNG['ff_goback_succes']        			= 'La Flotte retourne maintenant à son point
 $LNG['sb_top_memory']					= 'Crête Mémoire: %p KB / max. %m KB <br>';
 $LNG['sb_final_memory']					= 'Mémoire utilisée à la fin : %e KB / max. %m KB<br>';
 $LNG['sb_start_memory']					= 'Mémoire utilisée au début : %i KB / max. %m KB<br>';
-$LNG['sb_stats_update']					= 'Stats mises à jour : %t secondes<<br>';
+$LNG['sb_stats_update']					= 'Stats mises à jour : %s secondes<<br>';
 $LNG['sb_stats_updated']				= 'Statistiques mises à jour! <br>Détails :<br>';
 $LNG['sb_sql_counts']					= 'Requêtes SQL : %d';
 
